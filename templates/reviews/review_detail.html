@@ -1,0 +1,224 @@
+{% extends 'base.html' %}
+{% load static reviews_extras %}
+{% block title %}{{ review.title }} - André Indica{% endblock %}
+{% block meta_description %}{{ review.excerpt|truncatewords:30 }}{% endblock %}
+{% block extra_head %}
+<!-- Final Template André Indica - V6 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Review",
+  "itemReviewed": {
+    "@type": "Product",
+    "name": "{{ review.product.name|escapejs }}",
+    "brand": {
+      "@type": "Brand",
+      "name": "{{ review.product.brand|escapejs }}"
+    }
+  },
+  "reviewRating": {
+    "@type": "Rating",
+    "ratingValue": "{{ rating }}",
+    "bestRating": "10"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "{{ review.author.username|escapejs }}"
+  },
+  "datePublished": "{{ review.created_at|date:'c' }}",
+  "reviewBody": "{{ review.excerpt|escapejs }}"
+}
+</script>
+<style>
+    .review-content p {
+        margin-bottom: 1.5rem;
+        line-height: 1.8;
+        color: #475569;
+    }
+
+    .dark .review-content p {
+        color: #94a3b8;
+    }
+
+    .review-content h2 {
+        font-size: 1.875rem;
+        font-weight: 700;
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+        color: #0f172a;
+        font-family: 'Outfit';
+    }
+
+    .dark .review-content h2 {
+        color: #f8fafc;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<article class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Navegação -->
+    <nav class="mb-8 text-sm text-slate-500 flex gap-2">
+        <a href="/" class="hover:text-primary-600">Home</a>
+        <span>/</span>
+        <a href="{% url 'reviews:category_list' review.product.category.slug %}" class="hover:text-primary-600">
+            {{ category }}
+        </a>
+        <span>/</span>
+        <span class="text-slate-900 dark:text-slate-300">
+            {{ review.product.brand }}
+        </span>
+    </nav>
+
+    <header class="mb-12">
+        <h1
+            class="text-4xl sm:text-6xl font-outfit font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
+            {{ review.title }}
+        </h1>
+        <div class="mt-6 flex items-center gap-6 text-slate-500 pb-8 border-b border-slate-200 dark:border-slate-800">
+            <div class="flex items-center gap-2">
+                <span class="font-semibold text-slate-900 dark:text-slate-100">Por {{ review.author.username }}</span>
+            </div>
+            <span>•</span>
+            <time datetime="{{ review.created_at|date:'c' }}">{{ review.created_at|date:"d \d\e F, Y" }}</time>
+        </div>
+    </header>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <div class="lg:col-span-8">
+            <div class="rounded-3xl overflow-hidden mb-12 shadow-2xl">
+                <img src="{{ review.main_image.url }}" alt="{{ review.title }}" class="w-full object-cover">
+            </div>
+
+            <div class="review-content prose prose-lg dark:prose-invert max-w-none">
+                {{ review.content|safe }}
+            </div>
+
+            <!-- Pros e Contras -->
+            <div class="mt-20 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div
+                    class="bg-emerald-50 dark:bg-emerald-900/10 p-8 rounded-3xl border border-emerald-100 dark:border-emerald-800/20">
+                    <h3 class="text-xl font-bold text-emerald-700 dark:text-emerald-400 mb-6 flex items-center gap-2">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                        </svg>
+                        O que gostamos
+                    </h3>
+                    <ul class="space-y-3">
+                        {% for pro in review.pros.splitlines %}
+                        <li class="flex items-start gap-2 text-emerald-900/80 dark:text-emerald-200/80">
+                            <span class="mt-1 text-emerald-500">•</span> {{ pro }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div
+                    class="bg-rose-50 dark:bg-rose-900/10 p-8 rounded-3xl border border-rose-100 dark:border-rose-800/20">
+                    <h3 class="text-xl font-bold text-rose-700 dark:text-rose-400 mb-6 flex items-center gap-2">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11H7v-2h10v2z" />
+                        </svg>
+                        O que não gostamos
+                    </h3>
+                    <ul class="space-y-3">
+                        {% for con in review.cons.splitlines %}
+                        <li class="flex items-start gap-2 text-rose-900/80 dark:text-rose-200/80">
+                            <span class="mt-1 text-rose-500">•</span> {{ con }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Galeria -->
+            {% if review.gallery.all %}
+            <div class="mt-20">
+                <h2 class="text-3xl font-bold mb-8 font-outfit">Galeria de Fotos</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    {% for item in review.gallery.all %}
+                    <img src="{{ item.image.url }}" alt="{{ item.alt_text }}"
+                        class="w-full aspect-square object-cover rounded-2xl cursor-pointer hover:opacity-90 transition-opacity">
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <aside class="lg:col-span-4 lg:sticky lg:top-24 h-fit">
+            <div
+                class="bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-800">
+                <div class="flex flex-col items-center mb-8">
+                    <div class="relative w-32 h-32 flex items-center justify-center">
+                        <svg class="w-full h-full transform -rotate-90">
+                            <circle cx="64" cy="64" r="56" stroke="currentColor" stroke-width="8" fill="transparent"
+                                class="text-slate-100 dark:text-slate-800" />
+                            <circle cx="64" cy="64" r="56" stroke="currentColor" stroke-width="8" fill="transparent"
+                                stroke-dasharray="351.85"
+                                stroke-dashoffset="{{ rating|multiply:35.185|subtract:351.85|abs_val }}"
+                                class="text-primary-600 transition-all duration-1000" />
+                        </svg>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center">
+                            <span class="text-4xl font-outfit font-black text-slate-900 dark:text-white">
+                                {{ rating }}
+                            </span>
+                            <span class="text-xs text-slate-500 uppercase tracking-widest font-bold">Nota</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="text-sm font-bold uppercase tracking-widest text-slate-400 mb-6 font-outfit">Especificações
+                </h4>
+                <div class="space-y-4">
+                    <div class="flex justify-between text-sm py-2 border-b border-slate-50 dark:border-slate-800">
+                        <span class="text-slate-500">Marca</span>
+                        <span class="font-semibold">{{ review.product.brand }}</span>
+                    </div>
+                    <div class="flex justify-between text-sm py-2 border-b border-slate-50 dark:border-slate-800">
+                        <span class="text-slate-500">Modelo</span>
+                        <span class="font-semibold">{{ review.product.model_name|default:review.product.name }}</span>
+                    </div>
+                    {% for key, value in review.specifications.items %}
+                    <div
+                        class="flex justify-between text-sm py-2 border-b border-slate-50 dark:border-slate-800 font-medium">
+                        <span>{{ key }}</span>
+                        <span class="text-right">{{ value }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <div class="mt-8">
+                    <a href="#"
+                        class="block w-full text-center bg-slate-900 dark:bg-primary-600 text-white font-bold py-4 rounded-2xl hover:bg-slate-800 hover:scale-[1.02] transition-all">Ver
+                        Preço na Amazon</a>
+                    <p class="text-[10px] text-center text-slate-400 mt-4 leading-normal">Comprando pelos links você
+                        ajuda o André Indica a continuar trazendo as melhores análises.</p>
+                </div>
+            </div>
+
+            {% if related_reviews %}
+            <div class="mt-12">
+                <h4 class="text-sm font-bold uppercase tracking-widest text-slate-400 mb-6 px-4 font-outfit">
+                    Relacionados</h4>
+                <div class="space-y-6">
+                    {% for rel in related_reviews %}
+                    <a href="{% url 'reviews:review_detail' rel.slug %}" class="flex gap-4 group px-4">
+                        <div class="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0">
+                            <img src="{{ rel.main_image.url }}" alt="{{ rel.title }}"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                        </div>
+                        <div>
+                            <h5 class="text-sm font-bold group-hover:text-primary-600 transition-colors line-clamp-2">{{
+                                rel.title }}</h5>
+                            <span class="text-xs text-primary-500 font-bold">{{ rel.rating }}/10</span>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </aside>
+    </div>
+</article>
+{% endblock %}

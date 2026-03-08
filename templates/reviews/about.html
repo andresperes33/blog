@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Sobre o André Indica - Tecnologia e Recomendações{% endblock %}
+
+{% block content %}
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <!-- Text Column -->
+        <div class="order-2 lg:order-1">
+            <h1 class="text-5xl sm:text-7xl font-outfit font-black text-slate-900 dark:text-white leading-tight mb-8">
+                Quem é o <br><span class="text-primary-600">André Indica?</span>
+            </h1>
+            <div class="space-y-6 text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+                <p>
+                    O <strong>André Indica</strong> nasceu de uma paixão genuína por tecnologia e pela vontade de ajudar
+                    as pessoas a não jogarem dinheiro fora com gadgets ruins.
+                </p>
+                <p>
+                    Em um mundo saturado de anúncios e "reviews patrocinados", nosso objetivo é ser o seu filtro de
+                    confiança. Se o André indicou, é porque o produto passou por testes reais e entrega o que promete.
+                </p>
+                <div
+                    class="bg-primary-50 dark:bg-primary-900/10 p-8 rounded-3xl border border-primary-100 dark:border-primary-800/20 italic relative mt-8 mb-8">
+                    <span
+                        class="absolute -top-6 -left-2 text-8xl text-primary-200 dark:text-primary-900/40 font-serif leading-none">"</span>
+                    <p class="relative z-10 text-primary-900 dark:text-primary-200 font-medium">
+                        Minha missão é simples: testar o máximo possível e recomendar apenas o que eu usaria no meu dia
+                        a dia.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-12 grid grid-cols-3 gap-8 items-center text-center sm:text-left">
+                <div class="flex flex-col">
+                    <span class="text-4xl font-black text-slate-900 dark:text-white">100+</span>
+                    <span
+                        class="text-sm text-slate-500 dark:text-slate-400 font-medium uppercase tracking-wider mt-1">Reviews
+                        Reais</span>
+                </div>
+                <div
+                    class="flex flex-col relative before:absolute before:inset-y-2 before:-left-4 before:w-px before:bg-slate-200 before:dark:bg-slate-800 sm:before:block before:hidden">
+                    <span class="text-4xl font-black text-slate-900 dark:text-white">50k</span>
+                    <span
+                        class="text-sm text-slate-500 dark:text-slate-400 font-medium uppercase tracking-wider mt-1">Seguidores</span>
+                </div>
+                <div
+                    class="flex flex-col relative before:absolute before:inset-y-2 before:-left-4 before:w-px before:bg-slate-200 before:dark:bg-slate-800 sm:before:block before:hidden">
+                    <span class="text-4xl font-black text-slate-900 dark:text-white">100%</span>
+                    <span
+                        class="text-sm text-slate-500 dark:text-slate-400 font-medium uppercase tracking-wider mt-1">Sincero</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Image Column with Premium Look -->
+        <div class="order-1 lg:order-2 relative group mt-10 lg:mt-0">
+            <div
+                class="absolute -inset-4 bg-primary-600/20 rounded-[4rem] group-hover:rotate-3 transition-transform duration-700 blur-lg">
+            </div>
+            <div
+                class="absolute -inset-4 bg-slate-900/10 dark:bg-slate-50/5 rounded-[4rem] -rotate-3 group-hover:rotate-0 transition-transform duration-700">
+            </div>
+            <div
+                class="relative rounded-[3.5rem] overflow-hidden shadow-2xl aspect-square border-4 border-white/10 dark:border-white/5">
+                <img src="{% static 'img/about_workspace.png' %}" alt="Estúdio de Gravação do André Indica"
+                    class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent"></div>
+
+                <!-- Floating status badge -->
+                <div class="absolute bottom-8 left-8 right-8 flex items-center justify-between">
+                    <div
+                        class="inline-flex items-center gap-3 bg-white/10 backdrop-blur-xl px-5 py-3 rounded-2xl text-white text-sm font-semibold border border-white/20 shadow-xl">
+                        <span class="relative flex h-3 w-3">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                        </span>
+                        Testando novos gadgets
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

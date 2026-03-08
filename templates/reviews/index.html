@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% load static reviews_extras %}
+
+{% block title %}André Indica - Home{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="relative overflow-hidden bg-slate-900 py-20 sm:py-32">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center">
+            <h1 class="text-4xl font-outfit font-extrabold tracking-tight text-white sm:text-6xl">
+                O Futuro da <span class="text-primary-500">Tecnologia</span> Analisado por Especialistas
+            </h1>
+            <p class="mt-6 text-lg leading-8 text-slate-300 max-w-2xl mx-auto">
+                Reviews honestos, detalhados e técnicos sobre os gadgets que definem o nosso tempo. Sem filtros, apenas
+                a verdade.
+            </p>
+            <div class="mt-10 flex items-center justify-center gap-x-6">
+                <a href="#latest"
+                    class="rounded-full bg-primary-600 px-8 py-3.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 transition-all transform hover:scale-105">
+                    Ver Reviews Recentes
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- Background patterns could go here -->
+    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20"></div>
+</section>
+
+<!-- Featured Section -->
+{% if featured_reviews %}
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 relative z-20">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {% for review in featured_reviews %}
+        <div
+            class="group bg-white dark:bg-slate-900 rounded-3xl shadow-[0_20px_50px_rgba(8,_112,_184,_0.1)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.3)] overflow-hidden transform hover:-translate-y-2 transition-all duration-300 border border-slate-100 dark:border-slate-800">
+            <div class="relative h-48 overflow-hidden">
+                <img src="{{ review.main_image.url }}" alt="{{ review.title }}"
+                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <div class="absolute top-4 left-4">
+                    <span
+                        class="bg-primary-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Destaque</span>
+                </div>
+                <div
+                    class="absolute bottom-4 right-4 bg-white/90 dark:bg-slate-800/90 backdrop-blur px-3 py-1 rounded-lg">
+                    <span class="text-primary-600 dark:text-primary-400 font-bold text-xl">{{ review.rating }}</span>
+                    <span class="text-xs text-slate-500">/10</span>
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold group-hover:text-primary-600 transition-colors">
+                    <a href="{% url 'reviews:review_detail' review.slug %}">{{ review.title }}</a>
+                </h3>
+                <p class="mt-2 text-slate-500 dark:text-slate-400 line-clamp-2">
+                    {{ review.excerpt }}
+                </p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+<!-- Categories -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <div class="flex items-center justify-between mb-8">
+        <h2 class="text-3xl font-bold">Categorias</h2>
+        <a href="{% url 'reviews:all_categories' %}"
+            class="text-primary-600 hover:text-primary-700 font-semibold flex items-center gap-1">
+            Ver todas
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+        </a>
+    </div>
+    <div class="flex flex-wrap gap-4">
+        {% for category in categories %}
+        <a href="{% url 'reviews:category_list' category.slug %}"
+            class="px-6 py-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl hover:border-primary-500 hover:bg-primary-50 dark:hover:bg-primary-900/20 transition-all flex items-center gap-3">
+            <span class="text-2xl">{{ category.icon|render_icon }}</span>
+            <span class="font-medium">{{ category.name }}</span>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Latest Posts -->
+<section id="latest" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <h2 class="text-3xl font-bold mb-12">Últimas Análises</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        {% for review in reviews %}
+        <article class="flex flex-col group">
+            <div class="relative w-full aspect-video rounded-2xl overflow-hidden mb-6 shadow-md">
+                <img src="{{ review.main_image.url }}" alt="{{ review.title }}"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="flex items-center gap-3 text-xs font-semibold text-primary-600 mb-3 uppercase tracking-tighter">
+                <span>{{ review.product.category.name }}</span>
+                <span class="text-slate-300">•</span>
+                <span class="text-slate-500">{{ review.created_at|date:"d M, Y" }}</span>
+            </div>
+            <h3 class="text-2xl font-bold leading-tight group-hover:text-primary-600 transition-colors">
+                <a href="{% url 'reviews:review_detail' review.slug %}">{{ review.title }}</a>
+            </h3>
+            <p class="mt-4 text-slate-500 dark:text-slate-400 leading-relaxed line-clamp-3">
+                {{ review.excerpt }}
+            </p>
+            <div class="mt-6 flex items-center gap-4">
+                <div class="text-sm font-medium">Por {{ review.author.get_full_name|default:review.author.username }}
+                </div>
+            </div>
+        </article>
+        {% empty %}
+        <p>Nenhuma análise postada ainda.</p>
+        {% endfor %}
+    </div>
+
+    <!-- Pagination -->
+    {% if is_paginated %}
+    <div class="mt-20 flex justify-center gap-2">
+        {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}"
+            class="px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl hover:bg-slate-50">Anterior</a>
+        {% endif %}
+        <span class="px-4 py-2 bg-primary-600 text-white rounded-xl font-bold">{{ page_obj.number }}</span>
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}"
+            class="px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl hover:bg-slate-50">Próxima</a>
+        {% endif %}
+    </div>
+    {% endif %}
+</section>
+{% endblock %}
