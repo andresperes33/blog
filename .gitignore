@@ -1,0 +1,23 @@
+# Ambientes Virtuais
+venv/
+.venv/
+env/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Django
+db.sqlite3
+media/
+staticfiles/
+.env
+
+# Configurações do VS Code
+.vscode/
+
+# Ignore pacotes node gerados pelo tailwind (se houver)
+node_modules/
+theme/static_src/node_modules/
