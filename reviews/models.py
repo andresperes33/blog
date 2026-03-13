@@ -48,11 +48,13 @@ class Review(models.Model):
     slug = models.SlugField("Slug", max_length=255, unique=True, blank=True)
     excerpt = models.TextField("Resumo", help_text="Aparece nas listagens.")
     content = models.TextField("Conteúdo do Review (Markdown/HTML)")
+    conclusion = models.TextField("Conclusão", blank=True, help_text="Formatação igual ao conteúdo.")
     main_image = models.ImageField("Imagem Principal", upload_to="reviews/main/")
     rating = models.DecimalField("Nota (0-10)", max_digits=3, decimal_places=1)
     pros = models.TextField("Pontos Positivos", help_text="Um por linha")
     cons = models.TextField("Pontos Negativos", help_text="Um por linha")
     specifications = models.JSONField("Especificações Técnicas", default=dict, blank=True)
+    tags_input = models.CharField("Tags (separadas por vírgula)", max_length=255, blank=True, help_text="Ex: gamer, barato, potente")
     tags = models.ManyToManyField(Tag, blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -63,7 +65,15 @@ class Review(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)
+        
         super().save(*args, **kwargs)
+        
+        # Process tags_input if present
+        if self.tags_input:
+            tag_names = [t.strip() for t in self.tags_input.split(',') if t.strip()]
+            for name in tag_names:
+                tag, created = Tag.objects.get_or_create(name=name)
+                self.tags.add(tag)
 
     class Meta:
         verbose_name = "Review"
