@@ -305,7 +305,16 @@
         mobileMenuBtn.addEventListener('click', openSidebar);
         mobileOverlay.addEventListener('click', closeSidebar);
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+    <script>
+        // Font loading optimization
+        (function() {
+            var link = document.createElement('link');
+            link.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800&display=swap';
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            document.head.appendChild(link);
+        })();
+    </script>
     {% block extra_js %}{% endblock %}
 </body>
 
