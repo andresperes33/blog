@@ -55,6 +55,14 @@ class Review(models.Model):
     cons = models.TextField("Pontos Negativos", help_text="Um por linha")
     specifications = models.JSONField("Especificações Técnicas", default=dict, blank=True)
     tags_input = models.CharField("Tags (separadas por vírgula)", max_length=255, blank=True, help_text="Ex: gamer, barato, potente")
+    
+    # Links de Afiliados
+    amazon_link = models.URLField("Link Amazon", max_length=500, blank=True, null=True)
+    mercadolivre_link = models.URLField("Link Mercado Livre", max_length=500, blank=True, null=True)
+    shopee_link = models.URLField("Link Shopee", max_length=500, blank=True, null=True)
+    aliexpress_link = models.URLField("Link AliExpress", max_length=500, blank=True, null=True)
+    kabum_link = models.URLField("Link Kabum", max_length=500, blank=True, null=True)
+    
     tags = models.ManyToManyField(Tag, blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)

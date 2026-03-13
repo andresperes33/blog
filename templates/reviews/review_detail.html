@@ -202,11 +202,42 @@
                     {% endfor %}
                 </div>
 
-                <div class="mt-10">
-                    <a href="#"
-                        class="block w-full text-center bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 rounded-2xl shadow-lg shadow-primary-500/20 hover:shadow-primary-500/40 hover:-translate-y-0.5 transition-all duration-300">
-                        Ver Preço na Amazon
+                <div class="mt-10 space-y-3">
+                    {% if review.amazon_link %}
+                    <a href="{{ review.amazon_link }}" target="_blank" rel="nofollow"
+                        class="block w-full text-center bg-[#FF9900] hover:bg-[#FF8800] text-slate-950 font-bold py-4 rounded-2xl shadow-lg shadow-orange-500/10 hover:shadow-orange-500/30 hover:-translate-y-0.5 transition-all duration-300">
+                        Ver na Amazon
                     </a>
+                    {% endif %}
+
+                    {% if review.mercadolivre_link %}
+                    <a href="{{ review.mercadolivre_link }}" target="_blank" rel="nofollow"
+                        class="block w-full text-center bg-[#FFE600] hover:bg-[#F0D900] text-slate-950 font-bold py-4 rounded-2xl shadow-lg shadow-yellow-500/10 hover:shadow-yellow-500/30 hover:-translate-y-0.5 transition-all duration-300">
+                        Ver no Mercado Livre
+                    </a>
+                    {% endif %}
+
+                    {% if review.shopee_link %}
+                    <a href="{{ review.shopee_link }}" target="_blank" rel="nofollow"
+                        class="block w-full text-center bg-[#EE4D2D] hover:bg-[#D73D1E] text-white font-bold py-4 rounded-2xl shadow-lg shadow-orange-600/10 hover:shadow-orange-600/30 hover:-translate-y-0.5 transition-all duration-300">
+                        Ver na Shopee
+                    </a>
+                    {% endif %}
+
+                    {% if review.aliexpress_link %}
+                    <a href="{{ review.aliexpress_link }}" target="_blank" rel="nofollow"
+                        class="block w-full text-center bg-[#FF4747] hover:bg-[#E63939] text-white font-bold py-4 rounded-2xl shadow-lg shadow-red-500/10 hover:shadow-red-500/30 hover:-translate-y-0.5 transition-all duration-300">
+                        Ver no AliExpress
+                    </a>
+                    {% endif %}
+
+                    {% if review.kabum_link %}
+                    <a href="{{ review.kabum_link }}" target="_blank" rel="nofollow"
+                        class="block w-full text-center bg-[#FF6500] hover:bg-[#E65B00] text-white font-bold py-4 rounded-2xl shadow-lg shadow-orange-500/10 hover:shadow-orange-500/30 hover:-translate-y-0.5 transition-all duration-300">
+                        Ver na Kabum
+                    </a>
+                    {% endif %}
+
                     <div class="mt-4 p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800/50">
                         <p class="text-[10px] text-center text-slate-400 leading-relaxed italic">
                             Comprando pelos links você ajuda o André Indica a continuar trazendo análises honestas sem custo adicional.

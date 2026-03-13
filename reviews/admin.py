@@ -12,6 +12,22 @@ class ReviewAdmin(admin.ModelAdmin):
     search_fields = ('title', 'content', 'product__name')
     prepopulated_fields = {'slug': ('title',)}
     inlines = [ReviewImageInline]
+    
+    fieldsets = (
+        (None, {
+            'fields': ('product', 'title', 'slug', 'author', 'excerpt', 'content', 'conclusion', 'main_image', 'rating', 'is_featured', 'is_published')
+        }),
+        ('Afiliados (Deixe em branco se não houver link)', {
+            'fields': ('amazon_link', 'mercadolivre_link', 'shopee_link', 'aliexpress_link', 'kabum_link')
+        }),
+        ('Tags', {
+            'fields': ('tags_input', 'tags')
+        }),
+        ('Conteúdo Extra', {
+            'fields': ('pros', 'cons', 'specifications')
+        }),
+    )
+    readonly_fields = ('tags',)
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
