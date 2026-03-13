@@ -274,5 +274,46 @@
             {% endif %}
         </aside>
     </div>
+    <!-- Botão Flutuante (FAB) -->
+    {% if review.mercadolivre_link or review.amazon_link or review.shopee_link or review.kabum_link or review.aliexpress_link %}
+    <div class="fixed bottom-6 right-6 z-50 lg:hidden">
+        {% if review.mercadolivre_link %}
+        <a href="{{ review.mercadolivre_link }}" target="_blank" rel="nofollow"
+            style="background-color: #FFE600; color: #2D3277;"
+            class="flex items-center justify-center gap-2 px-6 py-4 rounded-full shadow-2xl font-black transition-all hover:scale-110 active:scale-95 border-2 border-white/20">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+            Ver no Mercado Livre
+        </a>
+        {% elif review.amazon_link %}
+        <a href="{{ review.amazon_link }}" target="_blank" rel="nofollow"
+            style="background-color: #FF9900; color: #000000;"
+            class="flex items-center justify-center gap-2 px-6 py-4 rounded-full shadow-2xl font-black transition-all hover:scale-110 active:scale-95 border-2 border-white/20">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+            Comprar na Amazon
+        </a>
+        {% elif review.shopee_link %}
+        <a href="{{ review.shopee_link }}" target="_blank" rel="nofollow"
+            style="background-color: #EE4D2D; color: #FFFFFF;"
+            class="flex items-center justify-center gap-2 px-6 py-4 rounded-full shadow-2xl font-black transition-all hover:scale-110 active:scale-95 border-2 border-white/20">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+            Ver na Shopee
+        </a>
+        {% elif review.kabum_link %}
+        <a href="{{ review.kabum_link }}" target="_blank" rel="nofollow"
+            style="background-color: #0060B1; color: #FFFFFF;"
+            class="flex items-center justify-center gap-2 px-6 py-4 rounded-full shadow-2xl font-black transition-all hover:scale-110 active:scale-95 border-2 border-white/20">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+            Ver na Kabum
+        </a>
+        {% elif review.aliexpress_link %}
+        <a href="{{ review.aliexpress_link }}" target="_blank" rel="nofollow"
+            style="background-color: #E62E04; color: #FFFFFF;"
+            class="flex items-center justify-center gap-2 px-6 py-4 rounded-full shadow-2xl font-black transition-all hover:scale-110 active:scale-95 border-2 border-white/20">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+            Ver no AliExpress
+        </a>
+        {% endif %}
+    </div>
+    {% endif %}
 </article>
 {% endblock %}
