@@ -66,3 +66,6 @@ class PrivacyView(TemplateView):
 
 class TermsView(TemplateView):
     template_name = 'reviews/terms.html'
+
+class ContactView(TemplateView):
+    template_name = 'reviews/contact.html'
