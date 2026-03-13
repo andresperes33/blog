@@ -88,7 +88,7 @@
         <div class="lg:col-span-8">
             <div class="rounded-3xl overflow-hidden mb-12 shadow-2xl mx-auto"
                 style="width: 100%; max-width: 800px; height: auto; aspect-ratio: 16 / 9;">
-                <img src="{{ review.main_image.url }}" alt="{{ review.title }}" class="w-full h-full object-cover">
+                <img src="{{ review.main_image.url }}" alt="{{ review.title }}" fetchpriority="high" decoding="async" class="w-full h-full object-cover">
             </div>
 
             <div class="review-content prose prose-lg dark:prose-invert max-w-none">
@@ -147,7 +147,7 @@
                 <h2 class="text-3xl font-bold mb-8 font-outfit">Galeria de Fotos</h2>
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                     {% for item in review.gallery.all %}
-                    <img src="{{ item.image.url }}" alt="{{ item.alt_text }}"
+                    <img src="{{ item.image.url }}" alt="{{ item.alt_text }}" loading="lazy"
                         class="w-full aspect-square object-cover rounded-2xl cursor-pointer hover:opacity-90 transition-opacity">
                     {% endfor %}
                 </div>
@@ -290,7 +290,7 @@
                     {% for rel in related_reviews %}
                     <a href="{% url 'reviews:review_detail' rel.slug %}" class="flex gap-4 group px-4">
                         <div class="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0">
-                            <img src="{{ rel.main_image.url }}" alt="{{ rel.title }}"
+                            <img src="{{ rel.main_image.url }}" alt="{{ rel.title }}" loading="lazy"
                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform">
                         </div>
                         <div>
