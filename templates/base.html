@@ -94,19 +94,16 @@
             overflow: hidden;
         }
 
-        /* Prevent horizontal scroll */
-        html,
-        body {
-            max-width: 100vw;
+        /* Essential for sticky sidebar to work correctly */
+        html, body {
+            overflow-x: clip; /* Modern alternative to hidden that doesn't break sticky */
             position: relative;
-            overflow-x: hidden;
-            width: 100%;
+            min-height: 100vh;
         }
     </style>
 </head>
 
-<body
-    class="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-500 overflow-x-hidden w-full relative">
+<body class="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-500 w-full relative">
 
     <!-- Custom Mobile Sidebar & Backdrop -->
     <div id="mobile-overlay" class="mobile-overlay"></div>
