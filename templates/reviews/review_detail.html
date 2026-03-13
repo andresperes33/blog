@@ -169,32 +169,36 @@
                     </div>
                 </div>
 
-                <h4 class="text-sm font-bold uppercase tracking-widest text-slate-400 mb-6 font-outfit">Especificações
+                <h4 class="text-xs font-black uppercase tracking-[0.2em] text-slate-400 mb-6 font-outfit px-2">
+                    Especificações Técnicas
                 </h4>
-                <div class="space-y-4">
-                    <div class="flex justify-between text-sm py-2 border-b border-slate-50 dark:border-slate-800">
-                        <span class="text-slate-500">Marca</span>
-                        <span class="font-semibold">{{ review.product.brand }}</span>
+                <div class="space-y-1">
+                    <div class="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-tight">Marca</span>
+                        <span class="font-outfit font-bold text-slate-900 dark:text-white">{{ review.product.brand }}</span>
                     </div>
-                    <div class="flex justify-between text-sm py-2 border-b border-slate-50 dark:border-slate-800">
-                        <span class="text-slate-500">Modelo</span>
-                        <span class="font-semibold">{{ review.product.model_name|default:review.product.name }}</span>
+                    <div class="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-tight">Modelo</span>
+                        <span class="font-outfit font-bold text-slate-900 dark:text-white">{{ review.product.model_name|default:review.product.name }}</span>
                     </div>
                     {% for key, value in review.specifications.items %}
-                    <div
-                        class="flex justify-between text-sm py-2 border-b border-slate-50 dark:border-slate-800 font-medium">
-                        <span>{{ key }}</span>
-                        <span class="text-right">{{ value }}</span>
+                    <div class="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-tight">{{ key }}</span>
+                        <span class="font-outfit font-bold text-slate-900 dark:text-white text-right ml-4">{{ value }}</span>
                     </div>
                     {% endfor %}
                 </div>
 
-                <div class="mt-8">
+                <div class="mt-10">
                     <a href="#"
-                        class="block w-full text-center bg-slate-900 dark:bg-primary-600 text-white font-bold py-4 rounded-2xl hover:bg-slate-800 hover:scale-[1.02] transition-all">Ver
-                        Preço na Amazon</a>
-                    <p class="text-[10px] text-center text-slate-400 mt-4 leading-normal">Comprando pelos links você
-                        ajuda o André Indica a continuar trazendo as melhores análises.</p>
+                        class="block w-full text-center bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 rounded-2xl shadow-lg shadow-primary-500/20 hover:shadow-primary-500/40 hover:-translate-y-0.5 transition-all duration-300">
+                        Ver Preço na Amazon
+                    </a>
+                    <div class="mt-4 p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800/50">
+                        <p class="text-[10px] text-center text-slate-400 leading-relaxed italic">
+                            Comprando pelos links você ajuda o André Indica a continuar trazendo análises honestas sem custo adicional.
+                        </p>
+                    </div>
                 </div>
             </div>
 
