@@ -9,11 +9,10 @@
     <meta name="description"
         content="{% block meta_description %}Reviews completos de smartphones, laptops, periféricos e muito mais.{% endblock %}">
 
-    <!-- Google Fonts Optimized -->
+    <!-- Google Fonts Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
-
+    
     {% tailwind_css %}
     
     {% block extra_head %}{% endblock %}
@@ -306,6 +305,7 @@
         mobileMenuBtn.addEventListener('click', openSidebar);
         mobileOverlay.addEventListener('click', closeSidebar);
     </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
     {% block extra_js %}{% endblock %}
 </body>
 

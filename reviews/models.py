@@ -74,6 +74,24 @@ class Review(models.Model):
         if not self.slug:
             self.slug = slugify(self.title)
         
+        # Converte imagem principal para WebP se necessário
+        if self.main_image:
+            from PIL import Image
+            from io import BytesIO
+            from django.core.files.base import ContentFile
+            import os
+
+            img = Image.open(self.main_image)
+            if img.format != 'WEBP':
+                # Preserva a proporção
+                output = BytesIO()
+                img.save(output, format='WEBP', quality=80)
+                output.seek(0)
+                
+                # Altera o nome do arquivo para .webp
+                name = os.path.splitext(self.main_image.name)[0] + '.webp'
+                self.main_image.save(name, ContentFile(output.read()), save=False)
+
         super().save(*args, **kwargs)
         
         # Process tags_input if present
@@ -83,18 +101,28 @@ class Review(models.Model):
                 tag, created = Tag.objects.get_or_create(name=name)
                 self.tags.add(tag)
 
-    class Meta:
-        verbose_name = "Review"
-        verbose_name_plural = "Reviews"
-        ordering = ["-created_at"]
-
-    def __str__(self):
-        return self.title
-
 class ReviewImage(models.Model):
     review = models.ForeignKey(Review, on_delete=models.CASCADE, related_name="gallery")
     image = models.ImageField(upload_to="reviews/gallery/")
     alt_text = models.CharField(max_length=100, blank=True)
+
+    def save(self, *args, **kwargs):
+        if self.image:
+            from PIL import Image
+            from io import BytesIO
+            from django.core.files.base import ContentFile
+            import os
+
+            img = Image.open(self.image)
+            if img.format != 'WEBP':
+                output = BytesIO()
+                img.save(output, format='WEBP', quality=80)
+                output.seek(0)
+                
+                name = os.path.splitext(self.image.name)[0] + '.webp'
+                self.image.save(name, ContentFile(output.read()), save=False)
+
+        super().save(*args, **kwargs)
 
     class Meta:
         verbose_name = "Imagem da Galeria"
