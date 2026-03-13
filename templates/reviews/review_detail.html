@@ -205,40 +205,40 @@
                 <div class="mt-10 space-y-4">
                     {% if review.amazon_link %}
                     <a href="{{ review.amazon_link }}" target="_blank" rel="nofollow"
-                        class="group relative flex items-center justify-center gap-3 w-full bg-[#FF9900] hover:bg-[#FF8800] text-slate-950 font-black py-4 rounded-2xl shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40 hover:-translate-y-1 transition-all duration-300 overflow-hidden">
-                        <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        style="background-color: #FF9900; color: #000000;"
+                        class="group relative flex items-center justify-center gap-3 w-full font-black py-4 rounded-2xl shadow-lg hover:shadow-orange-500/40 hover:-translate-y-1 transition-all duration-300 overflow-hidden">
                         <span class="relative">Ver na Amazon</span>
                     </a>
                     {% endif %}
 
                     {% if review.mercadolivre_link %}
                     <a href="{{ review.mercadolivre_link }}" target="_blank" rel="nofollow"
-                        class="group relative flex items-center justify-center gap-3 w-full bg-[#FFE600] hover:bg-[#FADC00] text-[#2D3277] font-black py-4 rounded-2xl shadow-lg shadow-yellow-500/20 hover:shadow-yellow-500/40 hover:-translate-y-1 transition-all duration-300 overflow-hidden">
-                        <div class="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        style="background-color: #FFE600; color: #2D3277;"
+                        class="group relative flex items-center justify-center gap-3 w-full font-black py-4 rounded-2xl shadow-lg hover:shadow-yellow-500/40 hover:-translate-y-1 transition-all duration-300 overflow-hidden text-center">
                         <span class="relative">Ver no Mercado Livre</span>
                     </a>
                     {% endif %}
 
                     {% if review.shopee_link %}
                     <a href="{{ review.shopee_link }}" target="_blank" rel="nofollow"
-                        class="group relative flex items-center justify-center gap-3 w-full bg-[#EE4D2D] hover:bg-[#D73D1E] text-white font-black py-4 rounded-2xl shadow-lg shadow-orange-600/20 hover:shadow-orange-600/40 hover:-translate-y-1 transition-all duration-300 overflow-hidden">
-                        <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        style="background-color: #EE4D2D; color: #FFFFFF;"
+                        class="group relative flex items-center justify-center gap-3 w-full font-black py-4 rounded-2xl shadow-lg hover:shadow-orange-600/40 hover:-translate-y-1 transition-all duration-300 overflow-hidden">
                         <span class="relative">Ver na Shopee</span>
                     </a>
                     {% endif %}
 
                     {% if review.aliexpress_link %}
                     <a href="{{ review.aliexpress_link }}" target="_blank" rel="nofollow"
-                        class="group relative flex items-center justify-center gap-3 w-full bg-[#E62E04] hover:bg-[#C92904] text-white font-black py-4 rounded-2xl shadow-lg shadow-red-500/20 hover:shadow-red-500/40 hover:-translate-y-1 transition-all duration-300 overflow-hidden">
-                        <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        style="background-color: #E62E04; color: #FFFFFF;"
+                        class="group relative flex items-center justify-center gap-3 w-full font-black py-4 rounded-2xl shadow-lg hover:shadow-red-500/40 hover:-translate-y-1 transition-all duration-300 overflow-hidden">
                         <span class="relative">Ver no AliExpress</span>
                     </a>
                     {% endif %}
 
                     {% if review.kabum_link %}
                     <a href="{{ review.kabum_link }}" target="_blank" rel="nofollow"
-                        class="group relative flex items-center justify-center gap-3 w-full bg-[#0060B1] hover:bg-[#005196] text-white font-black py-4 rounded-2xl shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 hover:-translate-y-1 transition-all duration-300 overflow-hidden">
-                        <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        style="background-color: #0060B1; color: #FFFFFF;"
+                        class="group relative flex items-center justify-center gap-3 w-full font-black py-4 rounded-2xl shadow-lg hover:shadow-blue-500/40 hover:-translate-y-1 transition-all duration-300 overflow-hidden">
                         <span class="relative">Ver na Kabum</span>
                     </a>
                     {% endif %}
