@@ -63,6 +63,39 @@
 
 <!-- Categories -->
 <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <!-- Banner Promos ao Vivo -->
+    <div class="mb-20 relative overflow-hidden rounded-3xl bg-slate-900 border border-slate-800 shadow-2xl">
+        <div class="absolute inset-0 bg-gradient-to-r from-primary-600/20 to-orange-500/20"></div>
+        <div class="absolute -top-24 -right-24 w-64 h-64 bg-primary-600/10 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl"></div>
+        
+        <div class="relative px-8 py-12 md:px-16 md:py-16 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+            <div class="max-w-xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-500/10 border border-primary-500/20 text-primary-400 text-xs font-bold uppercase tracking-widest mb-4">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
+                    </span>
+                    Ofertas 24h por dia
+                </div>
+                <h2 class="text-3xl md:text-4xl font-outfit font-bold text-white mb-4 line-tight">
+                    Promoções e Cupons <span class="text-primary-500">Ao Vivo!</span>
+                </h2>
+                <p class="text-slate-400 text-lg">
+                    Não perca nenhuma oportunidade. Acesse nosso portal exclusivo de ofertas e economize em tempo real.
+                </p>
+            </div>
+            
+            <a href="https://promos.andreindica.com.br/" target="_blank" rel="noopener noreferrer"
+                class="group relative inline-flex items-center gap-3 px-8 py-4 bg-primary-600 text-white font-bold rounded-2xl hover:bg-primary-500 transition-all transform hover:scale-105 shadow-xl hover:shadow-primary-600/20">
+                Acessar Portal de Promos
+                <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+            </a>
+        </div>
+    </div>
+
     <div class="flex items-center justify-between mb-8">
         <h2 class="text-3xl font-bold">Categorias</h2>
         <a href="{% url 'reviews:all_categories' %}"
