@@ -72,8 +72,10 @@
         <div
             class="group bg-white dark:bg-slate-900 rounded-3xl shadow-[0_20px_50px_rgba(8,_112,_184,_0.1)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.3)] overflow-hidden transform hover:-translate-y-2 transition-all duration-300 border border-slate-100 dark:border-slate-800">
             <div class="relative h-48 overflow-hidden">
-                <img src="{{ review.main_image.url }}" alt="{{ review.title }}" fetchpriority="high"
-                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <a href="{% url 'reviews:review_detail' review.slug %}">
+                    <img src="{{ review.main_image.url }}" alt="{{ review.title }}" fetchpriority="high"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </a>
                 <div class="absolute top-4 left-4">
                     <span
                         class="bg-primary-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Destaque</span>
@@ -129,10 +131,10 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
         {% for review in reviews %}
         <article class="flex flex-col group">
-            <div class="relative w-full aspect-video rounded-2xl overflow-hidden mb-6 shadow-md">
+            <a href="{% url 'reviews:review_detail' review.slug %}" class="relative w-full aspect-video rounded-2xl overflow-hidden mb-6 shadow-md block">
                 <img src="{{ review.main_image.url }}" alt="{{ review.title }}" loading="lazy"
                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            </div>
+            </a>
             <div class="flex items-center gap-3 text-xs font-semibold text-primary-600 mb-3 uppercase tracking-tighter">
                 <span>{{ review.product.category.name }}</span>
                 <span class="text-slate-300">•</span>

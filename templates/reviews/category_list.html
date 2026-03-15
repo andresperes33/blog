@@ -24,8 +24,10 @@
         {% for review in reviews %}
         <article class="flex flex-col group">
             <div class="relative w-full aspect-video rounded-2xl overflow-hidden mb-6 shadow-md">
-                <img src="{{ review.main_image.url }}" alt="{{ review.title }}"
-                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <a href="{% url 'reviews:review_detail' review.slug %}">
+                    <img src="{{ review.main_image.url }}" alt="{{ review.title }}"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </a>
                 <div class="absolute top-4 right-4 bg-white/90 dark:bg-slate-800/90 backdrop-blur px-3 py-1 rounded-lg">
                     <span class="text-primary-600 dark:text-primary-400 font-bold">{{ review.rating }}</span>
                 </div>
