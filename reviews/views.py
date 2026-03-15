@@ -7,7 +7,7 @@ class ReviewListView(ListView):
     template_name = 'reviews/index.html'
     context_object_name = 'reviews'
     paginate_by = 9
-    queryset = Review.objects.filter(is_published=True)
+    queryset = Review.objects.filter(is_published=True).order_by('-created_at')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -49,7 +49,7 @@ class CategoryDetailView(ListView):
 
     def get_queryset(self):
         self.category = get_object_or_404(Category, slug=self.kwargs['slug'])
-        return Review.objects.filter(product__category=self.category, is_published=True)
+        return Review.objects.filter(product__category=self.category, is_published=True).order_by('-created_at')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

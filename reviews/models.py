@@ -70,6 +70,11 @@ class Review(models.Model):
     is_featured = models.BooleanField("Destaque", default=False)
     is_published = models.BooleanField("Publicado", default=True)
 
+    class Meta:
+        verbose_name = "Review"
+        verbose_name_plural = "Reviews"
+        ordering = ['-created_at']
+
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)
