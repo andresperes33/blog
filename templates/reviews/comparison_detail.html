@@ -53,9 +53,7 @@
         <p class="text-slate-700 dark:text-slate-300 italic text-lg leading-relaxed">
             "{{ comparison.excerpt }}"
         </p>
-    </div>
-
-    <!-- Tabela Comparativa Lado a Lado -->
+    </div>    <!-- Ficha Técnica Lado a Lado -->
     <section class="mb-16">
         <h2 class="text-3xl font-outfit font-bold text-slate-900 dark:text-white mb-8">Ficha Técnica Lado a Lado</h2>
         
@@ -73,18 +71,22 @@
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
-                    {% for spec in p1.parsed_specs %}
+                    {% for spec in comparison.parsed_specs_1 %}
                     <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/20 transition-colors">
                         <td class="p-6 text-sm font-semibold text-slate-500 dark:text-slate-400 bg-slate-50/30 dark:bg-slate-800/10 text-center">{{ spec.label }}</td>
                         <td class="p-6 text-sm text-slate-700 dark:text-slate-300 text-center">{{ spec.value }}</td>
                         <td class="p-6 text-sm text-slate-700 dark:text-slate-300 text-center font-medium">
                             {% with label=spec.label %}
-                                {% for s2 in p2.parsed_specs %}
+                                {% for s2 in comparison.parsed_specs_2 %}
                                     {% if s2.label == label %}{{ s2.value }}{% endif %}
                                 {% endfor %}
                             {% endwith %}
                         </td>
                     </tr>
+                    {% empty %}
+                        <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/20 transition-colors">
+                            <td colspan="3" class="p-6 text-sm text-slate-500 text-center">Insira as especificações técnicas no Admin para visualizar o comparativo.</td>
+                        </tr>
                     {% endfor %}
                 </tbody>
             </table>
@@ -132,7 +134,7 @@
         {{ comparison.content|safe }}
     </section>
 
-    <!-- O Veredito -->
+    <!-- A Conclusão -->
     <section class="relative bg-slate-900 rounded-[2.5rem] p-8 sm:p-12 overflow-hidden mb-16 shadow-2xl">
         <div class="absolute top-0 right-0 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl -mr-32 -mt-32"></div>
         <div class="absolute bottom-0 left-0 w-64 h-64 bg-primary-600/10 rounded-full blur-3xl -ml-32 -mb-32"></div>
@@ -145,42 +147,37 @@
                     </svg>
                 </div>
                 <div>
-                    <h2 class="text-3xl font-outfit font-bold text-white">Veredito André Indica</h2>
+                    <h2 class="text-3xl font-outfit font-bold text-white">Conclusão André Indica</h2>
                     <p class="text-primary-400 text-sm font-bold uppercase tracking-widest">A decisão final</p>
                 </div>
             </div>
             
             <div class="text-slate-300 text-lg leading-relaxed mb-10">
-                {{ comparison.verdict|linebreaks }}
+                {{ comparison.conclusion|safe }}
             </div>
 
-            <!-- Botões de Compra Gerais do Duelo -->
-            <div class="mb-10 p-6 bg-white/5 rounded-3xl border border-white/10">
-                <p class="text-white font-bold mb-4 flex items-center gap-2">
-                    <span class="text-xl">💰</span> Melhores Ofertas do Dia:
-                </p>
-                <div class="flex flex-wrap gap-3">
-                    {% if comparison.amazon_link %}<a href="{{ comparison.amazon_link }}" target="_blank" class="bg-[#FF9900] text-black px-6 py-3 rounded-2xl font-bold hover:scale-105 transition-transform flex items-center gap-2">Amazon</a>{% endif %}
-                    {% if comparison.mercadolivre_link %}<a href="{{ comparison.mercadolivre_link }}" target="_blank" class="bg-[#FFE600] text-black px-6 py-3 rounded-2xl font-bold hover:scale-105 transition-transform flex items-center gap-2">Mercado Livre</a>{% endif %}
-                    {% if comparison.shopee_link %}<a href="{{ comparison.shopee_link }}" target="_blank" class="bg-[#EE4D2D] text-white px-6 py-3 rounded-2xl font-bold hover:scale-105 transition-transform">Shopee</a>{% endif %}
-                    {% if comparison.aliexpress_link %}<a href="{{ comparison.aliexpress_link }}" target="_blank" class="bg-[#E62E04] text-white px-6 py-3 rounded-2xl font-bold hover:scale-105 transition-transform">AliExpress</a>{% endif %}
-                    {% if comparison.kabum_link %}<a href="{{ comparison.kabum_link }}" target="_blank" class="bg-[#0060B1] text-white px-6 py-3 rounded-2xl font-bold hover:scale-105 transition-transform">Kabum</a>{% endif %}
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div class="space-y-4">
-                    <p class="text-slate-400 text-sm font-bold uppercase">Mais de {{ p1.name }}:</p>
+            <!-- Botões de Compra Indivíduais -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-10">
+                <!-- Produto 1 -->
+                <div class="bg-white/5 p-6 rounded-3xl border border-white/10">
+                    <p class="text-white font-bold mb-4 flex items-center gap-2">🛒 Ofertas {{ p1.name }}:</p>
                     <div class="flex flex-wrap gap-2">
-                        {% if p1.amazon_link %}<a href="{{ p1.amazon_link }}" target="_blank" class="bg-white/5 text-slate-300 px-4 py-2 rounded-xl text-xs border border-white/10 hover:bg-white/10 transition-all">Amazon</a>{% endif %}
-                        {% if review_1 %}<a href="{% url 'reviews:review_detail' review_1.slug %}" class="bg-primary-600/20 text-primary-400 px-4 py-2 rounded-xl text-xs border border-primary-500/30 hover:bg-primary-600/30 transition-all font-bold">Ver Review Individual</a>{% endif %}
+                        {% if comparison.amazon_link_1 %}<a href="{{ comparison.amazon_link_1 }}" target="_blank" class="bg-[#FF9900] text-black px-4 py-2 rounded-xl font-bold text-xs hover:scale-105 transition-transform">Amazon</a>{% endif %}
+                        {% if comparison.mercadolivre_link_1 %}<a href="{{ comparison.mercadolivre_link_1 }}" target="_blank" class="bg-[#FFE600] text-black px-4 py-2 rounded-xl font-bold text-xs hover:scale-105 transition-transform">M. Livre</a>{% endif %}
+                        {% if comparison.shopee_link_1 %}<a href="{{ comparison.shopee_link_1 }}" target="_blank" class="bg-[#EE4D2D] text-white px-4 py-2 rounded-xl font-bold text-xs hover:scale-105 transition-transform">Shopee</a>{% endif %}
+                        {% if comparison.kabum_link_1 %}<a href="{{ comparison.kabum_link_1 }}" target="_blank" class="bg-[#0060B1] text-white px-4 py-2 rounded-xl font-bold text-xs hover:scale-105 transition-transform">Kabum</a>{% endif %}
+                        {% if review_1 %}<a href="{% url 'reviews:review_detail' review_1.slug %}" class="bg-white/10 text-white px-4 py-2 rounded-xl font-bold text-xs border border-white/20 hover:bg-white/20 transition-all w-full text-center mt-2">Ver Review Completo</a>{% endif %}
                     </div>
                 </div>
-                <div class="space-y-4">
-                    <p class="text-slate-400 text-sm font-bold uppercase">Mais de {{ p2.name }}:</p>
+                <!-- Produto 2 -->
+                <div class="bg-white/5 p-6 rounded-3xl border border-white/10">
+                    <p class="text-white font-bold mb-4 flex items-center gap-2">🛒 Ofertas {{ p2.name }}:</p>
                     <div class="flex flex-wrap gap-2">
-                        {% if p2.amazon_link %}<a href="{{ p2.amazon_link }}" target="_blank" class="bg-white/5 text-slate-300 px-4 py-2 rounded-xl text-xs border border-white/10 hover:bg-white/10 transition-all">Amazon</a>{% endif %}
-                        {% if review_2 %}<a href="{% url 'reviews:review_detail' review_2.slug %}" class="bg-primary-600/20 text-primary-400 px-4 py-2 rounded-xl text-xs border border-primary-500/30 hover:bg-primary-600/30 transition-all font-bold">Ver Review Individual</a>{% endif %}
+                        {% if comparison.amazon_link_2 %}<a href="{{ comparison.amazon_link_2 }}" target="_blank" class="bg-[#FF9900] text-black px-4 py-2 rounded-xl font-bold text-xs hover:scale-105 transition-transform">Amazon</a>{% endif %}
+                        {% if comparison.mercadolivre_link_2 %}<a href="{{ comparison.mercadolivre_link_2 }}" target="_blank" class="bg-[#FFE600] text-black px-4 py-2 rounded-xl font-bold text-xs hover:scale-105 transition-transform">M. Livre</a>{% endif %}
+                        {% if comparison.shopee_link_2 %}<a href="{{ comparison.shopee_link_2 }}" target="_blank" class="bg-[#EE4D2D] text-white px-4 py-2 rounded-xl font-bold text-xs hover:scale-105 transition-transform">Shopee</a>{% endif %}
+                        {% if comparison.kabum_link_2 %}<a href="{{ comparison.kabum_link_2 }}" target="_blank" class="bg-[#0060B1] text-white px-4 py-2 rounded-xl font-bold text-xs hover:scale-105 transition-transform">Kabum</a>{% endif %}
+                        {% if review_2 %}<a href="{% url 'reviews:review_detail' review_2.slug %}" class="bg-white/10 text-white px-4 py-2 rounded-xl font-bold text-xs border border-white/20 hover:bg-white/20 transition-all w-full text-center mt-2">Ver Review Completo</a>{% endif %}
                     </div>
                 </div>
             </div>

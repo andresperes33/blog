@@ -59,19 +59,28 @@ class ComparisonAdmin(admin.ModelAdmin):
     readonly_fields = ('tags',)
     
     fieldsets = (
-        (None, {
-            'fields': ('title', 'slug', 'author', 'excerpt', 'main_image', 'rating', 'is_featured', 'is_published')
+        ('Produtos', {
+            'fields': ('product_1', 'product_2')
         }),
-        ('Duelo', {
-            'fields': ('product_1', 'product_2', 'content', 'verdict')
+        ('Informações Gerais', {
+            'fields': ('title', 'slug', 'author', 'excerpt', 'main_image')
         }),
-        ('Afiliados (Gerais do Duelo)', {
-            'fields': ('amazon_link', 'mercadolivre_link', 'shopee_link', 'aliexpress_link', 'kabum_link')
+        ('Conteúdo do Comparativo', {
+            'fields': ('content', 'conclusion')
+        }),
+        ('Afiliados Produto 1 (Deixe em branco se não houver link)', {
+            'fields': ('amazon_link_1', 'mercadolivre_link_1', 'shopee_link_1', 'aliexpress_link_1', 'kabum_link_1')
+        }),
+        ('Afiliados Produto 2 (Deixe em branco se não houver link)', {
+            'fields': ('amazon_link_2', 'mercadolivre_link_2', 'shopee_link_2', 'aliexpress_link_2', 'kabum_link_2')
         }),
         ('Tags', {
             'fields': ('tags_input', 'tags')
         }),
-        ('Conteúdo Extra/Duelo', {
-            'fields': ('pros', 'cons', 'specifications')
+        ('Conteúdo Extra', {
+            'fields': ('pros', 'cons', 'rating', 'is_featured', 'is_published')
+        }),
+        ('Especificações Técnicas de cada produto', {
+            'fields': ('specifications_1', 'specifications_2')
         }),
     )

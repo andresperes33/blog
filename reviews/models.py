@@ -75,6 +75,12 @@ class Review(models.Model):
         verbose_name_plural = "Reviews"
         ordering = ['-created_at']
 
+    @property
+    def parsed_specs(self):
+        if isinstance(self.specifications, dict):
+            return [{"label": k, "value": v} for k, v in self.specifications.items()]
+        return []
+
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)
@@ -148,29 +154,41 @@ class Comparison(models.Model):
     product_2 = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="comparisons_as_second")
     title = models.CharField("Título do Comparativo", max_length=255)
     slug = models.SlugField("Slug", max_length=255, unique=True, blank=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     excerpt = models.TextField("Resumo", help_text="Aparece nas listagens.")
     content = models.TextField("Conteúdo do Comparativo (Markdown/HTML)")
-    verdict = models.TextField("O Veredito do André", help_text="Explique quem ganha e por que.")
-    main_image = models.ImageField("Imagem do Duelo", upload_to="comparisons/main/")
-    rating = models.DecimalField("Nota do Duelo (0-10)", max_digits=3, decimal_places=1)
+    conclusion = models.TextField("Conclusão", blank=True, help_text="Formatação igual ao conteúdo.")
+    main_image = models.ImageField("Imagem Principal", upload_to="comparisons/main/")
     
-    # Listas
-    pros = models.TextField("Pontos Positivos", help_text="Um por linha", blank=True)
-    cons = models.TextField("Pontos Negativos", help_text="Um por linha", blank=True)
-    specifications = models.JSONField("Especificações do Duelo", default=dict, blank=True)
-    
+    # Links de Afiliados - Produto 1
+    amazon_link_1 = models.URLField("Link Amazon (Produto 1)", max_length=500, blank=True, null=True)
+    mercadolivre_link_1 = models.URLField("Link Mercado Livre (Produto 1)", max_length=500, blank=True, null=True)
+    shopee_link_1 = models.URLField("Link Shopee (Produto 1)", max_length=500, blank=True, null=True)
+    aliexpress_link_1 = models.URLField("Link AliExpress (Produto 1)", max_length=500, blank=True, null=True)
+    kabum_link_1 = models.URLField("Link Kabum (Produto 1)", max_length=500, blank=True, null=True)
+
+    # Links de Afiliados - Produto 2
+    amazon_link_2 = models.URLField("Link Amazon (Produto 2)", max_length=500, blank=True, null=True)
+    mercadolivre_link_2 = models.URLField("Link Mercado Livre (Produto 2)", max_length=500, blank=True, null=True)
+    shopee_link_2 = models.URLField("Link Shopee (Produto 2)", max_length=500, blank=True, null=True)
+    aliexpress_link_2 = models.URLField("Link AliExpress (Produto 2)", max_length=500, blank=True, null=True)
+    kabum_link_2 = models.URLField("Link Kabum (Produto 2)", max_length=500, blank=True, null=True)
+
     # Tags
-    tags_input = models.CharField("Tags (separadas por vírgula)", max_length=255, blank=True)
+    tags_input = models.CharField("Tags (separadas por vírgula)", max_length=255, blank=True, help_text="Ex: gamer, barato, potente")
     tags = models.ManyToManyField(Tag, blank=True)
     
-    # Links de Afiliados (Gerais do Duelo)
-    amazon_link = models.URLField("Link Amazon", max_length=500, blank=True, null=True)
-    mercadolivre_link = models.URLField("Link Mercado Livre", max_length=500, blank=True, null=True)
-    shopee_link = models.URLField("Link Shopee", max_length=500, blank=True, null=True)
-    aliexpress_link = models.URLField("Link AliExpress", max_length=500, blank=True, null=True)
-    kabum_link = models.URLField("Link Kabum", max_length=500, blank=True, null=True)
+    # Conteúdo Extra
+    pros = models.TextField("Pontos Positivos", help_text="Um por linha", blank=True)
+    cons = models.TextField("Pontos Negativos", help_text="Um por linha", blank=True)
+    
+    # Especificações Técnicas Individuais (Opcional, se quiser sobrescrever o produto)
+    specifications_1 = models.JSONField("Especificações Técnicas Produto 1", default=dict, blank=True)
+    specifications_2 = models.JSONField("Especificações Técnicas Produto 2", default=dict, blank=True)
 
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    # Nota do Duelo
+    rating = models.DecimalField("Nota (0-10)", max_digits=3, decimal_places=1, default=0.0)
+
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     is_published = models.BooleanField("Publicado", default=True)
@@ -207,6 +225,18 @@ class Comparison(models.Model):
         verbose_name = "Comparativo"
         verbose_name_plural = "Comparativos"
         ordering = ['-created_at']
+
+    @property
+    def parsed_specs_1(self):
+        if isinstance(self.specifications_1, dict):
+            return [{"label": k, "value": v} for k, v in self.specifications_1.items()]
+        return []
+
+    @property
+    def parsed_specs_2(self):
+        if isinstance(self.specifications_2, dict):
+            return [{"label": k, "value": v} for k, v in self.specifications_2.items()]
+        return []
 
     def __str__(self):
         return self.title
