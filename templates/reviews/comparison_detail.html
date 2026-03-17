@@ -216,7 +216,7 @@
                 </div>
 
                 <!-- Ofertas Produto 2 -->
-                <div class="mb-8">
+                <div class="mb-6">
                     <h4 class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 mb-4 px-2">🛒 Ofertas {{ p2.name }}</h4>
                     <div class="space-y-3">
                         {% if comparison.amazon_link_2 %}<a href="{{ comparison.amazon_link_2 }}" target="_blank" rel="nofollow" class="flex justify-center w-full py-4 rounded-2xl font-black text-[11px] transition-all hover:-translate-y-1 shadow-md" style="background-color: #FF9900; color: #000;">Ver na Amazon</a>{% endif %}
@@ -228,25 +228,60 @@
                     </div>
                 </div>
 
-                <!-- Banner Monitor de Ofertas -->
-                <div class="relative overflow-hidden bg-gradient-to-br from-primary-600 to-primary-800 p-8 rounded-3xl shadow-xl shadow-primary-600/20 group text-center mb-8">
-                    <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-white/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
-                    <div class="relative z-10">
-                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-white text-[10px] font-bold uppercase mb-4">🔥 Ofertas 24h</div>
-                        <h4 class="text-xl font-outfit font-bold text-white mb-2">Monitor de Ofertas</h4>
-                        <a href="https://promos.andreindica.com.br/" target="_blank" class="block w-full py-3 bg-white text-primary-600 font-black rounded-2xl hover:scale-105 transition-all shadow-lg">Acessar Grátis</a>
-                    </div>
+                <div class="mt-6 p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800/50">
+                    <p class="text-[10px] text-center text-slate-400 font-medium leading-relaxed italic">
+                        Comprando pelos links você ajuda o André Indica a continuar trazendo análises honestas sem custo adicional.
+                    </p>
                 </div>
+            </div>
 
-                <!-- Grupos Sociais -->
+            <!-- Monitor de Ofertas Card -->
+            <div class="mt-10 relative overflow-hidden bg-gradient-to-br from-primary-600 to-primary-800 p-8 rounded-3xl shadow-xl shadow-primary-600/20 group text-center">
+                <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-white/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+                <div class="relative z-10">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-white text-[10px] font-bold uppercase mb-4 tracking-widest">🔥 Ofertas 24h</div>
+                    <h4 class="text-xl font-outfit font-bold text-white mb-2">Monitor de Ofertas</h4>
+                    <p class="text-white/80 text-xs mb-6 leading-relaxed">Acompanhe promoções em tempo real e não perca nenhum cupom exclusivo no nosso portal de promos.</p>
+                    <a href="https://promos.andreindica.com.br/" target="_blank" class="block w-full py-3 bg-white text-primary-600 font-black rounded-2xl hover:scale-105 transition-all shadow-lg">Acessar Agora</a>
+                </div>
+            </div>
+
+            <!-- Grupos e Alertas -->
+            <div class="mt-10 bg-gradient-to-br from-slate-900 to-slate-950 p-8 rounded-3xl shadow-xl border border-slate-800">
+                <h4 class="text-sm font-black uppercase tracking-[0.2em] text-primary-500 mb-4 font-outfit">
+                    Promoções e Cupons
+                </h4>
+                <p class="text-xs text-slate-400 mb-6 leading-relaxed">
+                    Entre em nossos grupos e receba ofertas em tempo real, cupons exclusivos e alertas de preço baixo!
+                </p>
+                
                 <div class="space-y-3">
-                    <a href="https://chat.whatsapp.com/Jxjt68Mfr9J4tx1vIS82DD" target="_blank" style="background-color: #25D366; color: #fff;" class="flex items-center justify-center gap-2 w-full py-3 rounded-2xl font-bold text-xs shadow-md"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884 0 2.225.569 3.445 1.694 5.39l-1.157 4.221 4.333-1.13c1.547.852 2.651 1.272 4.333 1.272z"/></svg> WhatsApp VIP</a>
-                    <a href="https://t.me/AlertaTechBrasil" target="_blank" style="background-color: #0088cc; color: #fff;" class="flex items-center justify-center gap-2 w-full py-3 rounded-2xl font-bold text-xs shadow-md"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.891 8.146l-2.003 9.445c-.149.659-.541.823-1.091.513l-3.051-2.248-1.472 1.417c-.163.163-.3.3-.615.3l.219-3.111 5.662-5.116c.246-.219-.054-.341-.381-.121l-7.001 4.408-3.017-.942c-.655-.205-.667-.655.137-.968l11.771-4.535c.544-.201 1.021.127.844.738z"/></svg> Canal Telegram</a>
-                </div>
+                    <a href="https://chat.whatsapp.com/Jxjt68Mfr9J4tx1vIS82DD" target="_blank"
+                        style="background-color: #25D366; color: #ffffff; text-decoration: none;"
+                        class="flex items-center justify-center gap-3 w-full font-bold py-3.5 rounded-2xl hover:opacity-90 transition-all shadow-md">
+                        <svg style="width: 20px; height: 20px;" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884 0 2.225.569 3.445 1.694 5.39l-1.157 4.221 4.333-1.13c1.547.852 2.651 1.272 4.333 1.272z"/></svg>
+                        <span class="text-sm">Grupo VIP WhatsApp</span>
+                    </a>
+                    
+                    <a href="https://t.me/AlertaTechBrasil" target="_blank"
+                        style="background-color: #0088cc; color: #ffffff; text-decoration: none;"
+                        class="flex items-center justify-center gap-3 w-full font-bold py-3.5 rounded-2xl hover:opacity-90 transition-all shadow-md">
+                        <svg style="width: 20px; height: 20px;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.891 8.146l-2.003 9.445c-.149.659-.541.823-1.091.513l-3.051-2.248-1.472 1.417c-.163.163-.3.3-.615.3l.219-3.111 5.662-5.116c.246-.219-.054-.341-.381-.121l-7.001 4.408-3.017-.942c-.655-.205-.667-.655.137-.968l11.771-4.535c.544-.201 1.021.127.844.738z"/></svg>
+                        <span class="text-sm">Canal no Telegram</span>
+                    </a>
 
-                <!-- Relacionados -->
-                {% if related_comparisons %}
-                <div class="mt-12 pt-8 border-t border-slate-100 dark:border-slate-800">
+                    <a href="https://t.me/alertas_andre_bot" target="_blank"
+                        style="background-color: #0088cc; color: #ffffff; text-decoration: none;"
+                        class="flex items-center justify-center gap-3 w-full font-bold py-3.5 rounded-2xl hover:opacity-90 transition-all shadow-md">
+                        <svg style="width: 20px; height: 20px;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.891 8.146l-2.003 9.445c-.149.659-.541.823-1.091.513l-3.051-2.248-1.472 1.417c-.163.163-.3.3-.615.3l.219-3.111 5.662-5.116c.246-.219-.054-.341-.381-.121l-7.001 4.408-3.017-.942c-.655-.205-.667-.655.137-.968l11.771-4.535c.544-.201 1.021.127.844.738z"/></svg>
+                        <span class="text-sm">Bot de Alertas</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Relacionados -->
+            {% if related_comparisons %}
+            <div class="mt-12 pt-8 border-t border-slate-100 dark:border-slate-800">
                     <h4 class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-6">Outros Duelos</h4>
                     <div class="space-y-6">
                         {% for rel in related_comparisons %}
