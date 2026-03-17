@@ -77,6 +77,9 @@ class ComparisonDetailView(DetailView):
         context['p2'] = self.object.product_2
         context['review_1'] = Review.objects.filter(product=self.object.product_1).first()
         context['review_2'] = Review.objects.filter(product=self.object.product_2).first()
+        context['related_comparisons'] = Comparison.objects.filter(
+            is_published=True
+        ).exclude(id=self.object.id)[:3]
         return context
 
 from django.views.generic import TemplateView
