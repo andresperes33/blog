@@ -142,3 +142,46 @@ class Comment(models.Model):
     class Meta:
         verbose_name = "Comentário"
         verbose_name_plural = "Comentários"
+
+class Comparison(models.Model):
+    title = models.CharField("Título do Comparativo", max_length=255)
+    slug = models.SlugField("Slug", max_length=255, unique=True, blank=True)
+    product_1 = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="comparisons_as_first")
+    product_2 = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="comparisons_as_second")
+    main_image = models.ImageField("Imagem do Duelo", upload_to="comparisons/main/")
+    content = models.TextField("Conteúdo do Comparativo (Markdown/HTML)")
+    verdict = models.TextField("O Veredito do André", help_text="Explique quem ganha e por que.")
+    
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    is_published = models.BooleanField("Publicado", default=True)
+    is_featured = models.BooleanField("Destaque na Home", default=False)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        
+        if self.main_image:
+            from PIL import Image
+            from io import BytesIO
+            from django.core.files.base import ContentFile
+            import os
+
+            img = Image.open(self.main_image)
+            if img.format != 'WEBP':
+                output = BytesIO()
+                img.save(output, format='WEBP', quality=80)
+                output.seek(0)
+                name = os.path.splitext(self.main_image.name)[0] + '.webp'
+                self.main_image.save(name, ContentFile(output.read()), save=False)
+
+        super().save(*args, **kwargs)
+
+    class Meta:
+        verbose_name = "Comparativo"
+        verbose_name_plural = "Comparativos"
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return self.title

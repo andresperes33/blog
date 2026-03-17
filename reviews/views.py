@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
-from .models import Review, Category, Product
+from .models import Review, Category, Product, Comparison
 
 class ReviewListView(ListView):
     model = Review
@@ -13,6 +13,7 @@ class ReviewListView(ListView):
         context = super().get_context_data(**kwargs)
         context['featured_reviews'] = Review.objects.filter(is_featured=True, is_published=True)[:3]
         context['categories'] = Category.objects.all()
+        context['comparisons'] = Comparison.objects.filter(is_published=True)[:3]
         return context
 
 class AllReviewsView(ListView):
@@ -54,6 +55,28 @@ class CategoryDetailView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['category'] = self.category
+        return context
+
+class ComparisonListView(ListView):
+    model = Comparison
+    template_name = 'reviews/comparison_list.html'
+    context_object_name = 'comparisons'
+    paginate_by = 9
+
+    def get_queryset(self):
+        return Comparison.objects.filter(is_published=True).order_by('-created_at')
+
+class ComparisonDetailView(DetailView):
+    model = Comparison
+    template_name = 'reviews/comparison_detail.html'
+    context_object_name = 'comparison'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['p1'] = self.object.product_1
+        context['p2'] = self.object.product_2
+        context['review_1'] = Review.objects.filter(product=self.object.product_1).first()
+        context['review_2'] = Review.objects.filter(product=self.object.product_2).first()
         return context
 
 from django.views.generic import TemplateView

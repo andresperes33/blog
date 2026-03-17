@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% load reviews_extras %}
+
+{% block title %}{{ comparison.title }} - André Indica{% endblock %}
+
+{% block content %}
+<article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Breadcrumbs -->
+    <nav class="mb-8 text-sm text-slate-500">
+        <a href="/" class="hover:text-primary-600">Home</a>
+        <span class="mx-2">/</span>
+        <a href="{% url 'reviews:comparison_list' %}" class="hover:text-primary-600">Comparativos</a>
+        <span class="mx-2">/</span>
+        <span class="text-slate-900 dark:text-slate-300">{{ comparison.title }}</span>
+    </nav>
+
+    <!-- Header -->
+    <header class="mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-500/10 border border-primary-500/20 text-primary-600 dark:text-primary-400 text-xs font-bold uppercase tracking-widest mb-6">
+            Duelo de Gigantes
+        </div>
+        <h1 class="text-4xl sm:text-5xl font-outfit font-extrabold text-slate-900 dark:text-white leading-tight mb-6">
+            {{ comparison.title }}
+        </h1>
+        <div class="flex items-center gap-4 text-slate-500 text-sm">
+            <span class="flex items-center gap-1">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                {{ comparison.created_at|date:"d de F, Y" }}
+            </span>
+            <span class="flex items-center gap-1">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+                {{ comparison.author.get_full_name|default:comparison.author.username }}
+            </span>
+        </div>
+    </header>
+
+    <!-- Capa Única Editada -->
+    <div class="relative rounded-3xl overflow-hidden shadow-2xl mb-12 border border-slate-200 dark:border-slate-800">
+        <img src="{{ comparison.main_image.url }}" alt="{{ comparison.title }}" class="w-full h-auto">
+    </div>
+
+    <!-- Tabela Comparativa Lado a Lado -->
+    <section class="mb-16">
+        <h2 class="text-3xl font-outfit font-bold text-slate-900 dark:text-white mb-8">Ficha Técnica Lado a Lado</h2>
+        
+        <div class="overflow-hidden rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xl">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="bg-slate-50 dark:bg-slate-800/50">
+                        <th class="p-6 text-sm font-bold text-slate-400 uppercase tracking-wider border-b border-slate-200 dark:border-slate-800 w-1/3 text-center">Especificação</th>
+                        <th class="p-6 text-base font-outfit font-bold text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 w-1/3 text-center">
+                            {{ p1.name }}
+                        </th>
+                        <th class="p-6 text-base font-outfit font-bold text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 w-1/3 text-center text-primary-600">
+                            {{ p2.name }}
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+                    {% for spec in p1.parsed_specs %}
+                    <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/20 transition-colors">
+                        <td class="p-6 text-sm font-semibold text-slate-500 dark:text-slate-400 bg-slate-50/30 dark:bg-slate-800/10 text-center">{{ spec.label }}</td>
+                        <td class="p-6 text-sm text-slate-700 dark:text-slate-300 text-center">{{ spec.value }}</td>
+                        <td class="p-6 text-sm text-slate-700 dark:text-slate-300 text-center font-medium">
+                            {# Busca a mesma spec no produto 2 #}
+                            {% with label=spec.label %}
+                                {% for s2 in p2.parsed_specs %}
+                                    {% if s2.label == label %}{{ s2.value }}{% endif %}
+                                {% endfor %}
+                            {% endwith %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Conteúdo do Artigo -->
+    <section class="prose prose-slate dark:prose-invert max-w-none mb-16">
+        {{ comparison.content|safe }}
+    </section>
+
+    <!-- O Veredito -->
+    <section class="relative bg-slate-900 rounded-[2.5rem] p-8 sm:p-12 overflow-hidden mb-16 shadow-2xl">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl -mr-32 -mt-32"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-primary-600/10 rounded-full blur-3xl -ml-32 -mb-32"></div>
+        
+        <div class="relative z-10">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-16 h-16 rounded-2xl bg-primary-600 flex items-center justify-center shadow-lg shadow-primary-600/20">
+                    <svg class="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <div>
+                    <h2 class="text-3xl font-outfit font-bold text-white">Veredito André Indica</h2>
+                    <p class="text-primary-400 text-sm font-bold uppercase tracking-widest">A decisão final</p>
+                </div>
+            </div>
+            
+            <div class="text-slate-300 text-lg leading-relaxed mb-10">
+                {{ comparison.verdict|linebreaks }}
+            </div>
+
+            <!-- Botões de Compra -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                    <p class="text-white font-bold text-center sm:text-left">Comprar {{ p1.name }}:</p>
+                    <div class="flex flex-wrap gap-2 justify-center sm:justify-start">
+                        {% if p1.amazon_link %}<a href="{{ p1.amazon_link }}" target="_blank" class="bg-[#FF9900] text-black px-4 py-2 rounded-xl font-bold text-xs hover:scale-105 transition-transform">Amazon</a>{% endif %}
+                        {% if p1.mercadolivre_link %}<a href="{{ p1.mercadolivre_link }}" target="_blank" class="bg-[#FFE600] text-black px-4 py-2 rounded-xl font-bold text-xs hover:scale-105 transition-transform">M. Livre</a>{% endif %}
+                        {% if review_1 %}<a href="{% url 'reviews:review_detail' review_1.slug %}" class="bg-white/10 text-white px-4 py-2 rounded-xl font-bold text-xs border border-white/20 hover:bg-white/20 transition-all">Ver Review</a>{% endif %}
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <p class="text-white font-bold text-center sm:text-left">Comprar {{ p2.name }}:</p>
+                    <div class="flex flex-wrap gap-2 justify-center sm:justify-start">
+                        {% if p2.amazon_link %}<a href="{{ p2.amazon_link }}" target="_blank" class="bg-[#FF9900] text-black px-4 py-2 rounded-xl font-bold text-xs hover:scale-105 transition-transform">Amazon</a>{% endif %}
+                        {% if p2.mercadolivre_link %}<a href="{{ p2.mercadolivre_link }}" target="_blank" class="bg-[#FFE600] text-black px-4 py-2 rounded-xl font-bold text-xs hover:scale-105 transition-transform">M. Livre</a>{% endif %}
+                        {% if review_2 %}<a href="{% url 'reviews:review_detail' review_2.slug %}" class="bg-white/10 text-white px-4 py-2 rounded-xl font-bold text-xs border border-white/20 hover:bg-white/20 transition-all">Ver Review</a>{% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</article>
+{% endblock %}

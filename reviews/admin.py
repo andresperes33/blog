@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Tag, Product, Review, ReviewImage, Comment
+from .models import Category, Tag, Product, Review, ReviewImage, Comment, Comparison
 
 class ReviewImageInline(admin.TabularInline):
     model = ReviewImage
@@ -49,3 +49,19 @@ class CommentAdmin(admin.ModelAdmin):
     list_display = ('user', 'review', 'created_at')
     list_filter = ('created_at',)
     search_fields = ('text', 'user__username', 'review__title')
+
+@admin.register(Comparison)
+class ComparisonAdmin(admin.ModelAdmin):
+    list_display = ('title', 'product_1', 'product_2', 'created_at', 'is_featured', 'is_published')
+    list_filter = ('is_featured', 'is_published', 'created_at')
+    search_fields = ('title', 'content', 'product_1__name', 'product_2__name')
+    prepopulated_fields = {'slug': ('title',)}
+    
+    fieldsets = (
+        (None, {
+            'fields': ('title', 'slug', 'author', 'main_image', 'is_featured', 'is_published')
+        }),
+        ('Duelo', {
+            'fields': ('product_1', 'product_2', 'content', 'verdict')
+        }),
+    )

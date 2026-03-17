@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load reviews_extras %}
+
+{% block title %}Duelos de Tecnologia: Qual o melhor? - André Indica{% endblock %}
+
+{% block content %}
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+        <nav class="mb-4 text-sm text-slate-500">
+            <a href="/" class="hover:text-primary-600">Home</a>
+            <span>/</span>
+            <span class="text-slate-900 dark:text-slate-300">Comparativos</span>
+        </nav>
+        <h1 class="text-4xl font-outfit font-extrabold text-slate-900 dark:text-white">
+            Duelos <span class="text-primary-600">X vs Y</span>
+        </h1>
+        <p class="mt-4 text-slate-500 dark:text-slate-400 max-w-2xl">
+            Colocamos os melhores gadgets lado a lado para você decidir qual realmente vale o seu dinheiro.
+        </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        {% for comparison in comparisons %}
+        <article class="flex flex-col group bg-white dark:bg-slate-900 rounded-3xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-all duration-300">
+            <a href="{% url 'reviews:comparison_detail' comparison.slug %}" class="relative aspect-video overflow-hidden block">
+                <img src="{{ comparison.main_image.url }}" alt="{{ comparison.title }}"
+                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </a>
+            
+            <div class="p-6">
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="px-3 py-1 bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 text-[10px] font-bold uppercase tracking-widest rounded-full">Duelo</span>
+                    <span class="text-slate-400 dark:text-slate-500 text-xs">{{ comparison.created_at|date:"d M, Y" }}</span>
+                </div>
+                
+                <h3 class="text-xl font-outfit font-bold text-slate-900 dark:text-white group-hover:text-primary-600 transition-colors line-clamp-2">
+                    <a href="{% url 'reviews:comparison_detail' comparison.slug %}">{{ comparison.title }}</a>
+                </h3>
+                
+                <div class="mt-6 flex items-center justify-between">
+                    <div class="flex -space-x-2">
+                         <div class="w-8 h-8 rounded-full border-2 border-white dark:border-slate-800 bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-[10px] font-bold">VS</div>
+                    </div>
+                    <a href="{% url 'reviews:comparison_detail' comparison.slug %}" class="text-sm font-bold text-primary-600 hover:text-primary-700 flex items-center gap-1 group/link">
+                        Veredito
+                        <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </article>
+        {% empty %}
+        <div class="col-span-full py-20 text-center bg-slate-50 dark:bg-slate-800/50 rounded-3xl border-2 border-dashed border-slate-200 dark:border-slate-700">
+            <p class="text-slate-500">Nenhum duelo publicado ainda. Em breve!</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Pagination -->
+    {% if is_paginated %}
+    <div class="mt-20 flex justify-center gap-2">
+        {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}"
+            class="px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl hover:bg-slate-50">Anterior</a>
+        {% endif %}
+        <span class="px-4 py-2 bg-primary-600 text-white rounded-xl font-bold">{{ page_obj.number }}</span>
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}"
+            class="px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl hover:bg-slate-50">Próxima</a>
+        {% endif %}
+    </div>
+    {% endif %}
+</section>
+{% endblock %}

@@ -125,6 +125,47 @@
     </div>
 </section>
 
+<!-- Comparisons (Duels) -->
+{% if comparisons %}
+<section class="bg-slate-50 dark:bg-slate-900/50 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between mb-12">
+            <div>
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-white">Duelos de Tecnologia</h2>
+                <p class="mt-2 text-slate-500 dark:text-slate-400">Comparamos os melhores gadgets lado a lado.</p>
+            </div>
+            <a href="{% url 'reviews:comparison_list' %}"
+                class="inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-bold text-primary-600 hover:border-primary-500 hover:text-primary-700 transition-all shadow-sm">
+                Ver todos os duelos
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </a>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {% for comparison in comparisons %}
+            <div class="group relative bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-slate-100 dark:border-slate-800 transform hover:-translate-y-2">
+                <a href="{% url 'reviews:comparison_detail' comparison.slug %}" class="block aspect-video overflow-hidden">
+                    <img src="{{ comparison.main_image.url }}" alt="{{ comparison.title }}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+                </a>
+                
+                <div class="absolute bottom-0 left-0 right-0 p-6">
+                    <div class="flex items-center gap-2 mb-3">
+                         <span class="px-2 py-0.5 bg-primary-600 text-white text-[10px] font-black uppercase tracking-tighter rounded-md">X vs Y</span>
+                    </div>
+                    <h3 class="text-xl font-outfit font-bold text-white leading-tight group-hover:text-primary-400 transition-colors">
+                        <a href="{% url 'reviews:comparison_detail' comparison.slug %}">{{ comparison.title }}</a>
+                    </h3>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
 <!-- Latest Posts -->
 <section id="latest" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
     <h2 class="text-3xl font-bold mb-12">Últimas Análises</h2>
