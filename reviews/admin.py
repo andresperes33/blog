@@ -52,16 +52,26 @@ class CommentAdmin(admin.ModelAdmin):
 
 @admin.register(Comparison)
 class ComparisonAdmin(admin.ModelAdmin):
-    list_display = ('title', 'product_1', 'product_2', 'created_at', 'is_featured', 'is_published')
+    list_display = ('title', 'product_1', 'product_2', 'rating', 'created_at', 'is_featured', 'is_published')
     list_filter = ('is_featured', 'is_published', 'created_at')
     search_fields = ('title', 'content', 'product_1__name', 'product_2__name')
     prepopulated_fields = {'slug': ('title',)}
+    readonly_fields = ('tags',)
     
     fieldsets = (
         (None, {
-            'fields': ('title', 'slug', 'author', 'main_image', 'is_featured', 'is_published')
+            'fields': ('title', 'slug', 'author', 'excerpt', 'main_image', 'rating', 'is_featured', 'is_published')
         }),
         ('Duelo', {
             'fields': ('product_1', 'product_2', 'content', 'verdict')
+        }),
+        ('Afiliados (Gerais do Duelo)', {
+            'fields': ('amazon_link', 'mercadolivre_link', 'shopee_link', 'aliexpress_link', 'kabum_link')
+        }),
+        ('Tags', {
+            'fields': ('tags_input', 'tags')
+        }),
+        ('Conteúdo Extra/Duelo', {
+            'fields': ('pros', 'cons', 'specifications')
         }),
     )

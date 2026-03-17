@@ -144,14 +144,32 @@ class Comment(models.Model):
         verbose_name_plural = "Comentários"
 
 class Comparison(models.Model):
-    title = models.CharField("Título do Comparativo", max_length=255)
-    slug = models.SlugField("Slug", max_length=255, unique=True, blank=True)
     product_1 = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="comparisons_as_first")
     product_2 = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="comparisons_as_second")
-    main_image = models.ImageField("Imagem do Duelo", upload_to="comparisons/main/")
+    title = models.CharField("Título do Comparativo", max_length=255)
+    slug = models.SlugField("Slug", max_length=255, unique=True, blank=True)
+    excerpt = models.TextField("Resumo", help_text="Aparece nas listagens.")
     content = models.TextField("Conteúdo do Comparativo (Markdown/HTML)")
     verdict = models.TextField("O Veredito do André", help_text="Explique quem ganha e por que.")
+    main_image = models.ImageField("Imagem do Duelo", upload_to="comparisons/main/")
+    rating = models.DecimalField("Nota do Duelo (0-10)", max_digits=3, decimal_places=1)
     
+    # Listas
+    pros = models.TextField("Pontos Positivos", help_text="Um por linha", blank=True)
+    cons = models.TextField("Pontos Negativos", help_text="Um por linha", blank=True)
+    specifications = models.JSONField("Especificações do Duelo", default=dict, blank=True)
+    
+    # Tags
+    tags_input = models.CharField("Tags (separadas por vírgula)", max_length=255, blank=True)
+    tags = models.ManyToManyField(Tag, blank=True)
+    
+    # Links de Afiliados (Gerais do Duelo)
+    amazon_link = models.URLField("Link Amazon", max_length=500, blank=True, null=True)
+    mercadolivre_link = models.URLField("Link Mercado Livre", max_length=500, blank=True, null=True)
+    shopee_link = models.URLField("Link Shopee", max_length=500, blank=True, null=True)
+    aliexpress_link = models.URLField("Link AliExpress", max_length=500, blank=True, null=True)
+    kabum_link = models.URLField("Link Kabum", max_length=500, blank=True, null=True)
+
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -177,6 +195,13 @@ class Comparison(models.Model):
                 self.main_image.save(name, ContentFile(output.read()), save=False)
 
         super().save(*args, **kwargs)
+        
+        # Process tags_input if present
+        if self.tags_input:
+            tag_names = [t.strip() for t in self.tags_input.split(',') if t.strip()]
+            for name in tag_names:
+                tag, created = Tag.objects.get_or_create(name=name)
+                self.tags.add(tag)
 
     class Meta:
         verbose_name = "Comparativo"

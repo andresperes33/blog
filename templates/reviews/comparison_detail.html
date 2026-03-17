@@ -41,6 +41,18 @@
     <!-- Capa Única Editada -->
     <div class="relative rounded-3xl overflow-hidden shadow-2xl mb-12 border border-slate-200 dark:border-slate-800">
         <img src="{{ comparison.main_image.url }}" alt="{{ comparison.title }}" class="w-full h-auto">
+        <div class="absolute top-6 right-6 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md px-4 py-2 rounded-2xl shadow-xl flex items-center gap-2 border border-white/20">
+            <span class="text-xs font-black uppercase text-slate-400">Nota</span>
+            <span class="text-2xl font-outfit font-extrabold text-primary-600">{{ comparison.rating }}</span>
+        </div>
+    </div>
+
+    <!-- Resumo -->
+    <div class="bg-primary-50 dark:bg-primary-900/10 border-l-4 border-primary-500 p-8 rounded-r-3xl mb-16">
+        <h3 class="text-primary-950 dark:text-primary-400 font-bold mb-2 uppercase tracking-tight text-sm">Resumo do Duelo</h3>
+        <p class="text-slate-700 dark:text-slate-300 italic text-lg leading-relaxed">
+            "{{ comparison.excerpt }}"
+        </p>
     </div>
 
     <!-- Tabela Comparativa Lado a Lado -->
@@ -66,7 +78,6 @@
                         <td class="p-6 text-sm font-semibold text-slate-500 dark:text-slate-400 bg-slate-50/30 dark:bg-slate-800/10 text-center">{{ spec.label }}</td>
                         <td class="p-6 text-sm text-slate-700 dark:text-slate-300 text-center">{{ spec.value }}</td>
                         <td class="p-6 text-sm text-slate-700 dark:text-slate-300 text-center font-medium">
-                            {# Busca a mesma spec no produto 2 #}
                             {% with label=spec.label %}
                                 {% for s2 in p2.parsed_specs %}
                                     {% if s2.label == label %}{{ s2.value }}{% endif %}
@@ -79,6 +90,42 @@
             </table>
         </div>
     </section>
+
+    <!-- Prós e Contras do Duelo -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <div class="bg-emerald-50 dark:bg-emerald-950/20 p-8 rounded-[2rem] border border-emerald-100 dark:border-emerald-900/30">
+            <h3 class="flex items-center gap-2 text-emerald-700 dark:text-emerald-400 font-bold mb-6">
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                O que gostamos
+            </h3>
+            <ul class="space-y-4">
+                {% for pro in comparison.pros.splitlines %}
+                <li class="flex items-start gap-3 text-emerald-800 dark:text-emerald-300/80 text-sm leading-relaxed">
+                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0"></span>
+                    {{ pro }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="bg-rose-50 dark:bg-rose-950/20 p-8 rounded-[2rem] border border-rose-100 dark:border-rose-900/30">
+            <h3 class="flex items-center gap-2 text-rose-700 dark:text-rose-400 font-bold mb-6">
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                O que pode melhorar
+            </h3>
+            <ul class="space-y-4">
+                {% for con in comparison.cons.splitlines %}
+                <li class="flex items-start gap-3 text-rose-800 dark:text-rose-300/80 text-sm leading-relaxed">
+                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-rose-500 shrink-0"></span>
+                    {{ con }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 
     <!-- Conteúdo do Artigo -->
     <section class="prose prose-slate dark:prose-invert max-w-none mb-16">
@@ -107,22 +154,33 @@
                 {{ comparison.verdict|linebreaks }}
             </div>
 
-            <!-- Botões de Compra -->
+            <!-- Botões de Compra Gerais do Duelo -->
+            <div class="mb-10 p-6 bg-white/5 rounded-3xl border border-white/10">
+                <p class="text-white font-bold mb-4 flex items-center gap-2">
+                    <span class="text-xl">💰</span> Melhores Ofertas do Dia:
+                </p>
+                <div class="flex flex-wrap gap-3">
+                    {% if comparison.amazon_link %}<a href="{{ comparison.amazon_link }}" target="_blank" class="bg-[#FF9900] text-black px-6 py-3 rounded-2xl font-bold hover:scale-105 transition-transform flex items-center gap-2">Amazon</a>{% endif %}
+                    {% if comparison.mercadolivre_link %}<a href="{{ comparison.mercadolivre_link }}" target="_blank" class="bg-[#FFE600] text-black px-6 py-3 rounded-2xl font-bold hover:scale-105 transition-transform flex items-center gap-2">Mercado Livre</a>{% endif %}
+                    {% if comparison.shopee_link %}<a href="{{ comparison.shopee_link }}" target="_blank" class="bg-[#EE4D2D] text-white px-6 py-3 rounded-2xl font-bold hover:scale-105 transition-transform">Shopee</a>{% endif %}
+                    {% if comparison.aliexpress_link %}<a href="{{ comparison.aliexpress_link }}" target="_blank" class="bg-[#E62E04] text-white px-6 py-3 rounded-2xl font-bold hover:scale-105 transition-transform">AliExpress</a>{% endif %}
+                    {% if comparison.kabum_link %}<a href="{{ comparison.kabum_link }}" target="_blank" class="bg-[#0060B1] text-white px-6 py-3 rounded-2xl font-bold hover:scale-105 transition-transform">Kabum</a>{% endif %}
+                </div>
+            </div>
+
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div class="space-y-4">
-                    <p class="text-white font-bold text-center sm:text-left">Comprar {{ p1.name }}:</p>
-                    <div class="flex flex-wrap gap-2 justify-center sm:justify-start">
-                        {% if p1.amazon_link %}<a href="{{ p1.amazon_link }}" target="_blank" class="bg-[#FF9900] text-black px-4 py-2 rounded-xl font-bold text-xs hover:scale-105 transition-transform">Amazon</a>{% endif %}
-                        {% if p1.mercadolivre_link %}<a href="{{ p1.mercadolivre_link }}" target="_blank" class="bg-[#FFE600] text-black px-4 py-2 rounded-xl font-bold text-xs hover:scale-105 transition-transform">M. Livre</a>{% endif %}
-                        {% if review_1 %}<a href="{% url 'reviews:review_detail' review_1.slug %}" class="bg-white/10 text-white px-4 py-2 rounded-xl font-bold text-xs border border-white/20 hover:bg-white/20 transition-all">Ver Review</a>{% endif %}
+                    <p class="text-slate-400 text-sm font-bold uppercase">Mais de {{ p1.name }}:</p>
+                    <div class="flex flex-wrap gap-2">
+                        {% if p1.amazon_link %}<a href="{{ p1.amazon_link }}" target="_blank" class="bg-white/5 text-slate-300 px-4 py-2 rounded-xl text-xs border border-white/10 hover:bg-white/10 transition-all">Amazon</a>{% endif %}
+                        {% if review_1 %}<a href="{% url 'reviews:review_detail' review_1.slug %}" class="bg-primary-600/20 text-primary-400 px-4 py-2 rounded-xl text-xs border border-primary-500/30 hover:bg-primary-600/30 transition-all font-bold">Ver Review Individual</a>{% endif %}
                     </div>
                 </div>
                 <div class="space-y-4">
-                    <p class="text-white font-bold text-center sm:text-left">Comprar {{ p2.name }}:</p>
-                    <div class="flex flex-wrap gap-2 justify-center sm:justify-start">
-                        {% if p2.amazon_link %}<a href="{{ p2.amazon_link }}" target="_blank" class="bg-[#FF9900] text-black px-4 py-2 rounded-xl font-bold text-xs hover:scale-105 transition-transform">Amazon</a>{% endif %}
-                        {% if p2.mercadolivre_link %}<a href="{{ p2.mercadolivre_link }}" target="_blank" class="bg-[#FFE600] text-black px-4 py-2 rounded-xl font-bold text-xs hover:scale-105 transition-transform">M. Livre</a>{% endif %}
-                        {% if review_2 %}<a href="{% url 'reviews:review_detail' review_2.slug %}" class="bg-white/10 text-white px-4 py-2 rounded-xl font-bold text-xs border border-white/20 hover:bg-white/20 transition-all">Ver Review</a>{% endif %}
+                    <p class="text-slate-400 text-sm font-bold uppercase">Mais de {{ p2.name }}:</p>
+                    <div class="flex flex-wrap gap-2">
+                        {% if p2.amazon_link %}<a href="{{ p2.amazon_link }}" target="_blank" class="bg-white/5 text-slate-300 px-4 py-2 rounded-xl text-xs border border-white/10 hover:bg-white/10 transition-all">Amazon</a>{% endif %}
+                        {% if review_2 %}<a href="{% url 'reviews:review_detail' review_2.slug %}" class="bg-primary-600/20 text-primary-400 px-4 py-2 rounded-xl text-xs border border-primary-500/30 hover:bg-primary-600/30 transition-all font-bold">Ver Review Individual</a>{% endif %}
                     </div>
                 </div>
             </div>
