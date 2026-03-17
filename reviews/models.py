@@ -178,16 +178,18 @@ class Comparison(models.Model):
     tags_input = models.CharField("Tags (separadas por vírgula)", max_length=255, blank=True, help_text="Ex: gamer, barato, potente")
     tags = models.ManyToManyField(Tag, blank=True)
     
-    # Conteúdo Extra
-    pros = models.TextField("Pontos Positivos", help_text="Um por linha", blank=True)
-    cons = models.TextField("Pontos Negativos", help_text="Um por linha", blank=True)
-    
-    # Especificações Técnicas Individuais (Opcional, se quiser sobrescrever o produto)
-    specifications_1 = models.JSONField("Especificações Técnicas Produto 1", default=dict, blank=True)
-    specifications_2 = models.JSONField("Especificações Técnicas Produto 2", default=dict, blank=True)
+    # Conteúdo Extra Produto 1
+    pros_1 = models.TextField("Pontos Positivos (Produto 1)", help_text="Um por linha", blank=True)
+    cons_1 = models.TextField("Pontos Negativos (Produto 1)", help_text="Um por linha", blank=True)
+    rating_1 = models.DecimalField("Nota Produto 1 (0-10)", max_digits=3, decimal_places=1, default=0.0)
 
-    # Nota do Duelo
-    rating = models.DecimalField("Nota (0-10)", max_digits=3, decimal_places=1, default=0.0)
+    # Conteúdo Extra Produto 2
+    pros_2 = models.TextField("Pontos Positivos (Produto 2)", help_text="Um por linha", blank=True)
+    cons_2 = models.TextField("Pontos Negativos (Produto 2)", help_text="Um por linha", blank=True)
+    rating_2 = models.DecimalField("Nota Produto 2 (0-10)", max_digits=3, decimal_places=1, default=0.0)
+    
+    # Nota Geral do Duelo (Opcional, se quiser manter uma média ou nota de quem ganha)
+    rating = models.DecimalField("Nota Geral do Duelo (0-10)", max_digits=3, decimal_places=1, default=0.0)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

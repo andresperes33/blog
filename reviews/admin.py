@@ -77,8 +77,14 @@ class ComparisonAdmin(admin.ModelAdmin):
         ('Tags', {
             'fields': ('tags_input', 'tags')
         }),
-        ('Conteúdo Extra', {
-            'fields': ('pros', 'cons', 'rating', 'is_featured', 'is_published')
+        ('Conteúdo Extra Produto 1', {
+            'fields': ('pros_1', 'cons_1', 'rating_1')
+        }),
+        ('Conteúdo Extra Produto 2', {
+            'fields': ('pros_2', 'cons_2', 'rating_2')
+        }),
+        ('Configurações e Nota Geral', {
+            'fields': ('rating', 'is_featured', 'is_published')
         }),
         ('Especificações Técnicas de cada produto', {
             'fields': ('specifications_1', 'specifications_2')
