@@ -72,13 +72,6 @@
                 <img src="{{ comparison.main_image.url }}" alt="{{ comparison.title }}" fetchpriority="high" decoding="async" class="w-full h-full object-cover">
             </div>
 
-            <!-- Resumo -->
-            <div class="bg-primary-50 dark:bg-primary-900/10 border-l-4 border-primary-500 p-8 rounded-r-3xl mb-16">
-                <p class="text-slate-700 dark:text-slate-300 italic text-lg leading-relaxed">
-                    "{{ comparison.excerpt }}"
-                </p>
-            </div>
-
             <div class="comparison-content prose prose-lg dark:prose-invert max-w-none">
                 {{ comparison.content|safe }}
             </div>
