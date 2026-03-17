@@ -188,6 +188,10 @@ class Comparison(models.Model):
     cons_2 = models.TextField("Pontos Negativos (Produto 2)", help_text="Um por linha", blank=True)
     rating_2 = models.DecimalField("Nota Produto 2 (0-10)", max_digits=3, decimal_places=1, default=0.0)
     
+    # Especificações Técnicas Individuais (Opcional, se quiser sobrescrever o produto)
+    specifications_1 = models.JSONField("Especificações Técnicas Produto 1", default=dict, blank=True)
+    specifications_2 = models.JSONField("Especificações Técnicas Produto 2", default=dict, blank=True)
+    
     # Nota Geral do Duelo (Opcional, se quiser manter uma média ou nota de quem ganha)
     rating = models.DecimalField("Nota Geral do Duelo (0-10)", max_digits=3, decimal_places=1, default=0.0)
 
