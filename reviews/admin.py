@@ -5,10 +5,9 @@ class ReviewImageInline(admin.TabularInline):
     model = ReviewImage
     extra = 1
 
-class GuideItemInline(admin.TabularInline):
+class GuideItemInline(admin.StackedInline):
     model = GuideItem
-    extra = 3
-    fields = ('position', 'name', 'product', 'image')
+    extra = 1
 
 @admin.register(Guide)
 class GuideAdmin(admin.ModelAdmin):
