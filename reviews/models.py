@@ -296,6 +296,3 @@ class GuideItem(models.Model):
 
     def __str__(self):
         return f"{self.position}º - {self.name}"
-
-    def __str__(self):
-        return self.title
