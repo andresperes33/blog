@@ -244,5 +244,58 @@ class Comparison(models.Model):
             return [{"label": k, "value": v} for k, v in self.specifications_2.items()]
         return []
 
+class Guide(models.Model):
+    title = models.CharField("Título do Guia", max_length=255)
+    slug = models.SlugField("Slug", max_length=255, unique=True, blank=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="guides")
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    excerpt = models.TextField("Resumo", help_text="Aparece nas listagens.")
+    content = models.TextField("Conteúdo/Introdução do Guia")
+    conclusion = models.TextField("Conclusão/Veredito Final", blank=True)
+    main_image = models.ImageField("Imagem Principal", upload_to="guides/main/")
+    is_published = models.BooleanField("Publicado", default=True)
+    is_featured = models.BooleanField("Destaque na Home", default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = "Guia de Compra"
+        verbose_name_plural = "Guias de Compra"
+
+    def __str__(self):
+        return self.title
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
+
+class GuideItem(models.Model):
+    guide = models.ForeignKey(Guide, on_delete=models.CASCADE, related_name="items")
+    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True, blank=True, help_text="Opcional: Vincule a um produto existente")
+    position = models.PositiveIntegerField("Posição no Rank (1, 2, 3...)")
+    name = models.CharField("Nome de Exibição do Produto", max_length=255)
+    description = models.TextField("Descrição/Análise Curta")
+    image = models.ImageField("Imagem do Produto", upload_to="guides/items/", blank=True, null=True)
+    
+    # Links de Afiliados Manual (Caso não queira usar campos do Produto)
+    amazon_link = models.URLField("Link Amazon", max_length=500, blank=True, null=True)
+    mercadolivre_link = models.URLField("Link Mercado Livre", max_length=500, blank=True, null=True)
+    shopee_link = models.URLField("Link Shopee", max_length=500, blank=True, null=True)
+    aliexpress_link = models.URLField("Link AliExpress", max_length=500, blank=True, null=True)
+    kabum_link = models.URLField("Link Kabum", max_length=500, blank=True, null=True)
+    
+    # Prós e Contras
+    pros = models.TextField("Pontos Positivos", help_text="Um por linha", blank=True)
+    cons = models.TextField("Pontos Negativos", help_text="Um por linha", blank=True)
+    
+    class Meta:
+        verbose_name = "Item do Guia"
+        verbose_name_plural = "Itens do Guia"
+        ordering = ['position']
+
+    def __str__(self):
+        return f"{self.position}º - {self.name}"
+
     def __str__(self):
         return self.title

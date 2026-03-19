@@ -1,9 +1,22 @@
 from django.contrib import admin
-from .models import Category, Tag, Product, Review, ReviewImage, Comment, Comparison
+from .models import Category, Tag, Product, Review, ReviewImage, Comment, Comparison, Guide, GuideItem
 
 class ReviewImageInline(admin.TabularInline):
     model = ReviewImage
     extra = 1
+
+class GuideItemInline(admin.TabularInline):
+    model = GuideItem
+    extra = 3
+    fields = ('position', 'name', 'product', 'image')
+
+@admin.register(Guide)
+class GuideAdmin(admin.ModelAdmin):
+    list_display = ('title', 'category', 'created_at', 'is_featured', 'is_published')
+    list_filter = ('category', 'is_featured', 'is_published')
+    search_fields = ('title', 'content')
+    prepopulated_fields = {'slug': ('title',)}
+    inlines = [GuideItemInline]
 
 @admin.register(Review)
 class ReviewAdmin(admin.ModelAdmin):

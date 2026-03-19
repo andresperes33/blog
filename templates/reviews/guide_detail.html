@@ -1,0 +1,236 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ guide.title }} | André Indica{% endblock %}
+
+{% block extra_css %}
+<style>
+    .scroll-mt-24 { scroll-margin-top: 6rem; }
+    .guide-content h2 { font-size: 1.875rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1.25rem; font-family: 'Outfit', sans-serif; }
+    .guide-content p { margin-bottom: 1.5rem; line-height: 1.8; color: #475569; }
+    .dark .guide-content p { color: #94a3b8; }
+</style>
+{% endblock %}
+
+{% block content %}
+<main class="min-h-screen pb-20 bg-slate-50 dark:bg-slate-950">
+    <!-- Hero Section -->
+    <header class="bg-slate-900 pt-32 pb-40 px-4 relative overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-40">
+            <img src="{{ guide.main_image.url }}" alt="" class="w-full h-full object-cover blur-sm">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-slate-900/40"></div>
+        </div>
+
+        <div class="max-w-4xl mx-auto relative z-10 text-center">
+            <nav class="flex items-center justify-center gap-2 text-slate-400 text-xs mb-8 font-medium uppercase tracking-widest">
+                <a href="{% url 'reviews:index' %}" class="hover:text-white transition-colors">Home</a>
+                <span>/</span>
+                <a href="{% url 'reviews:guide_list' %}" class="hover:text-white transition-colors">Guias</a>
+                <span>/</span>
+                <span class="text-primary-400">{{ guide.category.name }}</span>
+            </nav>
+            <h1 class="text-3xl md:text-5xl lg:text-6xl font-outfit font-black text-white mb-8 leading-tight">
+                {{ guide.title }}
+            </h1>
+            <div class="flex items-center justify-center gap-6 text-slate-300 text-sm">
+                <div class="flex items-center gap-2">
+                    <div class="w-10 h-10 rounded-full bg-primary-600 flex items-center justify-center font-bold text-white shadow-lg">
+                        {{ guide.author.username|first|upper }}
+                    </div>
+                    <span class="font-bold">Por {{ guide.author.get_full_name|default:guide.author.username }}</span>
+                </div>
+                <span class="w-1 h-1 bg-slate-700 rounded-full"></span>
+                <span class="font-medium italic text-slate-400">{{ guide.created_at|date:"d de F, Y" }}</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20 relative z-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <!-- Sidebar: Índice / Navegação Rápida -->
+            <aside class="lg:col-span-3 order-2 lg:order-1">
+                <div class="sticky top-24 space-y-6">
+                    <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-xl border border-slate-100 dark:border-slate-800">
+                        <h3 class="text-sm font-black uppercase tracking-widest text-slate-900 dark:text-white mb-6 border-b border-slate-50 dark:border-slate-800 pb-4">
+                            Neste Guia
+                        </h3>
+                        <nav class="space-y-4">
+                            {% for item in items %}
+                            <a href="#item-{{ item.position }}" class="group flex items-start gap-3 text-sm text-slate-500 dark:text-slate-400 hover:text-primary-600 transition-colors">
+                                <span class="w-6 h-6 flex-shrink-0 flex items-center justify-center rounded-lg bg-slate-50 dark:bg-slate-800 text-[10px] font-bold group-hover:bg-primary-50 dark:group-hover:bg-primary-900/30 group-hover:text-primary-600">
+                                    {{ item.position }}
+                                </span>
+                                <span class="font-medium line-clamp-2 leading-tight">{{ item.name }}</span>
+                            </a>
+                            {% endfor %}
+                            <a href="#conclusao" class="group flex items-start gap-3 text-sm text-slate-500 dark:text-slate-400 hover:text-primary-600 transition-colors pt-4 border-t border-slate-50 dark:border-slate-800">
+                                <span class="font-bold uppercase tracking-wider text-[10px]">Veredito Final</span>
+                            </a>
+                        </nav>
+                    </div>
+
+                    <!-- CTA VIP -->
+                    <div class="bg-gradient-to-br from-primary-600 to-primary-800 rounded-3xl p-6 text-white shadow-xl">
+                        <h4 class="font-bold mb-2">Quer promoções?</h4>
+                        <p class="text-xs text-primary-100 mb-4 leading-relaxed">Participe do nosso grupo VIP e receba ofertas em primeira mão.</p>
+                        <a href="#" class="block w-full py-3 bg-white text-primary-700 text-center rounded-xl font-bold text-xs hover:bg-primary-50 transition-colors shadow-lg">Entrar no Grupo</a>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Conteúdo Principal -->
+            <div class="lg:col-span-9 order-1 lg:order-2 space-y-12">
+                <!-- Introdução -->
+                <article class="bg-white dark:bg-slate-900 rounded-[2.5rem] p-8 md:p-12 shadow-xl border border-slate-100 dark:border-slate-800">
+                    <div class="guide-content prose prose-lg dark:prose-invert max-w-none">
+                        {{ guide.content|safe }}
+                    </div>
+                </article>
+
+                <!-- Itens do Guia -->
+                <div class="space-y-16">
+                    {% for item in items %}
+                    <section id="item-{{ item.position }}" class="scroll-mt-24 group">
+                        <div class="bg-white dark:bg-slate-900 rounded-[2.5rem] overflow-hidden shadow-xl border border-slate-100 dark:border-slate-800 hover:border-primary-500/30 transition-all duration-500">
+                            <!-- Header do Produto -->
+                            <div class="p-8 md:p-12 grid grid-cols-1 md:grid-cols-12 gap-10">
+                                <!-- Imagem e Rank -->
+                                <div class="md:col-span-5 relative">
+                                    <div class="absolute -top-4 -left-4 w-12 h-12 bg-primary-600 text-white flex items-center justify-center font-black text-xl rounded-2xl shadow-xl z-10">
+                                        {{ item.position }}º
+                                    </div>
+                                    <div class="aspect-square rounded-3xl overflow-hidden bg-slate-50 dark:bg-slate-800">
+                                        {% if item.image %}
+                                        <img src="{{ item.image.url }}" alt="{{ item.name }}" class="w-full h-full object-contain p-4 group-hover:scale-110 transition-transform duration-700">
+                                        {% elif item.product and item.product.main_image %}
+                                        <img src="{{ item.product.main_image.url }}" alt="{{ item.name }}" class="w-full h-full object-contain p-4 group-hover:scale-110 transition-transform duration-700">
+                                        {% endif %}
+                                    </div>
+                                </div>
+
+                                <!-- Detalhes Rápidos -->
+                                <div class="md:col-span-7 flex flex-col justify-center">
+                                    <h2 class="text-3xl font-outfit font-black text-slate-900 dark:text-white mb-6 leading-tight">
+                                        {{ item.name }}
+                                    </h2>
+                                    <div class="prose dark:prose-invert line-clamp-6 mb-8 text-slate-600 dark:text-slate-400 leading-relaxed">
+                                        {{ item.description|safe }}
+                                    </div>
+                                    
+                                    <!-- Ofertas Rápidas -->
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                        {% if item.amazon_link or item.product.amazon_link %}
+                                        <a href="{{ item.amazon_link|default:item.product.amazon_link }}" target="_blank" rel="nofollow" class="flex items-center justify-center gap-2 py-4 bg-[#FF9900] text-slate-900 font-black text-xs rounded-2xl shadow-lg hover:brightness-110 active:scale-95 transition-all">
+                                            Ver na Amazon
+                                        </a>
+                                        {% endif %}
+                                        {% if item.mercadolivre_link or item.product.mercadolivre_link %}
+                                        <a href="{{ item.mercadolivre_link|default:item.product.mercadolivre_link }}" target="_blank" rel="nofollow" class="flex items-center justify-center gap-2 py-4 bg-[#FFE600] text-slate-900 font-black text-xs rounded-2xl shadow-lg hover:brightness-110 active:scale-95 transition-all">
+                                            Mercado Livre
+                                        </a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Footer com Prós/Contras -->
+                            <div class="bg-slate-50 dark:bg-slate-800/50 p-8 md:px-12 border-t border-slate-100 dark:border-slate-800">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                    <!-- Prós -->
+                                    <div>
+                                        <h4 class="text-[10px] font-black uppercase tracking-widest text-emerald-600 mb-4 flex items-center gap-2">
+                                            <span class="w-4 h-4 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center text-xs">✓</span>
+                                            O que gostamos
+                                        </h4>
+                                        <ul class="space-y-2">
+                                            {% for line in item.pros.splitlines %}
+                                            <li class="flex items-start gap-2 text-sm text-slate-500 dark:text-slate-400">
+                                                <span class="text-emerald-500 mt-1">•</span>
+                                                {{ line }}
+                                            </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                    <!-- Contras -->
+                                    <div>
+                                        <h4 class="text-[10px] font-black uppercase tracking-widest text-rose-600 mb-4 flex items-center gap-2">
+                                            <span class="w-4 h-4 rounded-full bg-rose-100 dark:bg-rose-900/30 flex items-center justify-center text-xs">✕</span>
+                                            O que poderia ser melhor
+                                        </h4>
+                                        <ul class="space-y-2">
+                                            {% for line in item.cons.splitlines %}
+                                            <li class="flex items-start gap-2 text-sm text-slate-500 dark:text-slate-400">
+                                                <span class="text-rose-500 mt-1">•</span>
+                                                {{ line }}
+                                            </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                {% if item.shopee_link or item.aliexpress_link or item.kabum_link %}
+                                <div class="mt-8 pt-8 border-t border-slate-200 dark:border-slate-700 flex flex-wrap gap-4 items-center justify-center">
+                                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Outras Lojas:</span>
+                                    {% if item.kabum_link or item.product.kabum_link %}<a href="{{ item.kabum_link|default:item.product.kabum_link }}" target="_blank" rel="nofollow" class="text-xs font-bold text-primary-600 hover:text-primary-700">KaBuM!</a>{% endif %}
+                                    {% if item.aliexpress_link or item.product.aliexpress_link %}<a href="{{ item.aliexpress_link|default:item.product.aliexpress_link }}" target="_blank" rel="nofollow" class="text-xs font-bold text-primary-600 hover:text-primary-700">AliExpress</a>{% endif %}
+                                    {% if item.shopee_link or item.product.shopee_link %}<a href="{{ item.shopee_link|default:item.product.shopee_link }}" target="_blank" rel="nofollow" class="text-xs font-bold text-primary-600 hover:text-primary-700">Shopee</a>{% endif %}
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </section>
+                    {% endfor %}
+                </div>
+
+                <!-- Conclusão -->
+                {% if guide.conclusion %}
+                <article id="conclusao" class="bg-slate-900 rounded-[2.5rem] p-8 md:p-12 shadow-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-primary-600/10 rounded-full blur-[80px] -mr-32 -mt-32"></div>
+                    <div class="relative z-10">
+                        <h2 class="text-3xl font-outfit font-black text-white mb-8 border-l-4 border-primary-500 pl-6">
+                            Veredito André Indica
+                        </h2>
+                        <div class="prose prose-lg prose-invert max-w-none text-slate-300">
+                            {{ guide.conclusion|safe }}
+                        </div>
+                    </div>
+                </article>
+                {% endif %}
+
+                <!-- Outros Guias -->
+                {% if latest_guides %}
+                <section class="pt-12">
+                    <h3 class="text-2xl font-bold font-outfit dark:text-white mb-8">Outras listas recomendadas</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {% for g in latest_guides %}
+                        <a href="{% url 'reviews:guide_detail' g.slug %}" class="flex gap-4 p-4 bg-white dark:bg-slate-900 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all group">
+                            <div class="w-24 h-24 rounded-2xl overflow-hidden flex-shrink-0">
+                                <img src="{{ g.main_image.url }}" alt="" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                            </div>
+                            <div class="flex flex-col justify-center">
+                                <h4 class="font-bold dark:text-white group-hover:text-primary-600 transition-colors line-clamp-2">{{ g.title }}</h4>
+                                <span class="text-xs text-slate-400 mt-2">{{ g.created_at|date:"d M, Y" }}</span>
+                            </div>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </section>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Anchor Animation -->
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+{% endblock %}

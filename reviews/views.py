@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
-from .models import Review, Category, Product, Comparison
+from .models import Review, Category, Product, Comparison, Guide, GuideItem
 
 class ReviewListView(ListView):
     model = Review
@@ -95,3 +95,23 @@ class TermsView(TemplateView):
 
 class ContactView(TemplateView):
     template_name = 'reviews/contact.html'
+
+class GuideListView(ListView):
+    model = Guide
+    template_name = 'reviews/guide_list.html'
+    context_object_name = 'guides'
+    paginate_by = 9
+
+    def get_queryset(self):
+        return Guide.objects.filter(is_published=True).order_by('-created_at')
+
+class GuideDetailView(DetailView):
+    model = Guide
+    template_name = 'reviews/guide_detail.html'
+    context_object_name = 'guide'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['items'] = self.object.items.all().order_by('position')
+        context['latest_guides'] = Guide.objects.filter(is_published=True).exclude(id=self.object.id)[:3]
+        return context
