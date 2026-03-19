@@ -5,33 +5,56 @@
 
 {% block content %}
 <!-- Hero Section -->
-<section class="relative overflow-hidden bg-slate-900 py-16 sm:py-24 lg:py-32">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+<section class="relative overflow-hidden bg-slate-900 min-h-[500px] flex items-center">
+    <!-- Imagem de fundo -->
+    <div class="absolute inset-0">
+        <img src="{% static 'img/hero_gpu_bg.png' %}" alt="GPU background"
+            class="w-full h-full object-cover object-center opacity-30">
+        <!-- Gradient overlay para legibilidade -->
+        <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-slate-900/40"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-20 sm:py-28">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
             
-            <!-- Coluna da Esquerda: Textos Originais -->
-            <div class="text-center lg:text-left">
-                <h1 class="text-4xl font-outfit font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
-                    Reviews de <span class="text-primary-500">Tecnologia</span> Feitos por quem entende
+            <!-- Coluna da Esquerda -->
+            <div class="text-left">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-500/10 border border-primary-500/30 text-primary-400 text-xs font-bold uppercase tracking-widest mb-8">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
+                    </span>
+                    Reviews Honestos
+                </div>
+
+                <h1 class="text-4xl font-outfit font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl leading-tight">
+                    Reviews de <span class="text-primary-500">Tecnologia</span><br>Feitos por quem entende
                 </h1>
-                <p class="mt-6 text-lg leading-8 text-slate-300 max-w-2xl mx-auto lg:mx-0">
+                <p class="mt-6 text-lg leading-8 text-slate-300 max-w-xl">
                     Análises honestas, testes detalhados e comparativos reais dos gadgets e softwares que você quer comprar.
                 </p>
-                <div class="mt-10 flex items-center justify-center lg:justify-start gap-x-6">
+                <div class="mt-10 flex items-center gap-4">
                     <a href="#latest"
-                        class="rounded-full bg-primary-600 px-8 py-3.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 transition-all transform hover:scale-105">
+                        class="rounded-full bg-primary-600 px-8 py-3.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 transition-all transform hover:scale-105">
                         Ver Reviews Recentes
+                    </a>
+                    <a href="{% url 'reviews:all_categories' %}"
+                        class="text-sm font-semibold text-slate-300 hover:text-white transition-colors flex items-center gap-1">
+                        Ver Categorias
+                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
                     </a>
                 </div>
             </div>
 
-            <!-- Coluna da Direita: Card de Promoções (Novo CTA) -->
-            <div class="relative bg-slate-800/80 backdrop-blur-xl p-8 sm:p-10 rounded-3xl border border-slate-700/50 shadow-2xl overflow-hidden group">
-                <!-- Efeitos visuais do card -->
+            <!-- Coluna da Direita: Card de Promoções -->
+            <div class="relative bg-slate-800/60 backdrop-blur-xl p-8 rounded-3xl border border-slate-700/50 shadow-2xl overflow-hidden group">
                 <div class="absolute -top-32 -right-32 w-64 h-64 bg-primary-500/20 rounded-full blur-3xl group-hover:bg-primary-500/30 transition-colors duration-500"></div>
                 <div class="absolute -bottom-32 -left-32 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl"></div>
                 
-                <div class="relative z-10 text-center lg:text-left">
+                <div class="relative z-10">
                     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-500/10 border border-primary-500/20 text-primary-400 text-xs font-bold uppercase tracking-widest mb-6">
                         <span class="relative flex h-2 w-2">
                             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
@@ -40,7 +63,7 @@
                         Ofertas 24h por dia
                     </div>
                     
-                    <h2 class="text-3xl font-outfit font-bold text-white mb-4 line-tight">
+                    <h2 class="text-3xl font-outfit font-bold text-white mb-4">
                         Promoções e Cupons <span class="text-primary-500">Ao Vivo!</span>
                     </h2>
                     
@@ -60,8 +83,8 @@
             
         </div>
     </div>
-    <!-- Padrão de fundo em CSS puro (Dots) para evitar requisição externa -->
-    <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#4a5568 0.5px, transparent 0.5px); background-size: 24px 24px;"></div>
+    <!-- Padrão de fundo sutil -->
+    <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(#4a5568 0.5px, transparent 0.5px); background-size: 24px 24px;"></div>
 </section>
 
 <!-- Featured Section -->
