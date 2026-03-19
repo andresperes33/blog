@@ -110,19 +110,25 @@
                                     </div>
 
                                     <!-- Principais Lojas -->
-                                    <div class="flex flex-wrap gap-3 mt-auto">
+                                    <div class="flex flex-wrap gap-4 mt-auto">
                                         {% if item.amazon_link %}
-                                        <a href="{{ item.amazon_link }}" target="_blank" rel="nofollow" class="flex-1 min-w-[140px] flex items-center justify-center py-3.5 bg-[#FF9900] text-black font-black text-[10px] uppercase tracking-wider rounded-2xl shadow-lg hover:brightness-110 transition-all active:scale-95">
+                                        <a href="{{ item.amazon_link }}" target="_blank" rel="nofollow" 
+                                           style="background-color: #FF9900; color: #000000;"
+                                           class="flex-1 min-w-[160px] flex items-center justify-center py-4 font-black text-sm uppercase tracking-wider rounded-2xl shadow-lg hover:brightness-110 hover:-translate-y-1 transition-all active:scale-95">
                                             Ver na Amazon
                                         </a>
                                         {% endif %}
                                         {% if item.mercadolivre_link %}
-                                        <a href="{{ item.mercadolivre_link }}" target="_blank" rel="nofollow" class="flex-1 min-w-[140px] flex items-center justify-center py-3.5 bg-[#FFE600] text-[#2D3277] font-black text-[10px] uppercase tracking-wider rounded-2xl shadow-lg hover:brightness-110 transition-all active:scale-95">
+                                        <a href="{{ item.mercadolivre_link }}" target="_blank" rel="nofollow" 
+                                           style="background-color: #FFE600; color: #2D3277;"
+                                           class="flex-1 min-w-[160px] flex items-center justify-center py-4 font-black text-sm uppercase tracking-wider rounded-2xl shadow-lg hover:brightness-110 hover:-translate-y-1 transition-all active:scale-95">
                                             Ver no Mercado Livre
                                         </a>
                                         {% endif %}
                                         {% if item.kabum_link %}
-                                        <a href="{{ item.kabum_link }}" target="_blank" rel="nofollow" class="flex-1 min-w-[140px] flex items-center justify-center py-3.5 bg-[#0060B1] text-white font-black text-[10px] uppercase tracking-wider rounded-2xl shadow-lg hover:brightness-110 transition-all active:scale-95">
+                                        <a href="{{ item.kabum_link }}" target="_blank" rel="nofollow" 
+                                           style="background-color: #0060B1; color: #FFFFFF;"
+                                           class="flex-1 min-w-[160px] flex items-center justify-center py-4 font-black text-sm uppercase tracking-wider rounded-2xl shadow-lg hover:brightness-110 hover:-translate-y-1 transition-all active:scale-95">
                                             Ver na KaBuM!
                                         </a>
                                         {% endif %}
