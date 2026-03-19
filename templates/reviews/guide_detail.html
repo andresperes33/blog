@@ -109,30 +109,6 @@
                                         {{ item.description|safe }}
                                     </div>
 
-                                    <!-- Principais Lojas -->
-                                    <div class="flex flex-wrap gap-4 mt-auto">
-                                        {% if item.amazon_link %}
-                                        <a href="{{ item.amazon_link }}" target="_blank" rel="nofollow" 
-                                           style="background-color: #FF9900; color: #000000;"
-                                           class="flex-1 min-w-[160px] flex items-center justify-center py-4 font-black text-sm uppercase tracking-wider rounded-2xl shadow-lg hover:brightness-110 hover:-translate-y-1 transition-all active:scale-95">
-                                            Ver na Amazon
-                                        </a>
-                                        {% endif %}
-                                        {% if item.mercadolivre_link %}
-                                        <a href="{{ item.mercadolivre_link }}" target="_blank" rel="nofollow" 
-                                           style="background-color: #FFE600; color: #2D3277;"
-                                           class="flex-1 min-w-[160px] flex items-center justify-center py-4 font-black text-sm uppercase tracking-wider rounded-2xl shadow-lg hover:brightness-110 hover:-translate-y-1 transition-all active:scale-95">
-                                            Ver no Mercado Livre
-                                        </a>
-                                        {% endif %}
-                                        {% if item.kabum_link %}
-                                        <a href="{{ item.kabum_link }}" target="_blank" rel="nofollow" 
-                                           style="background-color: #0060B1; color: #FFFFFF;"
-                                           class="flex-1 min-w-[160px] flex items-center justify-center py-4 font-black text-sm uppercase tracking-wider rounded-2xl shadow-lg hover:brightness-110 hover:-translate-y-1 transition-all active:scale-95">
-                                            Ver na KaBuM!
-                                        </a>
-                                        {% endif %}
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -176,25 +152,44 @@
                             </div>
                             {% endif %}
 
-                            <!-- Outras Lojas: Botões Premium -->
-                            {% if item.shopee_link or item.aliexpress_link %}
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-8 border-t border-slate-200 dark:border-slate-800">
-                                {% if item.aliexpress_link %}
-                                <a href="{{ item.aliexpress_link }}" target="_blank" rel="nofollow" 
-                                   style="background-color: #E62E04; color: #FFFFFF;"
-                                   class="group relative flex items-center justify-center gap-3 w-full font-black py-4 rounded-2xl shadow-lg hover:shadow-red-500/40 hover:-translate-y-1 transition-all duration-300 overflow-hidden text-sm uppercase tracking-wider">
-                                    <span class="relative">Ver no AliExpress</span>
+                            <!-- Onde Comprar: Botões Premium Unificados -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-8 border-t border-slate-200 dark:border-slate-800">
+                                {% if item.amazon_link %}
+                                <a href="{{ item.amazon_link }}" target="_blank" rel="nofollow" 
+                                   style="background-color: #FF9900; color: #000000;"
+                                   class="flex items-center justify-center gap-3 w-full font-black py-4 rounded-2xl shadow-lg hover:brightness-110 hover:-translate-y-1 transition-all duration-300 text-sm uppercase tracking-wider">
+                                    Ver na Amazon
+                                </a>
+                                {% endif %}
+                                {% if item.mercadolivre_link %}
+                                <a href="{{ item.mercadolivre_link }}" target="_blank" rel="nofollow" 
+                                   style="background-color: #FFE600; color: #2D3277;"
+                                   class="flex items-center justify-center gap-3 w-full font-black py-4 rounded-2xl shadow-lg hover:brightness-110 hover:-translate-y-1 transition-all duration-300 text-sm uppercase tracking-wider">
+                                    Ver no Mercado Livre
                                 </a>
                                 {% endif %}
                                 {% if item.shopee_link %}
                                 <a href="{{ item.shopee_link }}" target="_blank" rel="nofollow" 
                                    style="background-color: #EE4D2D; color: #FFFFFF;"
-                                   class="group relative flex items-center justify-center gap-3 w-full font-black py-4 rounded-2xl shadow-lg hover:shadow-orange-600/40 hover:-translate-y-1 transition-all duration-300 overflow-hidden text-sm uppercase tracking-wider">
-                                    <span class="relative">Ver na Shopee</span>
+                                   class="flex items-center justify-center gap-3 w-full font-black py-4 rounded-2xl shadow-lg hover:shadow-orange-600/40 hover:-translate-y-1 transition-all duration-300 text-sm uppercase tracking-wider">
+                                    Ver na Shopee
+                                </a>
+                                {% endif %}
+                                {% if item.aliexpress_link %}
+                                <a href="{{ item.aliexpress_link }}" target="_blank" rel="nofollow" 
+                                   style="background-color: #E62E04; color: #FFFFFF;"
+                                   class="flex items-center justify-center gap-3 w-full font-black py-4 rounded-2xl shadow-lg hover:shadow-red-500/40 hover:-translate-y-1 transition-all duration-300 text-sm uppercase tracking-wider">
+                                    Ver no AliExpress
+                                </a>
+                                {% endif %}
+                                {% if item.kabum_link %}
+                                <a href="{{ item.kabum_link }}" target="_blank" rel="nofollow" 
+                                   style="background-color: #0060B1; color: #FFFFFF;"
+                                   class="flex items-center justify-center gap-3 w-full font-black py-4 rounded-2xl shadow-lg hover:brightness-110 hover:-translate-y-1 transition-all duration-300 text-sm uppercase tracking-wider">
+                                    Ver na KaBuM!
                                 </a>
                                 {% endif %}
                             </div>
-                            {% endif %}
                         </div>
                     </div>
                 </section>
