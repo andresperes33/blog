@@ -56,7 +56,13 @@ class CategoryDetailView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        from django.db.models import Q
         context['category'] = self.category
+        context['comparisons'] = Comparison.objects.filter(
+            Q(product_1__category=self.category) | Q(product_2__category=self.category),
+            is_published=True
+        ).distinct().order_by('-created_at')
+        context['guides'] = Guide.objects.filter(category=self.category, is_published=True).order_by('-created_at')
         return context
 
 class ComparisonListView(ListView):

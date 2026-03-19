@@ -5,51 +5,142 @@
 
 {% block content %}
 <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="mb-12">
-        <nav class="mb-4 text-sm text-slate-500">
+    <div class="mb-16">
+        <nav class="mb-6 text-sm text-slate-500">
             <a href="/" class="hover:text-primary-600">Home</a>
             <span>/</span>
-            <span class="text-slate-900 dark:text-slate-300">Categorias</span>
+            <a href="{% url 'reviews:all_categories' %}" class="hover:text-primary-600">Categorias</a>
+            <span>/</span>
+            <span class="text-slate-900 dark:text-slate-300">{{ category.name }}</span>
         </nav>
-        <h1 class="text-4xl font-outfit font-extrabold text-slate-900 dark:text-white flex items-center gap-4">
-            <span class="text-5xl flex items-center">{{ category.icon|render_icon }}</span>
-            Análises de {{ category.name }}
-        </h1>
-        <p class="mt-4 text-slate-500 dark:text-slate-400 max-w-2xl">
-            As melhores análises e comparativos de {{ category.name }} para você fazer a escolha certa.
-        </p>
+        <div class="flex flex-col md:flex-row md:items-center gap-6">
+            <div class="text-6xl bg-white dark:bg-slate-800 w-24 h-24 rounded-3xl shadow-xl flex items-center justify-center border border-slate-100 dark:border-slate-700">
+                {{ category.icon|render_icon }}
+            </div>
+            <div>
+                <h1 class="text-4xl sm:text-5xl font-outfit font-extrabold text-slate-900 dark:text-white">
+                    Tudo sobre {{ category.name }}
+                </h1>
+                <p class="mt-4 text-lg text-slate-500 dark:text-slate-400 max-w-2xl">
+                    Central de conteúdos: Análises detalhadas, duelos técnicos e guias de compra de {{ category.name }}.
+                </p>
+            </div>
+        </div>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-        {% for review in reviews %}
-        <article class="flex flex-col group">
-            <div class="relative w-full aspect-video rounded-2xl overflow-hidden mb-6 shadow-md">
-                <a href="{% url 'reviews:review_detail' review.slug %}">
-                    <img src="{{ review.main_image.url }}" alt="{{ review.title }}"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                </a>
-                <div class="absolute top-4 right-4 bg-white/90 dark:bg-slate-800/90 backdrop-blur px-3 py-1 rounded-lg">
-                    <span class="text-primary-600 dark:text-primary-400 font-bold">{{ review.rating }}</span>
+    <!-- Seção de Análises -->
+    {% if reviews %}
+    <div class="mb-20">
+        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-8 flex items-center gap-3">
+            <span class="w-2 h-8 bg-primary-600 rounded-full"></span>
+            Análises Recentes
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            {% for review in reviews %}
+            <article class="flex flex-col group">
+                <div class="relative w-full aspect-video rounded-2xl overflow-hidden mb-6 shadow-md">
+                    <a href="{% url 'reviews:review_detail' review.slug %}">
+                        <img src="{{ review.main_image.url }}" alt="{{ review.title }}"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </a>
+                    <div class="absolute top-4 right-4 bg-white/90 dark:bg-slate-800/90 backdrop-blur px-3 py-1 rounded-lg">
+                        <span class="text-primary-600 dark:text-primary-400 font-bold">{{ review.rating }}</span>
+                    </div>
                 </div>
-            </div>
-            <h3 class="text-2xl font-bold leading-tight group-hover:text-primary-600 transition-colors">
-                <a href="{% url 'reviews:review_detail' review.slug %}">{{ review.title }}</a>
-            </h3>
-            <p class="mt-4 text-slate-500 dark:text-slate-400 line-clamp-2">
-                {{ review.excerpt }}
-            </p>
-            <div class="mt-6 flex items-center justify-between">
-                <span class="text-xs text-slate-400">{{ review.created_at|date:"d M, Y" }}</span>
-                <a href="{% url 'reviews:review_detail' review.slug %}"
-                    class="text-sm font-bold text-primary-600 hover:text-primary-700">Ler Review →</a>
-            </div>
-        </article>
-        {% empty %}
-        <div
-            class="col-span-full py-20 text-center bg-white dark:bg-slate-900 rounded-3xl border border-dashed border-slate-200">
-            <p class="text-slate-500">Nenhuma análise encontrada nesta categoria.</p>
+                <h3 class="text-2xl font-bold leading-tight group-hover:text-primary-600 transition-colors line-clamp-2">
+                    <a href="{% url 'reviews:review_detail' review.slug %}">{{ review.title }}</a>
+                </h3>
+                <p class="mt-4 text-slate-500 dark:text-slate-400 line-clamp-2">
+                    {{ review.excerpt }}
+                </p>
+                <div class="mt-6 flex items-center justify-between text-xs text-slate-400">
+                    <span>{{ review.created_at|date:"d M, Y" }}</span>
+                    <span class="font-bold text-primary-600">Review →</span>
+                </div>
+            </article>
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
+    {% endif %}
+
+    <!-- Seção de Comparativos -->
+    {% if comparisons %}
+    <div class="mb-20">
+        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-8 flex items-center gap-3">
+            <span class="w-2 h-8 bg-orange-500 rounded-full"></span>
+            Comparativos e Duelos
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            {% for comparison in comparisons %}
+            <article class="flex flex-col group">
+                <div class="relative w-full aspect-video rounded-2xl overflow-hidden mb-6 shadow-md">
+                    <a href="{% url 'reviews:comparison_detail' comparison.slug %}">
+                        <img src="{{ comparison.main_image.url }}" alt="{{ comparison.title }}"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </a>
+                    <div class="absolute top-4 left-4">
+                        <span class="px-3 py-1 bg-white/90 dark:bg-slate-800/90 backdrop-blur text-orange-600 dark:text-orange-400 text-[10px] font-black uppercase tracking-widest rounded-lg shadow-sm">
+                            Comparativo
+                        </span>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-bold leading-tight group-hover:text-primary-600 transition-colors line-clamp-2">
+                    <a href="{% url 'reviews:comparison_detail' comparison.slug %}">{{ comparison.title }}</a>
+                </h3>
+                <p class="mt-4 text-slate-500 dark:text-slate-400 line-clamp-2">
+                    {{ comparison.excerpt }}
+                </p>
+                <div class="mt-6 flex items-center justify-between text-xs text-slate-400">
+                    <span>{{ comparison.created_at|date:"d M, Y" }}</span>
+                    <span class="font-bold text-orange-600">Ver Duelo →</span>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Seção de Guias -->
+    {% if guides %}
+    <div class="mb-20">
+        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-8 flex items-center gap-3">
+            <span class="w-2 h-8 bg-blue-600 rounded-full"></span>
+            Guias de Compra
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            {% for guide in guides %}
+            <article class="flex flex-col group">
+                <div class="relative w-full aspect-video rounded-2xl overflow-hidden mb-6 shadow-md">
+                    <a href="{% url 'reviews:guide_detail' guide.slug %}">
+                        <img src="{{ guide.main_image.url }}" alt="{{ guide.title }}"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </a>
+                    <div class="absolute top-4 left-4">
+                        <span class="px-3 py-1 bg-white/90 dark:bg-slate-800/90 backdrop-blur text-blue-600 dark:text-blue-400 text-[10px] font-black uppercase tracking-widest rounded-lg shadow-sm">
+                            Guia
+                        </span>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-bold leading-tight group-hover:text-primary-600 transition-colors line-clamp-2">
+                    <a href="{% url 'reviews:guide_detail' guide.slug %}">{{ guide.title }}</a>
+                </h3>
+                <p class="mt-4 text-slate-500 dark:text-slate-400 line-clamp-2">
+                    {{ guide.excerpt }}
+                </p>
+                <div class="mt-6 flex items-center justify-between text-xs text-slate-400">
+                    <span>{{ guide.created_at|date:"d M, Y" }}</span>
+                    <span class="font-bold text-blue-600">Ver Guia →</span>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    {% if not reviews and not comparisons and not guides %}
+    <div class="col-span-full py-20 text-center bg-white dark:bg-slate-900 rounded-3xl border border-dashed border-slate-200 dark:border-slate-800">
+        <p class="text-slate-500">Nenhum conteúdo postado ainda para esta categoria.</p>
+    </div>
+    {% endif %}
 </section>
 {% endblock %}

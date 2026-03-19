@@ -12,6 +12,26 @@ class Category(models.Model):
             self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
+    @property
+    def total_content_count(self):
+        # Importação dentro do método para evitar erro de definição (pois Review/Comparison vêm depois)
+        from .models import Review, Comparison
+        from django.db.models import Q
+        
+        # Reviews vinculados a produtos desta categoria
+        reviews_count = Review.objects.filter(product__category=self, is_published=True).count()
+        
+        # Comparativos envolvendo produtos desta categoria
+        comparisons_count = Comparison.objects.filter(
+            Q(product_1__category=self) | Q(product_2__category=self),
+            is_published=True
+        ).distinct().count()
+        
+        # Guias vinculados diretamente
+        guides_count = self.guides.filter(is_published=True).count()
+        
+        return reviews_count + comparisons_count + guides_count
+
     class Meta:
         verbose_name = "Categoria"
         verbose_name_plural = "Categorias"
