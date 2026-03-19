@@ -172,8 +172,7 @@
 
                             <!-- Outras Lojas -->
                             {% if item.shopee_link or item.aliexpress_link %}
-                            <div class="flex flex-wrap items-center justify-center gap-6 pt-6 border-t border-slate-200 dark:border-slate-800">
-                                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Outras opções:</span>
+                            <div class="flex flex-wrap items-center justify-center gap-8 pt-6 border-t border-slate-200 dark:border-slate-800">
                                 {% if item.aliexpress_link %}
                                 <a href="{{ item.aliexpress_link }}" target="_blank" rel="nofollow" class="text-xs font-bold text-primary-600 hover:scale-110 transition-transform">Ver no AliExpress</a>
                                 {% endif %}
