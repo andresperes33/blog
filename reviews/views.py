@@ -6,14 +6,16 @@ class ReviewListView(ListView):
     model = Review
     template_name = 'reviews/index.html'
     context_object_name = 'reviews'
-    paginate_by = 9
-    queryset = Review.objects.filter(is_published=True).order_by('-created_at')
+    
+    def get_queryset(self):
+        return Review.objects.filter(is_published=True).order_by('-created_at')[:3]
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['featured_reviews'] = Review.objects.filter(is_featured=True, is_published=True)[:3]
+        context['featured_reviews'] = Review.objects.filter(is_featured=True, is_published=True).order_by('-created_at')[:3]
         context['categories'] = Category.objects.all()
-        context['comparisons'] = Comparison.objects.filter(is_published=True)[:3]
+        context['comparisons'] = Comparison.objects.filter(is_published=True).order_by('-created_at')[:3]
+        context['latest_guides'] = Guide.objects.filter(is_published=True).order_by('-created_at')[:3]
         return context
 
 class AllReviewsView(ListView):
