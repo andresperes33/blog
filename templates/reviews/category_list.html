@@ -115,11 +115,6 @@
                         <img src="{{ guide.main_image.url }}" alt="{{ guide.title }}"
                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     </a>
-                    <div class="absolute top-4 left-4">
-                        <span class="px-3 py-1 bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest rounded-lg shadow-lg">
-                            Guia Oficial
-                        </span>
-                    </div>
                 </div>
                 <h3 class="text-2xl font-bold leading-tight group-hover:text-primary-600 transition-colors line-clamp-2">
                     <a href="{% url 'reviews:guide_detail' guide.slug %}">{{ guide.title }}</a>
