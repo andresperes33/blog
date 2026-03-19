@@ -39,17 +39,18 @@
                         Análises honestas, testes detalhados e comparativos reais dos gadgets e softwares que você quer comprar.
                     </p>
 
-                    <div class="flex items-center gap-4">
-                        <a href="#latest"
-                            class="rounded-full bg-primary-600 px-6 py-3 text-sm font-semibold text-white hover:bg-primary-500 transition-all transform hover:scale-105">
+                    <div class="flex flex-wrap gap-3">
+                        <a href="{% url 'reviews:all_reviews' %}"
+                            class="rounded-full bg-primary-600 px-6 py-3 text-xs font-bold text-white hover:bg-primary-500 transition-all transform hover:scale-105 uppercase tracking-wider shadow-lg shadow-primary-900/20">
                             Ver Reviews
                         </a>
-                        <a href="{% url 'reviews:all_categories' %}"
-                            class="text-sm font-semibold text-slate-300 hover:text-white transition-colors flex items-center gap-1">
-                            Ver Categorias
-                            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                            </svg>
+                        <a href="{% url 'reviews:comparison_list' %}"
+                            class="rounded-full bg-primary-600 px-6 py-3 text-xs font-bold text-white hover:bg-primary-500 transition-all transform hover:scale-105 uppercase tracking-wider shadow-lg shadow-primary-900/20">
+                            Ver Comparativos
+                        </a>
+                        <a href="{% url 'reviews:guide_list' %}"
+                            class="rounded-full bg-primary-600 px-6 py-3 text-xs font-bold text-white hover:bg-primary-500 transition-all transform hover:scale-105 uppercase tracking-wider shadow-lg shadow-primary-900/20">
+                            Ver Guias
                         </a>
                     </div>
                 </div>
