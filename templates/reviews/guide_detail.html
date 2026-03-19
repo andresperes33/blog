@@ -87,7 +87,9 @@
                                 <h2 class="text-2xl md:text-4xl font-outfit font-black text-slate-900 dark:text-white leading-tight m-0">
                                     {{ item.name }}
                                 </h2>
-                                                       <div class="grid grid-cols-1 md:grid-cols-12 gap-10">
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-12 gap-10">
                                 <!-- Imagem do Produto -->
                                 <div class="md:col-span-4">
                                     <div class="aspect-square rounded-3xl overflow-hidden bg-slate-50 dark:bg-slate-800/80 p-6 flex items-center justify-center border border-slate-100 dark:border-slate-800">
@@ -129,7 +131,7 @@
 
                         <!-- Rodapé do Card: Prós/Contras e Links Extras -->
                         <div class="bg-slate-50/30 dark:bg-slate-800/20 p-8 md:px-12 border-t border-slate-100 dark:border-slate-800">
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                                 <!-- Prós -->
                                 <div class="bg-emerald-50/30 dark:bg-emerald-900/10 p-6 rounded-3xl border border-emerald-100/50 dark:border-emerald-800/20">
                                     <h4 class="text-[10px] font-black uppercase tracking-widest text-emerald-600 dark:text-emerald-400 mb-4 flex items-center gap-2">
@@ -167,15 +169,11 @@
                                     </ul>
                                 </div>
                             </div>
-            </div>
 
                             <!-- Outras Lojas -->
-                            {% if item.shopee_link or item.aliexpress_link or item.kabum_link %}
+                            {% if item.shopee_link or item.aliexpress_link or item.shopee_link %}
                             <div class="flex flex-wrap items-center justify-center gap-6 pt-6 border-t border-slate-200 dark:border-slate-800">
                                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Outras opções:</span>
-                                {% if item.kabum_link or item.product.kabum_link %}
-                                <a href="{{ item.kabum_link|default:item.product.kabum_link }}" target="_blank" rel="nofollow" class="text-xs font-bold text-primary-600 hover:scale-110 transition-transform">KaBuM!</a>
-                                {% endif %}
                                 {% if item.aliexpress_link or item.product.aliexpress_link %}
                                 <a href="{{ item.aliexpress_link|default:item.product.aliexpress_link }}" target="_blank" rel="nofollow" class="text-xs font-bold text-primary-600 hover:scale-110 transition-transform">AliExpress</a>
                                 {% endif %}
