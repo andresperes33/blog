@@ -63,9 +63,11 @@
         <div class="lg:col-span-8 space-y-16">
             
             <!-- Imagem de Destaque -->
+            {% if guide.main_image %}
             <div class="rounded-[2.5rem] overflow-hidden shadow-2xl">
                 <img src="{{ guide.main_image.url }}" alt="{{ guide.title }}" fetchpriority="high" class="w-full aspect-video object-cover">
             </div>
+            {% endif %}
 
             <!-- Introdução -->
             <div class="guide-content prose prose-lg dark:prose-invert max-w-none">
@@ -131,6 +133,7 @@
 
                         <!-- Rodapé do Card: Prós/Contras e Links Extras -->
                         <div class="bg-slate-50/30 dark:bg-slate-800/20 p-8 md:px-12 border-t border-slate-100 dark:border-slate-800">
+                            {% if item.pros_list or item.cons_list %}
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                                 <!-- Prós -->
                                 <div class="bg-emerald-50/30 dark:bg-emerald-900/10 p-6 rounded-3xl border border-emerald-100/50 dark:border-emerald-800/20">
@@ -141,12 +144,10 @@
                                         Prós
                                     </h4>
                                     <ul class="space-y-2.5">
-                                        {% for line in item.pros.splitlines %}
-                                        {% if line.strip %}
+                                        {% for line in item.pros_list %}
                                         <li class="flex items-start gap-2 text-[13px] text-slate-600 dark:text-slate-400 leading-tight">
                                             <span class="text-emerald-500 font-bold">•</span> {{ line }}
                                         </li>
-                                        {% endif %}
                                         {% endfor %}
                                     </ul>
                                 </div>
@@ -159,19 +160,18 @@
                                         Contras
                                     </h4>
                                     <ul class="space-y-2.5">
-                                        {% for line in item.cons.splitlines %}
-                                        {% if line.strip %}
+                                        {% for line in item.cons_list %}
                                         <li class="flex items-start gap-2 text-[13px] text-slate-600 dark:text-slate-400 leading-tight">
                                             <span class="text-rose-500 font-bold">•</span> {{ line }}
                                         </li>
-                                        {% endif %}
                                         {% endfor %}
                                     </ul>
                                 </div>
                             </div>
+                            {% endif %}
 
                             <!-- Outras Lojas -->
-                            {% if item.shopee_link or item.aliexpress_link or item.shopee_link %}
+                            {% if item.shopee_link or item.aliexpress_link %}
                             <div class="flex flex-wrap items-center justify-center gap-6 pt-6 border-t border-slate-200 dark:border-slate-800">
                                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Outras opções:</span>
                                 {% if item.aliexpress_link or item.product.aliexpress_link %}

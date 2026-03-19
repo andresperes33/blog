@@ -289,6 +289,18 @@ class GuideItem(models.Model):
     pros = models.TextField("Pontos Positivos", help_text="Um por linha", blank=True)
     cons = models.TextField("Pontos Negativos", help_text="Um por linha", blank=True)
     
+    @property
+    def pros_list(self):
+        if self.pros:
+            return [line.strip() for line in self.pros.splitlines() if line.strip()]
+        return []
+
+    @property
+    def cons_list(self):
+        if self.cons:
+            return [line.strip() for line in self.cons.splitlines() if line.strip()]
+        return []
+
     class Meta:
         verbose_name = "Item do Guia"
         verbose_name_plural = "Itens do Guia"
