@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.contrib.auth.models import User
 from django.utils.text import slugify
 
@@ -38,6 +39,9 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('reviews:category_list', kwargs={'slug': self.slug})
 
 class Tag(models.Model):
     name = models.CharField("Nome", max_length=50, unique=True)
@@ -94,6 +98,9 @@ class Review(models.Model):
         verbose_name = "Review"
         verbose_name_plural = "Reviews"
         ordering = ['-created_at']
+
+    def get_absolute_url(self):
+        return reverse('reviews:review_detail', kwargs={'slug': self.slug})
 
     @property
     def parsed_specs(self):
@@ -252,6 +259,9 @@ class Comparison(models.Model):
         verbose_name_plural = "Comparativos"
         ordering = ['-created_at']
 
+    def get_absolute_url(self):
+        return reverse('reviews:comparison_detail', kwargs={'slug': self.slug})
+
     @property
     def parsed_specs_1(self):
         if isinstance(self.specifications_1, dict):
@@ -284,6 +294,9 @@ class Guide(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('reviews:guide_detail', kwargs={'slug': self.slug})
 
     def save(self, *args, **kwargs):
         if not self.slug:

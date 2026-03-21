@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'django_browser_reload',
     'reviews',
     'django_htmx',
+    'django.contrib.sitemaps',
 ]
 
 MIDDLEWARE = [
