@@ -192,12 +192,12 @@
                         <span
                             class="font-outfit font-bold text-slate-900 dark:text-white">{{ review.product.model_name|default:review.product.name }}</span>
                     </div>
-                    {% for key, value in review.specifications.items %}
+                    {% for spec in review.parsed_specs %}
                     <div
                         class="flex items-center justify-between p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                        <span class="text-xs font-bold text-slate-400 uppercase tracking-tight">{{ key }}</span>
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-tight">{{ spec.label }}</span>
                         <span
-                            class="font-outfit font-bold text-slate-900 dark:text-white text-right ml-4">{{ value }}</span>
+                            class="font-outfit font-bold text-slate-900 dark:text-white text-right ml-4">{{ spec.value }}</span>
                     </div>
                     {% endfor %}
                 </div>

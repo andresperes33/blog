@@ -105,7 +105,12 @@ class Review(models.Model):
     @property
     def parsed_specs(self):
         if isinstance(self.specifications, dict):
-            return [{"label": k, "value": v} for k, v in self.specifications.items()]
+            specs = []
+            for k, v in self.specifications.items():
+                if isinstance(v, list):
+                    v = ", ".join(map(str, v))
+                specs.append({"label": k, "value": v})
+            return specs
         return []
 
     def save(self, *args, **kwargs):
@@ -265,13 +270,23 @@ class Comparison(models.Model):
     @property
     def parsed_specs_1(self):
         if isinstance(self.specifications_1, dict):
-            return [{"label": k, "value": v} for k, v in self.specifications_1.items()]
+            specs = []
+            for k, v in self.specifications_1.items():
+                if isinstance(v, list):
+                    v = ", ".join(map(str, v))
+                specs.append({"label": k, "value": v})
+            return specs
         return []
 
     @property
     def parsed_specs_2(self):
         if isinstance(self.specifications_2, dict):
-            return [{"label": k, "value": v} for k, v in self.specifications_2.items()]
+            specs = []
+            for k, v in self.specifications_2.items():
+                if isinstance(v, list):
+                    v = ", ".join(map(str, v))
+                specs.append({"label": k, "value": v})
+            return specs
         return []
 
 class Guide(models.Model):
