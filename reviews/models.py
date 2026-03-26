@@ -3,6 +3,18 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from django.utils.text import slugify
 
+def format_spec_value(v):
+    if isinstance(v, list):
+        return ", ".join(map(format_spec_value, v))
+    if isinstance(v, dict):
+        items = []
+        for sk, sv in v.items():
+            # Formata chave: troca underline por espaço e capitaliza
+            formatted_k = str(sk).replace('_', ' ').capitalize()
+            items.append(f"{formatted_k}: {format_spec_value(sv)}")
+        return ", ".join(items)
+    return str(v)
+
 class Category(models.Model):
     name = models.CharField("Nome", max_length=100)
     slug = models.SlugField("Slug", max_length=100, unique=True, blank=True)
@@ -105,12 +117,7 @@ class Review(models.Model):
     @property
     def parsed_specs(self):
         if isinstance(self.specifications, dict):
-            specs = []
-            for k, v in self.specifications.items():
-                if isinstance(v, list):
-                    v = ", ".join(map(str, v))
-                specs.append({"label": k, "value": v})
-            return specs
+            return [{"label": k, "value": format_spec_value(v)} for k, v in self.specifications.items()]
         return []
 
     def save(self, *args, **kwargs):
@@ -270,23 +277,13 @@ class Comparison(models.Model):
     @property
     def parsed_specs_1(self):
         if isinstance(self.specifications_1, dict):
-            specs = []
-            for k, v in self.specifications_1.items():
-                if isinstance(v, list):
-                    v = ", ".join(map(str, v))
-                specs.append({"label": k, "value": v})
-            return specs
+            return [{"label": k, "value": format_spec_value(v)} for k, v in self.specifications_1.items()]
         return []
 
     @property
     def parsed_specs_2(self):
         if isinstance(self.specifications_2, dict):
-            specs = []
-            for k, v in self.specifications_2.items():
-                if isinstance(v, list):
-                    v = ", ".join(map(str, v))
-                specs.append({"label": k, "value": v})
-            return specs
+            return [{"label": k, "value": format_spec_value(v)} for k, v in self.specifications_2.items()]
         return []
 
 class Guide(models.Model):
