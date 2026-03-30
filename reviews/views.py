@@ -8,7 +8,7 @@ class ReviewListView(ListView):
     context_object_name = 'reviews'
     
     def get_queryset(self):
-        return Review.objects.filter(is_published=True).order_by('-created_at')[:3]
+        return Review.objects.filter(is_published=True).order_by('-created_at')[:6]
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
