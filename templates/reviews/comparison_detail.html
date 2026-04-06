@@ -166,7 +166,13 @@
                 </div>
             </div>
 
-
+            {% if comparison.conclusion %}
+            <div class="mt-20 pt-12 border-t border-slate-100 dark:border-slate-800">
+                <div class="comparison-content prose prose-lg dark:prose-invert max-w-none">
+                    {{ comparison.conclusion|safe }}
+                </div>
+            </div>
+            {% endif %}
         </div>
 
         <!-- Sidebar Coluna de 4 -->
