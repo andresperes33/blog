@@ -1,21 +1,46 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
+from django.urls import reverse
 from .models import Review, Category, Product, Comparison, Guide, GuideItem
+from itertools import chain
+from operator import attrgetter
 
 class ReviewListView(ListView):
-    model = Review
     template_name = 'reviews/index.html'
-    context_object_name = 'reviews'
+    context_object_name = 'combined_content'
     
     def get_queryset(self):
-        return Review.objects.filter(is_published=True).order_by('-created_at')[:6]
+        reviews = list(Review.objects.filter(is_published=True))
+        comparisons = list(Comparison.objects.filter(is_published=True))
+        guides = list(Guide.objects.filter(is_published=True))
+        
+        # Atribuir metadados para facilitar no template
+        for r in reviews:
+            r.type_name = "review"
+            r.display_category = r.product.category.name
+            r.url = reverse('reviews:review_detail', kwargs={'slug': r.slug})
+            
+        for c in comparisons:
+            c.type_name = "comparison"
+            c.display_category = c.product_1.category.name
+            c.url = reverse('reviews:comparison_detail', kwargs={'slug': c.slug})
+            
+        for g in guides:
+            g.type_name = "guide"
+            g.display_category = g.category.name
+            g.url = reverse('reviews:guide_detail', kwargs={'slug': g.slug})
+
+        combined = sorted(
+            chain(reviews, comparisons, guides),
+            key=attrgetter('created_at'),
+            reverse=True
+        )[:9]
+        return combined
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['featured_reviews'] = Review.objects.filter(is_featured=True, is_published=True).order_by('-created_at')[:3]
         context['categories'] = Category.objects.all()
-        context['comparisons'] = Comparison.objects.filter(is_published=True).order_by('-created_at')[:3]
-        context['latest_guides'] = Guide.objects.filter(is_published=True).order_by('-created_at')[:3]
         return context
 
 class AllReviewsView(ListView):
