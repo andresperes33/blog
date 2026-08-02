@@ -1,6 +1,6 @@
 {% load static tailwind_tags %}
 <!DOCTYPE html>
-<html lang="pt-br" class="scroll-smooth overflow-x-hidden">
+<html lang="pt-br" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
@@ -15,9 +15,9 @@
     <!-- Google Fonts Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
+
     {% tailwind_css %}
-    
+
     {% block extra_head %}{% endblock %}
 
     <!-- Google AdSense Verification -->
@@ -33,273 +33,160 @@
 
         gtag('config', 'G-TYNRCVZPQ7');
     </script>
-
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-
-        h1,
-        h2,
-        h3,
-        .font-outfit {
-            font-family: 'Outfit', sans-serif;
-        }
-
-        .glass {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .dark .glass {
-            background: rgba(15, 23, 42, 0.8);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        /* Mobile Sidebar Custom CSS ensuring it always works */
-        .mobile-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(4px);
-            z-index: 90;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s;
-        }
-
-        .mobile-overlay.open {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .mobile-sidebar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            width: 80%;
-            max-width: 280px;
-            background-color: #ffffff;
-            z-index: 100;
-            transform: translateX(-100%);
-            transition: transform 0.3s ease-in-out;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            overflow-y: auto;
-        }
-
-        .dark .mobile-sidebar {
-            background-color: #0f172a;
-            /* slate-900 */
-        }
-
-        .mobile-sidebar.open {
-            transform: translateX(0);
-        }
-
-        body.sidebar-open {
-            overflow: hidden;
-        }
-
-        /* Essential for sticky sidebar to work correctly */
-        html, body {
-            overflow-x: clip; /* Modern alternative to hidden that doesn't break sticky */
-            position: relative;
-            min-height: 100vh;
-        }
-    </style>
 </head>
 
-<body class="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-500 w-full relative">
+<body class="bg-canvas text-body min-h-screen w-full">
 
-    <!-- Custom Mobile Sidebar & Backdrop -->
-    <div id="mobile-overlay" class="mobile-overlay"></div>
-    <div id="mobile-sidebar" class="mobile-sidebar text-slate-900 border-r border-slate-200 dark:border-slate-800">
-        <!-- Profile Header -->
-        <div
-            class="p-8 flex items-center gap-4 bg-slate-50 dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800">
-            <div
-                class="w-12 h-12 bg-slate-200 dark:bg-slate-800 rounded-full flex items-center justify-center text-slate-500">
-                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                    <path
-                        d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+    <!-- Mobile Drawer & Backdrop -->
+    <div id="mobile-overlay" class="fixed inset-0 bg-black/60 z-40 opacity-0 invisible transition-opacity duration-300"></div>
+    <aside id="mobile-drawer"
+        class="fixed top-0 right-0 bottom-0 w-72 max-w-[80%] bg-black text-white z-50 transform translate-x-full transition-transform duration-300 flex flex-col border-l border-hairline-strong">
+        <div class="flex items-center justify-between px-6 h-16 border-b border-hairline-strong">
+            <span class="text-xl font-bold tracking-tight">
+                ANDRÉ<span class="text-primary"> INDICA</span>
+            </span>
+            <button id="mobile-close" class="w-11 h-11 flex items-center justify-center hover:bg-white/10 transition-colors" aria-label="Fechar menu">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
-            </div>
+            </button>
         </div>
-
-        <!-- Navigation Groups -->
-        <nav class="flex-1 p-6 space-y-8">
+        <nav class="flex-1 p-6 space-y-6 overflow-y-auto">
             <div>
-                <p class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-4 px-2">Menu Principal</p>
-                <div class="space-y-2">
-                    <a href="{% url 'reviews:index' %}"
-                        class="flex items-center gap-4 px-3 py-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-700 dark:text-slate-300">
-                        <span class="text-xl">🏠</span>
-                        <span class="font-bold">Home</span>
-                    </a>
+                <p class="eyebrow text-white/50 mb-3">Análises</p>
+                <div class="space-y-1">
+                    <a href="{% url 'reviews:all_reviews' %}" class="block px-3 py-2.5 font-bold hover:bg-white/10 transition-colors">Reviews</a>
+                    <a href="{% url 'reviews:all_categories' %}" class="block px-3 py-2.5 font-bold hover:bg-white/10 transition-colors">Categorias</a>
+                    <a href="{% url 'reviews:comparison_list' %}" class="block px-3 py-2.5 font-bold hover:bg-white/10 transition-colors">Comparativos</a>
+                    <a href="{% url 'reviews:guide_list' %}" class="block px-3 py-2.5 font-bold hover:bg-white/10 transition-colors">Guias de Compra</a>
                 </div>
             </div>
-
             <div>
-                <p class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-4 px-2">Análises</p>
-                <div class="space-y-2">
-                    <a href="{% url 'reviews:all_reviews' %}"
-                        class="flex items-center gap-4 px-3 py-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-700 dark:text-slate-300">
-                        <span class="text-xl">📝</span>
-                        <span class="font-bold">Reviews</span>
-                    </a>
-                    <a href="{% url 'reviews:all_categories' %}"
-                        class="flex items-center gap-4 px-3 py-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-700 dark:text-slate-300">
-                        <span class="text-xl">📁</span>
-                        <span class="font-bold">Categorias</span>
-                    </a>
-                    <a href="{% url 'reviews:comparison_list' %}"
-                        class="flex items-center gap-4 px-3 py-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-700 dark:text-slate-300">
-                        <span class="text-xl">⚔️</span>
-                        <span class="font-bold">Comparativos</span>
-                    </a>
-                    <a href="{% url 'reviews:guide_list' %}"
-                        class="flex items-center gap-4 px-3 py-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-700 dark:text-slate-300">
-                        <span class="text-xl">🏆</span>
-                        <span class="font-bold">Guias de Compra</span>
-                    </a>
+                <p class="eyebrow text-white/50 mb-3">Institucional</p>
+                <div class="space-y-1">
+                    <a href="{% url 'reviews:about' %}" class="block px-3 py-2.5 font-bold hover:bg-white/10 transition-colors">Sobre</a>
+                    <a href="{% url 'reviews:contact' %}" class="block px-3 py-2.5 font-bold hover:bg-white/10 transition-colors">Contato</a>
+                    <a href="{% url 'reviews:privacy' %}" class="block px-3 py-2.5 font-bold hover:bg-white/10 transition-colors">Privacidade</a>
+                    <a href="{% url 'reviews:terms' %}" class="block px-3 py-2.5 font-bold hover:bg-white/10 transition-colors">Termos</a>
                 </div>
             </div>
-
-            <div>
-                <p class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-4 px-2">Institucional</p>
-                <div class="space-y-2">
-                    <a href="{% url 'reviews:about' %}"
-                        class="flex items-center gap-4 px-3 py-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-700 dark:text-slate-300">
-                        <span class="text-xl">ℹ️</span>
-                        <span class="font-bold">Sobre</span>
-                    </a>
-                    <a href="https://promos.andreindica.com.br/" target="_blank" rel="noopener noreferrer"
-                        class="flex items-center gap-4 px-3 py-2.5 rounded-xl text-primary-600 dark:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/10 transition-colors group">
-                        <span class="text-xl group-hover:animate-bounce">🔥</span>
-                        <span class="font-bold">Portal de Ofertas</span>
-                    </a>
-                </div>
-            </div>
+            <a href="https://promos.andreindica.com.br/" target="_blank" rel="noopener noreferrer"
+                class="btn-primary w-full">Portal de Promos</a>
         </nav>
+    </aside>
+
+    <!-- Utility Bar -->
+    <div class="bg-black text-white text-[11px] leading-none">
+        <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 h-8 flex items-center justify-between">
+            <span class="text-white/70">Ofertas, cupons e alertas de preço em tempo real</span>
+            <a href="https://promos.andreindica.com.br/" target="_blank" rel="noopener noreferrer"
+                class="font-bold uppercase tracking-[0.14em] text-primary hover:text-accent-pale transition-colors">
+                Portal de Promos
+            </a>
+        </div>
     </div>
 
-    <!-- Navbar -->
-    <nav class="sticky top-0 z-50 glass">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <div class="flex items-center gap-2">
-                    <a href="/"
-                        class="text-2xl font-outfit font-extrabold tracking-tight text-primary-600 dark:text-primary-400">
-                        ANDRÉ<span class="text-slate-950 dark:text-white"> INDICA</span>
-                    </a>
-                </div>
+    <!-- Primary Nav -->
+    <nav class="sticky top-0 z-30 bg-black text-white border-b border-hairline-strong">
+        <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-6">
+            <a href="/" class="text-xl font-bold tracking-tight flex items-center gap-2">
+                <span class="w-2.5 h-2.5 bg-primary inline-block"></span>
+                ANDRÉ<span class="text-primary"> INDICA</span>
+            </a>
 
-                <div
-                    class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-600 dark:text-slate-400">
-                    <a href="{% url 'reviews:index' %}"
-                        class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Home</a>
-                    <a href="{% url 'reviews:all_reviews' %}"
-                        class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Reviews</a>
-                    <a href="{% url 'reviews:all_categories' %}"
-                        class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Categorias</a>
-                    <a href="{% url 'reviews:comparison_list' %}"
-                        class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Comparativos</a>
-                    <a href="{% url 'reviews:guide_list' %}"
-                        class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Guias</a>
-                    <a href="{% url 'reviews:about' %}"
-                        class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Sobre</a>
-                    <a href="{% url 'reviews:contact' %}"
-                        class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Contato</a>
-                    <a href="https://promos.andreindica.com.br/" target="_blank" rel="noopener noreferrer"
-                        class="bg-slate-100 dark:bg-slate-800 text-primary-600 dark:text-primary-400 px-4 py-2 rounded-xl font-bold text-xs uppercase tracking-widest flex items-center gap-2 hover:scale-105 transition-transform">
-                        <span class="text-base animate-pulse">🔥</span>
-                        <span>Promos</span>
-                    </a>
-                </div>
+            <div class="hidden lg:flex items-center gap-8 text-[15px] font-bold text-white/70">
+                <a href="{% url 'reviews:index' %}" class="hover:text-white transition-colors">Home</a>
+                <a href="{% url 'reviews:all_reviews' %}" class="hover:text-white transition-colors">Reviews</a>
+                <a href="{% url 'reviews:all_categories' %}" class="hover:text-white transition-colors">Categorias</a>
+                <a href="{% url 'reviews:comparison_list' %}" class="hover:text-white transition-colors">Comparativos</a>
+                <a href="{% url 'reviews:guide_list' %}" class="hover:text-white transition-colors">Guias</a>
+                <a href="{% url 'reviews:about' %}" class="hover:text-white transition-colors">Sobre</a>
+                <a href="{% url 'reviews:contact' %}" class="hover:text-white transition-colors">Contato</a>
+            </div>
 
-                <div class="flex items-center gap-4">
-                    <button id="theme-toggle"
-                        class="p-2 rounded-xl bg-slate-200 dark:bg-slate-800 hover:scale-110 transition-transform">
-                        <span id="theme-toggle-dark-icon" class="hidden">🌙</span>
-                        <span id="theme-toggle-light-icon">☀️</span>
-                    </button>
-                    <div class="md:hidden">
-                        <!-- Mobile menu button -->
-                        <button id="mobile-menu-btn" class="p-2">
-                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M4 6h16M4 12h16M4 18h16" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
+            <div class="flex items-center gap-4">
+                <a href="https://promos.andreindica.com.br/" target="_blank" rel="noopener noreferrer"
+                    class="hidden sm:inline-flex btn-primary">Portal de Promos</a>
+                <button id="mobile-menu-btn" class="lg:hidden w-11 h-11 flex items-center justify-center hover:bg-white/10 transition-colors" aria-label="Abrir menu">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
             </div>
         </div>
     </nav>
+
+    {% block breadcrumb %}{% endblock %}
 
     <main class="min-h-screen">
         {% block content %}{% endblock %}
     </main>
 
     <!-- Footer -->
-    <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 mt-20">
-        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div class="col-span-1 md:col-span-2">
-                    <a href="/"
-                        class="text-2xl font-outfit font-extrabold tracking-tight text-primary-600 dark:text-primary-400">
-                        ANDRÉ<span class="text-slate-950 dark:text-white"> INDICA</span>
+    <footer class="bg-black text-white mt-24">
+        <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-6 gap-y-10">
+                <div class="col-span-2 lg:col-span-2">
+                    <a href="/" class="text-xl font-bold tracking-tight flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 bg-primary inline-block"></span>
+                        ANDRÉ<span class="text-primary"> INDICA</span>
                     </a>
-                    <p class="mt-4 text-slate-500 dark:text-slate-400 max-w-xs">
+                    <p class="mt-4 text-white/70 text-[15px] leading-relaxed max-w-xs">
                         Análises profundas e honestas sobre os últimos lançamentos do mundo da tecnologia.
                     </p>
                 </div>
                 <div>
-                    <h3 class="text-sm font-semibold uppercase tracking-wider">Links</h3>
-                    <ul class="mt-4 space-y-2 text-slate-500 dark:text-slate-400">
-                        <li><a href="{% url 'reviews:index' %}" class="hover:text-primary-500">Início</a></li>
-                        <li><a href="{% url 'reviews:all_reviews' %}" class="hover:text-primary-500">Todos os
-                                Reviews</a>
-                        </li>
-                        <li><a href="{% url 'reviews:all_categories' %}" class="hover:text-primary-500">Categorias</a>
-                        </li>
-                        <li><a href="{% url 'reviews:contact' %}" class="hover:text-primary-500">Contato</a>
-                        </li>
+                    <h3 class="text-white font-bold text-[15px] mb-4">Análises</h3>
+                    <ul class="space-y-2.5 text-white/70 text-[15px]">
+                        <li><a href="{% url 'reviews:all_reviews' %}" class="hover:text-white transition-colors">Reviews</a></li>
+                        <li><a href="{% url 'reviews:all_categories' %}" class="hover:text-white transition-colors">Categorias</a></li>
+                        <li><a href="{% url 'reviews:comparison_list' %}" class="hover:text-white transition-colors">Comparativos</a></li>
+                        <li><a href="{% url 'reviews:guide_list' %}" class="hover:text-white transition-colors">Guias</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-sm font-semibold uppercase tracking-wider">Legal</h3>
-                    <ul class="mt-4 space-y-2 text-slate-500 dark:text-slate-400">
-                        <li><a href="{% url 'reviews:privacy' %}" class="hover:text-primary-500">Privacidade</a></li>
-                        <li><a href="{% url 'reviews:terms' %}" class="hover:text-primary-500">Termos</a></li>
+                    <h3 class="text-white font-bold text-[15px] mb-4">Empresa</h3>
+                    <ul class="space-y-2.5 text-white/70 text-[15px]">
+                        <li><a href="{% url 'reviews:about' %}" class="hover:text-white transition-colors">Sobre</a></li>
+                        <li><a href="{% url 'reviews:contact' %}" class="hover:text-white transition-colors">Contato</a></li>
+                        <li><a href="https://promos.andreindica.com.br/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Portal de Promos</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white font-bold text-[15px] mb-4">Legal</h3>
+                    <ul class="space-y-2.5 text-white/70 text-[15px]">
+                        <li><a href="{% url 'reviews:privacy' %}" class="hover:text-white transition-colors">Privacidade</a></li>
+                        <li><a href="{% url 'reviews:terms' %}" class="hover:text-white transition-colors">Termos de Uso</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white font-bold text-[15px] mb-4">Comunidade</h3>
+                    <ul class="space-y-2.5 text-white/70 text-[15px]">
+                        <li>
+                            <a href="https://chat.whatsapp.com/Jxjt68Mfr9J4tx1vIS82DD" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">WhatsApp</a>
+                        </li>
+                        <li>
+                            <a href="https://t.me/AlertaTechBrasil" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Telegram</a>
+                        </li>
+                        <li>
+                            <a href="https://t.me/alertas_andre_bot" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Bot de Alertas</a>
+                        </li>
                     </ul>
                 </div>
             </div>
-            <div class="mt-8 border-t border-slate-200 dark:border-slate-800 pt-8 flex flex-col sm:flex-row justify-between items-center gap-6">
-                <p class="text-xs text-slate-400 text-center sm:text-left">&copy; 2026 André Indica. Todos os direitos reservados.</p>
-                
-                <div class="flex items-center space-x-6">
-                    <!-- WhatsApp Icon -->
-                    <a href="https://chat.whatsapp.com/Jxjt68Mfr9J4tx1vIS82DD" target="_blank" rel="noopener noreferrer" 
-                        class="flex items-center justify-center w-12 h-12 bg-[#25D366]/10 hover:bg-[#25D366] text-[#25D366] hover:text-white rounded-2xl transition-all transform hover:-translate-y-2 hover:rotate-3 shadow-lg shadow-[#25D366]/10 hover:shadow-[#25D366]/40" title="Grupo WhatsApp">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.03 0C5.402 0 .01 5.393 0 12.026c0 2.119.554 4.187 1.605 6.04L0 24l6.142-1.612a11.827 11.827 0 005.883 1.579h.005c6.627 0 12.02-5.394 12.022-12.028 0-3.213-1.252-6.234-3.525-8.508z"/>
-                        </svg>
+
+            <div class="mt-14 pt-8 border-t border-hairline-strong flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p class="text-[10px] font-bold uppercase tracking-[0.14em] text-white/50">
+                    &copy; 2026 André Indica. Todos os direitos reservados.
+                </p>
+                <div class="flex items-center gap-5">
+                    <a href="https://chat.whatsapp.com/Jxjt68Mfr9J4tx1vIS82DD" target="_blank" rel="noopener noreferrer"
+                        class="w-8 h-8 rounded-full border border-hairline-strong flex items-center justify-center text-white/70 hover:text-black hover:bg-primary transition-colors" title="WhatsApp">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884 0 2.225.569 3.445 1.694 5.39l-1.157 4.221 4.333-1.13c1.547.852 2.651 1.272 4.333 1.272zm9.184-7.447c-.201-.1-.282-.181-.462-.362-.181-.181-.502-.342-.883-.543-.161-.08-.282-.181-.462-.181-.221 0-.382.02-.543.02-.12 0-.241.02-.341.02-.161 0-.301-.02-.422-.06-.321-.1-.702-.281-1.185-.562-.161-.08-.321-.161-.462-.261-.482-.321-.864-.682-1.144-1.044-.201-.281-.301-.482-.301-.682 0-.161.04-.321.161-.462.141-.181.362-.361.543-.542.101-.1.141-.181.201-.261 0-.08-.02-.161-.04-.261-.02-.1-.201-.482-.281-.682-.08-.181-.161-.341-.261-.462-.141-.141-.281-.201-.462-.201-.201 0-.382.08-.542.181-.301.201-.482.462-.642.743-.161.281-.281.583-.281.884 0 .341.08.703.181 1.044.181.602.482 1.184.884 1.706.522.683 1.104 1.264 1.766 1.766.422.321.884.582 1.366.783.341.141.683.221.984.221.482 0 .904-.241 1.245-.583.181-.181.361-.401.502-.642.12-.221.201-.482.201-.763 0-.12-.02-.241-.04-.341z"/></svg>
                     </a>
-                    
-                    <!-- Telegram Icon -->
-                    <a href="https://t.me/AlertaTechBrasil" target="_blank" rel="noopener noreferrer" 
-                        class="flex items-center justify-center w-12 h-12 bg-[#0088cc]/10 hover:bg-[#0088cc] text-[#0088cc] hover:text-white rounded-2xl transition-all transform hover:-translate-y-2 hover:-rotate-3 shadow-lg shadow-[#0088cc]/10 hover:shadow-[#0088cc]/40" title="Grupo Telegram">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701v4.309c.421 0 .607-.193.843-.418l2.028-1.972 4.219 3.117c.777.429 1.336.208 1.531-.72l2.768-13.064c.284-1.139-.434-1.666-1.187-1.323z"/>
-                        </svg>
+                    <a href="https://t.me/AlertaTechBrasil" target="_blank" rel="noopener noreferrer"
+                        class="w-8 h-8 rounded-full border border-hairline-strong flex items-center justify-center text-white/70 hover:text-black hover:bg-primary transition-colors" title="Telegram">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701v4.309c.421 0 .607-.193.843-.418l2.028-1.972 4.219 3.117c.777.429 1.336.208 1.531-.72l2.768-13.064c.284-1.139-.434-1.666-1.187-1.323z"/></svg>
                     </a>
                 </div>
             </div>
@@ -307,64 +194,36 @@
     </footer>
 
     <script>
-        // Dark Mode Toggle Logic
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        const darkIcon = document.getElementById('theme-toggle-dark-icon');
-        const lightIcon = document.getElementById('theme-toggle-light-icon');
-
-        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-            darkIcon.classList.remove('hidden');
-            lightIcon.classList.add('hidden');
-        } else {
-            document.documentElement.classList.remove('dark');
-            darkIcon.classList.add('hidden');
-            lightIcon.classList.remove('hidden');
-        }
-
-        themeToggleBtn.addEventListener('click', function () {
-            if (document.documentElement.classList.contains('dark')) {
-                document.documentElement.classList.remove('dark');
-                localStorage.setItem('color-theme', 'light');
-                darkIcon.classList.add('hidden');
-                lightIcon.classList.remove('hidden');
-            } else {
-                document.documentElement.classList.add('dark');
-                localStorage.setItem('color-theme', 'dark');
-                darkIcon.classList.remove('hidden');
-                lightIcon.classList.add('hidden');
-            }
-        });
-
-        // Mobile Sidebar Logic
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileSidebar = document.getElementById('mobile-sidebar');
-        const mobileOverlay = document.getElementById('mobile-overlay');
-
-        function openSidebar() {
-            mobileSidebar.classList.add('open');
-            mobileOverlay.classList.add('open');
-            document.body.classList.add('sidebar-open');
-        }
-
-        function closeSidebar() {
-            mobileSidebar.classList.remove('open');
-            mobileOverlay.classList.remove('open');
-            document.body.classList.remove('sidebar-open');
-        }
-
-        mobileMenuBtn.addEventListener('click', openSidebar);
-        mobileOverlay.addEventListener('click', closeSidebar);
-    </script>
-    <script>
         // Font loading optimization
         (function() {
             var link = document.createElement('link');
-            link.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800&display=swap';
+            link.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap';
             link.rel = 'stylesheet';
             link.type = 'text/css';
             document.head.appendChild(link);
         })();
+
+        // Mobile Drawer Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('mobile-close');
+        const drawer = document.getElementById('mobile-drawer');
+        const overlay = document.getElementById('mobile-overlay');
+
+        function openDrawer() {
+            drawer.classList.remove('translate-x-full');
+            overlay.classList.remove('opacity-0', 'invisible');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDrawer() {
+            drawer.classList.add('translate-x-full');
+            overlay.classList.add('opacity-0', 'invisible');
+            document.body.style.overflow = '';
+        }
+
+        menuBtn.addEventListener('click', openDrawer);
+        closeBtn.addEventListener('click', closeDrawer);
+        overlay.addEventListener('click', closeDrawer);
     </script>
     {% block extra_js %}{% endblock %}
 </body>

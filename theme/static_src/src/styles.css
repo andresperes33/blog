@@ -1,3 +1,122 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: 'Inter', 'Arial', 'Helvetica', sans-serif;
+        color: #1a1a1a;
+        background-color: #ffffff;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    /* Long-form content rendered from markdown/html */
+    .prose-body p {
+        margin-bottom: 1.5rem;
+        line-height: 1.75;
+        color: #1a1a1a;
+    }
+
+    .prose-body h2 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+        color: #000000;
+        letter-spacing: -0.01em;
+    }
+
+    .prose-body h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-top: 2rem;
+        margin-bottom: 0.75rem;
+        color: #000000;
+    }
+
+    .prose-body a {
+        color: #0046a4;
+        text-decoration: underline;
+    }
+
+    .prose-body ul {
+        list-style: disc;
+        padding-left: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .prose-body ol {
+        list-style: decimal;
+        padding-left: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .prose-body li {
+        margin-bottom: 0.375rem;
+        line-height: 1.7;
+    }
+
+    .prose-body blockquote {
+        border-left: 3px solid #76b900;
+        padding-left: 1.25rem;
+        margin: 1.5rem 0;
+        color: #757575;
+        font-style: italic;
+    }
+}
+
+@layer components {
+    /* Primary CTA — NVIDIA Green fill */
+    .btn-primary {
+        @apply inline-flex items-center justify-center gap-2 bg-primary text-black font-bold text-[15px] leading-none rounded-sm px-6 h-11 transition-colors hover:bg-primary-600;
+    }
+
+    /* Secondary CTA — NVIDIA Green outline on light canvas */
+    .btn-outline {
+        @apply inline-flex items-center justify-center gap-2 bg-transparent text-ink font-bold text-[15px] leading-none rounded-sm border-2 border-primary px-4 h-11 transition-colors hover:bg-primary hover:text-black;
+    }
+
+    /* Secondary CTA — white outline on dark canvas */
+    .btn-outline-dark {
+        @apply inline-flex items-center justify-center gap-2 bg-transparent text-white font-bold text-[15px] leading-none rounded-sm border border-white px-4 h-11 transition-colors hover:bg-white/10;
+    }
+
+    /* Ghost link with arrow */
+    .btn-ghost {
+        @apply inline-flex items-center gap-1.5 text-primary font-bold text-[13px] uppercase tracking-wide transition-colors hover:text-primary-600;
+    }
+
+    /* Disabled button */
+    .btn-disabled {
+        @apply inline-flex items-center justify-center gap-2 bg-soft text-ash font-bold text-[15px] leading-none rounded-sm px-6 h-11 cursor-not-allowed;
+    }
+
+    /* Card — flat, hairline border, 2px radius */
+    .card {
+        @apply relative bg-canvas border border-hairline rounded-sm;
+    }
+
+    /* Decorative NVIDIA corner square */
+    .corner-square {
+        @apply absolute top-0 left-0 w-3 h-3 bg-primary;
+    }
+
+    /* Uppercase badge tag */
+    .badge {
+        @apply inline-flex items-center bg-soft text-body text-[11px] font-bold uppercase tracking-[0.12em] px-2.5 py-1 rounded-sm;
+    }
+
+    /* Uppercase eyebrow label */
+    .eyebrow {
+        @apply text-[11px] font-bold uppercase tracking-[0.14em] text-mute;
+    }
+
+    /* Dark chapter section (hero / CTA strip / footer) */
+    .chapter-dark {
+        @apply bg-black text-white;
+    }
+}

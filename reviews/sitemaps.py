@@ -16,7 +16,7 @@ class CategorySitemap(Sitemap):
     priority = 0.7
 
     def items(self):
-        return Category.objects.all()
+        return Category.objects.order_by('name')
 
 class ComparisonSitemap(Sitemap):
     changefreq = "weekly"
@@ -33,7 +33,7 @@ class GuideSitemap(Sitemap):
     priority = 0.8
 
     def items(self):
-        return Guide.objects.filter(is_published=True)
+        return Guide.objects.filter(is_published=True).order_by('-created_at')
 
     def lastmod(self, obj):
         return obj.updated_at

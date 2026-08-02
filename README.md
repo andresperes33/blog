@@ -26,7 +26,22 @@ npm run start
 ## Credenciais de Admin
 Você pode acessar o painel administrativo em `http://127.0.0.1:8000/admin/`:
 - **Usuário:** `admin`
-- **Senha:** `admin123`
+- **Senha:** definida pelo `ADMIN_PASSWORD` (veja abaixo)
+
+O usuário `admin` é criado pelo `seed.py` com uma senha aleatória forte. Para controlar a senha, defina a variável `ADMIN_PASSWORD` antes de rodar o seed:
+```bash
+# Windows PowerShell
+$env:ADMIN_PASSWORD="sua-senha-forte"; python seed.py
+```
+
+## Configuração (arquivo .env)
+Crie um arquivo `.env` na raiz do projeto (já ignorado pelo git) com:
+```
+SECRET_KEY=<chave-forte>
+DEBUG=True
+ALLOWED_HOSTS=127.0.0.1,localhost
+```
+Sem `SECRET_KEY` o projeto não sobe — isso evita chaves inseguras em produção.
 
 ## Estrutura do Projeto
 - `reviews/`: Lógica principal do blog (modelos, views).

@@ -4,305 +4,223 @@
 {% block title %}{{ guide.title }} - André Indica{% endblock %}
 {% block meta_description %}{{ guide.excerpt|truncatewords:30 }}{% endblock %}
 
-{% block extra_head %}
-<style>
-    .guide-content p {
-        margin-bottom: 1.5rem;
-        line-height: 1.8;
-        color: #475569;
-    }
-    .dark .guide-content p {
-        color: #94a3b8;
-    }
-    .guide-content h2 {
-        font-size: 1.875rem;
-        font-weight: 700;
-        margin-top: 3rem;
-        margin-bottom: 1rem;
-        color: #0f172a;
-        font-family: 'Outfit';
-    }
-    .dark .guide-content h2 {
-        color: #f8fafc;
-    }
-    .scroll-mt-24 {
-        scroll-margin-top: 6rem;
-    }
-</style>
+{% block breadcrumb %}
+<div class="bg-soft border-b border-hairline">
+    <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 h-12 flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.12em] text-mute">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span class="text-hairline-strong">›</span>
+        <a href="{% url 'reviews:guide_list' %}" class="hover:text-primary transition-colors">Guias</a>
+        <span class="text-hairline-strong">›</span>
+        <span class="text-body truncate">{{ guide.title }}</span>
+    </div>
+</div>
 {% endblock %}
 
 {% block content %}
-<article class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <!-- Navegação / Breadcrumbs -->
-    <nav class="mb-8 text-sm text-slate-500 flex flex-wrap gap-2">
-        <a href="/" class="hover:text-primary-600">Home</a>
-        <span>/</span>
-        <a href="{% url 'reviews:guide_list' %}" class="hover:text-primary-600">Guias</a>
-        <span>/</span>
-        <span class="text-slate-900 dark:text-slate-300 font-medium">{{ guide.title }}</span>
-    </nav>
-
-    <header class="mb-12">
-        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-outfit font-black tracking-tight text-slate-900 dark:text-white leading-tight mb-8">
+<article class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <header class="max-w-3xl mb-12">
+        <p class="eyebrow mb-3 text-primary">Guia de Compra · {{ guide.category.name }}</p>
+        <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-ink leading-tight">
             {{ guide.title }}
         </h1>
-        <div class="flex items-center gap-6 text-slate-500 pb-8 border-b border-slate-200 dark:border-slate-800">
-            <div class="flex items-center gap-2">
-                <span class="font-bold text-slate-900 dark:text-slate-100">Por {{ guide.author.get_full_name|default:guide.author.username }}</span>
-            </div>
-            <span>•</span>
+        <div class="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-[13px] text-mute pb-6 border-b border-hairline">
+            <span class="font-bold text-body">Por {{ guide.author.get_full_name|default:guide.author.username }}</span>
+            <span class="text-hairline-strong">•</span>
             <time datetime="{{ guide.created_at|date:'c' }}">{{ guide.created_at|date:"d \d\e F, Y" }}</time>
         </div>
     </header>
 
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-        <!-- Coluna Principal (Conteúdo e Lista) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
         <div class="lg:col-span-8 space-y-16">
-            
-            <!-- Imagem de Destaque -->
             {% if guide.main_image %}
-            <div class="rounded-[2.5rem] overflow-hidden shadow-2xl">
-                <img src="{{ guide.main_image.url }}" alt="{{ guide.title }}" fetchpriority="high" class="w-full aspect-video object-cover">
+            <div class="relative card overflow-hidden">
+                <span class="corner-square"></span>
+                <div class="aspect-video">
+                    <img src="{{ guide.main_image.url }}" alt="{{ guide.title }}" fetchpriority="high" class="w-full h-full object-cover">
+                </div>
             </div>
             {% endif %}
 
-            <!-- Introdução -->
-            <div class="guide-content prose prose-lg dark:prose-invert max-w-none">
+            <div class="prose-body">
                 {{ guide.content|safe }}
             </div>
 
-            <!-- Lista de Itens (O Ranking) -->
-            <div class="space-y-20">
+            <!-- Lista de Itens (Ranking) -->
+            <div class="space-y-6">
                 {% for item in items %}
-                <section id="item-{{ item.position }}" class="scroll-mt-24 group">
-                    <div class="bg-white dark:bg-slate-900 rounded-[2.5rem] overflow-hidden shadow-xl border border-slate-100 dark:border-slate-800 transition-all duration-500 hover:border-primary-500/30">
-                        
-                        <!-- Header do Produto no Guia -->
-                        <div class="p-8 md:p-12">
-                            <div class="flex items-center gap-8 mb-8">
-                                <span class="w-12 h-12 aspect-square flex-shrink-0 bg-primary-600 text-white flex items-center justify-center font-black text-xl rounded-full shadow-lg ring-4 ring-primary-500/10 dark:ring-primary-400/5">
-                                    {{ item.position }}º
-                                </span>
-                                <h2 class="text-2xl md:text-4xl font-outfit font-black text-slate-900 dark:text-white leading-tight m-0">
-                                    {{ item.name }}
-                                </h2>
-                            </div>
+                <section id="item-{{ item.position }}" class="card overflow-hidden scroll-mt-28">
+                    <span class="corner-square"></span>
+                    <div class="p-6 md:p-8">
+                        <div class="flex items-center gap-4 mb-6">
+                            <span class="w-11 h-11 flex-shrink-0 bg-primary text-black font-bold text-lg flex items-center justify-center rounded-sm">
+                                {{ item.position }}
+                            </span>
+                            <h2 class="text-2xl font-bold text-ink leading-tight">{{ item.name }}</h2>
+                        </div>
 
-                            <div class="grid grid-cols-1 md:grid-cols-12 gap-10">
-                                <!-- Imagem do Produto -->
-                                <div class="md:col-span-4">
-                                    <div class="aspect-square rounded-3xl overflow-hidden bg-slate-50 dark:bg-slate-800/80 p-6 flex items-center justify-center border border-slate-100 dark:border-slate-800">
-                                        {% if item.image %}
-                                        <img src="{{ item.image.url }}" alt="{{ item.name }}" class="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-700">
-                                        {% elif item.product and item.product.main_image %}
-                                        <img src="{{ item.product.main_image.url }}" alt="{{ item.name }}" class="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-700">
-                                        {% endif %}
-                                    </div>
+                        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                            <div class="md:col-span-4">
+                                <div class="aspect-square overflow-hidden bg-soft border border-hairline flex items-center justify-center p-4">
+                                    {% if item.image %}
+                                    <img src="{{ item.image.url }}" alt="{{ item.name }}" class="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                                    {% elif item.product and item.product.main_image %}
+                                    <img src="{{ item.product.main_image.url }}" alt="{{ item.name }}" class="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                                    {% endif %}
                                 </div>
-
-                                <!-- Descrição e CTAs Rápidos -->
-                                <div class="md:col-span-8 flex flex-col">
-                                    <div class="prose dark:prose-invert text-slate-600 dark:text-slate-400 mb-8 leading-relaxed text-sm md:text-base">
-                                        {{ item.description|safe }}
-                                    </div>
-
+                            </div>
+                            <div class="md:col-span-8">
+                                <div class="prose-body text-body text-[15px]">
+                                    {{ item.description|safe }}
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Rodapé do Card: Prós/Contras e Links Extras -->
-                        <div class="bg-slate-50/30 dark:bg-slate-800/20 p-8 md:px-12 border-t border-slate-100 dark:border-slate-800">
-                            {% if item.pros_list or item.cons_list %}
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
-                                <!-- Prós (O que gostamos) -->
-                                <div class="bg-emerald-50 dark:bg-emerald-900/10 p-8 rounded-3xl border border-emerald-100 dark:border-emerald-800/20">
-                                    <h3 class="text-xl font-bold text-emerald-700 dark:text-emerald-400 mb-6 flex items-center gap-3">
-                                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-                                        </svg>
-                                        O que gostamos
-                                    </h3>
-                                    <ul class="space-y-3">
-                                        {% for line in item.pros_list %}
-                                        <li class="flex items-start gap-2 text-emerald-900/80 dark:text-emerald-200/80 text-sm">
-                                            <span class="mt-1 text-emerald-500 font-bold">•</span> {{ line }}
-                                        </li>
-                                        {% endfor %}
-                                    </ul>
-                                </div>
-                                <!-- Contras (O que não gostamos) -->
-                                <div class="bg-rose-50 dark:bg-rose-900/10 p-8 rounded-3xl border border-rose-100 dark:border-rose-800/20">
-                                    <h3 class="text-xl font-bold text-rose-700 dark:text-rose-400 mb-6 flex items-center gap-3">
-                                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11H7v-2h10v2z" />
-                                        </svg>
-                                        O que não gostamos
-                                    </h3>
-                                    <ul class="space-y-3">
-                                        {% for line in item.cons_list %}
-                                        <li class="flex items-start gap-2 text-rose-900/80 dark:text-rose-200/80 text-sm">
-                                            <span class="mt-1 text-rose-500 font-bold">•</span> {{ line }}
-                                        </li>
-                                        {% endfor %}
-                                    </ul>
-                                </div>
+                    <div class="bg-soft border-t border-hairline p-6 md:p-8">
+                        {% if item.pros_list or item.cons_list %}
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
+                            <div class="bg-canvas border border-hairline p-5">
+                                <h3 class="text-base font-bold text-success mb-4 flex items-center gap-2">
+                                    <span class="w-2 h-2 bg-success inline-block"></span> O que gostamos
+                                </h3>
+                                <ul class="space-y-3">
+                                    {% for line in item.pros_list %}
+                                    <li class="flex items-start gap-2 text-[14px] text-body leading-relaxed">
+                                        <span class="mt-0.5 text-success font-bold">+</span> {{ line }}
+                                    </li>
+                                    {% endfor %}
+                                </ul>
                             </div>
+                            <div class="bg-canvas border border-hairline p-5">
+                                <h3 class="text-base font-bold text-error mb-4 flex items-center gap-2">
+                                    <span class="w-2 h-2 bg-error inline-block"></span> O que não gostamos
+                                </h3>
+                                <ul class="space-y-3">
+                                    {% for line in item.cons_list %}
+                                    <li class="flex items-start gap-2 text-[14px] text-body leading-relaxed">
+                                        <span class="mt-0.5 text-error font-bold">−</span> {{ line }}
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        <!-- Onde Comprar -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 pt-6 border-t border-hairline">
+                            {% if item.amazon_link %}
+                            <a href="{{ item.amazon_link }}" target="_blank" rel="nofollow"
+                                class="flex items-center justify-center gap-2 w-full h-11 font-bold text-[13px] rounded-sm text-black" style="background-color:#FF9900;">
+                                Ver na Amazon
+                            </a>
                             {% endif %}
-
-                            <!-- Onde Comprar: Botões Premium Unificados -->
-                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-8 border-t border-slate-200 dark:border-slate-800">
-                                {% if item.amazon_link %}
-                                <a href="{{ item.amazon_link }}" target="_blank" rel="nofollow" 
-                                   style="background-color: #FF7700; color: #ffffff;"
-                                   class="flex items-center justify-center gap-3 w-full font-black py-4 rounded-2xl shadow-lg hover:shadow-orange-600/50 hover:-translate-y-1 transition-all duration-300 text-sm tracking-wide">
-                                    Ver na Amazon
-                                </a>
-                                {% endif %}
-                                {% if item.mercadolivre_link %}
-                                <a href="{{ item.mercadolivre_link }}" target="_blank" rel="nofollow" 
-                                   style="background-color: #FFE600; color: #2D3277;"
-                                   class="flex items-center justify-center gap-3 w-full font-black py-4 rounded-2xl shadow-lg hover:shadow-yellow-400/40 hover:-translate-y-1 transition-all duration-300 text-sm tracking-wide">
-                                    Ver no Mercado Livre
-                                </a>
-                                {% endif %}
-                                {% if item.shopee_link %}
-                                <a href="{{ item.shopee_link }}" target="_blank" rel="nofollow" 
-                                   style="background-color: #EE4D2D; color: #FFFFFF;"
-                                   class="flex items-center justify-center gap-3 w-full font-black py-4 rounded-2xl shadow-lg hover:shadow-orange-600/40 hover:-translate-y-1 transition-all duration-300 text-sm tracking-wide">
-                                    Ver na Shopee
-                                </a>
-                                {% endif %}
-                                {% if item.aliexpress_link %}
-                                <a href="{{ item.aliexpress_link }}" target="_blank" rel="nofollow" 
-                                   style="background-color: #E62E04; color: #FFFFFF;"
-                                   class="flex items-center justify-center gap-3 w-full font-black py-4 rounded-2xl shadow-lg hover:shadow-red-500/40 hover:-translate-y-1 transition-all duration-300 text-sm tracking-wide">
-                                    Ver no AliExpress
-                                </a>
-                                {% endif %}
-                                {% if item.kabum_link %}
-                                <a href="{{ item.kabum_link }}" target="_blank" rel="nofollow" 
-                                   style="background-color: #0060B1; color: #FFFFFF;"
-                                   class="flex items-center justify-center gap-3 w-full font-black py-4 rounded-2xl shadow-lg hover:shadow-blue-500/40 hover:-translate-y-1 transition-all duration-300 text-sm tracking-wide">
-                                    Ver na KaBuM!
-                                </a>
-                                {% endif %}
-                            </div>
+                            {% if item.mercadolivre_link %}
+                            <a href="{{ item.mercadolivre_link }}" target="_blank" rel="nofollow"
+                                class="flex items-center justify-center gap-2 w-full h-11 font-bold text-[13px] rounded-sm" style="background-color:#FFE600;color:#2D3277;">
+                                Ver no Mercado Livre
+                            </a>
+                            {% endif %}
+                            {% if item.shopee_link %}
+                            <a href="{{ item.shopee_link }}" target="_blank" rel="nofollow"
+                                class="flex items-center justify-center gap-2 w-full h-11 font-bold text-[13px] rounded-sm text-white" style="background-color:#EE4D2D;">
+                                Ver na Shopee
+                            </a>
+                            {% endif %}
+                            {% if item.aliexpress_link %}
+                            <a href="{{ item.aliexpress_link }}" target="_blank" rel="nofollow"
+                                class="flex items-center justify-center gap-2 w-full h-11 font-bold text-[13px] rounded-sm text-white" style="background-color:#E62E04;">
+                                Ver no AliExpress
+                            </a>
+                            {% endif %}
+                            {% if item.kabum_link %}
+                            <a href="{{ item.kabum_link }}" target="_blank" rel="nofollow"
+                                class="flex items-center justify-center gap-2 w-full h-11 font-bold text-[13px] rounded-sm text-white" style="background-color:#0060B1;">
+                                Ver na KaBuM!
+                            </a>
+                            {% endif %}
                         </div>
                     </div>
                 </section>
                 {% endfor %}
             </div>
 
-            <!-- Conclusão -->
             {% if guide.conclusion %}
-            <section id="conclusao" class="scroll-mt-24 pt-12 border-t border-slate-200 dark:border-slate-800">
-                <div class="bg-slate-50 dark:bg-slate-900 rounded-[2.5rem] p-8 md:p-12 shadow-xl border border-slate-100 dark:border-slate-800 relative overflow-hidden transition-colors duration-300">
-                    <div class="absolute top-0 right-0 w-64 h-64 bg-primary-600/5 dark:bg-primary-600/10 rounded-full blur-[80px] -mr-32 -mt-32"></div>
-                    <div class="relative z-10">
-                        <div class="prose prose-lg prose-slate dark:prose-invert max-w-none prose-headings:text-slate-900 dark:prose-headings:text-white prose-headings:font-outfit prose-headings:font-bold prose-headings:mb-6">
-                            {{ guide.conclusion|safe }}
-                        </div>
+            <section id="conclusao" class="scroll-mt-28">
+                <div class="relative bg-black text-white p-8 md:p-10">
+                    <span class="corner-square"></span>
+                    <p class="eyebrow text-primary mb-6">Conclusão / Veredito Final</p>
+                    <div class="prose-body [&_p]:text-white/80 [&_h2]:text-white [&_h3]:text-white [&_a]:text-accent-pale">
+                        {{ guide.conclusion|safe }}
                     </div>
                 </div>
             </section>
             {% endif %}
-
         </div>
 
-        <!-- Sidebar Lateral (Sticky) -->
-        <aside class="lg:col-span-4 space-y-8">
-            <div class="sticky top-24 space-y-8">
-                
-                <!-- Índice Rápido -->
-                <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-800">
-                    <h3 class="text-sm font-black uppercase tracking-widest text-slate-900 dark:text-white mb-6 pb-4 border-b border-slate-50 dark:border-slate-800">
-                        Neste Guia
-                    </h3>
-                    <nav class="space-y-4">
+        <aside class="lg:col-span-4">
+            <div class="lg:sticky lg:top-24 space-y-6">
+                {% if items %}
+                <div class="card p-6">
+                    <span class="corner-square"></span>
+                    <p class="eyebrow mb-5">Neste Guia</p>
+                    <nav class="space-y-1">
                         {% for item in items %}
-                        <a href="#item-{{ item.position }}" class="group flex items-start gap-3 text-sm text-slate-500 dark:text-slate-400 hover:text-primary-600 transition-colors">
-                            <span class="w-6 h-6 flex-shrink-0 flex items-center justify-center rounded-lg bg-slate-50 dark:bg-slate-800 text-[10px] font-bold group-hover:bg-primary-50 dark:group-hover:bg-primary-900/30 group-hover:text-primary-600 transition-all">
-                                {{ item.position }}
-                            </span>
+                        <a href="#item-{{ item.position }}"
+                            class="flex items-start gap-3 py-2 text-[14px] text-body hover:text-primary transition-colors border-b border-hairline last:border-0">
+                            <span class="w-6 h-6 flex-shrink-0 flex items-center justify-center bg-soft text-[11px] font-bold">{{ item.position }}</span>
                             <span class="font-medium line-clamp-1 leading-tight">{{ item.name }}</span>
                         </a>
                         {% endfor %}
                     </nav>
                 </div>
+                {% endif %}
 
-                <!-- Disclaimer de Afiliados -->
-                <div class="p-5 rounded-3xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800/50 mb-8">
-                    <p class="text-[10px] text-center text-slate-400 font-medium leading-relaxed italic">
-                        Comprando pelos links você ajuda o André Indica a continuar trazendo análises honestas sem custo adicional.
+                <div class="relative bg-black text-white p-8">
+                    <span class="corner-square"></span>
+                    <p class="eyebrow text-primary mb-3">Ofertas 24h</p>
+                    <h4 class="text-xl font-bold text-white mb-2">Monitor de Ofertas</h4>
+                    <p class="text-white/70 text-[13px] leading-relaxed mb-6">
+                        Acompanhe promoções em tempo real e não perca nenhum cupom exclusivo no nosso portal de promos.
                     </p>
+                    <a href="https://promos.andreindica.com.br/" target="_blank" rel="noopener noreferrer"
+                        class="btn-primary w-full">Acessar Agora</a>
                 </div>
 
-                <!-- Monitor de Ofertas -->
-                <div class="relative overflow-hidden bg-gradient-to-br from-primary-600 to-primary-800 p-8 rounded-3xl shadow-xl shadow-primary-600/20 group">
-                    <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-white/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
-                    <div class="relative z-10 text-center">
-                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-white text-[10px] font-bold uppercase tracking-widest mb-4">
-                            <span class="animate-pulse">🔥</span> Ofertas 24h
-                        </div>
-                        <h4 class="text-xl font-outfit font-bold text-white mb-2">Monitor de Ofertas</h4>
-                        <p class="text-white/80 text-xs mb-6 leading-relaxed">
-                            Acompanhe promoções em tempo real e não perca nenhum cupom exclusivo no nosso portal de promos.
-                        </p>
-                        <a href="https://promos.andreindica.com.br/" target="_blank" rel="noopener noreferrer"
-                            class="block w-full py-3 bg-white text-primary-600 font-black rounded-2xl hover:bg-slate-50 transition-all transform hover:scale-105 shadow-lg">
-                            Acessar Agora
+                <div class="card p-6">
+                    <span class="corner-square"></span>
+                    <p class="eyebrow mb-4">Promoções e Cupons</p>
+                    <p class="text-[13px] text-body leading-relaxed mb-5">
+                        Entre em nossos grupos e receba ofertas em tempo real, cupons exclusivos e alertas de preço baixo!
+                    </p>
+                    <div class="space-y-3">
+                        <a href="https://chat.whatsapp.com/Jxjt68Mfr9J4tx1vIS82DD" target="_blank"
+                            class="flex items-center justify-center gap-3 w-full h-11 font-bold text-[14px] rounded-sm text-white hover:opacity-80 transition-opacity" style="background-color:#25D366;">
+                            <svg style="width:18px;height:18px;" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884 0 2.225.569 3.445 1.694 5.39l-1.157 4.221 4.333-1.13c1.547.852 2.651 1.272 4.333 1.272zm9.184-7.447c-.201-.1-.282-.181-.462-.362-.181-.181-.502-.342-.883-.543-.161-.08-.282-.181-.462-.181-.221 0-.382.02-.543.02-.12 0-.241.02-.341.02-.161 0-.301-.02-.422-.06-.321-.1-.702-.281-1.185-.562-.161-.08-.321-.161-.462-.261-.482-.321-.864-.682-1.144-1.044-.201-.281-.301-.482-.301-.682 0-.161.04-.321.161-.462.141-.181.362-.361.543-.542.101-.1.141-.181.201-.261 0-.08-.02-.161-.04-.261-.02-.1-.201-.482-.281-.682-.08-.181-.161-.341-.261-.462-.141-.141-.281-.201-.462-.201-.201 0-.382.08-.542.181-.301.201-.482.462-.642.743-.161.281-.281.583-.281.884 0 .341.08.703.181 1.044.181.602.482 1.184.884 1.706.522.683 1.104 1.264 1.766 1.766.422.321.884.582 1.366.783.341.141.683.221.984.221.482 0 .904-.241 1.245-.583.181-.181.361-.401.502-.642.12-.221.201-.482.201-.763 0-.12-.02-.241-.04-.341z"/></svg>
+                            Grupo VIP WhatsApp
+                        </a>
+                        <a href="https://t.me/AlertaTechBrasil" target="_blank"
+                            class="flex items-center justify-center gap-3 w-full h-11 font-bold text-[14px] rounded-sm text-white hover:opacity-80 transition-opacity" style="background-color:#0088cc;">
+                            <svg style="width:18px;height:18px;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.891 8.146l-2.003 9.445c-.149.659-.541.823-1.091.513l-3.051-2.248-1.472 1.417c-.163.163-.3.3-.615.3l.219-3.111 5.662-5.116c.246-.219-.054-.341-.381-.121l-7.001 4.408-3.017-.942c-.655-.205-.667-.655.137-.968l11.771-4.535c.544-.201 1.021.127.844.738z"/></svg>
+                            Canal no Telegram
                         </a>
                     </div>
                 </div>
 
-                <!-- Grupos e Comunidade -->
-                <div class="mt-8 bg-gradient-to-br from-slate-900 to-slate-950 p-8 rounded-3xl shadow-xl border border-slate-800">
-                    <h4 class="text-xs font-black uppercase tracking-[0.2em] text-primary-500 mb-6 font-outfit">
-                        Promoções e Cupons
-                    </h4>
-                    <p class="text-xs text-slate-400 mb-6 leading-relaxed">
-                        Entre em nossos grupos e receba ofertas em tempo real, cupons exclusivos e alertas de preço baixo!
-                    </p>
-                    
-                    <div class="space-y-3">
-                        <a href="https://chat.whatsapp.com/Jxjt68Mfr9J4tx1vIS82DD" target="_blank"
-                            style="background-color: #25D366; color: #ffffff; text-decoration: none;"
-                            class="flex items-center justify-center gap-3 w-full font-bold py-3.5 rounded-2xl hover:opacity-90 transition-all shadow-md">
-                            <svg style="width: 20px; height: 20px;" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884 0 2.225.569 3.445 1.694 5.39l-1.157 4.221 4.333-1.13c1.547.852 2.651 1.272 4.333 1.272zm9.184-7.447c-.201-.1-.282-.181-.462-.362-.181-.181-.502-.342-.883-.543-.161-.08-.282-.181-.462-.181-.221 0-.382.02-.543.02-.12 0-.241.02-.341.02-.161 0-.301-.02-.422-.06-.321-.1-.702-.281-1.185-.562-.161-.08-.321-.161-.462-.261-.482-.321-.864-.682-1.144-1.044-.201-.281-.301-.482-.301-.682 0-.161.04-.321.161-.462.141-.181.362-.361.543-.542.101-.1.141-.181.201-.261 0-.08-.02-.161-.04-.261-.02-.1-.201-.482-.281-.682-.08-.181-.161-.341-.261-.462-.141-.141-.281-.201-.462-.201-.201 0-.382.08-.542.181-.301.201-.482.462-.642.743-.161.281-.281.583-.281.884 0 .341.08.703.181 1.044.181.602.482 1.184.884 1.706.522.683 1.104 1.264 1.766 1.766.422.321.884.582 1.366.783.341.141.683.221.984.221.482 0 .904-.241 1.245-.583.181-.181.361-.401.502-.642.12-.221.201-.482.201-.763 0-.12-.02-.241-.04-.341z"/></svg>
-                                <span class="text-sm">Grupo VIP WhatsApp</span>
-                            </a>
-                            
-                            <a href="https://t.me/AlertaTechBrasil" target="_blank"
-                                style="background-color: #0088cc; color: #ffffff; text-decoration: none;"
-                                class="flex items-center justify-center gap-3 w-full font-bold py-3.5 rounded-2xl hover:opacity-90 transition-all shadow-md">
-                                <svg style="width: 20px; height: 20px;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.891 8.146l-2.003 9.445c-.149.659-.541.823-1.091.513l-3.051-2.248-1.472 1.417c-.163.163-.3.3-.615.3l.219-3.111 5.662-5.116c.246-.219-.054-.341-.381-.121l-7.001 4.408-3.017-.942c-.655-.205-.667-.655.137-.968l11.771-4.535c.544-.201 1.021.127.844.738z"/></svg>
-                                <span class="text-sm">Canal no Telegram</span>
-                            </a>
-
-                            <a href="https://t.me/alertas_andre_bot" target="_blank"
-                                style="background-color: #0088cc; color: #ffffff; text-decoration: none;"
-                                class="flex items-center justify-center gap-3 w-full font-bold py-3.5 rounded-2xl hover:opacity-90 transition-all shadow-md">
-                                <svg style="width: 20px; height: 20px;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.891 8.146l-2.003 9.445c-.149.659-.541.823-1.091.513l-3.051-2.248-1.472 1.417c-.163.163-.3.3-.615.3l.219-3.111 5.662-5.116c.246-.219-.054-.341-.381-.121l-7.001 4.408-3.017-.942c-.655-.205-.667-.655.137-.968l11.771-4.535c.544-.201 1.021.127.844.738z"/></svg>
-                                <span class="text-sm">Bot de Alertas</span>
-                            </a>
-                        </div>
-                    </div>
-
+                <p class="text-[11px] text-center text-mute italic leading-relaxed">
+                    Comprando pelos links você ajuda o André Indica a continuar trazendo análises honestas sem custo adicional.
+                </p>
             </div>
         </aside>
     </div>
 </article>
 
-<!-- Script para Scroll Suave -->
 <script>
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
+                target.scrollIntoView({ behavior: 'smooth' });
             }
         });
     });

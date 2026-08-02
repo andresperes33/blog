@@ -3,79 +3,77 @@
 
 {% block title %}Guias de Compra: Melhores Gadgets e Equipamentos | André Indica{% endblock %}
 
+{% block breadcrumb %}
+<div class="bg-soft border-b border-hairline">
+    <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 h-12 flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.12em] text-mute">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span class="text-hairline-strong">›</span>
+        <span class="text-body">Guias de Compra</span>
+    </div>
+</div>
+{% endblock %}
+
 {% block content %}
-<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="mb-12">
-        <nav class="mb-4 text-sm text-slate-500">
-            <a href="/" class="hover:text-primary-600">Home</a>
-            <span>/</span>
-            <span class="text-slate-900 dark:text-slate-300">Guias de Compra</span>
-        </nav>
-        <h1 class="text-4xl font-outfit font-extrabold text-slate-900 dark:text-white">
-            Guias de Compra
-        </h1>
-        <p class="mt-4 text-slate-500 dark:text-slate-400 max-w-2xl">
+<section class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="max-w-2xl mb-12">
+        <p class="eyebrow mb-3">Melhores escolhas</p>
+        <h1 class="text-4xl font-bold tracking-tight text-ink">Guias de Compra</h1>
+        <p class="mt-3 text-body text-[15px] leading-relaxed">
             Listas curadas com os melhores produtos do mercado, analisados detalhadamente para você não errar na escolha.
         </p>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {% for guide in guides %}
-        <article class="flex flex-col group">
-            <div class="relative w-full aspect-video rounded-2xl overflow-hidden mb-6 shadow-md">
-                <a href="{% url 'reviews:guide_detail' guide.slug %}">
-                    <img src="{{ guide.main_image.url }}" alt="{{ guide.title }}"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                </a>
-                <!-- Badge de Categoria sobre a imagem (opcional, mantendo padrão clean) -->
-                <div class="absolute top-4 left-4">
-                    <span class="px-3 py-1 bg-white/90 dark:bg-slate-800/90 backdrop-blur text-primary-600 dark:text-primary-400 text-[10px] font-black uppercase tracking-widest rounded-lg shadow-sm">
-                        {{ guide.category.name }}
-                    </span>
+        <a href="{% url 'reviews:guide_detail' guide.slug %}" class="card group hover:border-primary transition-colors block">
+            <span class="corner-square"></span>
+            <div class="relative aspect-video overflow-hidden border-b border-hairline">
+                <img src="{{ guide.main_image.url }}" alt="{{ guide.title }}" loading="lazy"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <span class="absolute top-3 left-3 badge bg-black text-white">{{ guide.category.name }}</span>
+            </div>
+            <div class="p-6">
+                <div class="flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.12em] text-mute mb-3">
+                    <span>{{ guide.created_at|date:"d M, Y" }}</span>
+                    <span class="text-hairline-strong">•</span>
+                    <span>Por {{ guide.author.get_full_name|default:guide.author.username }}</span>
                 </div>
+                <h3 class="text-[17px] font-bold leading-snug group-hover:text-primary transition-colors line-clamp-2">
+                    {{ guide.title }}
+                </h3>
+                <p class="mt-2 text-body text-[15px] leading-relaxed line-clamp-3">
+                    {{ guide.excerpt }}
+                </p>
+                <span class="btn-ghost mt-4">Ver Guia Completo</span>
             </div>
-            
-            <div class="flex items-center gap-3 text-xs font-semibold text-primary-600 mb-3 uppercase tracking-tighter">
-                <span class="text-slate-500">{{ guide.created_at|date:"d M, Y" }}</span>
-                <span class="text-slate-300">•</span>
-                <span class="text-slate-500">Por {{ guide.author.get_full_name|default:guide.author.username }}</span>
-            </div>
-
-            <h3 class="text-2xl font-bold leading-tight group-hover:text-primary-600 transition-colors line-clamp-2">
-                <a href="{% url 'reviews:guide_detail' guide.slug %}">{{ guide.title }}</a>
-            </h3>
-
-            <p class="mt-4 text-slate-500 dark:text-slate-400 line-clamp-3 leading-relaxed">
-                {{ guide.excerpt }}
-            </p>
-
-            <a href="{% url 'reviews:guide_detail' guide.slug %}" class="mt-6 flex items-center gap-2 text-sm font-bold text-primary-600 group-hover:translate-x-1 transition-transform">
-                Ver Guia Completo
-                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-            </a>
-        </article>
+        </a>
         {% empty %}
-        <div class="col-span-full py-20 text-center bg-white dark:bg-slate-900 rounded-3xl border border-dashed border-slate-200 dark:border-slate-800">
-            <p class="text-slate-500">Nenhum guia publicado ainda.</p>
+        <div class="col-span-full card p-16 text-center text-mute">
+            Nenhum guia publicado ainda.
         </div>
         {% endfor %}
     </div>
 
     <!-- Pagination -->
     {% if is_paginated %}
-    <div class="mt-20 flex justify-center gap-2">
+    <nav class="mt-16 flex justify-center gap-2" aria-label="Paginação">
         {% if page_obj.has_previous %}
         <a href="?page={{ page_obj.previous_page_number }}"
-            class="px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl hover:bg-slate-50">Anterior</a>
+            class="h-11 px-5 flex items-center justify-center text-[14px] font-bold rounded-sm border border-hairline hover:border-primary transition-colors">Anterior</a>
         {% endif %}
-        <span class="px-4 py-2 bg-primary-600 text-white rounded-xl font-bold">{{ page_obj.number }}</span>
+        {% for num in page_obj.paginator.page_range %}
+        {% if num == page_obj.number %}
+        <span class="h-11 px-5 flex items-center justify-center text-[14px] font-bold rounded-sm bg-ink text-white">{{ num }}</span>
+        {% else %}
+        <a href="?page={{ num }}"
+            class="h-11 px-5 flex items-center justify-center text-[14px] font-bold rounded-sm border border-hairline hover:border-primary transition-colors">{{ num }}</a>
+        {% endif %}
+        {% endfor %}
         {% if page_obj.has_next %}
         <a href="?page={{ page_obj.next_page_number }}"
-            class="px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl hover:bg-slate-50">Próxima</a>
+            class="h-11 px-5 flex items-center justify-center text-[14px] font-bold rounded-sm border border-hairline hover:border-primary transition-colors">Próxima</a>
         {% endif %}
-    </div>
+    </nav>
     {% endif %}
 </section>
 {% endblock %}

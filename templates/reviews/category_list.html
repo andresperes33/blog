@@ -3,59 +3,54 @@
 
 {% block title %}Análises de {{ category.name }} - André Indica{% endblock %}
 
+{% block breadcrumb %}
+<div class="bg-soft border-b border-hairline">
+    <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 h-12 flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.12em] text-mute">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span class="text-hairline-strong">›</span>
+        <a href="{% url 'reviews:all_categories' %}" class="hover:text-primary transition-colors">Categorias</a>
+        <span class="text-hairline-strong">›</span>
+        <span class="text-body">{{ category.name }}</span>
+    </div>
+</div>
+{% endblock %}
+
 {% block content %}
-<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
-    
+<section class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-20">
     <!-- Header da Categoria -->
-    <div class="mb-8">
-        <nav class="mb-8 text-sm text-slate-500 flex items-center gap-2">
-            <a href="/" class="hover:text-primary-600 transition-colors">Home</a>
-            <span class="text-slate-300">/</span>
-            <a href="{% url 'reviews:all_categories' %}" class="hover:text-primary-600 transition-colors">Categorias</a>
-            <span class="text-slate-300">/</span>
-            <span class="text-slate-900 dark:text-slate-300 font-medium">{{ category.name }}</span>
-        </nav>
-        
-        <div class="flex flex-col gap-4">
-            <div>
-                <h1 class="text-3xl sm:text-4xl font-outfit font-extrabold text-slate-900 dark:text-white">
-                    Tudo sobre <span class="text-primary-600">{{ category.name }}</span>
-                </h1>
-                <p class="mt-3 text-base text-slate-500 dark:text-slate-400 max-w-2xl">
-                    Análises, comparativos e guias de compra de {{ category.name }} em um só lugar.
-                </p>
-            </div>
-        </div>
+    <div class="max-w-2xl">
+        <p class="eyebrow mb-3">{{ category.icon|render_icon }} Categoria</p>
+        <h1 class="text-4xl font-bold tracking-tight text-ink">Tudo sobre {{ category.name }}</h1>
+        <p class="mt-3 text-body text-[15px] leading-relaxed">
+            Análises, comparativos e guias de compra de {{ category.name }} em um só lugar.
+        </p>
     </div>
 
     <!-- Seção de Análises -->
     {% if reviews %}
-    <div class="w-full">
+    <div>
         <div class="flex items-center gap-4 mb-8">
-            <h2 class="text-xl font-bold text-slate-900 dark:text-white">Análises Recentes</h2>
-            <div class="h-px flex-1 bg-gradient-to-r from-primary-600/20 to-transparent"></div>
+            <h2 class="text-2xl font-bold tracking-tight text-ink">Análises Recentes</h2>
+            <div class="h-px flex-1 bg-hairline"></div>
         </div>
-        
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {% for review in reviews %}
-            <article class="flex flex-col group">
-                <div class="relative w-full aspect-video rounded-3xl overflow-hidden mb-6 shadow-xl border border-slate-100 dark:border-slate-800">
-                    <a href="{% url 'reviews:review_detail' review.slug %}">
-                        <img src="{{ review.main_image.url }}" alt="{{ review.title }}"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                    </a>
+            <a href="{% url 'reviews:review_detail' review.slug %}" class="card group hover:border-primary transition-colors block">
+                <span class="corner-square"></span>
+                <div class="relative aspect-video overflow-hidden border-b border-hairline">
+                    <img src="{{ review.main_image.url }}" alt="{{ review.title }}" loading="lazy"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <span class="absolute top-3 right-3 badge bg-black text-white">{{ review.rating }}/10</span>
                 </div>
-                <h3 class="text-2xl font-bold leading-tight group-hover:text-primary-600 transition-colors line-clamp-2">
-                    <a href="{% url 'reviews:review_detail' review.slug %}">{{ review.title }}</a>
-                </h3>
-                <p class="mt-4 text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed text-base">
-                    {{ review.excerpt }}
-                </p>
-                <div class="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800/50 flex items-center justify-between text-[11px] font-black text-slate-400 uppercase tracking-[0.2em]">
-                    <span>{{ review.created_at|date:"d M, Y" }}</span>
-                    <a href="{% url 'reviews:review_detail' review.slug %}" class="text-slate-400 hover:text-white transition-colors group-hover:translate-x-1 transition-transform">Ver Review →</a>
+                <div class="p-6">
+                    <span class="block text-[11px] font-bold uppercase tracking-[0.12em] text-mute mb-3">{{ review.created_at|date:"d M, Y" }}</span>
+                    <h3 class="text-[17px] font-bold leading-snug group-hover:text-primary transition-colors line-clamp-2">
+                        {{ review.title }}
+                    </h3>
+                    <p class="mt-2 text-body text-[15px] leading-relaxed line-clamp-2">{{ review.excerpt }}</p>
+                    <span class="btn-ghost mt-4">Ver Review</span>
                 </div>
-            </article>
+            </a>
             {% endfor %}
         </div>
     </div>
@@ -63,37 +58,29 @@
 
     <!-- Seção de Comparativos -->
     {% if comparisons %}
-    <div class="w-full">
+    <div>
         <div class="flex items-center gap-4 mb-8">
-            <h2 class="text-xl font-bold text-slate-900 dark:text-white">Comparativos e Duelos</h2>
-            <div class="h-px flex-1 bg-gradient-to-r from-orange-500/20 to-transparent"></div>
+            <h2 class="text-2xl font-bold tracking-tight text-ink">Comparativos e Duelos</h2>
+            <div class="h-px flex-1 bg-hairline"></div>
         </div>
-        
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {% for comparison in comparisons %}
-            <article class="flex flex-col group">
-                <div class="relative w-full aspect-video rounded-3xl overflow-hidden mb-6 shadow-xl border border-slate-100 dark:border-slate-800">
-                    <a href="{% url 'reviews:comparison_detail' comparison.slug %}">
-                        <img src="{{ comparison.main_image.url }}" alt="{{ comparison.title }}"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                    </a>
-                    <div class="absolute top-4 left-4">
-                        <span class="px-3 py-1 bg-orange-500 text-white text-[10px] font-black uppercase tracking-widest rounded-lg shadow-lg">
-                            Comparativo
-                        </span>
-                    </div>
+            <a href="{% url 'reviews:comparison_detail' comparison.slug %}" class="card group hover:border-primary transition-colors block">
+                <span class="corner-square"></span>
+                <div class="relative aspect-video overflow-hidden border-b border-hairline">
+                    <img src="{{ comparison.main_image.url }}" alt="{{ comparison.title }}" loading="lazy"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <span class="absolute top-3 left-3 badge bg-black text-white">Duelo</span>
                 </div>
-                <h3 class="text-2xl font-bold leading-tight group-hover:text-primary-600 transition-colors line-clamp-2">
-                    <a href="{% url 'reviews:comparison_detail' comparison.slug %}">{{ comparison.title }}</a>
-                </h3>
-                <p class="mt-4 text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed text-base">
-                    {{ comparison.excerpt }}
-                </p>
-                <div class="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800/50 flex items-center justify-between text-[11px] font-black text-slate-400 uppercase tracking-[0.2em]">
-                    <span>{{ comparison.created_at|date:"d M, Y" }}</span>
-                    <a href="{% url 'reviews:comparison_detail' comparison.slug %}" class="text-slate-400 hover:text-white transition-colors group-hover:translate-x-1 transition-transform">Ver Duelo →</a>
+                <div class="p-6">
+                    <span class="block text-[11px] font-bold uppercase tracking-[0.12em] text-mute mb-3">{{ comparison.created_at|date:"d M, Y" }}</span>
+                    <h3 class="text-[17px] font-bold leading-snug group-hover:text-primary transition-colors line-clamp-2">
+                        {{ comparison.title }}
+                    </h3>
+                    <p class="mt-2 text-body text-[15px] leading-relaxed line-clamp-2">{{ comparison.excerpt }}</p>
+                    <span class="btn-ghost mt-4">Ver Duelo</span>
                 </div>
-            </article>
+            </a>
             {% endfor %}
         </div>
     </div>
@@ -101,40 +88,36 @@
 
     <!-- Seção de Guias -->
     {% if guides %}
-    <div class="w-full mt-16 pt-12 border-t border-slate-700/40">
+    <div>
         <div class="flex items-center gap-4 mb-8">
-            <h2 class="text-xl font-bold text-slate-900 dark:text-white">Guias de Compra</h2>
-            <div class="h-px flex-1 bg-gradient-to-r from-blue-600/20 to-transparent"></div>
+            <h2 class="text-2xl font-bold tracking-tight text-ink">Guias de Compra</h2>
+            <div class="h-px flex-1 bg-hairline"></div>
         </div>
-        
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {% for guide in guides %}
-            <article class="flex flex-col group">
-                <div class="relative w-full aspect-video rounded-3xl overflow-hidden mb-6 shadow-xl border border-slate-100 dark:border-slate-800">
-                    <a href="{% url 'reviews:guide_detail' guide.slug %}">
-                        <img src="{{ guide.main_image.url }}" alt="{{ guide.title }}"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                    </a>
+            <a href="{% url 'reviews:guide_detail' guide.slug %}" class="card group hover:border-primary transition-colors block">
+                <span class="corner-square"></span>
+                <div class="relative aspect-video overflow-hidden border-b border-hairline">
+                    <img src="{{ guide.main_image.url }}" alt="{{ guide.title }}" loading="lazy"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                 </div>
-                <h3 class="text-2xl font-bold leading-tight group-hover:text-primary-600 transition-colors line-clamp-2">
-                    <a href="{% url 'reviews:guide_detail' guide.slug %}">{{ guide.title }}</a>
-                </h3>
-                <p class="mt-4 text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed text-base">
-                    {{ guide.excerpt }}
-                </p>
-                <div class="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800/50 flex items-center justify-between text-[11px] font-black text-slate-400 uppercase tracking-[0.2em]">
-                    <span>{{ guide.created_at|date:"d M, Y" }}</span>
-                    <a href="{% url 'reviews:guide_detail' guide.slug %}" class="text-slate-400 hover:text-white transition-colors group-hover:translate-x-1 transition-transform">Ler Guia →</a>
+                <div class="p-6">
+                    <span class="block text-[11px] font-bold uppercase tracking-[0.12em] text-mute mb-3">{{ guide.created_at|date:"d M, Y" }}</span>
+                    <h3 class="text-[17px] font-bold leading-snug group-hover:text-primary transition-colors line-clamp-2">
+                        {{ guide.title }}
+                    </h3>
+                    <p class="mt-2 text-body text-[15px] leading-relaxed line-clamp-2">{{ guide.excerpt }}</p>
+                    <span class="btn-ghost mt-4">Ler Guia</span>
                 </div>
-            </article>
+            </a>
             {% endfor %}
         </div>
     </div>
     {% endif %}
 
     {% if not reviews and not comparisons and not guides %}
-    <div class="col-span-full py-24 text-center bg-slate-50 dark:bg-slate-900/50 rounded-[3rem] border-2 border-dashed border-slate-200 dark:border-slate-800">
-        <p class="text-slate-500 dark:text-slate-400 text-lg">Nenhum conteúdo postado ainda para esta categoria.</p>
+    <div class="card p-16 text-center text-mute">
+        Nenhum conteúdo postado ainda para esta categoria.
     </div>
     {% endif %}
 </section>

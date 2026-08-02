@@ -9,9 +9,20 @@ django.setup()
 from django.contrib.auth.models import User
 from reviews.models import Category, Product, Review
 
-# Create User
+# Create User (senha via env ADMIN_PASSWORD ou gerada aleatoriamente)
+admin_password = os.environ.get('ADMIN_PASSWORD')
 if not User.objects.filter(username='admin').exists():
-    User.objects.create_superuser('admin', 'admin@example.com', 'admin123')
+    if not admin_password:
+        import secrets, string
+        alphabet = string.ascii_letters + string.digits + '!@#$%^&*'
+        admin_password = ''.join(secrets.choice(alphabet) for _ in range(20))
+    User.objects.create_superuser('admin', 'admin@example.com', admin_password)
+    print(f"Admin criado. Senha: {admin_password} (mude depois de logar!)")
+elif admin_password:
+    user = User.objects.get(username='admin')
+    user.set_password(admin_password)
+    user.save()
+    print("Senha do admin atualizada via ADMIN_PASSWORD.")
 
 user = User.objects.get(username='admin')
 
