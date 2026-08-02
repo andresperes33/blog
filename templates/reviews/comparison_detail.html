@@ -3,6 +3,12 @@
 {% block title %}{{ comparison.title }} - André Indica{% endblock %}
 {% block meta_description %}{{ comparison.excerpt|truncatewords:30 }}{% endblock %}
 
+{% block og_type %}article{% endblock %}
+{% block og_title %}{{ comparison.title }} - André Indica{% endblock %}
+{% block og_description %}{{ comparison.excerpt|truncatewords:30 }}{% endblock %}
+{% block og_image %}https://www.andreindica.com.br{{ comparison.main_image.url }}{% endblock %}
+{% block twitter_image %}https://www.andreindica.com.br{{ comparison.main_image.url }}{% endblock %}
+
 {% block extra_head %}
 <script type="application/ld+json">
 {
@@ -14,7 +20,13 @@
     "name": "{{ comparison.author.username|escapejs }}"
   },
   "datePublished": "{{ comparison.created_at|date:'c' }}",
-  "image": "{{ request.scheme }}://{{ request.get_host }}{{ comparison.main_image.url }}"
+  "dateModified": "{{ comparison.updated_at|date:'c' }}",
+  "url": "https://www.andreindica.com.br{{ request.path }}",
+  "image": "https://www.andreindica.com.br{{ comparison.main_image.url }}",
+  "publisher": {
+    "@type": "Organization",
+    "name": "André Indica"
+  }
 }
 </script>
 {% endblock %}
@@ -56,6 +68,10 @@
 
             <div class="prose-body">
                 {{ comparison.content|safe }}
+            </div>
+
+            <div class="my-10 py-8 border-y border-hairline">
+                {% include 'ads/adsense_incontent.html' %}
             </div>
 
             <!-- Ficha Técnica Lado a Lado -->

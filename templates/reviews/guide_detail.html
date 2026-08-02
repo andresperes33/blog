@@ -4,6 +4,35 @@
 {% block title %}{{ guide.title }} - André Indica{% endblock %}
 {% block meta_description %}{{ guide.excerpt|truncatewords:30 }}{% endblock %}
 
+{% block og_type %}article{% endblock %}
+{% block og_title %}{{ guide.title }} - André Indica{% endblock %}
+{% block og_description %}{{ guide.excerpt|truncatewords:30 }}{% endblock %}
+{% block og_image %}https://www.andreindica.com.br{{ guide.main_image.url }}{% endblock %}
+{% block twitter_image %}https://www.andreindica.com.br{{ guide.main_image.url }}{% endblock %}
+
+{% block extra_head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Article",
+  "headline": "{{ guide.title|escapejs }}",
+  "description": "{{ guide.excerpt|truncatewords:30|escapejs }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ guide.author.username|escapejs }}"
+  },
+  "datePublished": "{{ guide.created_at|date:'c' }}",
+  "dateModified": "{{ guide.updated_at|date:'c' }}",
+  "url": "https://www.andreindica.com.br{{ request.path }}",
+  "image": "https://www.andreindica.com.br{{ guide.main_image.url }}",
+  "publisher": {
+    "@type": "Organization",
+    "name": "André Indica"
+  }
+}
+</script>
+{% endblock %}
+
 {% block breadcrumb %}
 <div class="bg-soft border-b border-hairline">
     <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 h-12 flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.12em] text-mute">
@@ -43,6 +72,10 @@
 
             <div class="prose-body">
                 {{ guide.content|safe }}
+            </div>
+
+            <div class="my-10 py-8 border-y border-hairline">
+                {% include 'ads/adsense_incontent.html' %}
             </div>
 
             <!-- Lista de Itens (Ranking) -->

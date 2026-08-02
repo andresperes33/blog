@@ -3,6 +3,13 @@
 {% block title %}{{ review.title }} - André Indica{% endblock %}
 {% block meta_description %}{{ review.excerpt|truncatewords:30 }}{% endblock %}
 
+{% block canonical_url %}https://www.andreindica.com.br{{ request.path }}{% endblock %}
+{% block og_type %}article{% endblock %}
+{% block og_title %}{{ review.title }} - André Indica{% endblock %}
+{% block og_description %}{{ review.excerpt|truncatewords:30 }}{% endblock %}
+{% block og_image %}https://www.andreindica.com.br{{ review.main_image.url }}{% endblock %}
+{% block twitter_image %}https://www.andreindica.com.br{{ review.main_image.url }}{% endblock %}
+
 {% block extra_head %}
 <script type="application/ld+json">
 {
@@ -11,21 +18,31 @@
   "itemReviewed": {
     "@type": "Product",
     "name": "{{ review.product.name|escapejs }}",
+    "image": "https://www.andreindica.com.br{{ review.main_image.url }}",
     "brand": {
       "@type": "Brand",
       "name": "{{ review.product.brand|escapejs }}"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "{{ rating }}",
+      "bestRating": "10",
+      "worstRating": "0",
+      "ratingCount": "1"
     }
   },
   "reviewRating": {
     "@type": "Rating",
     "ratingValue": "{{ rating }}",
-    "bestRating": "10"
+    "bestRating": "10",
+    "worstRating": "0"
   },
   "author": {
     "@type": "Person",
     "name": "{{ review.author.username|escapejs }}"
   },
   "datePublished": "{{ review.created_at|date:'c' }}",
+  "url": "https://www.andreindica.com.br{{ request.path }}",
   "reviewBody": "{{ review.excerpt|escapejs }}"
 }
 </script>
@@ -67,6 +84,10 @@
 
             <div class="prose-body">
                 {{ review.content|safe }}
+            </div>
+
+            <div class="my-10 py-8 border-y border-hairline">
+                {% include 'ads/adsense_incontent.html' %}
             </div>
 
             {% if review.conclusion %}

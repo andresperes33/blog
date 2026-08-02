@@ -28,7 +28,7 @@
         <a href="{% url 'reviews:category_list' category.slug %}"
             class="card group hover:border-primary transition-colors p-8 flex flex-col items-center text-center">
             <span class="corner-square"></span>
-            <span class="text-5xl text-body mb-5">{{ category.icon|render_icon }}</span>
+            <span class="text-3xl text-body mb-5">{{ category.icon|render_icon }}</span>
             <h3 class="text-lg font-bold text-ink group-hover:text-primary transition-colors">{{ category.name }}</h3>
             <p class="mt-2 text-[13px] text-mute">{{ category.total_content_count }} conteúdos</p>
         </a>

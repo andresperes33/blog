@@ -49,6 +49,11 @@
                 </div>
             </div>
         </a>
+        {% if forloop.counter == 4 %}
+        <div class="col-span-full sm:col-span-2 lg:col-span-3 my-2">
+            {% include 'ads/adsense_incontent.html' %}
+        </div>
+        {% endif %}
         {% empty %}
         <div class="col-span-full card p-16 text-center text-mute">
             Nenhuma análise postada ainda.
