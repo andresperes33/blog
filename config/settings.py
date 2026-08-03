@@ -40,6 +40,12 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # Separando origens por vírgula no env ou liberando para desenvolvimento
 CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS', default=['https://andreindica.com.br', 'https://www.andreindica.com.br'])
 
+# Descartar entradas inválidas (ex.: "*") para evitar erro 4_0.E001
+CSRF_TRUSTED_ORIGINS = [
+    o for o in CSRF_TRUSTED_ORIGINS
+    if o.startswith('http://') or o.startswith('https://')
+] or ['https://andreindica.com.br', 'https://www.andreindica.com.br']
+
 # Segurança de produção (aplicada somente quando DEBUG=False)
 if not DEBUG:
     SECURE_SSL_REDIRECT = True
