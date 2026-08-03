@@ -1,0 +1,305 @@
+[
+{
+  "model": "reviews.category",
+  "pk": 1,
+  "fields": {
+    "name": "Mobile",
+    "slug": "mobile",
+    "icon": "icon-mobile"
+  }
+},
+{
+  "model": "reviews.category",
+  "pk": 2,
+  "fields": {
+    "name": "Laptops",
+    "slug": "laptops",
+    "icon": "icon-laptop"
+  }
+},
+{
+  "model": "reviews.category",
+  "pk": 3,
+  "fields": {
+    "name": "Áudio",
+    "slug": "audio",
+    "icon": "icon-audio"
+  }
+},
+{
+  "model": "reviews.category",
+  "pk": 4,
+  "fields": {
+    "name": "Microfones",
+    "slug": "microfones",
+    "icon": "icon-mic"
+  }
+},
+{
+  "model": "reviews.category",
+  "pk": 5,
+  "fields": {
+    "name": "Placas de Vídeo",
+    "slug": "placas-de-video",
+    "icon": "icon-gpu"
+  }
+},
+{
+  "model": "reviews.category",
+  "pk": 6,
+  "fields": {
+    "name": "Placas Mãe",
+    "slug": "placas-mae",
+    "icon": "icon-cpu"
+  }
+},
+{
+  "model": "reviews.category",
+  "pk": 7,
+  "fields": {
+    "name": "Processador",
+    "slug": "processador",
+    "icon": "icon-cpu"
+  }
+},
+{
+  "model": "reviews.category",
+  "pk": 8,
+  "fields": {
+    "name": "Monitores",
+    "slug": "monitores",
+    "icon": "icon-monitor"
+  }
+},
+{
+  "model": "reviews.category",
+  "pk": 9,
+  "fields": {
+    "name": "Controles",
+    "slug": "controles",
+    "icon": "icon-gamepad"
+  }
+},
+{
+  "model": "reviews.tag",
+  "pk": 1,
+  "fields": {
+    "name": "gamepad"
+  }
+},
+{
+  "model": "reviews.tag",
+  "pk": 2,
+  "fields": {
+    "name": "controle"
+  }
+},
+{
+  "model": "reviews.tag",
+  "pk": 3,
+  "fields": {
+    "name": "8bitdo"
+  }
+},
+{
+  "model": "reviews.tag",
+  "pk": 4,
+  "fields": {
+    "name": "wireless"
+  }
+},
+{
+  "model": "reviews.tag",
+  "pk": 5,
+  "fields": {
+    "name": "pc"
+  }
+},
+{
+  "model": "reviews.tag",
+  "pk": 6,
+  "fields": {
+    "name": "hall effect"
+  }
+},
+{
+  "model": "reviews.product",
+  "pk": 1,
+  "fields": {
+    "name": "Galaxy S24 Ultra",
+    "brand": "Samsung",
+    "model_name": "",
+    "category": 1
+  }
+},
+{
+  "model": "reviews.product",
+  "pk": 2,
+  "fields": {
+    "name": "MacBook Pro M3",
+    "brand": "Apple",
+    "model_name": "",
+    "category": 2
+  }
+},
+{
+  "model": "reviews.product",
+  "pk": 3,
+  "fields": {
+    "name": "Ultimate 2",
+    "brand": "8BitDo",
+    "model_name": "Ultimate 2",
+    "category": 9
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$oQuNQRnxraT37zHkv30761$e8JLVUiso/TeC8W22jsy1oOIsAmQf1Jgh+xtwAp3OQA=",
+    "last_login": "2026-08-02T22:39:02.569Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "admin@example.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-03-08T13:19:57.927Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$fjiWRycrgH2gssE4eH8vDg$6kD0l6bLYM3D9bl3B0g4Sz60UbvhSdA0sPqUp6ceYSE=",
+    "last_login": "2026-03-13T14:05:04.315Z",
+    "is_superuser": true,
+    "username": "andrecode",
+    "first_name": "",
+    "last_name": "",
+    "email": "andrecode.py@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-03-13T14:04:32.887Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 1,
+  "fields": {
+    "product": 1,
+    "title": "Galaxy S24 Ultra: O Rei do Android?",
+    "slug": "galaxy-s24-ultra-o-rei-do-android",
+    "excerpt": "O novo topo de linha da Samsung promete revolucionar com IA e câmeras imbatíveis.",
+    "content": "<h2>Design e Tela</h2><p>O Titanium é a grande estrela aqui. A tela plana de 6.8 polegadas com brilho pico de 2600 nits é simplesmente a melhor do mercado...</p><h2>Performance</h2><p>Equipado com o Snapdragon 8 Gen 3 for Galaxy, a fluidez é absurda.</p>",
+    "conclusion": "",
+    "main_image": "reviews/main/smartphone_review_main_1772975721510.webp",
+    "rating": "9.5",
+    "pros": "Câmeras fenomenais\nIA integrada útil\nBateria de longa duração\nTela sensacional",
+    "cons": "Preço muito elevado\nCarregamento ainda lento comparado a rivais",
+    "specifications": {
+      "Processador": "Snapdragon 8 Gen 3",
+      "RAM": "12GB",
+      "Bateria": "5000mAh"
+    },
+    "tags_input": "",
+    "amazon_link": null,
+    "mercadolivre_link": null,
+    "shopee_link": null,
+    "aliexpress_link": null,
+    "kabum_link": null,
+    "author": [
+      "admin"
+    ],
+    "created_at": "2026-03-08T13:19:58.610Z",
+    "updated_at": "2026-08-02T23:06:34.932Z",
+    "is_featured": true,
+    "is_published": true,
+    "tags": []
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 2,
+  "fields": {
+    "product": 2,
+    "title": "MacBook Pro M3 Max: Poder Bruto e Eficiência",
+    "slug": "macbook-pro-m3-max-poder-bruto-e-eficiencia",
+    "excerpt": "A Apple eleva o nível novamente com o chip M3 Max. Vale o upgrade?",
+    "content": "<h2>O Poder do M3 Max</h2><p>Testamos a versão topo de linha e fomos surpreendidos pela capacidade de renderização em 3D e edição de vídeo 8K sem sequer ligar as ventoinhas em uso moderado...</p>",
+    "conclusion": "",
+    "main_image": "reviews/main/laptop_review_main_1772975855350.webp",
+    "rating": "9.8",
+    "pros": "Performance inigualável\nDuração de bateria de 22h\nTela Liquid Retina XDR",
+    "cons": "Design idêntico ao anterior\nBase model com apenas 8GB RAM\nExtremamente caro",
+    "specifications": {
+      "GPU": "40 Cores",
+      "Tela": "16.2 Mini-LED",
+      "Portas": "3x Thunderbolt 4"
+    },
+    "tags_input": "",
+    "amazon_link": null,
+    "mercadolivre_link": null,
+    "shopee_link": null,
+    "aliexpress_link": null,
+    "kabum_link": null,
+    "author": [
+      "admin"
+    ],
+    "created_at": "2026-03-08T13:19:58.618Z",
+    "updated_at": "2026-08-02T23:06:34.782Z",
+    "is_featured": true,
+    "is_published": true,
+    "tags": []
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 3,
+  "fields": {
+    "product": 3,
+    "title": "8BitDo Ultimate 2: Excelente Controle, Preço Injusto",
+    "slug": "8bitdo-ultimate-2",
+    "excerpt": "O Ultimate 2 é um dos melhores controles que já passou pelo canal — construção, conexão e ergonomia de primeira. Mas o preço alto derruba a recomendação. Veja o veredito completo.",
+    "content": "<h2>Primeiras Impressões</h2>\r\n<p>O 8BitDo Ultimate 2 chegou para substituir o Ultimate original, e a primeira coisa que preciso deixar claro é que esse controle <strong>não é ruim</strong> — muito pelo contrário. Ele é um dos melhores controles que já passou pelo canal. O problema dele é outro, e eu explico lá embaixo.</p>\r\n\r\n<h2>O Que Vem na Caixa</h2>\r\n<p>Dentro da caixa você encontra o cabo original, o material informativo/manual e a base de carregamento. Sobre o cabo: sempre prefira o cabo original que vem na caixa, porque ele tem as especificações corretas para a bateria do dispositivo. Usar um cabo fora das especificações pode danificar a bateria, e muitas marcas não cobrem isso na garantia.</p>\r\n<p>A base de carregamento é igual à do Ultimate original. Ela tem uma luzinha que acende quando conectada, uma parte de borracha para não escorregar e um compartimento secreto onde já vem o <strong>dongle</strong> conectado. Ao energizar a base, o dongle já funciona — você não precisa ocupar uma porta USB.</p>\r\n\r\n<h2>Construção e Qualidade</h2>\r\n<p>A 8BitDo não deixa nada a desejar em construção e durabilidade. Destaques:</p>\r\n<ul>\r\n<li><strong>D-Pad mecânico:</strong> facilita movimentações rápidas e é ótimo para jogos de luta. O clique mecânico é satisfatório e ele desliza muito fácil.</li>\r\n<li><strong>Analógicos TMR:</strong> haste de metal, protegida e <strong>trocável</strong> — se a pontinha desgastar ou quebrar, você encontra substituições facilmente na internet.</li>\r\n<li><strong>Botões ABXY:</strong> membrana padrão, mas com boa resposta.</li>\r\n<li><strong>Botões de para-choque e extras mecânicos:</strong> os dois botões frontais extras e os dois botões traseiros (os \"feijõezinhos\") são mecânicos, o que ajuda na durabilidade.</li>\r\n<li><strong>Gatilhos Hall Effect:</strong> zona morta quase zero, e as travinhas atrás transformam o gatilho em botão de pressão única — essencial para quem joga FPS.</li>\r\n</ul>\r\n\r\n<h2>Conectividade</h2>\r\n<p>O controle tem uma chavinha que alterna entre <strong>2.4GHz (wireless via dongle)</strong> e <strong>Bluetooth</strong>. O wireless é a conexão mais rápida e precisa; o Bluetooth é mais versátil (dá para jogar no mobile e conectar em vários dispositivos), mas tem mais atraso.</p>\r\n<p>A conexão é excelente: a 8BitDo desenvolveu seu próprio chip e tecnologia de conexão, com <strong>polling rate de 1000 Hz</strong>. Isso quer dizer que ele se comunica em alta velocidade com o computador.</p>\r\n<p><strong>Ponto negativo:</strong> o dongle do Ultimate 2 é USB-C. A minoria dos PCs tem porta USB-C, e quando tem, costuma ser só uma. Se você não quiser usar a base de carregamento, provavelmente vai precisar de um adaptador.</p>\r\n\r\n<h2>Software, RGB e Bateria</h2>\r\n<p>Ele é configurável via software: dá para remapear os botões extras, ajustar os modos (alternando pelo botão central) e configurar o <strong>RGB</strong> dos anéis ao redor dos analógicos — um detalhe de muito bom gosto.</p>\r\n<p>Também tem giroscópio, embora poucos jogos o usem. A bateria dura cerca de <strong>19 horas</strong> no 2.4GHz e <strong>32 horas</strong> no Bluetooth.</p>\r\n\r\n<h2>Onde Ele Fica Devendo</h2>\r\n<ul>\r\n<li><strong>Mobile:</strong> ele não funciona em jogos como COD Mobile e PUBG, que exigem que o controle se \"passe\" por um controle de console (PS4/Xbox). Ele funciona em jogos feitos para controle no mobile (GTA mobile, Minecraft, etc.).</li>\r\n<li><strong>Analógicos TMR:</strong> nos testes de gamepad tester, o rastreio dos analógicos (principalmente o direito) sai torto/irregular. Prefiro o rastreio quadrado dos controles 8BitDo por questão de sensibilidade, mas é uma irregularidade perceptível. Na prática, não impactou a jogatina.</li>\r\n</ul>\r\n\r\n<h2>Vale a Pena?</h2>\r\n<p>Aqui está o pulo do gato: o <strong>problema é o preço</strong>. O Ultimate 2 é um controle caro pelo que entrega — e <strong>não vale a pena importar</strong>, você vai pagar muito mais caro do que comprando nacionalmente.</p>\r\n<p>Concorrentes diretos entregam o mesmo (ou até mais) por um preço mais justo, como o Ciclone 2. E o <strong>Ultimate 2C</strong> é o melhor custo-benefício: a diferença de preço entre os dois é de praticamente R$ 100, e o que o 2C perde é configuração via software, dois botões extras, a base de carregamento e o analógico é Hall Effect (mais preciso que o TMR). Para mim, isso não justifica a diferença de R$ 100.</p>\r\n<p><strong>Veredito:</strong> excelente controle de construção, conexão e ergonomia, mas o preço alto derruba a recomendação. Se você quer gastar seu dinheiro bem, o Ultimate 2C entrega mais pelo que custa.</p>",
+    "conclusion": "Excelente controle de construção, conexão e ergonomia, mas o preço alto derruba a recomendação. Para o melhor custo-benefício, o Ultimate 2C entrega mais pelo que custa.",
+    "main_image": "reviews/main/Gemini_Generated_Image_2n3ikg2n3ikg2n3i_corh1HX.webp",
+    "rating": "8.5",
+    "pros": "Construção e durabilidade excelentes\r\nD-Pad mecânico ótimo para jogos de luta\r\nGatilhos Hall Effect com zona morta quase zero\r\nPolling rate de 1000 Hz\r\nAnalógico de metal e trocável\r\nBase de carregamento com dongle incluso\r\nRGB configurável de bom gosto",
+    "cons": "Preço alto (não vale importar)\r\nDongle USB-C (minoria dos PCs tem porta)\r\nNão funciona em COD Mobile / PUBG\r\nRastreio dos analógicos TMR irregular nos testes",
+    "specifications": {
+      "Conexão": "2.4GHz / Bluetooth / USB-C",
+      "Polling Rate": "1000 Hz",
+      "Bateria": "~19h (2.4GHz) / ~32h (Bluetooth)",
+      "Analógicos": "TMR, haste de metal trocável",
+      "D-Pad": "Mecânico",
+      "Gatilhos": "Hall Effect",
+      "Compatibilidade": "PC, Mobile"
+    },
+    "tags_input": "gamepad, controle, 8bitdo, wireless, pc, hall effect",
+    "amazon_link": null,
+    "mercadolivre_link": null,
+    "shopee_link": null,
+    "aliexpress_link": "https://s.click.aliexpress.com/e/_c3WfBCZt",
+    "kabum_link": null,
+    "author": [
+      "admin"
+    ],
+    "created_at": "2026-08-02T22:56:32.915Z",
+    "updated_at": "2026-08-02T23:06:34.458Z",
+    "is_featured": true,
+    "is_published": true,
+    "tags": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  }
+}
+]

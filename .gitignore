@@ -15,6 +15,10 @@ media/
 staticfiles/
 .env
 
+# Backup versionavel de conteudo (artigos + imagens) NAO deve ser ignorado
+!content_backup/
+!content_backup/media/
+
 # Configurações do VS Code
 .vscode/
 
