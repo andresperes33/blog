@@ -123,6 +123,20 @@
   }
 },
 {
+  "model": "reviews.tag",
+  "pk": 7,
+  "fields": {
+    "name": "ultimate 2"
+  }
+},
+{
+  "model": "reviews.tag",
+  "pk": 8,
+  "fields": {
+    "name": "2026"
+  }
+},
+{
   "model": "reviews.product",
   "pk": 1,
   "fields": {
@@ -299,6 +313,57 @@
       4,
       5,
       6
+    ]
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 4,
+  "fields": {
+    "product": 3,
+    "title": "8BitDo Ultimate 2 em 2026: Ainda Vale a Pena? Review Completo",
+    "slug": "8bitdo-ultimate-2-2026",
+    "excerpt": "Será que o 8BitDo Ultimate 2 ainda vale a pena em 2026? Review completo do melhor controle para PC da 8BitDo: specs, conectividade, durabilidade e preço de R$ 250.",
+    "content": "\n<h2>8BitDo Ultimate 2 em 2026: ainda vale a pena?</h2>\n<p>O <strong>8BitDo Ultimate 2</strong> chegou ao mercado há algum tempo, mas segue no topo da linha de controles da marca — ao lado do <strong>Ciclone 2</strong>, da GameSir, no posto de controle mais avançado do segmento. Depois de muita pesquisa e uso no dia a dia, a resposta é: <strong>sim, o Ultimate 2 continua valendo muito a pena em 2026</strong>.</p>\n\n<h2>Specs que ainda não ficaram para trás</h2>\n<p>O Ultimate 2 é o controle mais recheado da 8BitDo. Olha o que ele traz:</p>\n<ul>\n<li><strong>Analógicos TMR</strong> com haste de metal e pontas <strong>trocáveis</strong> — se desgastar ou quebrar, é só comprar outra e encaixar no lugar.</li>\n<li><strong>Gatilhos Hall Effect</strong> (sem desgaste, com zona morta quase zero).</li>\n<li><strong>D-Pad e botões de para-choque mecânicos</strong>, além de botões extras configuraveis.</li>\n<li><strong>Base de carregamento com dongle</strong> incluso.</li>\n<li><strong>Giroscópio</strong>, bateria de <strong>1000 mAh</strong> e <strong>polling rate de 1000 Hz</strong>.</li>\n</ul>\n\n<h2>Conectividade: o grande diferencial da 8BitDo</h2>\n<p>Assim como Razer e Logitech, a 8BitDo desenvolveu <strong>tecnologia própria de conexão sem fio</strong> para minimizar o delay e permitir jogo competitivo sem cabo. Na prática, é a <strong>melhor experiência de conexão sem fio</strong> que já testei em um controle: resposta instantânea, sem atrasos perceptíveis, tanto na construção quanto no uso.</p>\n\n<h2>Durabilidade comprovada</h2>\n<p>O 8BitDo já é conhecido pela durabilidade. Uso o <strong>Ultimate 2C</strong> há cerca de <strong>1 ano e meio</strong> com <strong>zero defeitos</strong> — e o Ultimate 2, por ser a versão superior, tende a ter durabilidade igual ou até maior. Somado à velocidade de conexão e precisão, é um controle para ficar anos na sua mesa.</p>\n\n<h2>Compatibilidade com mobile</h2>\n<p>Antes, os controles da 8BitDo conectavam em jogos mobile apenas com suporte nativo a controle no Android (como GTA e Minecraft). Segundo rumores, uma <strong>atualização de firmware</strong> teria ampliado essa compatibilidade — deixe nos comentários se você testou.</p>\n\n<h2>Preço em 2026: o ponto que virou a favor</h2>\n<p>Aqui mora a grande virada de chave. Hoje é possível encontrar o <strong>Ultimate 2 nacionalmente por cerca de R$ 250</strong> — um <strong>preço justíssimo</strong> para o que ele entrega. Para comparação, um controle de console raramente sai por menos de R$ 400, praticamente o dobro.</p>\n<p>E atenção: <strong>não vale a pena importar pelo AliExpress</strong>, você acaba pagando mais caro do que comprando aqui no Brasil. Os dois principais concorrentes, <strong>Ciclone 2 (GameSir)</strong> e o próprio Ultimate 2, costumam empatar na faixa dos R$ 250 — qualquer um dos dois é uma escolha excelente.</p>\n\n<h2>Veredito: melhor controle para PC em 2026</h2>\n<p>Chegamos a um platô no mercado de controles para PC. Não lançaram nada que desbanque o Ultimate 2, e é difícil imaginar onde as marcas ainda podem inovar. Se você quer o <strong>melhor controle para PC</strong> sem pagar o preço de um console, o 8BitDo Ultimate 2 é a escolha certa.</p>\n<p><strong>Não confunda</strong> com versões com fio nem com o Ultimate 2C (versão mais leve e barata). No link abaixo você encontra o modelo certo com o melhor preço que encontrei.</p>\n",
+    "conclusion": "O 8BitDo Ultimate 2 segue sendo o melhor controle para PC em 2026. Com preço justo de cerca de R$ 250, conectividade de baixíssimo delay e construção durável, é difícil encontrar concorrente que entregue tanto. Compre nacionalmente para pagar menos.",
+    "main_image": "reviews/main/8bitdo-ultimate-2-2026.webp",
+    "rating": "9.2",
+    "pros": "Melhor custo-beneficio entre controles top de linha (aprox. R$ 250)\nTecnologia de conexao sem fio propria da 8BitDo com delay minimo\nDurabilidade comprovada: analogicos TMR com haste de metal trocavel\nGatilhos Hall Effect com zona morta quase zero\nD-Pad e botoes de para-choque mecanicos\nBase de carregamento com dongle incluso\nConfiguracao detalhada via software no PC\nPolling rate de 1000 Hz e bateria de 1000 mAh",
+    "cons": "Compatibilidade mobile limitada (COD Mobile/PUBG dependem de firmware)\nNao vale a pena importar - comprar nacional e mais barato\nUltimate 2C entrega o essencial por menos para quem nao usa os extras",
+    "specifications": {
+      "Conexão": "2.4GHz / Bluetooth / USB-C",
+      "Polling Rate": "1000 Hz",
+      "Bateria": "1000 mAh (~19h 2.4GHz / ~32h Bluetooth)",
+      "Analógicos": "TMR com haste de metal trocável",
+      "Gatilhos": "Hall Effect",
+      "D-Pad": "Mecânico",
+      "Botões": "Mecânicos (para-choque, extras frontais e traseiros)",
+      "Base de Carregamento": "Inclusa, com dongle",
+      "Giroscópio": "Sim",
+      "Compatibilidade": "PC, Mobile (Android), Switch"
+    },
+    "tags_input": "gamepad, controle, 8bitdo, ultimate 2, wireless, pc, hall effect, 2026",
+    "amazon_link": null,
+    "mercadolivre_link": null,
+    "shopee_link": null,
+    "aliexpress_link": "https://s.click.aliexpress.com/e/_c3u3UPp5",
+    "kabum_link": null,
+    "author": [
+      "admin"
+    ],
+    "created_at": "2026-08-03T15:25:55.645Z",
+    "updated_at": "2026-08-03T15:25:55.670Z",
+    "is_featured": true,
+    "is_published": true,
+    "tags": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
     ]
   }
 }

@@ -23,6 +23,15 @@ def abs_val(value):
     except (ValueError, TypeError):
         return 0
 
+@register.filter
+def json_number(value):
+    """Converte Decimal/float para string com ponto decimal (ex.: 9.2),
+    necessario para JSON-LD/Schema.org (locale pt-br usa virgula)."""
+    try:
+        return str(value).replace(',', '.')
+    except (ValueError, TypeError):
+        return value
+
 from django.utils.safestring import mark_safe
 
 @register.filter
