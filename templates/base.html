@@ -36,6 +36,15 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}">
 
+    <!-- PWA -->
+    <link rel="manifest" href="{% static 'pwa/manifest.json' %}">
+    <link rel="apple-touch-icon" href="{% static 'img/pwa/icon-192.png' %}">
+    <meta name="theme-color" content="#76b900">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="André Indica">
+
     <!-- Google Fonts Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -248,6 +257,17 @@
         menuBtn.addEventListener('click', openDrawer);
         closeBtn.addEventListener('click', closeDrawer);
         overlay.addEventListener('click', closeDrawer);
+    </script>
+    <script>
+        // Service Worker (PWA)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/static/pwa/sw.js')
+                    .catch(function (error) {
+                        console.error('Service Worker registration failed:', error);
+                    });
+            });
+        }
     </script>
     {% block extra_js %}{% endblock %}
 </body>
