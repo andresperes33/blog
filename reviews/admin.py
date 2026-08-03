@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Tag, Product, Review, ReviewImage, Comment, Comparison, Guide, GuideItem
+from .models import Category, Tag, Product, Review, ReviewImage, Comparison, Guide, GuideItem
 
 class ReviewImageInline(admin.TabularInline):
     model = ReviewImage
@@ -55,12 +55,6 @@ class ProductAdmin(admin.ModelAdmin):
     list_display = ('name', 'brand', 'category')
     list_filter = ('category', 'brand')
     search_fields = ('name', 'brand')
-
-@admin.register(Comment)
-class CommentAdmin(admin.ModelAdmin):
-    list_display = ('user', 'review', 'created_at')
-    list_filter = ('created_at',)
-    search_fields = ('text', 'user__username', 'review__title')
 
 @admin.register(Comparison)
 class ComparisonAdmin(admin.ModelAdmin):

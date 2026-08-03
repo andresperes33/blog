@@ -18,7 +18,6 @@ sitemaps = {
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('reviews.urls')),
-    path("__reload__/", include("django_browser_reload.urls")),
     path('robots.txt', TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
     path('ads.txt', TemplateView.as_view(template_name="ads.txt", content_type="text/plain")),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
@@ -26,4 +25,7 @@ urlpatterns = [
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += [
+        path("__reload__/", include("django_browser_reload.urls")),
+        *static(settings.STATIC_URL, document_root=settings.STATIC_ROOT),
+    ]

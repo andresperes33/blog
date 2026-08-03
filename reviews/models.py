@@ -178,16 +178,6 @@ class ReviewImage(models.Model):
         verbose_name = "Imagem da Galeria"
         verbose_name_plural = "Imagens da Galeria"
 
-class Comment(models.Model):
-    review = models.ForeignKey(Review, on_delete=models.CASCADE, related_name="comments")
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    text = models.TextField("Comentário")
-    created_at = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        verbose_name = "Comentário"
-        verbose_name_plural = "Comentários"
-
 class Comparison(models.Model):
     product_1 = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="comparisons_as_first")
     product_2 = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="comparisons_as_second")

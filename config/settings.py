@@ -40,6 +40,17 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # Separando origens por vírgula no env ou liberando para desenvolvimento
 CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS', default=['https://andreindica.com.br', 'https://www.andreindica.com.br'])
 
+# Segurança de produção (aplicada somente quando DEBUG=False)
+if not DEBUG:
+    SECURE_SSL_REDIRECT = True
+    SECURE_HSTS_SECONDS = 31536000  # 1 ano
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
+    SECURE_REFERRER_POLICY = 'strict-origin-when-cross-origin'
+
 
 # Application definition
 
@@ -52,11 +63,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tailwind',
     'theme',
-    'django_browser_reload',
     'reviews',
-    'django_htmx',
     'django.contrib.sitemaps',
 ]
+
+# Ferramentas exclusivas de desenvolvimento (nunca em produção)
+if DEBUG:
+    INSTALLED_APPS += ['django_browser_reload']
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -67,9 +80,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django_browser_reload.middleware.BrowserReloadMiddleware',
-    'django_htmx.middleware.HtmxMiddleware',
 ]
+
+if DEBUG:
+    MIDDLEWARE.append('django_browser_reload.middleware.BrowserReloadMiddleware')
 
 ROOT_URLCONF = 'config.urls'
 
