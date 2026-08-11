@@ -31,36 +31,32 @@
     </div>
 </section>
 
-<!-- Featured Section -->
-{% if featured_reviews %}
-<section class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 py-16">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {% for review in featured_reviews %}
-        <a href="{% url 'reviews:review_detail' review.slug %}" class="card group hover:border-primary transition-colors block">
-            <span class="corner-square"></span>
-            <div class="relative aspect-video overflow-hidden border-b border-hairline">
-                <img src="{{ review.main_image.url }}" alt="{{ review.title }}" fetchpriority="high"
-                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                <span class="absolute top-3 left-3 badge bg-black text-white">Destaque</span>
-            </div>
-            <div class="p-6">
-                <div class="flex items-center justify-between mb-3">
-                    <span class="eyebrow">{{ review.product.category.name }}</span>
-                    <span class="font-bold text-primary">{{ review.rating }}/10</span>
-                </div>
-                <h3 class="text-[17px] font-bold leading-snug group-hover:text-primary transition-colors">
-                    {{ review.title }}
-                </h3>
-                <p class="mt-2 text-body text-[15px] leading-relaxed line-clamp-2">
-                    {{ review.excerpt }}
-                </p>
-                <span class="btn-ghost mt-4">Ler Review</span>
-            </div>
-        </a>
-        {% endfor %}
+<!-- Latest Posts -->
+<section id="latest" class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="flex items-end justify-between gap-6 mb-8 flex-wrap">
+        <div>
+            <p class="eyebrow mb-2">Conteúdo novo</p>
+            <h2 class="text-3xl font-bold tracking-tight text-ink">Últimas Análises</h2>
+        </div>
+        <a href="{% url 'reviews:all_reviews' %}" class="btn-ghost">Ver todos</a>
+    </div>
+
+    <!-- Busca AJAX -->
+    <div class="relative mb-10">
+        <svg class="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-mute" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+        <input id="home-search" type="search" placeholder="Buscar reviews, comparativos e guias..."
+            autocomplete="off"
+            class="w-full h-12 pl-12 pr-4 border border-hairline rounded-sm bg-soft text-body placeholder:text-mute focus:outline-none focus:border-primary transition-colors">
+    </div>
+
+    <div id="latest-grid">
+        {% include 'reviews/_latest_grid.html' %}
     </div>
 </section>
-{% endif %}
 
 <!-- Categories -->
 <section class="bg-soft border-y border-hairline">
@@ -91,49 +87,31 @@
 <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 py-2">
     {% include 'ads/adsense_incontent.html' %}
 </div>
+{% endblock %}
 
-<!-- Latest Posts -->
-<section id="latest" class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 py-16">
-    <div class="flex items-center justify-between mb-8">
-        <div>
-            <p class="eyebrow mb-2">Conteúdo novo</p>
-            <h2 class="text-3xl font-bold tracking-tight text-ink">Últimas Análises</h2>
-        </div>
-        <a href="{% url 'reviews:all_reviews' %}" class="btn-ghost">Ver todos</a>
-    </div>
+{% block extra_js %}
+<script>
+    (function () {
+        var input = document.getElementById('home-search');
+        if (!input) return;
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {% for item in combined_content %}
-        <a href="{{ item.url }}" class="card group hover:border-primary transition-colors block">
-            <span class="corner-square"></span>
-            <div class="relative aspect-video overflow-hidden border-b border-hairline">
-                <img src="{{ item.main_image.url }}" alt="{{ item.title }}" loading="lazy"
-                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                {% if item.type_name == "comparison" %}
-                <span class="absolute top-3 left-3 badge bg-black text-white">Duelo</span>
-                {% elif item.type_name == "guide" %}
-                <span class="absolute top-3 left-3 badge bg-black text-white">Guia</span>
-                {% endif %}
-            </div>
-            <div class="p-6">
-                <div class="flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.12em] text-mute mb-3">
-                    <span class="text-primary">{{ item.display_category }}</span>
-                    <span class="text-hairline-strong">•</span>
-                    <span>{{ item.created_at|date:"d M, Y" }}</span>
-                </div>
-                <h3 class="text-[17px] font-bold leading-snug group-hover:text-primary transition-colors line-clamp-2">
-                    {{ item.title }}
-                </h3>
-                <p class="mt-2 text-body text-[15px] leading-relaxed line-clamp-3">
-                    {{ item.excerpt }}
-                </p>
-            </div>
-        </a>
-        {% empty %}
-        <div class="col-span-full card p-12 text-center text-mute">
-            Nenhum conteúdo postado ainda.
-        </div>
-        {% endfor %}
-    </div>
-</section>
+        var grid = document.getElementById('latest-grid');
+        var timer = null;
+
+        input.addEventListener('input', function () {
+            clearTimeout(timer);
+            var q = input.value.trim();
+
+            timer = setTimeout(function () {
+                var url = '{% url "reviews:home_search" %}?q=' + encodeURIComponent(q);
+                fetch(url, { headers: { 'X-Requested-With': 'XMLHttpRequest' } })
+                    .then(function (resp) { return resp.text(); })
+                    .then(function (html) {
+                        grid.innerHTML = html;
+                    })
+                    .catch(function () {});
+            }, 250);
+        });
+    })();
+</script>
 {% endblock %}

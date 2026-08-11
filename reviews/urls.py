@@ -2,13 +2,15 @@ from django.urls import path
 from .views import (
     ReviewListView, ReviewDetailView, CategoryListView, CategoryDetailView, 
     AboutView, AllReviewsView, PrivacyView, TermsView, ContactView,
-    ComparisonListView, ComparisonDetailView, GuideListView, GuideDetailView
+    ComparisonListView, ComparisonDetailView, GuideListView, GuideDetailView,
+    HomeSearchView
 )
 
 app_name = 'reviews'
 
 urlpatterns = [
     path('', ReviewListView.as_view(), name='index'),
+    path('busca/', HomeSearchView.as_view(), name='home_search'),
     path('reviews/', AllReviewsView.as_view(), name='all_reviews'),
     path('review/<slug:slug>/', ReviewDetailView.as_view(), name='review_detail'),
     path('categorias/', CategoryListView.as_view(), name='all_categories'),

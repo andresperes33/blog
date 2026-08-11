@@ -1,46 +1,76 @@
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, TemplateView
 from django.urls import reverse
 from .models import Review, Category, Product, Comparison, Guide, GuideItem
 from itertools import chain
 from operator import attrgetter
 
+
+def build_combined_content(q=None):
+    """Lista de reviews/comparativos/guias com metadados de exibicao."""
+    reviews = list(Review.objects.filter(is_published=True))
+    comparisons = list(Comparison.objects.filter(is_published=True))
+    guides = list(Guide.objects.filter(is_published=True))
+
+    if q:
+        q = q.strip().lower()
+
+        def matches(*fields):
+            return any(f and q in str(f).lower() for f in fields)
+
+        reviews = [r for r in reviews if matches(
+            r.title, r.excerpt, r.product.name,
+            r.product.brand, r.product.category.name)]
+        comparisons = [c for c in comparisons if matches(
+            c.title, c.excerpt, c.product_1.name,
+            c.product_1.category.name)]
+        guides = [g for g in guides if matches(
+            g.title, g.excerpt, g.category.name)]
+
+    # Atribuir metadados para facilitar no template
+    for r in reviews:
+        r.type_name = "review"
+        r.display_category = r.product.category.name
+        r.url = reverse('reviews:review_detail', kwargs={'slug': r.slug})
+
+    for c in comparisons:
+        c.type_name = "comparison"
+        c.display_category = c.product_1.category.name
+        c.url = reverse('reviews:comparison_detail', kwargs={'slug': c.slug})
+
+    for g in guides:
+        g.type_name = "guide"
+        g.display_category = g.category.name
+        g.url = reverse('reviews:guide_detail', kwargs={'slug': g.slug})
+
+    return sorted(
+        chain(reviews, comparisons, guides),
+        key=attrgetter('created_at'),
+        reverse=True
+    )
+
+
 class ReviewListView(ListView):
     template_name = 'reviews/index.html'
     context_object_name = 'combined_content'
-    
-    def get_queryset(self):
-        reviews = list(Review.objects.filter(is_published=True))
-        comparisons = list(Comparison.objects.filter(is_published=True))
-        guides = list(Guide.objects.filter(is_published=True))
-        
-        # Atribuir metadados para facilitar no template
-        for r in reviews:
-            r.type_name = "review"
-            r.display_category = r.product.category.name
-            r.url = reverse('reviews:review_detail', kwargs={'slug': r.slug})
-            
-        for c in comparisons:
-            c.type_name = "comparison"
-            c.display_category = c.product_1.category.name
-            c.url = reverse('reviews:comparison_detail', kwargs={'slug': c.slug})
-            
-        for g in guides:
-            g.type_name = "guide"
-            g.display_category = g.category.name
-            g.url = reverse('reviews:guide_detail', kwargs={'slug': g.slug})
 
-        combined = sorted(
-            chain(reviews, comparisons, guides),
-            key=attrgetter('created_at'),
-            reverse=True
-        )[:9]
-        return combined
+    def get_queryset(self):
+        q = self.request.GET.get('q')
+        return build_combined_content(q)[:9]
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['featured_reviews'] = Review.objects.filter(is_featured=True, is_published=True).order_by('-created_at')[:3]
         context['categories'] = Category.objects.all()
+        return context
+
+
+class HomeSearchView(TemplateView):
+    """Busca AJAX: retorna apenas o grid de conteudos para a home."""
+    template_name = 'reviews/_latest_grid.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['combined_content'] = build_combined_content(self.request.GET.get('q'))
         return context
 
 class AllReviewsView(ListView):
@@ -114,8 +144,6 @@ class ComparisonDetailView(DetailView):
             is_published=True
         ).exclude(id=self.object.id)[:3]
         return context
-
-from django.views.generic import TemplateView
 
 class AboutView(TemplateView):
     template_name = 'reviews/about.html'
