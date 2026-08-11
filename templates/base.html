@@ -34,7 +34,10 @@
         content="{% block twitter_image %}{% static 'img/hero_gpu_bg.png' %}{% endblock %}">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon-16x16.png' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
+    <link rel="apple-touch-icon" href="{% static 'img/favicon-32x32.png' %}">
 
     <!-- PWA -->
     <link rel="manifest" href="{% static 'pwa/manifest.json' %}">
