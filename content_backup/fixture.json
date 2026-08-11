@@ -137,6 +137,62 @@
   }
 },
 {
+  "model": "reviews.tag",
+  "pk": 9,
+  "fields": {
+    "name": "notebook"
+  }
+},
+{
+  "model": "reviews.tag",
+  "pk": 10,
+  "fields": {
+    "name": "positivo"
+  }
+},
+{
+  "model": "reviews.tag",
+  "pk": 11,
+  "fields": {
+    "name": "vision r15"
+  }
+},
+{
+  "model": "reviews.tag",
+  "pk": 12,
+  "fields": {
+    "name": "ryzen 5 5625u"
+  }
+},
+{
+  "model": "reviews.tag",
+  "pk": 13,
+  "fields": {
+    "name": "ryzen 7 5825u"
+  }
+},
+{
+  "model": "reviews.tag",
+  "pk": 14,
+  "fields": {
+    "name": "notebook barato"
+  }
+},
+{
+  "model": "reviews.tag",
+  "pk": 15,
+  "fields": {
+    "name": "custo benefício"
+  }
+},
+{
+  "model": "reviews.tag",
+  "pk": 16,
+  "fields": {
+    "name": "gta v"
+  }
+},
+{
   "model": "reviews.product",
   "pk": 1,
   "fields": {
@@ -164,6 +220,16 @@
     "brand": "8BitDo",
     "model_name": "Ultimate 2",
     "category": 9
+  }
+},
+{
+  "model": "reviews.product",
+  "pk": 4,
+  "fields": {
+    "name": "Vision R15",
+    "brand": "Positivo",
+    "model_name": "Vision R15M",
+    "category": 2
   }
 },
 {
@@ -248,6 +314,57 @@
       6,
       7,
       8
+    ]
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 5,
+  "fields": {
+    "product": 4,
+    "title": "Positivo Vision R15 2026: O Notebook Barato que Serve para Quase Todo Mundo",
+    "slug": "positivo-vision-r15-2026",
+    "excerpt": "Review completo do Positivo Vision R15: notebook barato com tela Full HD IPS, Ryzen 5 5625U, upgrade de RAM até 64 GB, SSD até 4 TB, que ainda roda GTA V. Veja o preço e se vale a pena em 2026.",
+    "content": "\n<h2>Positivo Vision R15: o notebook barato que serve para quase todo mundo</h2>\n<p>Se você procura o <strong>melhor notebook custo-benefício de 2026</strong>, o <strong>Positivo Vision R15</strong> entrou para a disputa com força total. A marca mudou muito: o preço ficou agressivo, a configuração é a mais recheada da faixa e, na prática, ele atende bem <strong>97% das pessoas</strong>. Ele estuda, trabalha, edita vídeo e até roda jogos. A seguir, entenda tudo o que ele entrega — e para quem (3%) ele não serve.</p>\n\n<h2>Tela 15.6\" Full HD com painel IPS: fidelidade de cor e ângulos de visão</h2>\n<p>O primeiro grande destaque é a tela de <strong>15.6 polegadas Full HD com painel IPS</strong>. Diferente do painel TN (comum em notebooks baratos), o IPS entrega <strong>cores mais fiéis</strong> e <strong>melhor ângulo de visão</strong>: você vê a imagem de lado ou de cima sem distorção. Nesta faixa de preço, poucos concorrentes trazem IPS — a maioria usa TN, bem inferior.</p>\n\n<h2>Upgrade liberado: RAM DDR4 até 64 GB e SSD NVMe até 4 TB</h2>\n<p>Ponto que faz muito sucesso: <strong>possibilidade de upgrade</strong>. Muitos notebooks de entrada deixam a memória soldada, mas aqui o Vision R15 permite expandir a <strong>memória RAM DDR4 até 64 GB</strong> e o <strong>SSD NVMe até 4 TB</strong>. Ou seja, você compra a versão de entrada (8 GB / 256 GB) e cresce conforme a necessidade, sem trocar de notebook.</p>\n\n<h2>Teclado completo com teclado numérico</h2>\n<p>O teclado já vem completo, com <strong>teclado numérico na lateral direita</strong>. Para quem mexe com planilhas, números e comandos (como quem usa <strong>AutoCAD</strong>), isso faz diferença enorme no dia a dia: sem ficar procurando atalhos, tudo à mão.</p>\n\n<h2>Webcam com obturador físico de privacidade</h2>\n<p>Detalhe de segurança que falta até em notebook gamer caro: a webcam tem <strong>obturador físico</strong>. É só deslizar a tampa para bloquear a lente — barreira física, não dependendo de software. Nunca confie só em configuração de software.</p>\n\n<h2>Luminária integrada com 3 níveis</h2>\n<p>Coisa simples que quase ninguém traz nesta faixa de preço: uma <strong>luminária integrada</strong>, com <strong>3 níveis de iluminação</strong>. Perfeita para videochamadas à noite, ambiente escuro ou madrugada, iluminando o rosto sem acordar a casa.</p>\n\n<h2>Processador: Ryzen 5 5625U ou Ryzen 7 5825U</h2>\n<p>O coração do notebook, e o que o tornou um sucesso, é o processador. O modelo vem em versão mais barata com <strong>Ryzen 5 5625U</strong> (6 núcleos / 12 threads) e em versão um pouco mais cara com <strong>Ryzen 7 5825U</strong> (8 núcleos / 16 threads). A diferença é núcleos, clock e um pouco de multitarefa/performance gráfica — mas ambos usam a mesma <strong>GPU integrada Radeon</strong>. Na prática, tudo que o Ryzen 5 faz, o Ryzen 7 faz um pouco melhor. Se a diferença de preço for pequena (~R$ 100), vale o Ryzen 7; se for grande, o Ryzen 5 já atende muito bem.</p>\n\n<h2>Preço em 2026: o ponto que virou a favor</h2>\n<p>O que coloca esse notebook no topo é o <strong>preço agressivo</strong>. A versão <strong>Ryzen 5 com 8 GB de RAM e 256 GB de SSD</strong> apareceu por volta de <strong>R$ 2.700</strong> no Mercado Livre, e já foi vista com cupom por <strong>R$ 2.459</strong>. A versão <strong>Ryzen 7</strong> (8 GB / 256 GB) saiu em oferta por <strong>R$ 2.539</strong> na loja oficial da Positivo. Para o que entrega, é difícil bater esse custo-benefício.</p>\n\n<h2>Desempenho na prática: produtividade e edição sem engasgos</h2>\n<p>No dia a dia, o notebook se comporta muito bem: várias abas abertas, planilhas, navegação e YouTube alternando sem lentidão. O <strong>SSD NVMe</strong> deixa abertura de tudo muito rápida. E ele aguenta bem tarefas que exigem gráficos: <strong>editei no CapCut</strong> (cortes, legendas, transições e efeitos) e <strong>Photoshop</strong> roda sem sofrimento graças ao processador.</p>\n\n<h2>Jogos: dá para se divertir, sim</h2>\n<p>Não é notebook gamer, mas surpreende: o <strong>GTA V em gráficos Normais fica super jogável</strong>. Para referência, ele roda bem jogos da geração <strong>PS3</strong> e alguns de <strong>PS4</strong>, além de títulos como <strong>Rocket League</strong> e <strong>Valorant</strong>. Para um dos notebooks mais baratos do mercado, é muito mais do que promete.</p>\n\n<h2>Concorrente direto: Positivo Vision R15 x Asus VivoBook Go 15</h2>\n<p>O concorrente mais citado na mesma faixa (~R$ 2.700) é o <strong>Asus VivoBook Go 15</strong>. Ele vende muito, mas entrega menos: <strong>Ryzen mais fraco</strong>, <strong>tela TN</strong> (bem inferior ao IPS) e <strong>memória RAM sem possibilidade de upgrade</strong> (você fica preso nos 8 GB). Para o dia a dia serve, mas a configuração fica bem abaixo do Positivo pelo mesmo preço.</p>\n\n<h2>Para quem ele NÃO serve: os 3% que vão reclamar</h2>\n<p>Transparência é tudo, então vamos aos pontos que podem desagradar:</p>\n<ul>\n<li><strong>Sem carregamento via USB-C</strong>: usa fonte tradicional. Quem exige carregar com power bank ou tomada USB-C (estilo Galaxy Book 4 ou Lenovo 3i) vai sentir falta — embora esses notebooks custem bem mais.</li>\n<li><strong>Acabamento em plástico</strong>: por ser o notebook mais barato, a construção é toda em plástico, sem acabamento fino.</li>\n<li><strong>Sem porta de rede</strong>: conexão só por Wi-Fi (ou adaptador).</li>\n</ul>\n<p>Se nenhum desses itens é requisito para você, ele compensa muito.</p>\n\n<h2>Veredito: o rei do custo-benefício?</h2>\n<p>Para quem quer um <strong>notebook barato com boa tela IPS, possibilidade de upgrade, ótimo desempenho e que ainda roda jogos</strong>, o <strong>Positivo Vision R15</strong> é a escolha mais forte de 2026. Ele não promete tudo isso — e ainda assim entrega. No meu veredito, continua sendo o <strong>melhor custo-benefício da categoria</strong>. Confira o preço e compre pelo link abaixo.</p>\n",
+    "conclusion": "\nO Positivo Vision R15 é o notebook barato que atende 97% das pessoas: tela IPS Full HD, upgrade de RAM até 64 GB e SSD até 4 TB, Ryzen 5 5625U / Ryzen 7 5825U, ótimo desempenho em produtividade e edição, e ainda roda GTA V. Os pontos fracos (plástico, sem carregamento USB-C e sem porta Ethernet) só incomodam quem tem esses requisitos. Pelo preço praticado em 2026, é o rei do custo-benefício.\n",
+    "main_image": "reviews/main/notebook.webp",
+    "rating": "9.0",
+    "pros": "Tela 15.6\" Full HD com painel IPS (cores e ângulos superiores ao TN)\nUpgrade liberado: RAM DDR4 até 64 GB e SSD NVMe até 4 TB\nTeclado completo com teclado numérico\nWebcam com obturador físico de privacidade\nLuminária integrada com 3 níveis\nRyzen 5 5625U / Ryzen 7 5825U com ótimo desempenho para o preço\nRoda GTA V e jogos de gerações anteriores\nCapCut e Photoshop funcionando sem engasgos\nPreço muito agressivo (a partir de ~R$ 2.459)",
+    "cons": "Construção toda em plástico, sem acabamento premium\nSem carregamento via USB-C (usa fonte tradicional)\nSem porta de rede Ethernet (só Wi-Fi ou adaptador)\nTela não abre totalmente",
+    "specifications": {
+      "Tela": "15.6\" Full HD (1920x1080) IPS",
+      "Processador": "AMD Ryzen 5 5625U (6 núcleos / 12 threads) ou Ryzen 7 5825U (8 núcleos / 16 threads)",
+      "Placa de Vídeo": "AMD Radeon Graphics (integrada)",
+      "Memória RAM": "DDR4 (expansível até 64 GB)",
+      "Armazenamento": "SSD NVMe (expansível até 4 TB)",
+      "Teclado": "Completo, com teclado numérico",
+      "Webcam": "Com obturador físico",
+      "Luminária": "Integrada, com 3 níveis",
+      "Sistema": "Windows (pré-instalado)"
+    },
+    "tags_input": "notebook, positivo, vision r15, ryzen 5 5625u, ryzen 7 5825u, notebook barato, custo benefício, gta v, 2026",
+    "amazon_link": null,
+    "mercadolivre_link": null,
+    "shopee_link": "https://s.shopee.com.br/3g2oS8Rfp5",
+    "aliexpress_link": null,
+    "kabum_link": null,
+    "author": [
+      "admin"
+    ],
+    "created_at": "2026-08-11T23:26:04.504Z",
+    "updated_at": "2026-08-11T23:26:04.504Z",
+    "is_featured": false,
+    "is_published": true,
+    "tags": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
     ]
   }
 }
