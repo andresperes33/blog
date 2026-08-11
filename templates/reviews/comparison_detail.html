@@ -6,8 +6,8 @@
 {% block og_type %}article{% endblock %}
 {% block og_title %}{{ comparison.title }} - Nitro Tech Indica{% endblock %}
 {% block og_description %}{{ comparison.excerpt|truncatewords:30 }}{% endblock %}
-{% block og_image %}https://www.andreindica.com.br{{ comparison.main_image.url }}{% endblock %}
-{% block twitter_image %}https://www.andreindica.com.br{{ comparison.main_image.url }}{% endblock %}
+{% block og_image %}https://blog.nitrotech.store{{ comparison.main_image.url }}{% endblock %}
+{% block twitter_image %}https://blog.nitrotech.store{{ comparison.main_image.url }}{% endblock %}
 
 {% block extra_head %}
 <script type="application/ld+json">
@@ -21,8 +21,8 @@
   },
   "datePublished": "{{ comparison.created_at|date:'c' }}",
   "dateModified": "{{ comparison.updated_at|date:'c' }}",
-  "url": "https://www.andreindica.com.br{{ request.path }}",
-  "image": "https://www.andreindica.com.br{{ comparison.main_image.url }}",
+  "url": "https://blog.nitrotech.store{{ request.path }}",
+  "image": "https://blog.nitrotech.store{{ comparison.main_image.url }}",
   "publisher": {
     "@type": "Organization",
     "name": "Nitro Tech Indica"

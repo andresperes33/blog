@@ -3,12 +3,12 @@
 {% block title %}{{ review.title }} - Nitro Tech Indica{% endblock %}
 {% block meta_description %}{{ review.excerpt|truncatewords:30 }}{% endblock %}
 
-{% block canonical_url %}https://www.andreindica.com.br{{ request.path }}{% endblock %}
+{% block canonical_url %}https://blog.nitrotech.store{{ request.path }}{% endblock %}
 {% block og_type %}article{% endblock %}
 {% block og_title %}{{ review.title }} - Nitro Tech Indica{% endblock %}
 {% block og_description %}{{ review.excerpt|truncatewords:30 }}{% endblock %}
-{% block og_image %}https://www.andreindica.com.br{{ review.main_image.url }}{% endblock %}
-{% block twitter_image %}https://www.andreindica.com.br{{ review.main_image.url }}{% endblock %}
+{% block og_image %}https://blog.nitrotech.store{{ review.main_image.url }}{% endblock %}
+{% block twitter_image %}https://blog.nitrotech.store{{ review.main_image.url }}{% endblock %}
 
 {% block extra_head %}
 <script type="application/ld+json">
@@ -18,7 +18,7 @@
   "itemReviewed": {
     "@type": "Product",
     "name": "{{ review.product.name|escapejs }}",
-    "image": "https://www.andreindica.com.br{{ review.main_image.url }}",
+    "image": "https://blog.nitrotech.store{{ review.main_image.url }}",
     "brand": {
       "@type": "Brand",
       "name": "{{ review.product.brand|escapejs }}"
@@ -42,7 +42,7 @@
     "name": "{{ review.author.username|escapejs }}"
   },
   "datePublished": "{{ review.created_at|date:'c' }}",
-  "url": "https://www.andreindica.com.br{{ request.path }}",
+  "url": "https://blog.nitrotech.store{{ request.path }}",
   "reviewBody": "{{ review.excerpt|escapejs }}"
 }
 </script>
