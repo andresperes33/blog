@@ -1,4 +1,4 @@
-var CACHE_VERSION = 'andreindica-v1';
+var CACHE_VERSION = 'nitrotech-v1';
 var CACHE_NAME = 'pages-' + CACHE_VERSION;
 var STATIC_CACHE = 'static-' + CACHE_VERSION;
 var PRECACHE_URLS = [

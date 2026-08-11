@@ -1,11 +1,11 @@
-{% load static tailwind_tags %}
+﻿{% load static tailwind_tags %}
 <!DOCTYPE html>
 <html lang="pt-br" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}André Indica - O melhor da tecnologia{% endblock %}</title>
+    <title>{% block title %}Nitro Tech Indica - O melhor da tecnologia{% endblock %}</title>
     <meta name="description"
         content="{% block meta_description %}Reviews completos de smartphones, laptops, periféricos e muito mais.{% endblock %}">
 
@@ -13,10 +13,10 @@
     <link rel="canonical" href="{% block canonical_url %}https://www.andreindica.com.br{{ request.path }}{% endblock %}">
 
     <!-- OpenGraph -->
-    <meta property="og:site_name" content="André Indica">
+    <meta property="og:site_name" content="Nitro Tech Indica">
     <meta property="og:type" content="{% block og_type %}website{% endblock %}">
     <meta property="og:locale" content="pt_BR">
-    <meta property="og:title" content="{% block og_title %}André Indica - O melhor da tecnologia{% endblock %}">
+    <meta property="og:title" content="{% block og_title %}Nitro Tech Indica - O melhor da tecnologia{% endblock %}">
     <meta property="og:description"
         content="{% block og_description %}Reviews completos de smartphones, laptops, periféricos e muito mais.{% endblock %}">
     <meta property="og:url" content="https://www.andreindica.com.br{{ request.path }}">
@@ -27,7 +27,7 @@
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="{% block twitter_card %}summary_large_image{% endblock %}">
-    <meta name="twitter:title" content="{% block twitter_title %}André Indica - O melhor da tecnologia{% endblock %}">
+    <meta name="twitter:title" content="{% block twitter_title %}Nitro Tech Indica - O melhor da tecnologia{% endblock %}">
     <meta name="twitter:description"
         content="{% block twitter_description %}Reviews completos de smartphones, laptops, periféricos e muito mais.{% endblock %}">
     <meta name="twitter:image"
@@ -43,7 +43,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="André Indica">
+    <meta name="apple-mobile-web-app-title" content="Nitro Tech">
 
     <!-- Google Fonts Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -76,7 +76,7 @@
         class="fixed top-0 right-0 bottom-0 w-72 max-w-[80%] bg-black text-white z-50 transform translate-x-full transition-transform duration-300 flex flex-col border-l border-hairline-strong">
         <div class="flex items-center justify-between px-6 h-16 border-b border-hairline-strong">
             <span class="text-xl font-bold tracking-tight">
-                ANDRÉ<span class="text-primary"> INDICA</span>
+                NITRO TECH<span class="text-primary"> INDICA</span>
             </span>
             <button id="mobile-close" class="w-11 h-11 flex items-center justify-center hover:bg-white/10 transition-colors" aria-label="Fechar menu">
                 <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -103,7 +103,7 @@
                     <a href="{% url 'reviews:terms' %}" class="block px-3 py-2.5 font-bold hover:bg-white/10 transition-colors">Termos</a>
                 </div>
             </div>
-            <a href="https://promos.andreindica.com.br/" target="_blank" rel="noopener noreferrer"
+            <a href="https://www.nitrotech.store/" target="_blank" rel="noopener noreferrer"
                 class="btn-primary w-full">Portal de Promos</a>
         </nav>
     </aside>
@@ -112,7 +112,7 @@
     <div class="bg-black text-white text-[11px] leading-none">
         <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 h-8 flex items-center justify-between">
             <span class="text-white/70">Ofertas, cupons e alertas de preço em tempo real</span>
-            <a href="https://promos.andreindica.com.br/" target="_blank" rel="noopener noreferrer"
+            <a href="https://www.nitrotech.store/" target="_blank" rel="noopener noreferrer"
                 class="font-bold uppercase tracking-[0.14em] text-primary hover:text-accent-pale transition-colors">
                 Portal de Promos
             </a>
@@ -124,7 +124,7 @@
         <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-6">
             <a href="/" class="text-xl font-bold tracking-tight flex items-center gap-2">
                 <span class="w-2.5 h-2.5 bg-primary inline-block"></span>
-                ANDRÉ<span class="text-primary"> INDICA</span>
+                NITRO TECH<span class="text-primary"> INDICA</span>
             </a>
 
             <div class="hidden lg:flex items-center gap-8 text-[15px] font-bold text-white/70">
@@ -138,7 +138,7 @@
             </div>
 
             <div class="flex items-center gap-4">
-                <a href="https://promos.andreindica.com.br/" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.nitrotech.store/" target="_blank" rel="noopener noreferrer"
                     class="hidden sm:inline-flex btn-primary">Portal de Promos</a>
                 <button id="mobile-menu-btn" class="lg:hidden w-11 h-11 flex items-center justify-center hover:bg-white/10 transition-colors" aria-label="Abrir menu">
                     <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -162,7 +162,7 @@
                 <div class="col-span-2 lg:col-span-2">
                     <a href="/" class="text-xl font-bold tracking-tight flex items-center gap-2">
                         <span class="w-2.5 h-2.5 bg-primary inline-block"></span>
-                        ANDRÉ<span class="text-primary"> INDICA</span>
+                        NITRO TECH<span class="text-primary"> INDICA</span>
                     </a>
                     <p class="mt-4 text-white/70 text-[15px] leading-relaxed max-w-xs">
                         Análises profundas e honestas sobre os últimos lançamentos do mundo da tecnologia.
@@ -182,7 +182,7 @@
                     <ul class="space-y-2.5 text-white/70 text-[15px]">
                         <li><a href="{% url 'reviews:about' %}" class="hover:text-white transition-colors">Sobre</a></li>
                         <li><a href="{% url 'reviews:contact' %}" class="hover:text-white transition-colors">Contato</a></li>
-                        <li><a href="https://promos.andreindica.com.br/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Portal de Promos</a></li>
+                        <li><a href="https://www.nitrotech.store/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Portal de Promos</a></li>
                     </ul>
                 </div>
                 <div>
@@ -210,7 +210,7 @@
 
             <div class="mt-14 pt-8 border-t border-hairline-strong flex flex-col sm:flex-row justify-between items-center gap-4">
                 <p class="text-[10px] font-bold uppercase tracking-[0.14em] text-white/50">
-                    &copy; 2026 André Indica. Todos os direitos reservados.
+                    &copy; 2026 Nitro Tech Indica. Todos os direitos reservados.
                 </p>
                 <div class="flex items-center gap-5">
                     <a href="https://chat.whatsapp.com/Jxjt68Mfr9J4tx1vIS82DD" target="_blank" rel="noopener noreferrer"
