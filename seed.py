@@ -28,7 +28,7 @@ user = User.objects.get(username='admin')
 
 # Create Categories
 cat_mobile, _ = Category.objects.get_or_create(name='Mobile', icon='📱')
-cat_laptop, _ = Category.objects.get_or_create(name='Laptops', icon='💻')
+cat_laptop, _ = Category.objects.get_or_create(name='Notebooks', icon='💻')
 cat_audio, _ = Category.objects.get_or_create(name='Áudio', icon='🎧')
 
 # Products

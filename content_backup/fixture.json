@@ -12,8 +12,8 @@
     "model": "reviews.category",
     "pk": 2,
     "fields": {
-      "name": "Laptops",
-      "slug": "laptops",
+      "name": "Notebooks",
+      "slug": "notebooks",
       "icon": "icon-laptop"
     }
   },

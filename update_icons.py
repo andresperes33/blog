@@ -8,7 +8,7 @@ from reviews.models import Category
 
 mapping = {
     'Mobile': 'icon-mobile',
-    'Laptops': 'icon-laptop',
+    'Notebooks': 'icon-laptop',
     'Áudio': 'icon-audio',
     'Headset': 'icon-audio',
     'Microfones': 'icon-mic',
