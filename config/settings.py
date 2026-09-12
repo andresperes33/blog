@@ -34,7 +34,7 @@ DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = [
     h.strip() for h in (os.environ.get('ALLOWED_HOSTS') or '').split(',') if h.strip()
-] or ['localhost', '127.0.0.1', 'blog.nitrotech.store', 'blog-app.m9hodh.easypanel.host']
+] or ['localhost', '127.0.0.1', 'nitrotechindica.store', 'blog-app.m9hodh.easypanel.host']
 
 # Necessário ao rodar sob serviços de proxy com HTTPS
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -42,7 +42,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # Separando origens por vírgula no env ou liberando para desenvolvimento
 CSRF_TRUSTED_ORIGINS = [
     o.strip() for o in (os.environ.get('CSRF_TRUSTED_ORIGINS') or '').split(',') if o.strip()
-] or ['https://blog.nitrotech.store', 'https://blog-app.m9hodh.easypanel.host']
+] or ['https://nitrotechindica.store', 'https://blog-app.m9hodh.easypanel.host']
 
 # Segurança de produção (aplicada somente quando DEBUG=False)
 if not DEBUG:
