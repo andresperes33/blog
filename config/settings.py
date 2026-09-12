@@ -113,10 +113,38 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
+# Precedência: DATABASE_URL > variáveis individuais (EasyPanel usa DB_*) > SQLite local.
+def _database_config():
+    database_url = env('DATABASE_URL', default='')
+    if database_url:
+        return {'default': env.db('DATABASE_URL')}
 
-DATABASES = {
-    'default': env.db('DATABASE_URL', default=f'sqlite:///{BASE_DIR}/db.sqlite3')
-}
+    engine = (env('DB_ENGINE', default='') or '').lower()
+    host = env('DB_HOST', default='')
+    name = env('DB_DATABASE', env('DATABASE_NAME', default=''))
+    user = env('DB_USERNAME', env('DATABASE_USER', default=''))
+    password = env('DB_PASSWORD', env('DATABASE_PASS', default=''))
+    port = env('DB_PORT', default='')
+
+    if host and name:
+        return {
+            'default': {
+                'ENGINE': {
+                    'mysql': 'django.db.backends.mysql',
+                }.get(engine, 'django.db.backends.postgresql'),
+                'NAME': name,
+                'USER': user,
+                'PASSWORD': password,
+                'HOST': host,
+                'PORT': port or '5432',
+                'CONN_MAX_AGE': 60,
+            }
+        }
+
+    return {'default': env.db('DATABASE_URL', default=f'sqlite:///{BASE_DIR}/db.sqlite3')}
+
+
+DATABASES = _database_config()
 
 
 # Password validation
