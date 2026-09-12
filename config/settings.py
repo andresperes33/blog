@@ -115,16 +115,16 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 # Precedência: DATABASE_URL > variáveis individuais (EasyPanel usa DB_*) > SQLite local.
 def _database_config():
-    database_url = env('DATABASE_URL', default='')
+    database_url = os.environ.get('DATABASE_URL', '')
     if database_url:
         return {'default': env.db('DATABASE_URL')}
 
-    engine = (env('DB_ENGINE', default='') or '').lower()
-    host = env('DB_HOST', default='')
-    name = env('DB_DATABASE', env('DATABASE_NAME', default=''))
-    user = env('DB_USERNAME', env('DATABASE_USER', default=''))
-    password = env('DB_PASSWORD', env('DATABASE_PASS', default=''))
-    port = env('DB_PORT', default='')
+    engine = (os.environ.get('DB_ENGINE') or '').lower()
+    host = os.environ.get('DB_HOST', '')
+    name = os.environ.get('DB_DATABASE') or os.environ.get('DATABASE_NAME') or ''
+    user = os.environ.get('DB_USERNAME') or os.environ.get('DATABASE_USER') or ''
+    password = os.environ.get('DB_PASSWORD') or os.environ.get('DATABASE_PASS') or ''
+    port = os.environ.get('DB_PORT', '')
 
     if host and name:
         return {
