@@ -10,6 +10,7 @@ mapping = {
     'Mobile': 'icon-mobile',
     'Laptops': 'icon-laptop',
     'Áudio': 'icon-audio',
+    'Headset': 'icon-audio',
     'Microfones': 'icon-mic',
     'Placas de Vídeo': 'icon-gpu',
     'Placas Mãe': 'icon-cpu'

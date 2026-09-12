@@ -55,7 +55,7 @@
       "name": "V9 Pro",
       "brand": "Mchose",
       "model_name": "",
-      "category": 3
+      "category": 10
     }
   },
   {
@@ -91,6 +91,15 @@
     "pk": 21,
     "fields": {
       "name": "7.1"
+    }
+  },
+  {
+    "model": "reviews.category",
+    "pk": 10,
+    "fields": {
+      "name": "Headset",
+      "slug": "headset",
+      "icon": "icon-audio"
     }
   }
 ]
