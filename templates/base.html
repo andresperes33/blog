@@ -113,20 +113,22 @@
 
     <!-- Primary Nav -->
     <nav class="sticky top-0 z-30 bg-black text-white border-b border-hairline-strong">
-        <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-6">
+        <div class="relative max-w-content mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-6">
             <a href="/" class="text-xl font-bold tracking-tight flex items-center gap-2">
                 <span class="w-2.5 h-2.5 bg-primary inline-block"></span>
                 NITRO TECH<span class="text-primary"> INDICA</span>
             </a>
 
-            <div class="hidden lg:flex items-center gap-8 text-[15px] font-bold text-white/70">
-                <a href="{% url 'reviews:index' %}" class="hover:text-white transition-colors">Home</a>
-                <a href="{% url 'reviews:all_reviews' %}" class="hover:text-white transition-colors">Reviews</a>
-                <a href="{% url 'reviews:all_categories' %}" class="hover:text-white transition-colors">Categorias</a>
-                <a href="{% url 'reviews:comparison_list' %}" class="hover:text-white transition-colors">Comparativos</a>
-                <a href="{% url 'reviews:guide_list' %}" class="hover:text-white transition-colors">Guias</a>
-                <a href="{% url 'reviews:about' %}" class="hover:text-white transition-colors">Sobre</a>
-                <a href="{% url 'reviews:contact' %}" class="hover:text-white transition-colors">Contato</a>
+            <div class="hidden lg:flex items-center gap-8 text-[15px] font-bold text-white/70 absolute inset-x-0 justify-center pointer-events-none">
+                <div class="pointer-events-auto flex items-center gap-8">
+                    <a href="{% url 'reviews:index' %}" class="hover:text-white transition-colors">Home</a>
+                    <a href="{% url 'reviews:all_reviews' %}" class="hover:text-white transition-colors">Reviews</a>
+                    <a href="{% url 'reviews:all_categories' %}" class="hover:text-white transition-colors">Categorias</a>
+                    <a href="{% url 'reviews:comparison_list' %}" class="hover:text-white transition-colors">Comparativos</a>
+                    <a href="{% url 'reviews:guide_list' %}" class="hover:text-white transition-colors">Guias</a>
+                    <a href="{% url 'reviews:about' %}" class="hover:text-white transition-colors">Sobre</a>
+                    <a href="{% url 'reviews:contact' %}" class="hover:text-white transition-colors">Contato</a>
+                </div>
             </div>
 
             <div class="flex items-center gap-4">
