@@ -141,7 +141,12 @@ def _database_config():
             }
         }
 
-    return {'default': env.db('DATABASE_URL', default=f'sqlite:///{BASE_DIR}/db.sqlite3')}
+    return {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
 
 DATABASES = _database_config()
