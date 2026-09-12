@@ -32,19 +32,17 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['127.0.0.1', 'localhost', 'blog.nitrotech.store', 'blog-app.m9hodh.easypanel.host'])
+ALLOWED_HOSTS = [
+    h.strip() for h in (os.environ.get('ALLOWED_HOSTS') or '').split(',') if h.strip()
+] or ['localhost', '127.0.0.1', 'blog.nitrotech.store', 'blog-app.m9hodh.easypanel.host']
 
 # Necessário ao rodar sob serviços de proxy com HTTPS
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Separando origens por vírgula no env ou liberando para desenvolvimento
-CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS', default=['https://blog.nitrotech.store'])
-
-# Descartar entradas inválidas (ex.: "*") para evitar erro 4_0.E001
 CSRF_TRUSTED_ORIGINS = [
-    o for o in CSRF_TRUSTED_ORIGINS
-    if o.startswith('http://') or o.startswith('https://')
-] or ['https://blog.nitrotech.store']
+    o.strip() for o in (os.environ.get('CSRF_TRUSTED_ORIGINS') or '').split(',') if o.strip()
+] or ['https://blog.nitrotech.store', 'https://blog-app.m9hodh.easypanel.host']
 
 # Segurança de produção (aplicada somente quando DEBUG=False)
 if not DEBUG:
