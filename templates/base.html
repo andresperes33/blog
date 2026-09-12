@@ -3,6 +3,16 @@
 <html lang="pt-br" class="scroll-smooth">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BNL3JREXQ4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-BNL3JREXQ4');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Nitro Tech Indica - O melhor da tecnologia{% endblock %}</title>
@@ -95,7 +105,7 @@
                     <a href="{% url 'reviews:terms' %}" class="block px-3 py-2.5 font-bold hover:bg-white/10 transition-colors">Termos</a>
                 </div>
             </div>
-            <a href="https://www.nitrotech.store/" target="_blank" rel="noopener noreferrer"
+            <a href="https://www.nitrotech.store/promos/" target="_blank" rel="noopener noreferrer"
                 class="btn-primary w-full">Portal de Promos</a>
         </nav>
     </aside>
@@ -104,7 +114,7 @@
     <div class="bg-black text-white text-[11px] leading-none">
         <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 h-8 flex items-center justify-between">
             <span class="text-white/70">Ofertas, cupons e alertas de preço em tempo real</span>
-            <a href="https://www.nitrotech.store/" target="_blank" rel="noopener noreferrer"
+            <a href="https://www.nitrotech.store/promos/" target="_blank" rel="noopener noreferrer"
                 class="font-bold uppercase tracking-[0.14em] text-primary hover:text-accent-pale transition-colors">
                 Portal de Promos
             </a>
@@ -130,7 +140,7 @@
             </div>
 
             <div class="flex items-center gap-4">
-                <a href="https://www.nitrotech.store/" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.nitrotech.store/promos/" target="_blank" rel="noopener noreferrer"
                     class="hidden sm:inline-flex btn-primary">Portal de Promos</a>
                 <button id="mobile-menu-btn" class="lg:hidden w-11 h-11 flex items-center justify-center hover:bg-white/10 transition-colors" aria-label="Abrir menu">
                     <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -174,7 +184,7 @@
                     <ul class="space-y-2.5 text-white/70 text-[15px]">
                         <li><a href="{% url 'reviews:about' %}" class="hover:text-white transition-colors">Sobre</a></li>
                         <li><a href="{% url 'reviews:contact' %}" class="hover:text-white transition-colors">Contato</a></li>
-                        <li><a href="https://www.nitrotech.store/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Portal de Promos</a></li>
+                        <li><a href="https://www.nitrotech.store/promos/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Portal de Promos</a></li>
                     </ul>
                 </div>
                 <div>
@@ -191,7 +201,7 @@
                             <a href="https://chat.whatsapp.com/Jxjt68Mfr9J4tx1vIS82DD" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">WhatsApp</a>
                         </li>
                         <li>
-                            <a href="https://t.me/AlertaTechBrasil" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Telegram</a>
+                            <a href="https://t.me/Nitro_Tech_1" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Telegram</a>
                         </li>
                         <li>
                             <a href="https://t.me/alertas_andre_bot" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Bot de Alertas</a>
@@ -209,7 +219,7 @@
                         class="w-8 h-8 rounded-full border border-hairline-strong flex items-center justify-center text-white/70 hover:text-black hover:bg-primary transition-colors" title="WhatsApp">
                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884 0 2.225.569 3.445 1.694 5.39l-1.157 4.221 4.333-1.13c1.547.852 2.651 1.272 4.333 1.272zm9.184-7.447c-.201-.1-.282-.181-.462-.362-.181-.181-.502-.342-.883-.543-.161-.08-.282-.181-.462-.181-.221 0-.382.02-.543.02-.12 0-.241.02-.341.02-.161 0-.301-.02-.422-.06-.321-.1-.702-.281-1.185-.562-.161-.08-.321-.161-.462-.261-.482-.321-.864-.682-1.144-1.044-.201-.281-.301-.482-.301-.682 0-.161.04-.321.161-.462.141-.181.362-.361.543-.542.101-.1.141-.181.201-.261 0-.08-.02-.161-.04-.261-.02-.1-.201-.482-.281-.682-.08-.181-.161-.341-.261-.462-.141-.141-.281-.201-.462-.201-.201 0-.382.08-.542.181-.301.201-.482.462-.642.743-.161.281-.281.583-.281.884 0 .341.08.703.181 1.044.181.602.482 1.184.884 1.706.522.683 1.104 1.264 1.766 1.766.422.321.884.582 1.366.783.341.141.683.221.984.221.482 0 .904-.241 1.245-.583.181-.181.361-.401.502-.642.12-.221.201-.482.201-.763 0-.12-.02-.241-.04-.341z"/></svg>
                     </a>
-                    <a href="https://t.me/AlertaTechBrasil" target="_blank" rel="noopener noreferrer"
+                    <a href="https://t.me/Nitro_Tech_1" target="_blank" rel="noopener noreferrer"
                         class="w-8 h-8 rounded-full border border-hairline-strong flex items-center justify-center text-white/70 hover:text-black hover:bg-primary transition-colors" title="Telegram">
                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701v4.309c.421 0 .607-.193.843-.418l2.028-1.972 4.219 3.117c.777.429 1.336.208 1.531-.72l2.768-13.064c.284-1.139-.434-1.666-1.187-1.323z"/></svg>
                     </a>
