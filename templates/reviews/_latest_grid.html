@@ -6,10 +6,12 @@
         <div class="relative aspect-video overflow-hidden border-b border-hairline">
             <img src="{{ item.main_image.url }}" alt="{{ item.title }}" loading="lazy"
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            {% if item.type_name == "comparison" %}
-            <span class="absolute top-3 left-3 badge bg-black text-white">Duelo</span>
+            {% if item.type_name == "review" %}
+            <span class="absolute top-3 left-3 badge bg-black text-white">Review</span>
+            {% elif item.type_name == "comparison" %}
+            <span class="absolute top-3 left-3 badge bg-black text-white">Comparativo</span>
             {% elif item.type_name == "guide" %}
-            <span class="absolute top-3 left-3 badge bg-black text-white">Guia</span>
+            <span class="absolute top-3 left-3 badge bg-black text-white">Guia de Compra</span>
             {% endif %}
         </div>
         <div class="p-6">
