@@ -81,6 +81,9 @@ def create_entry(model_name, entry):
         val = fields[f.name]
         if isinstance(val, f.related_model):
             continue
+        if val is None:
+            fields[f.name] = None
+            continue
         if isinstance(val, list) and val and isinstance(val[0], str):
             fields[f.name] = f.related_model.objects.get(username=val[0])
         else:
