@@ -250,6 +250,32 @@
         closeBtn.addEventListener('click', closeDrawer);
         overlay.addEventListener('click', closeDrawer);
     </script>
+    <!-- Back to top -->
+    <button id="back-to-top" aria-label="Voltar ao topo"
+        style="position:fixed; bottom:1.5rem; right:1.5rem; z-index:50; width:2.75rem; height:2.75rem; background-color:#000; color:#fff; border:1px solid #5e5e5e; display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity .2s, background-color .2s;">
+        <svg style="width:1.25rem; height:1.25rem;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/>
+        </svg>
+    </button>
+    <script>
+        // Back to top button
+        (function () {
+            var btn = document.getElementById('back-to-top');
+            if (!btn) return;
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 400) {
+                    btn.style.opacity = '1';
+                    btn.style.pointerEvents = 'auto';
+                } else {
+                    btn.style.opacity = '0';
+                    btn.style.pointerEvents = 'none';
+                }
+            });
+            btn.addEventListener('click', function () {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        })();
+    </script>
     <script>
         // Service Worker (PWA)
         if ('serviceWorker' in navigator) {
