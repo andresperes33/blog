@@ -50,17 +50,32 @@ def build_combined_content(q=None):
     )
 
 
+def split_home_content(items, limit=9):
+    """Divide o conteudo da home em: destaque (capa), lateral (2) e grid."""
+    featured = next((i for i in items if getattr(i, 'is_featured', False)), None)
+    rest = [i for i in items if i is not featured] if featured else list(items)
+    sidebar = rest[:2]
+    grid = (rest[2:]) if featured else items
+    grid = grid[: limit - 3] if featured else grid[:limit]
+    return featured, sidebar, grid
+
+
 class ReviewListView(ListView):
     template_name = 'reviews/index.html'
     context_object_name = 'combined_content'
 
     def get_queryset(self):
         q = self.request.GET.get('q')
-        return build_combined_content(q)[:9]
+        return build_combined_content(q)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['categories'] = Category.objects.all()
+        combined = list(self.object_list)
+        featured, sidebar, grid = split_home_content(combined)
+        context['featured_content'] = featured
+        context['sidebar_content'] = sidebar
+        context['grid_content'] = grid
         return context
 
 
@@ -70,7 +85,11 @@ class HomeSearchView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['combined_content'] = build_combined_content(self.request.GET.get('q'))
+        combined = build_combined_content(self.request.GET.get('q'))
+        # Na busca mostra apenas o grid (sem capa/lateral fixos)
+        context['featured_content'] = None
+        context['sidebar_content'] = []
+        context['grid_content'] = combined[:9]
         return context
 
 class AllReviewsView(ListView):

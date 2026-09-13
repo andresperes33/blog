@@ -1,6 +1,68 @@
-{% if combined_content %}
+{% if featured_content %}
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-10">
+    <a href="{{ featured_content.url }}" class="lg:col-span-2 card group border border-hairline overflow-hidden block">
+        <span class="corner-square"></span>
+        <div class="relative aspect-video overflow-hidden border-b border-hairline">
+            <img src="{{ featured_content.main_image.url }}" alt="{{ featured_content.title }}" loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            {% if featured_content.type_name == "review" %}
+            <span class="absolute top-3 left-3 badge bg-black text-white">Review</span>
+            {% elif featured_content.type_name == "comparison" %}
+            <span class="absolute top-3 left-3 badge bg-black text-white">Comparativo</span>
+            {% elif featured_content.type_name == "guide" %}
+            <span class="absolute top-3 left-3 badge bg-black text-white">Guia de Compra</span>
+            {% endif %}
+        </div>
+        <div class="p-6">
+            <div class="flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.12em] text-mute mb-3">
+                <span class="text-primary">{{ featured_content.display_category }}</span>
+                <span class="text-hairline-strong">•</span>
+                <span>{{ featured_content.created_at|date:"d M, Y" }}</span>
+            </div>
+            <h3 class="text-2xl font-bold leading-snug group-hover:text-primary transition-colors">
+                {{ featured_content.title }}
+            </h3>
+            <p class="mt-2 text-body text-[15px] leading-relaxed line-clamp-2">
+                {{ featured_content.excerpt }}
+            </p>
+        </div>
+    </a>
+
+    <div class="space-y-6">
+        {% for item in sidebar_content %}
+        <a href="{{ item.url }}" class="card group border border-hairline overflow-hidden block">
+            <div class="flex flex-col h-full">
+                <div class="relative aspect-video overflow-hidden border-b border-hairline">
+                    <img src="{{ item.main_image.url }}" alt="{{ item.title }}" loading="lazy"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    {% if item.type_name == "review" %}
+                    <span class="absolute top-3 left-3 badge bg-black text-white">Review</span>
+                    {% elif item.type_name == "comparison" %}
+                    <span class="absolute top-3 left-3 badge bg-black text-white">Comparativo</span>
+                    {% elif item.type_name == "guide" %}
+                    <span class="absolute top-3 left-3 badge bg-black text-white">Guia de Compra</span>
+                    {% endif %}
+                </div>
+                <div class="p-4 flex-1 flex flex-col">
+                    <div class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.12em] text-mute mb-2">
+                        <span class="text-primary">{{ item.display_category }}</span>
+                        <span class="text-hairline-strong">•</span>
+                        <span>{{ item.created_at|date:"d M, Y" }}</span>
+                    </div>
+                    <h3 class="text-[16px] font-bold leading-snug group-hover:text-primary transition-colors line-clamp-2">
+                        {{ item.title }}
+                    </h3>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+{% if grid_content %}
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    {% for item in combined_content %}
+    {% for item in grid_content %}
     <a href="{{ item.url }}" class="card group hover:border-primary transition-colors block">
         <span class="corner-square"></span>
         <div class="relative aspect-video overflow-hidden border-b border-hairline">
@@ -30,7 +92,9 @@
     </a>
     {% endfor %}
 </div>
-{% else %}
+{% endif %}
+
+{% if not featured_content and not grid_content %}
 <div class="col-span-full card p-12 text-center text-mute">
     Nenhum conteúdo encontrado.
 </div>
