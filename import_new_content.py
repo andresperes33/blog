@@ -1,8 +1,10 @@
-"""Importa o conteudo versionado de forma incremental e idempotente.
+"""Importa o conteudo versionado de forma incremental, idempotente e sincronizavel.
 
-Usado automaticamente no deploy (CMD do Dockerfile) para puxar artigos novos
-para o EasyPanel sem conflitar com o que ja existe no banco: registros cujo
-pk (ou username, para usuarios) ja existem sao ignorados.
+Usado automaticamente no deploy (CMD do Dockerfile) para puxar artigos novos e
+atualizacoes da fixture para o EasyPanel sem conflitar com o que ja existe no
+banco: registros inexistentes sao criados e registros existentes sao atualizados
+com os campos da fixture (a fixture e a fonte da verdade). Usuarios existentes
+sao ignorados (nunca trocados nem recriados).
 
 Uso:
     python import_new_content.py
@@ -97,6 +99,42 @@ def create_entry(model_name, entry):
     return True
 
 
+def update_entry(model_name, entry):
+    """Reaplica os campos do fixture sobre um registro existente (idempotente)."""
+    existing = MODELS[model_name].objects.get(pk=entry['pk'])
+    fields = dict(entry['fields'])
+
+    m2m = M2M_FIELDS.get(model_name)
+    m2m_ids = None
+    if m2m and m2m in fields:
+        m2m_ids = fields.pop(m2m)
+        fields.pop('tags_input', None)
+
+    for f in MODELS[model_name]._meta.fields:
+        if not isinstance(f, ForeignKey) or f.name not in fields:
+            continue
+        val = fields[f.name]
+        if isinstance(val, f.related_model):
+            continue
+        if val is None:
+            fields[f.name] = None
+            continue
+        if isinstance(val, list) and val and isinstance(val[0], str):
+            fields[f.name] = f.related_model.objects.get(username=val[0])
+        else:
+            fields[f.name] = f.related_model.objects.get(pk=val)
+
+    for field_name, value in fields.items():
+        if getattr(existing, field_name) != value:
+            setattr(existing, field_name, value)
+    existing.save()
+
+    if m2m_ids:
+        current = set(getattr(existing, m2m).values_list('pk', flat=True))
+        if set(m2m_ids) != current:
+            getattr(existing, m2m).set(m2m_ids)
+
+
 def main():
     print('=> Restaurando imagens para media/ ...')
     restore_media()
@@ -110,6 +148,7 @@ def main():
         entries = json.load(f)
 
     created = 0
+    updated = 0
     skipped = 0
     failed = 0
     for entry in entries:
@@ -117,20 +156,27 @@ def main():
         if model_name not in MODELS:
             continue
         with transaction.atomic():
-            if entry_exists(model_name, entry):
+            if not entry_exists(model_name, entry):
+                try:
+                    if create_entry(model_name, entry):
+                        created += 1
+                        print(f'   + {model_name} {entry.get("pk", "")}')
+                    else:
+                        skipped += 1
+                except Exception as e:  # noqa: BLE001
+                    failed += 1
+                    print(f'   ! {model_name} {entry.get("pk", "")}: {e}')
+            elif model_name != 'auth.user':
+                try:
+                    update_entry(model_name, entry)
+                    updated += 1
+                except Exception as e:  # noqa: BLE001
+                    failed += 1
+                    print(f'   ! {model_name} {entry.get("pk", "")}: {e}')
+            else:
                 skipped += 1
-                continue
-            try:
-                if create_entry(model_name, entry):
-                    created += 1
-                    print(f'   + {model_name} {entry.get("pk", "")}')
-                else:
-                    skipped += 1
-            except Exception as e:  # noqa: BLE001
-                failed += 1
-                print(f'   ! {model_name} {entry.get("pk", "")}: {e}')
 
-    print(f'Concluido: {created} criado(s), {skipped} existente(s), {failed} erro(s).')
+    print(f'Concluido: {created} criado(s), {updated} atualizado(s), {skipped} existente(s), {failed} erro(s).')
 
 
 if __name__ == '__main__':

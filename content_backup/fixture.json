@@ -3,7 +3,7 @@
     "model": "reviews.category",
     "pk": 1,
     "fields": {
-      "name": "Mobile",
+      "name": "Smartphones",
       "slug": "mobile",
       "icon": "icon-mobile"
     }
