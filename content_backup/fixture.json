@@ -1,834 +1,951 @@
 [
-  {
-    "model": "reviews.category",
-    "pk": 1,
-    "fields": {
-      "name": "Mobile",
-      "slug": "mobile",
-      "icon": "icon-mobile"
+    {
+        "model": "reviews.category",
+        "pk": 1,
+        "fields": {
+            "name": "Mobile",
+            "slug": "mobile",
+            "icon": "icon-mobile"
+        }
+    },
+    {
+        "model": "reviews.category",
+        "pk": 2,
+        "fields": {
+            "name": "Notebooks",
+            "slug": "notebooks",
+            "icon": "icon-laptop"
+        }
+    },
+    {
+        "model": "reviews.category",
+        "pk": 3,
+        "fields": {
+            "name": "Áudio",
+            "slug": "audio",
+            "icon": "icon-audio"
+        }
+    },
+    {
+        "model": "reviews.category",
+        "pk": 4,
+        "fields": {
+            "name": "Microfones",
+            "slug": "microfones",
+            "icon": "icon-mic"
+        }
+    },
+    {
+        "model": "reviews.category",
+        "pk": 5,
+        "fields": {
+            "name": "Placas de Vídeo",
+            "slug": "placas-de-video",
+            "icon": "icon-gpu"
+        }
+    },
+    {
+        "model": "reviews.category",
+        "pk": 6,
+        "fields": {
+            "name": "Placas Mãe",
+            "slug": "placas-mae",
+            "icon": "icon-cpu"
+        }
+    },
+    {
+        "model": "reviews.category",
+        "pk": 7,
+        "fields": {
+            "name": "Processador",
+            "slug": "processador",
+            "icon": "icon-cpu"
+        }
+    },
+    {
+        "model": "reviews.category",
+        "pk": 8,
+        "fields": {
+            "name": "Monitores",
+            "slug": "monitores",
+            "icon": "icon-monitor"
+        }
+    },
+    {
+        "model": "reviews.category",
+        "pk": 9,
+        "fields": {
+            "name": "Controles",
+            "slug": "controles",
+            "icon": "icon-gamepad"
+        }
+    },
+    {
+        "model": "reviews.category",
+        "pk": 10,
+        "fields": {
+            "name": "Headset",
+            "slug": "headset",
+            "icon": "icon-audio"
+        }
+    },
+    {
+        "model": "reviews.tag",
+        "pk": 1,
+        "fields": {
+            "name": "gamepad"
+        }
+    },
+    {
+        "model": "reviews.tag",
+        "pk": 2,
+        "fields": {
+            "name": "controle"
+        }
+    },
+    {
+        "model": "reviews.tag",
+        "pk": 3,
+        "fields": {
+            "name": "8bitdo"
+        }
+    },
+    {
+        "model": "reviews.tag",
+        "pk": 4,
+        "fields": {
+            "name": "wireless"
+        }
+    },
+    {
+        "model": "reviews.tag",
+        "pk": 5,
+        "fields": {
+            "name": "pc"
+        }
+    },
+    {
+        "model": "reviews.tag",
+        "pk": 6,
+        "fields": {
+            "name": "hall effect"
+        }
+    },
+    {
+        "model": "reviews.tag",
+        "pk": 7,
+        "fields": {
+            "name": "ultimate 2"
+        }
+    },
+    {
+        "model": "reviews.tag",
+        "pk": 8,
+        "fields": {
+            "name": "2026"
+        }
+    },
+    {
+        "model": "reviews.tag",
+        "pk": 9,
+        "fields": {
+            "name": "notebook"
+        }
+    },
+    {
+        "model": "reviews.tag",
+        "pk": 10,
+        "fields": {
+            "name": "positivo"
+        }
+    },
+    {
+        "model": "reviews.tag",
+        "pk": 11,
+        "fields": {
+            "name": "vision r15"
+        }
+    },
+    {
+        "model": "reviews.tag",
+        "pk": 12,
+        "fields": {
+            "name": "ryzen 5 5625u"
+        }
+    },
+    {
+        "model": "reviews.tag",
+        "pk": 13,
+        "fields": {
+            "name": "ryzen 7 5825u"
+        }
+    },
+    {
+        "model": "reviews.tag",
+        "pk": 14,
+        "fields": {
+            "name": "notebook barato"
+        }
+    },
+    {
+        "model": "reviews.tag",
+        "pk": 15,
+        "fields": {
+            "name": "custo benefício"
+        }
+    },
+    {
+        "model": "reviews.tag",
+        "pk": 16,
+        "fields": {
+            "name": "gta v"
+        }
+    },
+    {
+        "model": "reviews.tag",
+        "pk": 17,
+        "fields": {
+            "name": "mchose"
+        }
+    },
+    {
+        "model": "reviews.tag",
+        "pk": 18,
+        "fields": {
+            "name": "v9 pro"
+        }
+    },
+    {
+        "model": "reviews.tag",
+        "pk": 19,
+        "fields": {
+            "name": "headset"
+        }
+    },
+    {
+        "model": "reviews.tag",
+        "pk": 20,
+        "fields": {
+            "name": "gamer"
+        }
+    },
+    {
+        "model": "reviews.tag",
+        "pk": 21,
+        "fields": {
+            "name": "7.1"
+        }
+    },
+    {
+        "model": "reviews.product",
+        "pk": 1,
+        "fields": {
+            "name": "Galaxy S24 Ultra",
+            "brand": "Samsung",
+            "model_name": "",
+            "category": 1
+        }
+    },
+    {
+        "model": "reviews.product",
+        "pk": 2,
+        "fields": {
+            "name": "MacBook Pro M3",
+            "brand": "Apple",
+            "model_name": "",
+            "category": 2
+        }
+    },
+    {
+        "model": "reviews.product",
+        "pk": 3,
+        "fields": {
+            "name": "Ultimate 2",
+            "brand": "8BitDo",
+            "model_name": "Ultimate 2",
+            "category": 9
+        }
+    },
+    {
+        "model": "reviews.product",
+        "pk": 4,
+        "fields": {
+            "name": "Vision R15",
+            "brand": "Positivo",
+            "model_name": "Vision R15M",
+            "category": 2
+        }
+    },
+    {
+        "model": "reviews.product",
+        "pk": 5,
+        "fields": {
+            "name": "V9 Pro",
+            "brand": "Mchose",
+            "model_name": "",
+            "category": 10
+        }
+    },
+    {
+        "model": "auth.user",
+        "fields": {
+            "password": "pbkdf2_sha256$1200000$oQuNQRnxraT37zHkv30761$e8JLVUiso/TeC8W22jsy1oOIsAmQf1Jgh+xtwAp3OQA=",
+            "last_login": "2026-08-02T22:39:02.569Z",
+            "is_superuser": true,
+            "username": "admin",
+            "first_name": "",
+            "last_name": "",
+            "email": "admin@example.com",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2026-03-08T13:19:57.927Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "auth.user",
+        "fields": {
+            "password": "pbkdf2_sha256$1200000$fjiWRycrgH2gssE4eH8vDg$6kD0l6bLYM3D9bl3B0g4Sz60UbvhSdA0sPqUp6ceYSE=",
+            "last_login": "2026-03-13T14:05:04.315Z",
+            "is_superuser": true,
+            "username": "andrecode",
+            "first_name": "",
+            "last_name": "",
+            "email": "andrecode.py@gmail.com",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2026-03-13T14:04:32.887Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "reviews.review",
+        "pk": 4,
+        "fields": {
+            "product": 3,
+            "title": "8BitDo Ultimate 2 em 2026: Ainda Vale a Pena? Review Completo",
+            "slug": "8bitdo-ultimate-2-2026",
+            "excerpt": "Será que o 8BitDo Ultimate 2 ainda vale a pena em 2026? Review completo do melhor controle para PC da 8BitDo: specs, conectividade, durabilidade e preço de R$ 250.",
+            "content": "\n<h2>8BitDo Ultimate 2 em 2026: ainda vale a pena?</h2>\n<p>O <strong>8BitDo Ultimate 2</strong> chegou ao mercado há algum tempo, mas segue no topo da linha de controles da marca — ao lado do <strong>Ciclone 2</strong>, da GameSir, no posto de controle mais avançado do segmento. Depois de muita pesquisa e uso no dia a dia, a resposta é: <strong>sim, o Ultimate 2 continua valendo muito a pena em 2026</strong>.</p>\n\n<h2>Specs que ainda não ficaram para trás</h2>\n<p>O Ultimate 2 é o controle mais recheado da 8BitDo. Olha o que ele traz:</p>\n<ul>\n<li><strong>Analógicos TMR</strong> com haste de metal e pontas <strong>trocáveis</strong> — se desgastar ou quebrar, é só comprar outra e encaixar no lugar.</li>\n<li><strong>Gatilhos Hall Effect</strong> (sem desgaste, com zona morta quase zero).</li>\n<li><strong>D-Pad e botões de para-choque mecânicos</strong>, além de botões extras configuraveis.</li>\n<li><strong>Base de carregamento com dongle</strong> incluso.</li>\n<li><strong>Giroscópio</strong>, bateria de <strong>1000 mAh</strong> e <strong>polling rate de 1000 Hz</strong>.</li>\n</ul>\n\n<h2>Conectividade: o grande diferencial da 8BitDo</h2>\n<p>Assim como Razer e Logitech, a 8BitDo desenvolveu <strong>tecnologia própria de conexão sem fio</strong> para minimizar o delay e permitir jogo competitivo sem cabo. Na prática, é a <strong>melhor experiência de conexão sem fio</strong> que já testei em um controle: resposta instantânea, sem atrasos perceptíveis, tanto na construção quanto no uso.</p>\n\n<h2>Durabilidade comprovada</h2>\n<p>O 8BitDo já é conhecido pela durabilidade. Uso o <strong>Ultimate 2C</strong> há cerca de <strong>1 ano e meio</strong> com <strong>zero defeitos</strong> — e o Ultimate 2, por ser a versão superior, tende a ter durabilidade igual ou até maior. Somado à velocidade de conexão e precisão, é um controle para ficar anos na sua mesa.</p>\n\n<h2>Compatibilidade com mobile</h2>\n<p>Antes, os controles da 8BitDo conectavam em jogos mobile apenas com suporte nativo a controle no Android (como GTA e Minecraft). Segundo rumores, uma <strong>atualização de firmware</strong> teria ampliado essa compatibilidade — deixe nos comentários se você testou.</p>\n\n<h2>Preço em 2026: o ponto que virou a favor</h2>\n<p>Aqui mora a grande virada de chave. Hoje é possível encontrar o <strong>Ultimate 2 nacionalmente por cerca de R$ 250</strong> — um <strong>preço justíssimo</strong> para o que ele entrega. Para comparação, um controle de console raramente sai por menos de R$ 400, praticamente o dobro.</p>\n<p>E atenção: <strong>não vale a pena importar pelo AliExpress</strong>, você acaba pagando mais caro do que comprando aqui no Brasil. Os dois principais concorrentes, <strong>Ciclone 2 (GameSir)</strong> e o próprio Ultimate 2, costumam empatar na faixa dos R$ 250 — qualquer um dos dois é uma escolha excelente.</p>\n\n<h2>Veredito: melhor controle para PC em 2026</h2>\n<p>Chegamos a um platô no mercado de controles para PC. Não lançaram nada que desbanque o Ultimate 2, e é difícil imaginar onde as marcas ainda podem inovar. Se você quer o <strong>melhor controle para PC</strong> sem pagar o preço de um console, o 8BitDo Ultimate 2 é a escolha certa.</p>\n<p><strong>Não confunda</strong> com versões com fio nem com o Ultimate 2C (versão mais leve e barata). No link abaixo você encontra o modelo certo com o melhor preço que encontrei.</p>\n",
+            "conclusion": "O 8BitDo Ultimate 2 segue sendo o melhor controle para PC em 2026. Com preço justo de cerca de R$ 250, conectividade de baixíssimo delay e construção durável, é difícil encontrar concorrente que entregue tanto. Compre nacionalmente para pagar menos.",
+            "main_image": "reviews/main/8bitdo-ultimate-2-2026.webp",
+            "rating": "9.2",
+            "pros": "Melhor custo-beneficio entre controles top de linha (aprox. R$ 250)\nTecnologia de conexao sem fio propria da 8BitDo com delay minimo\nDurabilidade comprovada: analogicos TMR com haste de metal trocavel\nGatilhos Hall Effect com zona morta quase zero\nD-Pad e botoes de para-choque mecanicos\nBase de carregamento com dongle incluso\nConfiguracao detalhada via software no PC\nPolling rate de 1000 Hz e bateria de 1000 mAh",
+            "cons": "Compatibilidade mobile limitada (COD Mobile/PUBG dependem de firmware)\nNao vale a pena importar - comprar nacional e mais barato\nUltimate 2C entrega o essencial por menos para quem nao usa os extras",
+            "specifications": {
+                "Conexão": "2.4GHz / Bluetooth / USB-C",
+                "Polling Rate": "1000 Hz",
+                "Bateria": "1000 mAh (~19h 2.4GHz / ~32h Bluetooth)",
+                "Analógicos": "TMR com haste de metal trocável",
+                "Gatilhos": "Hall Effect",
+                "D-Pad": "Mecânico",
+                "Botões": "Mecânicos (para-choque, extras frontais e traseiros)",
+                "Base de Carregamento": "Inclusa, com dongle",
+                "Giroscópio": "Sim",
+                "Compatibilidade": "PC, Mobile (Android), Switch"
+            },
+            "tags_input": "gamepad, controle, 8bitdo, ultimate 2, wireless, pc, hall effect, 2026",
+            "amazon_link": null,
+            "mercadolivre_link": null,
+            "shopee_link": null,
+            "aliexpress_link": "https://s.click.aliexpress.com/e/_c3u3UPp5",
+            "kabum_link": null,
+            "author": [
+                "admin"
+            ],
+            "created_at": "2026-08-03T15:25:55.645Z",
+            "updated_at": "2026-08-03T15:25:55.670Z",
+            "is_featured": true,
+            "is_published": true,
+            "tags": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8
+            ]
+        }
+    },
+    {
+        "model": "reviews.review",
+        "pk": 5,
+        "fields": {
+            "product": 4,
+            "title": "Positivo Vision R15 2026: O Notebook Barato que Serve para Quase Todo Mundo",
+            "slug": "positivo-vision-r15-2026",
+            "excerpt": "Review completo do Positivo Vision R15: notebook barato com tela Full HD IPS, Ryzen 5 5625U, upgrade de RAM até 64 GB, SSD até 4 TB, que ainda roda GTA V. Veja o preço e se vale a pena em 2026.",
+            "content": "\n<h2>Positivo Vision R15: o notebook barato que serve para quase todo mundo</h2>\n<p>Se você procura o <strong>melhor notebook custo-benefício de 2026</strong>, o <strong>Positivo Vision R15</strong> entrou para a disputa com força total. A marca mudou muito: o preço ficou agressivo, a configuração é a mais recheada da faixa e, na prática, ele atende bem <strong>97% das pessoas</strong>. Ele estuda, trabalha, edita vídeo e até roda jogos. A seguir, entenda tudo o que ele entrega — e para quem (3%) ele não serve.</p>\n\n<h2>Tela 15.6\" Full HD com painel IPS: fidelidade de cor e ângulos de visão</h2>\n<p>O primeiro grande destaque é a tela de <strong>15.6 polegadas Full HD com painel IPS</strong>. Diferente do painel TN (comum em notebooks baratos), o IPS entrega <strong>cores mais fiéis</strong> e <strong>melhor ângulo de visão</strong>: você vê a imagem de lado ou de cima sem distorção. Nesta faixa de preço, poucos concorrentes trazem IPS — a maioria usa TN, bem inferior.</p>\n\n<h2>Upgrade liberado: RAM DDR4 até 64 GB e SSD NVMe até 4 TB</h2>\n<p>Ponto que faz muito sucesso: <strong>possibilidade de upgrade</strong>. Muitos notebooks de entrada deixam a memória soldada, mas aqui o Vision R15 permite expandir a <strong>memória RAM DDR4 até 64 GB</strong> e o <strong>SSD NVMe até 4 TB</strong>. Ou seja, você compra a versão de entrada (8 GB / 256 GB) e cresce conforme a necessidade, sem trocar de notebook.</p>\n\n<h2>Teclado completo com teclado numérico</h2>\n<p>O teclado já vem completo, com <strong>teclado numérico na lateral direita</strong>. Para quem mexe com planilhas, números e comandos (como quem usa <strong>AutoCAD</strong>), isso faz diferença enorme no dia a dia: sem ficar procurando atalhos, tudo à mão.</p>\n\n<h2>Webcam com obturador físico de privacidade</h2>\n<p>Detalhe de segurança que falta até em notebook gamer caro: a webcam tem <strong>obturador físico</strong>. É só deslizar a tampa para bloquear a lente — barreira física, não dependendo de software. Nunca confie só em configuração de software.</p>\n\n<h2>Luminária integrada com 3 níveis</h2>\n<p>Coisa simples que quase ninguém traz nesta faixa de preço: uma <strong>luminária integrada</strong>, com <strong>3 níveis de iluminação</strong>. Perfeita para videochamadas à noite, ambiente escuro ou madrugada, iluminando o rosto sem acordar a casa.</p>\n\n<h2>Processador: Ryzen 5 5625U ou Ryzen 7 5825U</h2>\n<p>O coração do notebook, e o que o tornou um sucesso, é o processador. O modelo vem em versão mais barata com <strong>Ryzen 5 5625U</strong> (6 núcleos / 12 threads) e em versão um pouco mais cara com <strong>Ryzen 7 5825U</strong> (8 núcleos / 16 threads). A diferença é núcleos, clock e um pouco de multitarefa/performance gráfica — mas ambos usam a mesma <strong>GPU integrada Radeon</strong>. Na prática, tudo que o Ryzen 5 faz, o Ryzen 7 faz um pouco melhor. Se a diferença de preço for pequena (~R$ 100), vale o Ryzen 7; se for grande, o Ryzen 5 já atende muito bem.</p>\n\n<h2>Preço em 2026: o ponto que virou a favor</h2>\n<p>O que coloca esse notebook no topo é o <strong>preço agressivo</strong>. A versão <strong>Ryzen 5 com 8 GB de RAM e 256 GB de SSD</strong> apareceu por volta de <strong>R$ 2.700</strong> no Mercado Livre, e já foi vista com cupom por <strong>R$ 2.459</strong>. A versão <strong>Ryzen 7</strong> (8 GB / 256 GB) saiu em oferta por <strong>R$ 2.539</strong> na loja oficial da Positivo. Para o que entrega, é difícil bater esse custo-benefício.</p>\n\n<h2>Desempenho na prática: produtividade e edição sem engasgos</h2>\n<p>No dia a dia, o notebook se comporta muito bem: várias abas abertas, planilhas, navegação e YouTube alternando sem lentidão. O <strong>SSD NVMe</strong> deixa abertura de tudo muito rápida. E ele aguenta bem tarefas que exigem gráficos: <strong>editei no CapCut</strong> (cortes, legendas, transições e efeitos) e <strong>Photoshop</strong> roda sem sofrimento graças ao processador.</p>\n\n<h2>Jogos: dá para se divertir, sim</h2>\n<p>Não é notebook gamer, mas surpreende: o <strong>GTA V em gráficos Normais fica super jogável</strong>. Para referência, ele roda bem jogos da geração <strong>PS3</strong> e alguns de <strong>PS4</strong>, além de títulos como <strong>Rocket League</strong> e <strong>Valorant</strong>. Para um dos notebooks mais baratos do mercado, é muito mais do que promete.</p>\n\n<h2>Concorrente direto: Positivo Vision R15 x Asus VivoBook Go 15</h2>\n<p>O concorrente mais citado na mesma faixa (~R$ 2.700) é o <strong>Asus VivoBook Go 15</strong>. Ele vende muito, mas entrega menos: <strong>Ryzen mais fraco</strong>, <strong>tela TN</strong> (bem inferior ao IPS) e <strong>memória RAM sem possibilidade de upgrade</strong> (você fica preso nos 8 GB). Para o dia a dia serve, mas a configuração fica bem abaixo do Positivo pelo mesmo preço.</p>\n\n<h2>Para quem ele NÃO serve: os 3% que vão reclamar</h2>\n<p>Transparência é tudo, então vamos aos pontos que podem desagradar:</p>\n<ul>\n<li><strong>Sem carregamento via USB-C</strong>: usa fonte tradicional. Quem exige carregar com power bank ou tomada USB-C (estilo Galaxy Book 4 ou Lenovo 3i) vai sentir falta — embora esses notebooks custem bem mais.</li>\n<li><strong>Acabamento em plástico</strong>: por ser o notebook mais barato, a construção é toda em plástico, sem acabamento fino.</li>\n<li><strong>Sem porta de rede</strong>: conexão só por Wi-Fi (ou adaptador).</li>\n</ul>\n<p>Se nenhum desses itens é requisito para você, ele compensa muito.</p>\n\n<h2>Veredito: o rei do custo-benefício?</h2>\n<p>Para quem quer um <strong>notebook barato com boa tela IPS, possibilidade de upgrade, ótimo desempenho e que ainda roda jogos</strong>, o <strong>Positivo Vision R15</strong> é a escolha mais forte de 2026. Ele não promete tudo isso — e ainda assim entrega. No meu veredito, continua sendo o <strong>melhor custo-benefício da categoria</strong>. Confira o preço e compre pelo link abaixo.</p>\n",
+            "conclusion": "\nO Positivo Vision R15 é o notebook barato que atende 97% das pessoas: tela IPS Full HD, upgrade de RAM até 64 GB e SSD até 4 TB, Ryzen 5 5625U / Ryzen 7 5825U, ótimo desempenho em produtividade e edição, e ainda roda GTA V. Os pontos fracos (plástico, sem carregamento USB-C e sem porta Ethernet) só incomodam quem tem esses requisitos. Pelo preço praticado em 2026, é o rei do custo-benefício.\n",
+            "main_image": "reviews/main/notebook.webp",
+            "rating": "9.0",
+            "pros": "Tela 15.6\" Full HD com painel IPS (cores e ângulos superiores ao TN)\nUpgrade liberado: RAM DDR4 até 64 GB e SSD NVMe até 4 TB\nTeclado completo com teclado numérico\nWebcam com obturador físico de privacidade\nLuminária integrada com 3 níveis\nRyzen 5 5625U / Ryzen 7 5825U com ótimo desempenho para o preço\nRoda GTA V e jogos de gerações anteriores\nCapCut e Photoshop funcionando sem engasgos\nPreço muito agressivo (a partir de ~R$ 2.459)",
+            "cons": "Construção toda em plástico, sem acabamento premium\nSem carregamento via USB-C (usa fonte tradicional)\nSem porta de rede Ethernet (só Wi-Fi ou adaptador)\nTela não abre totalmente",
+            "specifications": {
+                "Tela": "15.6\" Full HD (1920x1080) IPS",
+                "Processador": "AMD Ryzen 5 5625U (6 núcleos / 12 threads) ou Ryzen 7 5825U (8 núcleos / 16 threads)",
+                "Placa de Vídeo": "AMD Radeon Graphics (integrada)",
+                "Memória RAM": "DDR4 (expansível até 64 GB)",
+                "Armazenamento": "SSD NVMe (expansível até 4 TB)",
+                "Teclado": "Completo, com teclado numérico",
+                "Webcam": "Com obturador físico",
+                "Luminária": "Integrada, com 3 níveis",
+                "Sistema": "Windows (pré-instalado)"
+            },
+            "tags_input": "notebook, positivo, vision r15, ryzen 5 5625u, ryzen 7 5825u, notebook barato, custo benefício, gta v, 2026",
+            "amazon_link": null,
+            "mercadolivre_link": null,
+            "shopee_link": "https://s.shopee.com.br/3g2oS8Rfp5",
+            "aliexpress_link": null,
+            "kabum_link": null,
+            "author": [
+                "admin"
+            ],
+            "created_at": "2026-08-11T23:26:04.504Z",
+            "updated_at": "2026-08-11T23:26:04.504Z",
+            "is_featured": false,
+            "is_published": true,
+            "tags": [
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16
+            ]
+        }
+    },
+    {
+        "model": "reviews.review",
+        "pk": 6,
+        "fields": {
+            "product": 5,
+            "title": "Mchose V9 Pro: o headset custo-benefício que parece muito mais caro",
+            "slug": "mchose-v9-pro",
+            "excerpt": "Review completo do Mchose V9 Pro: headset de construção premium que parece muito mais caro do que é. De ~R$ 250 (importado) a ~R$ 450 (nacional), com 250h de bateria, 7.1 virtual que funciona e microfone nota 10.",
+            "content": "\n<h2>O achado silencioso que está todo mundo usando</h2>\n<p>Sabe aquela sensação horrível de estar perdendo algo incrível? Enquanto muita gente gasta fortunas em equipamentos de áudio, existe uma galera silenciosa que descobriu um headset absurdamente bom e barato — o <strong>Mchose V9 Pro</strong>. Hoje eu vou te mostrar por que ele é esse achado e por que vale a pena correr antes que o preço suba.</p>\n\n<h2>Construção e design: visual de headset de R$ 800</h2>\n<p>Começando direto e reto pela construção e pelo design. Ele lembra muito o <strong>Logitech G Pro</strong>, ou seja, remete a headsets bem mais caros do que o que ele realmente custa hoje: você encontra ele na faixa de <strong>R$ 250 a R$ 350 importando</strong> (já contando impostos e frete) ou entre <strong>R$ 400 e R$ 450 no mercado nacional</strong>.</p>\n<p>A haste é de <strong>alumínio reforçado</strong>, com cerca de 3 cm de ajuste de altura, e a envergadura é excelente: ele não faz muita pressão e dá para usar com óculos tranquilamente. A headband tem costuras detalhadas e o logo da Mchose. Tudo muito bem construído e bonito.</p>\n<p>As earpads são <strong>over-ear de courino</strong>, criando uma vedação passiva impressionante. Só de colocar na cabeça ele já abafa o som externo muito bem: com o volume em 50%, barulho de ventilador ou da limpeza de casa praticamente somem. Um detalhe: a concha é levemente justa — se você for um pouco \"orelhudo\", ele fica quase on-ear, mas nada que tire o mérito. Sobre a durabilidade do courino, com bons cuidados ele deve durar de 1 a 2 anos antes de precisar trocar.</p>\n\n<h2>Bateria e carregamento inteligente</h2>\n<p>Na parte externa ele tem o botão de power (que alterna entre Bluetooth e Wi-Fi), botão de mute e potenciômetro de volume. Ele entrega cerca de <strong>250 horas de bateria</strong> e o carregamento via <strong>USB-C</strong> é bem inteligente: diferente de outros modelos, você consegue usar e mexer nos botões enquanto carrega, seja no computador ou num power bank.</p>\n<p>Por segurança e longevidade da bateria, eu recomendo carregar durante o uso só em emergências (entrevista de emprego, reunião importante). No mais, é bom saber que a opção existe.</p>\n\n<h2>Um bônus enorme de usabilidade: o dongle reversível</h2>\n<p>O adaptador Wi-Fi dele é um diferencial gigante: o dongle em geral é <strong>USB-A</strong>, mas você desencaixa uma pecinha e ele vira <strong>USB-C</strong>. Se você tem um notebook que só tem entradas USB-C, está resolvido. E eu sempre recomendo usar o <strong>modo Wi-Fi em vez do Bluetooth</strong> para não perder qualidade de áudio — o Bluetooth ainda gasta um pouco mais de bateria.</p>\n\n<h2>Software: muito, muito, muito recheado</h2>\n<p>A Mchose caprichou demais no software do V9 Pro. Você vê a bateria restante e, na captação de áudio, tem:\n<ul>\n<li><strong>Redução de ruído por IA</strong>;</li>\n<li><strong>Magic Sound</strong>, para alterar a voz diretamente;</li>\n<li><strong>Volume inteligente</strong>, que ajusta o volume ideal para o tipo de conteúdo — ótimo para filmes, onde a voz às vezes fica baixa e a explosão alta.</li>\n</ul></p>\n<p>O áudio padrão já é muito bom. Mas no <strong>equalizador</strong> a brincadeira fica séria: nos presets de música, o destaque absoluto vai para o <strong>heavy metal</strong> — os graves ficam tão potentes que as conchas vibram na cabeça, parecendo um mini subwoofer. Para jogos, ele já vem com perfis pré-configurados para <strong>Valorant, CS, Apex, PUBG</strong> e vários outros, que realmente ajudam a identificar os adversários. Você ainda pode baixar configurações da nuvem de outros usuários para jogos como <strong>God of War</strong> e <strong>The Last of Us</strong>.</p>\n<p>Também há funções que dão mais brilho ao áudio e deixam os graves mais aparentes, e modos de jogo que não fizeram muita diferença na minha experiência — pode ser que para você faça.</p>\n\n<h2>O 7.1 virtual que realmente funciona</h2>\n<p>Surpreendentemente, o 7.1 virtual dele funciona de verdade — enquanto a maioria dos headsets nessa faixa estraga completamente o áudio no 7.1, o V9 Pro faz diferente. Recomendo deixar o tamanho da sala em <strong>small</strong>/pequeno. Ele entrega imersão espacial real: você percebe se o som vem de cima, de baixo ou de trás.</p>\n\n<h2>Volume e vedação: chega a ser demais</h2>\n<p>O resultado final em todos os quesitos de saída de áudio é impressionante em relação ao custo-benefício. O que mais me impressiona é a altura de volume junto com a vedação passiva: em <strong>50%</strong> você já fica imerso e isolado, em <strong>70%</strong> totalmente imerso, e em <strong>100%</strong> eu não consigo usar de tão alto. Para quem gosta de som muito alto mesmo, ele atende com louvor.</p>\n\n<h2>Microfone com nota 10</h2>\n<p>O microfone do V9 Pro é o grande destaque. Em ambiente silencioso a captura é muito aceitável — acima da média. Ligando um <strong>ventilador gigante</strong> na minha direção com o filtro de ruído desligado, o captador pega bastante vento. Já com o <strong>filtro de antirruído ligado</strong>, a diferença é brincadeira: o ruído praticamente some. Simplesmente nota 10 na captura de áudio.</p>\n<p>Outro ponto forte: mesmo colocando o áudio das conchas em 100%, vaza quase nada para o microfone. É raro ver isso nessa faixa de preço.</p>\n\n<h2>Pontos negativos</h2>\n<p>Comparado a outros headsets nessa faixa, ele deixa a desejar um pouco nos <strong>graves</strong> frente a alguns modelos (só nesse quesito na saída de áudio). E ele <strong>não tem RGB</strong> — apenas o microfone tem luz para sinalizar se está mutado ou não. Se você faz questão de headset iluminado, isso pode pesar.</p>\n\n<h2>Conclusão: é compra obrigatória?</h2>\n<p>Na minha opinião, o Mchose V9 Pro é basicamente uma <strong>compra obrigatória</strong>, estando no meu top 3 de custo-benefício até R$ 400. Mas calma: ele não ganha em absolutamente tudo. O <strong>Redragon Zeus Pro</strong> é fisicamente muito mais robusto (um tanque de guerra) e no áudio estéreo puro empata ou fica ligeiramente à frente. O <strong>Havit H7 SE</strong> tem o trunfo de ser um achado muito barato no mercado nacional, com pads de tecido que muita gente prefere por não descascar.</p>\n<p>Então por que o V9 Pro se destaca? Porque ele <strong>ganha de lavada no microfone</strong>, entrega um <strong>7.1 que realmente funciona</strong> (coisa que o Zeus erra) e dá uma <strong>surra de 10 a 0 no software</strong>, recheado de funções que nem Zeus nem Havit possuem.</p>\n<p>Detalhe muito importante: comprei o meu <strong>importado direto da loja fabricante no AliExpress</strong>, e o AliExpress tem aquele adesivo antifalsificação no site. Fique muito atento e compre apenas de lojas confiáveis. Comprando pelo meu link de afiliado você apoia o trabalho do Nitro Tech Indica sem pagar nada a mais.</p>\n",
+            "conclusion": "\nO Mchose V9 Pro é uma compra obrigatória para quem quer um headset de construção premium por preço de entrada. Ele entrega vedação passiva impressionante, 250 horas de bateria, dongle USB-A/C, software absurdamente completo, 7.1 virtual que realmente funciona e um microfone com nota 10. Perde para Redragon Zeus Pro e Havit H7 SE apenas nos graves e no RGB. Pelo preço, está no meu top 3 de custo-benefício até R$ 400.",
+            "main_image": "reviews/main/mchose-v9-pro.webp",
+            "rating": "9.3",
+            "pros": "Custo-benefício absurdo: de ~R$ 250 (importado) a ~R$ 450 (nacional)\nConstrução premium: haste de alumínio reforçado e headband com costuras detalhadas\nVedação passiva impressionante (earpads over-ear de courino)\n250 horas de bateria e carregamento USB-C inteligente (dá para usar carregando)\nDongle USB-A que vira USB-C, perfeito para notebooks\nSoftware completo: equalizador, presets de jogos (Valorant, CS, Apex, PUBG) e perfis na nuvem\n7.1 virtual que realmente funciona (tamanho small)\nMicrofone nota 10 com redução de ruído por IA\nVolume altíssimo: imerso em 70%",
+            "cons": "Graves um pouco atrás de rivais como o Redragon Zeus Pro na saída de áudio\nSem RGB (só o microfone tem luz de mute)\nEarpads de courino descascam em 1 a 2 anos\nConcha levemente justa para orelhas grandes",
+            "specifications": {
+                "Conexão": "2.4GHz (Wi-Fi) / Bluetooth / USB-C",
+                "Bateria": "~250 horas (Wi-Fi 2.4GHz), carregamento USB-C",
+                "Haste": "Alumínio reforçado, ~3 cm de ajuste",
+                "Earpads": "Over-ear, courino com vedação passiva",
+                "Áudio": "7.1 virtual, equalizador com presets por gênero",
+                "Microfone": "Com redução de ruído por IA e magic sound",
+                "Dongle": "USB-A com adaptador USB-C acoplável",
+                "Extras": "Volume inteligente, presets na nuvem, modos de jogo"
+            },
+            "tags_input": "mchose, v9 pro, headset, gamer, wireless, 7.1, custo benefício, 2026",
+            "amazon_link": null,
+            "mercadolivre_link": null,
+            "shopee_link": null,
+            "aliexpress_link": "https://s.click.aliexpress.com/e/_c4o3jANb",
+            "kabum_link": null,
+            "author": [
+                "admin"
+            ],
+            "created_at": "2026-09-12T17:01:06.317Z",
+            "updated_at": "2026-09-12T17:01:06.317Z",
+            "is_featured": true,
+            "is_published": true,
+            "tags": [
+                4,
+                8,
+                17,
+                18,
+                19,
+                20,
+                21,
+                15
+            ]
+        }
+    },
+    {
+        "model": "reviews.guide",
+        "pk": 1,
+        "fields": {
+            "title": "Melhores celulares para comprar em 2026: guia completo de custo-benefício",
+            "slug": "melhores-celulares-2026",
+            "category": 1,
+            "author": 1,
+            "excerpt": "Descubra os melhores celulares de 2026 por faixa de preço: do Samsung Galaxy A07 (abaixo de R$ 1.000) ao Galaxy S25 Ultra, passando por Redmi Note 15, Galaxy A36, Moto G86, Galaxy A57, Edge 60 Neo, Poco X8 Pro e Xiaomi 17. Guia de compra completo com preços, pros e contras de cada modelo e links das melhores ofertas.",
+            "content": "\n<p>Nunca foi tão difícil escolher um celular: só no último ano foram dezenas de modelos novos, alguns já fora de estoque e outros aparecendo com preço surreal. Por isso este guia reúne os <strong>melhores celulares para comprar em 2026</strong>, organizados por faixa de preço, do mais barato ao mais topo de linha — com o foco em <strong>custo-benefício</strong>.</p>\n\n<h2>Como escolhemos os melhores celulares de 2026</h2>\n<p>Analisamos desempenho (AnTuTu), tela, câmera, bateria, resistência à água (IP67/IP68/IP69) e, principalmente, o <strong>preço que o aparelho costuma aparecer em promoção</strong> no Brasil. Também levamos em conta o suporte de atualizações, que hoje ultrapassa os 5 anos nos principais modelos.</p>\n\n<h2>Melhores celulares abaixo de R$ 1.000</h2>\n<p>Nesta faixa a recomendação principal é o <strong>Samsung Galaxy A07</strong>: é o conjunto mais completinho que você encontra, com <strong>8 GB de RAM e 256 GB de armazenamento</strong>, tela de 6.7 polegadas a 90 Hz, bateria de 5.000 mAh e desempenho que dá conta do dia a dia e até um game leve. A média de preço gira em torno de R$ 870, mas aparece bem mais barato em promoção.</p>\n\n<h2>Melhores celulares até R$ 1.500</h2>\n<p>Aqui o <strong>Redmi Note 15 4G</strong> é a aposta da Xiaomi com tela AMOLED de 120 Hz, até 8 GB de RAM, bateria de 6.000 mAh e 6 anos de atualizações. Quase que pelo mesmo preço, o <strong>Galaxy A36 5G</strong> rouba a cena nas promoções: tela Super AMOLED 120 Hz, resistência IP67, gravação em 4K a 30 fps, Galaxy AI e <strong>7 anos de atualização</strong>. Quem quer mais armazenamento leva o <strong>Galaxy A17 4G</strong> (256 GB + 8 GB de RAM) ou o <strong>Moto G86</strong>, com IP68/IP69, OLED 120 Hz e 256 GB.</p>\n\n<h2>Melhores celulares até R$ 2.000</h2>\n<p>O campeão da faixa é o <strong>Galaxy A57 5G</strong>, que hoje vale mais a pena que o A56: construção em metal e vidro, IP67, Exynos 1680 com mais de <strong>1,1 milhão de pontos no AnTuTu</strong>, Galaxy AI e conjunto de câmeras excelente. Para quem prefere a Motorola, os <strong>Edge 60 Neo</strong> e <strong>Edge 70 Fusion</strong> entregam muito armazenamento e câmera com telefoto pelo preço. E o <strong>Poco X8 Pro</strong> é o celular mais completo para quem não quer dor de cabeça: <strong>Dimensity 8500 Ultra</strong>, bateria de 6.500 mAh com carga de <strong>100 W e carregador na caixa</strong>, e resistência IP69K.</p>\n\n<h2>Melhores celulares de R$ 2.500 a R$ 3.500</h2>\n<p>O <strong>Poco X8 Pro Max</strong> é a melhor alternativa abaixo de R$ 3.000 para um aparelho extremamente completo: Dimensity 9500, 12 GB de RAM e bateria absurda de <strong>8.500 mAh</strong>. Quem prioriza câmera leva o <strong>Edge 70 Pro</strong> (telefoto de 50 MP) ou o <strong>Poco F8 Pro</strong>, com Snapdragon 8 Elite e tela AMOLED de 144 Hz. Já o <strong>Galaxy S25</strong> só vale a pena em promoção, quando aparece perto dos R$ 3.000.</p>\n\n<h2>Melhores celulares topo de linha em 2026</h2>\n<p>Acima de R$ 4.000, o destaque é o <strong>Galaxy S25 Ultra</strong>: construção em titânio, S Pen com Bluetooth, câmera principal de 200 MP, Snapdragon 8 Elite e 7 anos de suporte — na nossa opinião, o <strong>melhor celular que você pode comprar hoje</strong>. De perto aparecem a <strong>Motorola Signature</strong> (ótima tela e 512 GB, mas gravação abaixo da concorrência), o <strong>Xiaomi 17</strong> e o <strong>Xiaomi 17T Pro</strong>, tops de linha da Xiaomi que finalmente recomendamos.</p>\n",
+            "conclusion": "\n<p>Para 2026, a nossa opinião final é a seguinte:</p>\n<ul>\n<li><strong>Melhor custo-benefício geral:</strong> Samsung Galaxy A57 5G — potência, câmera e construção premium por menos de R$ 2.000.</li>\n<li><strong>Melhor abaixo de R$ 1.000:</strong> Samsung Galaxy A07, o básico bem feito.</li>\n<li><strong>Melhor para bateria:</strong> Poco X8 Pro Max, com 8.500 mAh.</li>\n<li><strong>Melhor topo de linha:</strong> Samsung Galaxy S25 Ultra, o celular mais completo do momento.</li>\n<li><strong>Melhor para câmera na faixa:</strong> Edge 70 Pro e Galaxy S25.</li>\n</ul>\n<p>Comprando pelos links deste guia você ajuda o Nitro Tech Indica a continuar trazendo análises honestas, sem pagar nada a mais.</p>\n",
+            "main_image": "guides/main/melhores-celulares-2026.webp",
+            "is_published": true,
+            "is_featured": true,
+            "created_at": "2026-09-13T13:16:40.551Z",
+            "updated_at": "2026-09-13T13:16:40.551Z"
+        }
+    },
+    {
+        "model": "reviews.guideitem",
+        "pk": 1,
+        "fields": {
+            "guide": 1,
+            "product": null,
+            "position": 1,
+            "name": "Samsung Galaxy A07",
+            "description": "<p>O <strong>Galaxy A07</strong> é a melhor opção abaixo de R$ 1.000 — e quem usa diz que não existe concorrente com a mesma qualidade nessa faixa. O destaque é a configuração: <strong>8 GB de RAM e 256 GB de armazenamento</strong>, além de um processador que lidera a categoria e ainda dá conta de um game leve.</p><p>Tela LCD de 6.7 polegadas a 90 Hz, conjunto de câmeras OK e bateria de <strong>5.000 mAh</strong> completam o pacote. Custa em média R$ 870 e aparece bastante em promoção.</p>",
+            "image": "guides/items/samsung-galaxy-a07.webp",
+            "amazon_link": "https://www.amazon.com.br/dp/B0iEJLc2w?tag=andre0cda-20",
+            "mercadolivre_link": "https://www.mercadolivre.com.br/p/MLB54964804?matt_tool=83406274&matt_word=camilamartinstar",
+            "shopee_link": null,
+            "aliexpress_link": null,
+            "kabum_link": null,
+            "pros": "Melhor custo-benefício abaixo de R$ 1.000\nVersão recomendada com 8 GB de RAM e 256 GB\nTela 6.7\" com 90 Hz\nBateria de 5.000 mAh\nRodar game leve sem engasgos",
+            "cons": "Tela LCD (não é AMOLED)\nConjunto de câmeras apenas OK pela faixa\nVersão 4 GB/128 GB deve ser evitada"
+        }
+    },
+    {
+        "model": "reviews.guideitem",
+        "pk": 2,
+        "fields": {
+            "guide": 1,
+            "product": null,
+            "position": 2,
+            "name": "Xiaomi Redmi Note 15 4G",
+            "description": "<p>O <strong>Redmi Note 15 4G</strong> é a porta de entrada premium da Xiaomi: tela <strong>AMOLED de 120 Hz</strong>, 6 ou 8 GB de RAM, bateria enorme de <strong>6.000 mAh</strong> e um pacote de <strong>6 anos de atualizações de segurança</strong>.</p><p>O conjunto de câmeras é OK pela faixa de preço (nada excepcional), mas o desempenho é excelente para quem quer um patamar acima sem gastar muito. Custa entre R$ 1.100 e R$ 1.300, e costuma aparecer perto de R$ 1.000 em promoção.</p>",
+            "image": "guides/items/xiaomi-redmi-note-15-4g.webp",
+            "amazon_link": "https://www.amazon.com.br/dp/B0dpkSi6o?tag=andre0cda-20",
+            "mercadolivre_link": "https://www.mercadolivre.com.br/smartphone-xiaomi-redmi-note-15-4g-6gb-ram-128gb-tela-amoled-677-camera-108mp-azul/p/MLB67657658?matt_tool=83406274&matt_word=camilamartinstar",
+            "shopee_link": "https://s.shopee.com.br/7ptDKJlOZm",
+            "aliexpress_link": null,
+            "kabum_link": null,
+            "pros": "Tela AMOLED de 120 Hz\nBateria de 6.000 mAh\n6 ou 8 GB de RAM\n6 anos de atualizações de segurança\nÓtimo desempenho da Xiaomi para o processador",
+            "cons": "Câmeras apenas OK pela faixa\nCarregamento não é o mais rápido do segmento"
+        }
+    },
+    {
+        "model": "reviews.guideitem",
+        "pk": 3,
+        "fields": {
+            "guide": 1,
+            "product": null,
+            "position": 3,
+            "name": "Samsung Galaxy A36 5G",
+            "description": "<p>Na nossa opinião, o <strong>Galaxy A36 5G</strong> é o melhor celular por volta de R$ 1.000 — principalmente quando pega promoção (já apareceu por R$ 800). Tela <strong>Super AMOLED 120 Hz</strong>, resistência <strong>IP67</strong>, 6 GB de RAM e um conjunto de câmeras absurdo para a faixa, com gravação em <strong>4K a 30 fps</strong>.</p><p>O <strong>Snapdragon 6 Gen 3</strong> marca quase 800 mil pontos no AnTuTu V11, e ainda tem <strong>Galaxy AI</strong> e 7 anos de atualização da Samsung. Único ponto fraco: a versão acessível tem só 128 GB (a de 256 GB fica bem mais cara).</p>",
+            "image": "guides/items/samsung-galaxy-a36-5g.webp",
+            "amazon_link": "https://www.amazon.com.br/dp/B0aNVs1C9?tag=andre0cda-20",
+            "mercadolivre_link": "https://www.mercadolivre.com.br/smartphone-samsung-galaxy-a36-5g-256gb-8gb-ram/p/MLB47111905?matt_tool=83406274&matt_word=camilamartinstar",
+            "shopee_link": null,
+            "aliexpress_link": null,
+            "kabum_link": null,
+            "pros": "Snapdragon 6 Gen 3 (~800 mil no AnTuTu)\nTela Super AMOLED 120 Hz\nResistência IP67\nCâmeras top pela faixa, grava em 4K 30 fps\nGalaxy AI + 7 anos de atualização",
+            "cons": "Versão acessível tem apenas 128 GB\nVersão de 256 GB custa bem mais caro"
+        }
+    },
+    {
+        "model": "reviews.guideitem",
+        "pk": 4,
+        "fields": {
+            "guide": 1,
+            "product": null,
+            "position": 4,
+            "name": "Samsung Galaxy A17 4G",
+            "description": "<p>O <strong>Galaxy A17 4G</strong> é basicamente um A07 melhorado: tela AMOLED, câmeras com resultado um pouco superior e, na versão que recomendamos, <strong>256 GB + 8 GB de RAM</strong>. Custa em torno de R$ 1.000 a R$ 1.100.</p><p>Se passar disso, não recomendamos — existem opções melhores na faixa. É a escolha certa para quem precisa de bastante armazenamento sem sair dos R$ 1.100.</p>",
+            "image": "guides/items/samsung-galaxy-a17-4g.webp",
+            "amazon_link": "https://www.amazon.com.br/dp/B06Hyzp1H?tag=andre0cda-20",
+            "mercadolivre_link": null,
+            "shopee_link": null,
+            "aliexpress_link": null,
+            "kabum_link": null,
+            "pros": "Versão ideal com 256 GB e 8 GB de RAM\nTela AMOLED melhor que a do A07\nCâmeras com resultado superior ao A07",
+            "cons": "Acima de ~R$ 1.100 perde a graça\nÉ um A07 melhorado cobrando mais caro"
+        }
+    },
+    {
+        "model": "reviews.guideitem",
+        "pk": 5,
+        "fields": {
+            "guide": 1,
+            "product": null,
+            "position": 5,
+            "name": "Motorola Moto G86 5G",
+            "description": "<p>O <strong>Moto G86</strong> é a melhor alternativa ao Galaxy A36 para quem quer mais armazenamento: <strong>256 GB e 8 GB de RAM</strong>, tela OLED 120 Hz, resistência à água <strong>IP68/IP69</strong> e carregamento mais rápido de 30 W.</p><p>O <strong>Dimensity 7300</strong> entrega potência até um pouco superior ao A36 (cerca de 900 mil no AnTuTu V11) e as câmeras gravam em 4K. Bateria de 5.200 mAh. Excelente pacote na faixa dos R$ 1.500 a R$ 1.600.</p>",
+            "image": "guides/items/moto-g86.webp",
+            "amazon_link": "https://www.amazon.com.br/dp/B08VRqD9Q?tag=andre0cda-20",
+            "mercadolivre_link": "https://www.mercadolivre.com.br/smartphone-motorola-moto-g86-5g-256gb-24gb-8gb-ram16gb-ram-boost-tela-15k-poled-50mp-sony-camera-ois-moto-ai-videos-em-4k-ip68-ip69-vermelho/p/MLB51340616?matt_tool=83406274&matt_word=camilamartinstar",
+            "shopee_link": null,
+            "aliexpress_link": null,
+            "kabum_link": null,
+            "pros": "256 GB e 8 GB de RAM\nResistência IP68/IP69\nDimensity 7300 (~900 mil no AnTuTu)\nTela OLED 120 Hz\nCarga de 30 W com 5.200 mAh",
+            "cons": "Preço costuma ficar um pouco acima do A36\nMarca menos forte em fotografia que a Samsung"
+        }
+    },
+    {
+        "model": "reviews.guideitem",
+        "pk": 6,
+        "fields": {
+            "guide": 1,
+            "product": null,
+            "position": 6,
+            "name": "Samsung Galaxy A57 5G",
+            "description": "<p>O <strong>Galaxy A57 5G</strong> é a nossa escolha de melhor custo-benefício do guia. Ele é como um A36 melhorado: construção em <strong>metal e vidro</strong> (contra plástico do A36), mantendo o IP67, tela AMOLED 120 Hz e bateria de 5.000 mAh.</p><p>O grande salto é o <strong>Exynos 1680</strong>, que passa de <strong>1,1 milhão de pontos no AnTuTu</strong>. Tem Galaxy AI, 7 anos de atualização e o melhor conjunto de câmeras da linha — impecável na foto e no vídeo. Custa de R$ 1.800 (128 GB) a R$ 2.100 (256 GB).</p>",
+            "image": "guides/items/samsung-galaxy-a57-5g.webp",
+            "amazon_link": "https://www.amazon.com.br/dp/B01aCEDt2?tag=andre0cda-20",
+            "mercadolivre_link": "https://www.mercadolivre.com.br/celular-samsung-galaxy-a57-5g-128gb-8gb-ram-camera-50mp-ip68-super-amoled-67/p/MLB68213520?matt_tool=83406274&matt_word=camilamartinstar",
+            "shopee_link": null,
+            "aliexpress_link": null,
+            "kabum_link": null,
+            "pros": "Exynos 1680 com mais de 1,1 milhão no AnTuTu\nConstrução em metal e vidro com IP67\nConjunto de câmeras excelente (foto e vídeo)\nGalaxy AI + 7 anos de atualização\nTela AMOLED 120 Hz e 5.000 mAh",
+            "cons": "Versão de 256 GB chega perto de R$ 2.100\nAcabamento premium quase sem concorrência na faixa"
+        }
+    },
+    {
+        "model": "reviews.guideitem",
+        "pk": 7,
+        "fields": {
+            "guide": 1,
+            "product": null,
+            "position": 7,
+            "name": "Motorola Edge 60 Neo",
+            "description": "<p>O <strong>Edge 60 Neo</strong> é um dos intermediários mais completos da Motorola abaixo de R$ 2.000: <strong>12 GB de RAM e 256 GB de armazenamento</strong>, tela OLED 120 Hz e bateria de 5.200 mAh.</p><p>Traz um diferencial raro: câmera <strong>telefoto de 10 MP</strong> além da principal de 50 MP e ultra-wide de 13 MP — ou seja, zoom de verdade, coisa que o Galaxy A57 não tem. O <strong>Dimensity 7400</strong> marca cerca de 900 mil no AnTuTu. Custa por volta de R$ 1.900 a R$ 2.000.</p>",
+            "image": "guides/items/motorola-edge-60-neo.webp",
+            "amazon_link": "https://www.amazon.com.br/dp/B0aXH4SrQ?tag=andre0cda-20",
+            "mercadolivre_link": "https://www.mercadolivre.com.br/p/MLB58684601?matt_tool=83406274&matt_word=camilamartinstar",
+            "shopee_link": null,
+            "aliexpress_link": null,
+            "kabum_link": null,
+            "pros": "12 GB de RAM e 256 GB de armazenamento\nCâmera com telefoto (zoom real)\nDimensity 7400 (~900 mil no AnTuTu)\nTela OLED 120 Hz\nBateria de 5.200 mAh",
+            "cons": "Fica na casa dos R$ 2.000, não abaixo\nCâmera frontal apenas regular"
+        }
+    },
+    {
+        "model": "reviews.guideitem",
+        "pk": 8,
+        "fields": {
+            "guide": 1,
+            "product": null,
+            "position": 8,
+            "name": "Motorola Edge 70 Fusion",
+            "description": "<p>O <strong>Edge 70 Fusion</strong> entrega mais potência que o Edge 60 Neo — passa de <strong>1 milhão de pontos no AnTuTu</strong>. Em compensação, tem menos bateria (4.800 mAh) e conjunto de câmeras mais simples (principal + ultra-wide, sem telefoto).</p><p>Se você encontrar o Edge 60 Neo com preço melhor, ele continua sendo o pacote mais completo. O Fusion vale mais quando o preço competitivo compensa: parte de cerca de R$ 2.100.</p>",
+            "image": "guides/items/motorola-edge-70-fusion.webp",
+            "amazon_link": "https://www.amazon.com.br/dp/B0fVuuS1f?tag=andre0cda-20",
+            "mercadolivre_link": "https://www.mercadolivre.com.br/smartphone-motorola-edge-70-fusion-5g-256gb-24gb-8gb-ram-16gb-ram-boost-camera-50mp-sony-lytia-710-tela-15k-extreme-amoled-144hz-roxo/p/MLB65919757?matt_tool=83406274&matt_word=camilamartinstar",
+            "shopee_link": null,
+            "aliexpress_link": null,
+            "kabum_link": null,
+            "pros": "Mais de 1 milhão de pontos no AnTuTu\nBoa construção e tela OLED de alta taxa\nCarregamento rápido",
+            "cons": "Bateria menor: 4.800 mAh\nConjunto de câmeras menos completo (sem telefoto)\nA partir de R$ 2.100"
+        }
+    },
+    {
+        "model": "reviews.guideitem",
+        "pk": 9,
+        "fields": {
+            "guide": 1,
+            "product": null,
+            "position": 9,
+            "name": "Motorola Edge 70 5G",
+            "description": "<p>O <strong>Edge 70 5G</strong> é o irmão do Fusion com um pouco mais de potência, mas com menos bateria (4.800 mAh) e câmeras mais simples (principal + ultra-wide, sem telefoto).</p><p>Por custar em torno de R$ 2.200, ele só faz sentido quando o preço está abaixo do esperado. Em geral, o Edge 60 Neo com desconto é uma compra mais completa.</p>",
+            "image": "guides/items/motorola-edge-70-5g.webp",
+            "amazon_link": "https://www.amazon.com.br/dp/B013SNUlv?tag=andre0cda-20",
+            "mercadolivre_link": "https://www.mercadolivre.com.br/smartphone-motorola-edge-70-5g-256gb-24gb-8gb-ram16gb-ram-boost-ultrafino-3-cameras-50mp-tela-15k-extreme-amoled-120hz-preto/p/MLB65304413?matt_tool=83406274&matt_word=camilamartinstar",
+            "shopee_link": null,
+            "aliexpress_link": null,
+            "kabum_link": null,
+            "pros": "Potência levemente superior ao Fusion\nTela 120 Hz de alta qualidade\nDesign ultrafino",
+            "cons": "Bateria de 4.800 mAh\nCâmeras menos completas (sem telefoto)\nDificilmente compensa sobre o Edge 60 Neo"
+        }
+    },
+    {
+        "model": "reviews.guideitem",
+        "pk": 10,
+        "fields": {
+            "guide": 1,
+            "product": null,
+            "position": 10,
+            "name": "Xiaomi Poco X8 Pro",
+            "description": "<p>O <strong>Poco X8 Pro</strong> é o celular mais completo para quem quer parada boa e não quer dor de cabeça. Tela <strong>AMOLED 120 Hz</strong>, construção em vidro e metal com melhor resistência à água (<strong>IP69K</strong>) e o processador mais potente da faixa: <strong>Dimensity 8500 Ultra</strong>, com quase 2,6 milhões no AnTuTu.</p><p>Bateria de <strong>6.500 mAh com carga de 100 W e carregador na caixa</strong>. E as câmeras, que eram ponto fraco, melhoraram muito. Oscila entre R$ 2.000 e R$ 2.300 e aparece com frequência em promoção.</p>",
+            "image": "guides/items/poco-x8-pro.webp",
+            "amazon_link": "https://www.amazon.com.br/dp/B04bD9FjD?tag=andre0cda-20",
+            "mercadolivre_link": "https://www.mercadolivre.com.br/celular-xiaomi-poco-x8-pro-5g-8gb-256gb-dual-sim-cor-preto/p/MLB69327206?matt_tool=83406274&matt_word=camilamartinstar",
+            "shopee_link": "https://s.shopee.com.br/W6carURIg",
+            "aliexpress_link": null,
+            "kabum_link": null,
+            "pros": "Dimensity 8500 Ultra (~2,6 milhões no AnTuTu)\nBateria 6.500 mAh com carga de 100 W (carregador na caixa)\nResistência IP69K\nTela AMOLED 120 Hz, vidro e metal\nCâmeras boas na faixa (melhoraram muito)",
+            "cons": "Oscila muito de preço\nCâmeras não superam Samsung/Motorola na faixa"
+        }
+    },
+    {
+        "model": "reviews.guideitem",
+        "pk": 11,
+        "fields": {
+            "guide": 1,
+            "product": null,
+            "position": 11,
+            "name": "Xiaomi Poco X8 Pro Max",
+            "description": "<p>O <strong>Poco X8 Pro Max</strong> é a melhor alternativa abaixo de R$ 3.000 para um celular extremamente completo: processador <strong>Dimensity 9500</strong> com cerca de 3,1 milhões de pontos no AnTuTu — um dos mais potentes da faixa — e <strong>12 GB de RAM</strong>.</p><p>O diferencial de verdade é a bateria gigantesca de <strong>8.500 mAh</strong>: mesmo com consumo não tão baixo, dura absurdamente no dia a dia. Custa em média R$ 3.300, mas aparece bastante entre R$ 2.700 e R$ 2.900.</p><p><a href=\"https://s.shopee.com.br/6AkzLHHfNU\" target=\"_blank\" rel=\"nofollow\">Oferta alternativa na Shopee</a></p>",
+            "image": "guides/items/poco-x8-pro-max.webp",
+            "amazon_link": null,
+            "mercadolivre_link": null,
+            "shopee_link": "https://s.shopee.com.br/4VclMDJgF7",
+            "aliexpress_link": null,
+            "kabum_link": null,
+            "pros": "Dimensity 9500 (~3,1 milhões no AnTuTu)\nBateria absurda de 8.500 mAh\n12 GB de RAM\nAparece em promoção de R$ 2.700 a R$ 2.900",
+            "cons": "Conjunto de câmeras não é excepcional\nPreço cheio de ~R$ 3.300"
+        }
+    },
+    {
+        "model": "reviews.guideitem",
+        "pk": 12,
+        "fields": {
+            "guide": 1,
+            "product": null,
+            "position": 12,
+            "name": "Motorola Edge 70 Pro",
+            "description": "<p>O <strong>Edge 70 Pro</strong> é o combo mais completinho para foto com boa potência: <strong>12 GB de RAM e 256 ou 512 GB</strong>, conjunto de câmeras com principal, ultra-wide e <strong>telefoto de 50 MP</strong>, gravação excelente e tela AMOLED de 144 Hz.</p><p>O <strong>Dimensity 8500 Extreme</strong> entrega potência muito próxima do Poco X8 Pro, com bateria de 6.500 mAh e IP68/IP69. É como um X8 Pro para quem quer câmeras melhores — opção excelente para foto.</p>",
+            "image": "guides/items/motorola-edge-70-pro.webp",
+            "amazon_link": "https://www.amazon.com.br/dp/B00R8xKRs?tag=andre0cda-20",
+            "mercadolivre_link": "https://www.mercadolivre.com.br/smartphone-motorola-edge-70-pro-5g-256gb-24gb-12gb-ram12gb-ram-boost-4-cameras-de-50mp-tela-15k-extreme-amoled-144hz-bateria-6500-mah-ip68ip69-vinho/p/MLB69322379?matt_tool=83406274&matt_word=camilamartinstar",
+            "shopee_link": null,
+            "aliexpress_link": null,
+            "kabum_link": null,
+            "pros": "Telefoto de 50 MP + gravação excelente\n12 GB de RAM e 256/512 GB\nDimensity 8500 Extreme (~2,6 milhões no AnTuTu)\nBateria de 6.500 mAh com IP68/IP69",
+            "cons": "Preço perto de R$ 3.000\nDisponibilidade varia muito"
+        }
+    },
+    {
+        "model": "reviews.guideitem",
+        "pk": 13,
+        "fields": {
+            "guide": 1,
+            "product": null,
+            "position": 13,
+            "name": "Xiaomi Poco F8 Pro",
+            "description": "<p>O <strong>Poco F8 Pro</strong> é um X8 Pro Max com câmeras melhores: <strong>Snapdragon 8 Elite</strong>, câmera principal de 50 MP com telefoto de 8 MP, tela <strong>AMOLED de 144 Hz</strong> e bateria de 6.500 mAh.</p><p>Dentro da linha Poco, é o resultado mais completo em foto e vídeo, mantendo potência de topo. Custa em torno de R$ 3.000 a R$ 3.400, com frequentes promoções.</p>",
+            "image": "guides/items/poco-f8-pro.webp",
+            "amazon_link": null,
+            "mercadolivre_link": "https://www.mercadolivre.com.br/smartphone-poco-f8-pro-5g-nfc-br-1212gb-ram-virtual-512gb-preto/p/MLB67289426?matt_tool=83406274&matt_word=camilamartinstar",
+            "shopee_link": "https://s.shopee.com.br/7KwwjQdgwV",
+            "aliexpress_link": null,
+            "kabum_link": null,
+            "pros": "Snapdragon 8 Elite\nTela AMOLED de 144 Hz\nCâmeras mais completas da linha Poco\nBateria de 6.500 mAh",
+            "cons": "Custa mais que o X8 Pro Max\nDisponibilidade menor no Brasil"
+        }
+    },
+    {
+        "model": "reviews.guideitem",
+        "pk": 14,
+        "fields": {
+            "guide": 1,
+            "product": null,
+            "position": 14,
+            "name": "Samsung Galaxy S25",
+            "description": "<p>O <strong>Galaxy S25</strong> só vale a pena se comprado em promoção: em média custa R$ 4.000, mas aparece por cerca de R$ 3.000. Aí sim é uma excelente compra: <strong>256 GB e 12 GB de RAM</strong>, <strong>Snapdragon 8 Elite</strong> e o melhor conjunto de câmeras da faixa, principalmente em gravação de vídeo.</p><p>Único ponto fraco real é a bateria de <strong>4.000 mAh</strong>. A versão Plus não vale a pena pelo preço de R$ 4.500, e a linha S26 também não compensa em 2026.</p>",
+            "image": "guides/items/samsung-galaxy-s25.webp",
+            "amazon_link": "https://www.amazon.com.br/dp/B018BUEjO?tag=andre0cda-20",
+            "mercadolivre_link": "https://www.mercadolivre.com.br/p/MLB45513356?matt_tool=83406274&matt_word=camilamartinstar",
+            "shopee_link": null,
+            "aliexpress_link": null,
+            "kabum_link": null,
+            "pros": "Câmeras top da faixa (principalmente em vídeo)\nSnapdragon 8 Elite\n256 GB e 12 GB de RAM\nJá aparece por ~R$ 3.000 em promoção",
+            "cons": "Bateria de apenas 4.000 mAh\nPreço cheio de R$ 4.000 é alto"
+        }
+    },
+    {
+        "model": "reviews.guideitem",
+        "pk": 15,
+        "fields": {
+            "guide": 1,
+            "product": null,
+            "position": 15,
+            "name": "Motorola Signature",
+            "description": "<p>A <strong>Motorola Signature</strong> é um topo de linha que hoje aparece em torno de R$ 4.000 a R$ 4.500 (já custou R$ 6.000+). Traz <strong>Snapdragon 8 Gen 5</strong> com 3 milhões de pontos no AnTuTu, tela excelente, <strong>512 GB de armazenamento</strong> e bateria de 5.200 mAh.</p><p>As câmeras são boas, principalmente a frontal, mas têm <strong>muita IA/pós-processamento</strong> e a gravação fica bem abaixo de iPhone, Samsung e até Xiaomi. Pelo preço de R$ 4.000 é aceitável; acima disso, é um celular superestimado.</p>",
+            "image": "guides/items/motorola-signature.webp",
+            "amazon_link": "https://www.amazon.com.br/dp/B09Y3xdbz?tag=andre0cda-20",
+            "mercadolivre_link": "https://www.mercadolivre.com.br/p/MLB65938141?matt_tool=83406274&matt_word=camilamartinstar",
+            "shopee_link": null,
+            "aliexpress_link": null,
+            "kabum_link": null,
+            "pros": "Snapdragon 8 Gen 5 (~3 milhões no AnTuTu)\nTela excelente\n512 GB de armazenamento\nBateria de 5.200 mAh",
+            "cons": "Gravação de vídeo abaixo de iPhone/Samsung/Xiaomi\nMuita IA no pós-processamento das fotos\nPreço cheio é alto (superestimado)"
+        }
+    },
+    {
+        "model": "reviews.guideitem",
+        "pk": 16,
+        "fields": {
+            "guide": 1,
+            "product": null,
+            "position": 16,
+            "name": "Samsung Galaxy S25 Ultra",
+            "description": "<p>Na nossa opinião, o <strong>Galaxy S25 Ultra</strong> é o melhor celular que você pode comprar hoje pelo preço praticado. <strong>Snapdragon 8 Elite</strong> (~3 milhões no AnTuTu), construção em <strong>titânio</strong>, S Pen com Bluetooth mantido e o conjunto de câmeras mais completo da categoria: sensor principal de <strong>200 MP</strong> com ultra-wide de 50 MP.</p><p>São 5.000 mAh com excelente eficiência energética, Galaxy AI e 7 anos de atualização. Hoje é fácil achar por volta de R$ 5.000, e já apareceu por R$ 4.400 em promoção.</p>",
+            "image": "guides/items/samsung-galaxy-s25-ultra.webp",
+            "amazon_link": "https://www.amazon.com.br/dp/B045MHG7G?tag=andre0cda-20",
+            "mercadolivre_link": "https://www.mercadolivre.com.br/p/MLB45517552?matt_tool=83406274&matt_word=camilamartinstar",
+            "shopee_link": null,
+            "aliexpress_link": null,
+            "kabum_link": null,
+            "pros": "Melhor conjunto de câmeras pelo preço\nSnapdragon 8 Elite (~3 milhões no AnTuTu)\nConstrução em titânio com S Pen\nGalaxy AI + 7 anos de atualização\nÓtima eficiência de bateria",
+            "cons": "Preço cheio de ~R$ 5.000\nGrande e pesado para alguns usuários"
+        }
+    },
+    {
+        "model": "reviews.guideitem",
+        "pk": 17,
+        "fields": {
+            "guide": 1,
+            "product": null,
+            "position": 17,
+            "name": "Xiaomi 17",
+            "description": "<p>O <strong>Xiaomi 17</strong> é um dos poucos tops de linha da Xiaomi que recomendamos de verdade. <strong>Snapdragon 8 Elite</strong> com quase 3,5 milhões de pontos no AnTuTu, <strong>512 GB</strong> de armazenamento e bateria de <strong>6.330 mAh</strong> em um corpo compacto de 6.3 polegadas.</p><p>Conjunto de câmeras completíssimo (principal, ultra-wide e telefoto de 50 MP) e qualidade de gravação <strong>superior à Motorola</strong>. Custa cerca de R$ 5.500 — só é um pouco mais chato de encontrar.</p><p><a href=\"https://s.shopee.com.br/3LQny5JJlL\" target=\"_blank\" rel=\"nofollow\">Oferta alternativa na Shopee</a></p>",
+            "image": "guides/items/xiaomi-17.webp",
+            "amazon_link": null,
+            "mercadolivre_link": null,
+            "shopee_link": "https://s.shopee.com.br/7AdWX80KBk",
+            "aliexpress_link": null,
+            "kabum_link": null,
+            "pros": "Snapdragon 8 Elite (~3,5 milhões no AnTuTu)\n512 GB de armazenamento\nBateria de 6.330 mAh em corpo compacto\nCâmeras completas com telefoto de 50 MP",
+            "cons": "Preço de ~R$ 5.500\nMais difícil de encontrar no Brasil"
+        }
+    },
+    {
+        "model": "reviews.guideitem",
+        "pk": 18,
+        "fields": {
+            "guide": 1,
+            "product": null,
+            "position": 18,
+            "name": "Xiaomi 17T Pro",
+            "description": "<p>O <strong>Xiaomi 17T Pro</strong> é basicamente o Xiaomi 17 com mais bateria — <strong>7.100 mAh</strong> — e preço um pouco menor, em torno de <strong>R$ 4.500</strong>. Mantém o mesmo conjunto de câmera, mudando só a ultra-wide para 12 MP.</p><p>O processador passa a ser <strong>Dimensity 9500</strong>, com excelente pontuação e potência sensacional. Para quem quer topo de linha gastando menos que o 17, é a escolha certa.</p><p><a href=\"https://s.shopee.com.br/2VrgyYV0yP\" target=\"_blank\" rel=\"nofollow\">Oferta alternativa na Shopee</a></p>",
+            "image": "guides/items/xiaomi-17t-pro.webp",
+            "amazon_link": null,
+            "mercadolivre_link": null,
+            "shopee_link": "https://s.shopee.com.br/50Z1x9HEfX",
+            "aliexpress_link": null,
+            "kabum_link": null,
+            "pros": "Bateria gigante de 7.100 mAh\nDimensity 9500 com excelente potência\nPreço menor que o Xiaomi 17 (~R$ 4.500)\nConjunto de câmeras completo",
+            "cons": "Ultra-wide de 12 MP (menor que o 17)\nDisponibilidade limitada"
+        }
+    },
+    {
+        "model": "reviews.tag",
+        "pk": 22,
+        "fields": {
+            "name": "rtx 5060"
+        }
+    },
+    {
+        "model": "reviews.tag",
+        "pk": 23,
+        "fields": {
+            "name": "placa de video"
+        }
+    },
+    {
+        "model": "reviews.tag",
+        "pk": 24,
+        "fields": {
+            "name": "nvidia"
+        }
+    },
+    {
+        "model": "reviews.tag",
+        "pk": 25,
+        "fields": {
+            "name": "msi"
+        }
+    },
+    {
+        "model": "reviews.tag",
+        "pk": 26,
+        "fields": {
+            "name": "ventus"
+        }
+    },
+    {
+        "model": "reviews.tag",
+        "pk": 27,
+        "fields": {
+            "name": "dlss 4"
+        }
+    },
+    {
+        "model": "reviews.tag",
+        "pk": 28,
+        "fields": {
+            "name": "gddr7"
+        }
+    },
+    {
+        "model": "reviews.tag",
+        "pk": 29,
+        "fields": {
+            "name": "5nm"
+        }
+    },
+    {
+        "model": "reviews.product",
+        "pk": 6,
+        "fields": {
+            "name": "RTX 5060 Ventus 2X OC Edition",
+            "brand": "MSI",
+            "model_name": "Ventus 2X OC",
+            "category": 5
+        }
+    },
+    {
+        "model": "reviews.review",
+        "pk": 7,
+        "fields": {
+            "product": 6,
+            "title": "RTX 5060 Vale a Pena? Review Completo da MSI Ventus 2X OC Edition (2026)",
+            "slug": "rtx-5060-msi-ventus-2x-oc-review",
+            "excerpt": "Review completo da RTX 5060 em 2026: testes em Full HD e 2.5K, temperatura, consumo, DLSS 4, preço ideal de compra e se vale a pena trocar sua GPU. Placa de vídeo mais vendida da nova geração Nvidia.",
+            "content": "\n<h2>RTX 5060 vale a pena em 2026?</h2>\n<p>Resposta curta: <strong>sim, vale muito a pena na faixa de R$ 2.100 a R$ 2.400</strong>. A RTX 5060 se tornou uma das placas de vídeo mais buscadas e vendidas desta nova geração da Nvidia — inclusive mais popular do que a própria RTX 5050, que é a opção de entrada. Neste review completo, eu mostro o unboxing, a construção, as especificações técnicas, os testes em jogos (The Last of Us Part 2 e Battlefield 6) e, no final, qual é o preço ideal para você comprar.</p>\n\n<h2>Quanto custa a RTX 5060 em 2026?</h2>\n<p>Eu comprei a minha RTX 5060 <strong>MSI Ventus 2X OC Edition no Mercado Livre por aproximadamente R$ 2.200</strong>, já aplicando um cupom de desconto de cerca de R$ 200. Dá para encontrar o modelo na faixa de <strong>R$ 2.100 a R$ 2.400</strong> com um pouco de paciência. É importante ficar de olho no grupo de promoções, porque o preço dessa placa oscila bastante — e, em momentos de alta ou Black Friday, ela pode até ficar mais cara.</p>\n\n<h2>Unboxing da RTX 5060 MSI Ventus 2X OC Edition</h2>\n<p>A placa chegou lacrada, com o plástico original de fábrica. No unboxing, o conteúdo é enxuto: a placa de vídeo, o manual de instruções e nada mais. Nada de visuais chamativos — e tudo bem, o que importa está embaixo dessa carcaça.</p>\n<p>Um ponto que chama a atenção de cara é o <strong>tamanho compacto</strong>: a RTX 5060 é visivelmente menor que uma RX 580 (tem em torno de 15% a 20% a menos de dimensões). É uma placa de 2 slots com <strong>dois fans de aproximadamente 80mm</strong>, um tamanho modesto que dispensa coolers gigantescos.</p>\n\n<h2>Construção e qualidade</h2>\n<p>Aqui mora a minha maior ressalva: <strong>a construção é predominantemente de plástico</strong>. Tanto a carcaça dos fans quanto a parte superior da placa são de plástico — não é metal e não tem aquele acabamento premium de modelos mais caros. Se você liga para estética de alta qualidade, modelos como <strong>Asus TUF ou Gigabyte Aorus</strong> entregam construções melhores, mas o preço sobe proporcionalmente (muitas vezes passando dos R$ 2.600).</p>\n<p>Por outro lado, a desmontagem é simples: bastam <strong>quatro parafusos</strong> para abrir a placa. O conector PCIe vem coberto e a traseira tem um backplate discreto. Na parte de conectividade, ela traz <strong>1 HDMI e 3 DisplayPort</strong>, ou seja, suporte para até 4 monitores.</p>\n\n<h2>Especificações técnicas da RTX 5060</h2>\n<ul>\n<li><strong>GPU:</strong> Nvidia GeForce RTX 5060 (arquitetura Blackwell, processo de 5nm)</li>\n<li><strong>VRAM:</strong> 8 GB GDDR7</li>\n<li><strong>Alimentação:</strong> 1 conector de 8 pinos</li>\n<li><strong>Fans:</strong> 2x ~80mm</li>\n<li><strong>Refrigeração:</strong> 2 heat pipes</li>\n<li><strong>Saídas de vídeo:</strong> 1x HDMI, 3x DisplayPort</li>\n<li><strong>Tecnologias:</strong> DLSS 4, Ray Tracing, Multi Frame Generation, Reflex</li>\n<li><strong>Versão:</strong> OC Edition (clock de fábrica acima do padrão)</li>\n</ul>\n\n<h2>RTX 5060 consome muita energia? E temperatura?</h2>\n<p>Um dos grandes destaques da RTX 5060 é a <strong>eficiência energética</strong>. Durante os testes em jogos, o TDP ficou entre <strong>100W e 140W</strong> — ou seja, uma fonte de <strong>450W a 500W já é suficiente</strong>, você não precisa investir em fontes de 700W. A temperatura também surpreendeu: <strong>a placa não passou de 60°C</strong> nos testes, um valor excelente para uma placa de entrada.</p>\n<p>E sobre os 8 GB de VRAM? Calma que eu explico. A RTX 5060 usa <strong>8 GB de GDDR7</strong>, uma memória muito mais rápida que as GDDR6 das gerações anteriores. Nos testes, <strong>The Last of Us Part 2 em 2.5K usou cerca de 7,2 GB</strong> de VRAM — ou seja, os 8 GB dão conta de jogos atuais em Full HD e 2.5K. O limite só aparece em 4K ou configurações extremas, mas para a maioria dos jogadores isso não é um problema.</p>\n\n<h2>Testes em jogos</h2>\n<h3>The Last of Us Part 2</h3>\n<p>Em <strong>Full HD com gráfico muito alto e DLSS em Qualidade</strong>, a RTX 5060 manteve <strong>100 FPS</strong> com a placa em folga. Subindo para <strong>2.5K no muito alto</strong>, o jogo seguiu entre <strong>80 e 100 FPS</strong> (com DLSS em Qualidade/Desempenho), sempre fluido e bonito.</p>\n<h3>Battlefield 6</h3>\n<p>Em <strong>Full HD no alto, sem DLSS</strong>, o jogo rodou em <strong>115 FPS</strong>. Em <strong>2.5K no alto</strong>, manteve <strong>100 FPS</strong> com ~90% de uso da GPU a 60°C. Ativando o <strong>DLSS 4 com Multi Frame Generation</strong>, o FPS foi multiplicado de forma absurda, chegando à casa dos <strong>300 FPS</strong> — com frame time baixíssimo (em torno de 0,6ms) e até melhora percebida na resposta do mouse.</p>\n\n<h2>Prós e contras da RTX 5060</h2>\n<p><strong>Prós:</strong> custo-benefício na faixa de R$ 2.100 a R$ 2.400; eficiência energética (100-140W, fonte de 450W basta); temperatura baixa (máx. 60°C); DLSS 4 com Multi Frame Generation; Ray Tracing e Reflex; desempenho forte em Full HD e 2.5K; construção compacta que cabe em qualquer gabinete.</p>\n<p><strong>Contras:</strong> construção predominantemente de plástico; apenas 2 fans de 80mm e 2 heat pipes; 8 GB de VRAM limitam 4K e configurações extremas; preço pode subir bastante conforme o mercado.</p>\n\n<h2>RTX 5060 vale a pena ou é melhor uma usada?</h2>\n<p>Comparando com placas usadas como a GTX 1060, RTX 2060 ou RTX 3060 (que podem ser achadas por volta de R$ 1.500), a RTX 5060 leva grande vantagem: <strong>5nm, GDDR7, DLSS 4, frame generation e raytracing</strong>, além de suporte de driver por muito mais tempo. Na minha opinião, a RTX 5060 é capaz de aguentar de forma tranquila <strong>os próximos 5 anos</strong> de jogos em Full HD e 2.5K.\n\n<h2>Conclusão: até quanto pagar na RTX 5060?</h2>\n<p>A RTX 5060 é uma placa excelente para quem joga em <strong>Full HD e 2.5K</strong>, com destaque para o DLSS 4 e a eficiência energética. A única decepção real é a construção de plástico — mas pelo preço, é um sacrifício justo. <strong>Preço ideal: até R$ 2.200 a R$ 2.400.</strong> Acima de R$ 2.500, começa a ficar caro demais pelo que ela entrega.</p>\n<p>Se você quer pagar o menor preço possível, vale acompanhar o grupo VIP do WhatsApp e o canal do Telegram de promoções — foi lá que a placa apareceu por R$ 2.100. E, claro, comprando pelos links abaixo você ajuda o Nitro Tech Indica a continuar trazendo análises honestas sem pagar nada a mais.</p>\n",
+            "conclusion": "\nA RTX 5060 MSI Ventus 2X OC Edition é uma das melhores placas de vídeo de entrada da nova geração da Nvidia. Ela entrega desempenho forte em Full HD e 2.5K, temperatura baixa (máx. 60°C), consumo eficiente (100-140W) e traz o DLSS 4 com Multi Frame Generation — que multiplica o FPS em jogos compatíveis. O ponto fraco é a construção de plástico, mas pelo preço (R$ 2.100 a R$ 2.400) vale muito a pena. Vai durar tranquilo por uns 5 anos. Veredito: nota 9.0.\n",
+            "main_image": "reviews/main/rtx-5060.webp",
+            "rating": "9.0",
+            "pros": "Melhor custo-benefício da nova geração na faixa de R$ 2.100 a R$ 2.400\nDesempenho forte em Full HD e 2.5K (100 FPS+ em jogos pesados)\nDLSS 4 com Multi Frame Generation multiplica o FPS (até ~300 FPS no Battlefield 6)\nEficiência energética: 100-140W, fonte de 450-500W já resolve\nTemperatura baixa: máxima de 60°C nos testes\n8 GB de GDDR7 e processo de 5nm\nPlaca compacta, cabe em qualquer gabinete\n1 HDMI + 3 DisplayPort (até 4 monitores)",
+            "cons": "Construção predominantemente de plástico (carcaça e topo)\nApenas 2 fans de 80mm e 2 heat pipes\n8 GB de VRAM limitam 4K e configurações extremas\nPreço sobe rapidamente conforme o mercado",
+            "specifications": {
+                "GPU": "Nvidia RTX 5060 (Blackwell, 5nm)",
+                "VRAM": "8 GB GDDR7",
+                "Versão": "OC Edition (clock de fábrica)",
+                "Fans": "2x ~80mm",
+                "Refrigeração": "2 heat pipes",
+                "Alimentação": "1x 8 pinos",
+                "Saídas": "1x HDMI + 3x DisplayPort",
+                "Tecnologias": "DLSS 4, Ray Tracing, Multi Frame Generation, Reflex",
+                "Consumo em jogo": "~100-140W (fonte de 450W basta)",
+                "Temperatura": "Máximo ~60°C em testes"
+            },
+            "tags_input": "rtx 5060, placa de video, nvidia, msi, ventus, dlss 4, gddr7, 5nm",
+            "amazon_link": "https://link.amazon/B01MXpBSl",
+            "mercadolivre_link": "https://meli.la/1i2gRmp",
+            "shopee_link": null,
+            "aliexpress_link": null,
+            "kabum_link": null,
+            "author": [
+                "admin"
+            ],
+            "created_at": "2026-09-13T10:00:00.000Z",
+            "updated_at": "2026-09-13T10:00:00.000Z",
+            "is_featured": false,
+            "is_published": true,
+            "tags": [
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29
+            ]
+        }
     }
-  },
-  {
-    "model": "reviews.category",
-    "pk": 2,
-    "fields": {
-      "name": "Notebooks",
-      "slug": "notebooks",
-      "icon": "icon-laptop"
-    }
-  },
-  {
-    "model": "reviews.category",
-    "pk": 3,
-    "fields": {
-      "name": "Áudio",
-      "slug": "audio",
-      "icon": "icon-audio"
-    }
-  },
-  {
-    "model": "reviews.category",
-    "pk": 4,
-    "fields": {
-      "name": "Microfones",
-      "slug": "microfones",
-      "icon": "icon-mic"
-    }
-  },
-  {
-    "model": "reviews.category",
-    "pk": 5,
-    "fields": {
-      "name": "Placas de Vídeo",
-      "slug": "placas-de-video",
-      "icon": "icon-gpu"
-    }
-  },
-  {
-    "model": "reviews.category",
-    "pk": 6,
-    "fields": {
-      "name": "Placas Mãe",
-      "slug": "placas-mae",
-      "icon": "icon-cpu"
-    }
-  },
-  {
-    "model": "reviews.category",
-    "pk": 7,
-    "fields": {
-      "name": "Processador",
-      "slug": "processador",
-      "icon": "icon-cpu"
-    }
-  },
-  {
-    "model": "reviews.category",
-    "pk": 8,
-    "fields": {
-      "name": "Monitores",
-      "slug": "monitores",
-      "icon": "icon-monitor"
-    }
-  },
-  {
-    "model": "reviews.category",
-    "pk": 9,
-    "fields": {
-      "name": "Controles",
-      "slug": "controles",
-      "icon": "icon-gamepad"
-    }
-  },
-  {
-    "model": "reviews.category",
-    "pk": 10,
-    "fields": {
-      "name": "Headset",
-      "slug": "headset",
-      "icon": "icon-audio"
-    }
-  },
-  {
-    "model": "reviews.tag",
-    "pk": 1,
-    "fields": {
-      "name": "gamepad"
-    }
-  },
-  {
-    "model": "reviews.tag",
-    "pk": 2,
-    "fields": {
-      "name": "controle"
-    }
-  },
-  {
-    "model": "reviews.tag",
-    "pk": 3,
-    "fields": {
-      "name": "8bitdo"
-    }
-  },
-  {
-    "model": "reviews.tag",
-    "pk": 4,
-    "fields": {
-      "name": "wireless"
-    }
-  },
-  {
-    "model": "reviews.tag",
-    "pk": 5,
-    "fields": {
-      "name": "pc"
-    }
-  },
-  {
-    "model": "reviews.tag",
-    "pk": 6,
-    "fields": {
-      "name": "hall effect"
-    }
-  },
-  {
-    "model": "reviews.tag",
-    "pk": 7,
-    "fields": {
-      "name": "ultimate 2"
-    }
-  },
-  {
-    "model": "reviews.tag",
-    "pk": 8,
-    "fields": {
-      "name": "2026"
-    }
-  },
-  {
-    "model": "reviews.tag",
-    "pk": 9,
-    "fields": {
-      "name": "notebook"
-    }
-  },
-  {
-    "model": "reviews.tag",
-    "pk": 10,
-    "fields": {
-      "name": "positivo"
-    }
-  },
-  {
-    "model": "reviews.tag",
-    "pk": 11,
-    "fields": {
-      "name": "vision r15"
-    }
-  },
-  {
-    "model": "reviews.tag",
-    "pk": 12,
-    "fields": {
-      "name": "ryzen 5 5625u"
-    }
-  },
-  {
-    "model": "reviews.tag",
-    "pk": 13,
-    "fields": {
-      "name": "ryzen 7 5825u"
-    }
-  },
-  {
-    "model": "reviews.tag",
-    "pk": 14,
-    "fields": {
-      "name": "notebook barato"
-    }
-  },
-  {
-    "model": "reviews.tag",
-    "pk": 15,
-    "fields": {
-      "name": "custo benefício"
-    }
-  },
-  {
-    "model": "reviews.tag",
-    "pk": 16,
-    "fields": {
-      "name": "gta v"
-    }
-  },
-  {
-    "model": "reviews.tag",
-    "pk": 17,
-    "fields": {
-      "name": "mchose"
-    }
-  },
-  {
-    "model": "reviews.tag",
-    "pk": 18,
-    "fields": {
-      "name": "v9 pro"
-    }
-  },
-  {
-    "model": "reviews.tag",
-    "pk": 19,
-    "fields": {
-      "name": "headset"
-    }
-  },
-  {
-    "model": "reviews.tag",
-    "pk": 20,
-    "fields": {
-      "name": "gamer"
-    }
-  },
-  {
-    "model": "reviews.tag",
-    "pk": 21,
-    "fields": {
-      "name": "7.1"
-    }
-  },
-  {
-    "model": "reviews.product",
-    "pk": 1,
-    "fields": {
-      "name": "Galaxy S24 Ultra",
-      "brand": "Samsung",
-      "model_name": "",
-      "category": 1
-    }
-  },
-  {
-    "model": "reviews.product",
-    "pk": 2,
-    "fields": {
-      "name": "MacBook Pro M3",
-      "brand": "Apple",
-      "model_name": "",
-      "category": 2
-    }
-  },
-  {
-    "model": "reviews.product",
-    "pk": 3,
-    "fields": {
-      "name": "Ultimate 2",
-      "brand": "8BitDo",
-      "model_name": "Ultimate 2",
-      "category": 9
-    }
-  },
-  {
-    "model": "reviews.product",
-    "pk": 4,
-    "fields": {
-      "name": "Vision R15",
-      "brand": "Positivo",
-      "model_name": "Vision R15M",
-      "category": 2
-    }
-  },
-  {
-    "model": "reviews.product",
-    "pk": 5,
-    "fields": {
-      "name": "V9 Pro",
-      "brand": "Mchose",
-      "model_name": "",
-      "category": 10
-    }
-  },
-  {
-    "model": "auth.user",
-    "fields": {
-      "password": "pbkdf2_sha256$1200000$oQuNQRnxraT37zHkv30761$e8JLVUiso/TeC8W22jsy1oOIsAmQf1Jgh+xtwAp3OQA=",
-      "last_login": "2026-08-02T22:39:02.569Z",
-      "is_superuser": true,
-      "username": "admin",
-      "first_name": "",
-      "last_name": "",
-      "email": "admin@example.com",
-      "is_staff": true,
-      "is_active": true,
-      "date_joined": "2026-03-08T13:19:57.927Z",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "auth.user",
-    "fields": {
-      "password": "pbkdf2_sha256$1200000$fjiWRycrgH2gssE4eH8vDg$6kD0l6bLYM3D9bl3B0g4Sz60UbvhSdA0sPqUp6ceYSE=",
-      "last_login": "2026-03-13T14:05:04.315Z",
-      "is_superuser": true,
-      "username": "andrecode",
-      "first_name": "",
-      "last_name": "",
-      "email": "andrecode.py@gmail.com",
-      "is_staff": true,
-      "is_active": true,
-      "date_joined": "2026-03-13T14:04:32.887Z",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "reviews.review",
-    "pk": 4,
-    "fields": {
-      "product": 3,
-      "title": "8BitDo Ultimate 2 em 2026: Ainda Vale a Pena? Review Completo",
-      "slug": "8bitdo-ultimate-2-2026",
-      "excerpt": "Será que o 8BitDo Ultimate 2 ainda vale a pena em 2026? Review completo do melhor controle para PC da 8BitDo: specs, conectividade, durabilidade e preço de R$ 250.",
-      "content": "\n<h2>8BitDo Ultimate 2 em 2026: ainda vale a pena?</h2>\n<p>O <strong>8BitDo Ultimate 2</strong> chegou ao mercado há algum tempo, mas segue no topo da linha de controles da marca — ao lado do <strong>Ciclone 2</strong>, da GameSir, no posto de controle mais avançado do segmento. Depois de muita pesquisa e uso no dia a dia, a resposta é: <strong>sim, o Ultimate 2 continua valendo muito a pena em 2026</strong>.</p>\n\n<h2>Specs que ainda não ficaram para trás</h2>\n<p>O Ultimate 2 é o controle mais recheado da 8BitDo. Olha o que ele traz:</p>\n<ul>\n<li><strong>Analógicos TMR</strong> com haste de metal e pontas <strong>trocáveis</strong> — se desgastar ou quebrar, é só comprar outra e encaixar no lugar.</li>\n<li><strong>Gatilhos Hall Effect</strong> (sem desgaste, com zona morta quase zero).</li>\n<li><strong>D-Pad e botões de para-choque mecânicos</strong>, além de botões extras configuraveis.</li>\n<li><strong>Base de carregamento com dongle</strong> incluso.</li>\n<li><strong>Giroscópio</strong>, bateria de <strong>1000 mAh</strong> e <strong>polling rate de 1000 Hz</strong>.</li>\n</ul>\n\n<h2>Conectividade: o grande diferencial da 8BitDo</h2>\n<p>Assim como Razer e Logitech, a 8BitDo desenvolveu <strong>tecnologia própria de conexão sem fio</strong> para minimizar o delay e permitir jogo competitivo sem cabo. Na prática, é a <strong>melhor experiência de conexão sem fio</strong> que já testei em um controle: resposta instantânea, sem atrasos perceptíveis, tanto na construção quanto no uso.</p>\n\n<h2>Durabilidade comprovada</h2>\n<p>O 8BitDo já é conhecido pela durabilidade. Uso o <strong>Ultimate 2C</strong> há cerca de <strong>1 ano e meio</strong> com <strong>zero defeitos</strong> — e o Ultimate 2, por ser a versão superior, tende a ter durabilidade igual ou até maior. Somado à velocidade de conexão e precisão, é um controle para ficar anos na sua mesa.</p>\n\n<h2>Compatibilidade com mobile</h2>\n<p>Antes, os controles da 8BitDo conectavam em jogos mobile apenas com suporte nativo a controle no Android (como GTA e Minecraft). Segundo rumores, uma <strong>atualização de firmware</strong> teria ampliado essa compatibilidade — deixe nos comentários se você testou.</p>\n\n<h2>Preço em 2026: o ponto que virou a favor</h2>\n<p>Aqui mora a grande virada de chave. Hoje é possível encontrar o <strong>Ultimate 2 nacionalmente por cerca de R$ 250</strong> — um <strong>preço justíssimo</strong> para o que ele entrega. Para comparação, um controle de console raramente sai por menos de R$ 400, praticamente o dobro.</p>\n<p>E atenção: <strong>não vale a pena importar pelo AliExpress</strong>, você acaba pagando mais caro do que comprando aqui no Brasil. Os dois principais concorrentes, <strong>Ciclone 2 (GameSir)</strong> e o próprio Ultimate 2, costumam empatar na faixa dos R$ 250 — qualquer um dos dois é uma escolha excelente.</p>\n\n<h2>Veredito: melhor controle para PC em 2026</h2>\n<p>Chegamos a um platô no mercado de controles para PC. Não lançaram nada que desbanque o Ultimate 2, e é difícil imaginar onde as marcas ainda podem inovar. Se você quer o <strong>melhor controle para PC</strong> sem pagar o preço de um console, o 8BitDo Ultimate 2 é a escolha certa.</p>\n<p><strong>Não confunda</strong> com versões com fio nem com o Ultimate 2C (versão mais leve e barata). No link abaixo você encontra o modelo certo com o melhor preço que encontrei.</p>\n",
-      "conclusion": "O 8BitDo Ultimate 2 segue sendo o melhor controle para PC em 2026. Com preço justo de cerca de R$ 250, conectividade de baixíssimo delay e construção durável, é difícil encontrar concorrente que entregue tanto. Compre nacionalmente para pagar menos.",
-      "main_image": "reviews/main/8bitdo-ultimate-2-2026.webp",
-      "rating": "9.2",
-      "pros": "Melhor custo-beneficio entre controles top de linha (aprox. R$ 250)\nTecnologia de conexao sem fio propria da 8BitDo com delay minimo\nDurabilidade comprovada: analogicos TMR com haste de metal trocavel\nGatilhos Hall Effect com zona morta quase zero\nD-Pad e botoes de para-choque mecanicos\nBase de carregamento com dongle incluso\nConfiguracao detalhada via software no PC\nPolling rate de 1000 Hz e bateria de 1000 mAh",
-      "cons": "Compatibilidade mobile limitada (COD Mobile/PUBG dependem de firmware)\nNao vale a pena importar - comprar nacional e mais barato\nUltimate 2C entrega o essencial por menos para quem nao usa os extras",
-      "specifications": {
-        "Conexão": "2.4GHz / Bluetooth / USB-C",
-        "Polling Rate": "1000 Hz",
-        "Bateria": "1000 mAh (~19h 2.4GHz / ~32h Bluetooth)",
-        "Analógicos": "TMR com haste de metal trocável",
-        "Gatilhos": "Hall Effect",
-        "D-Pad": "Mecânico",
-        "Botões": "Mecânicos (para-choque, extras frontais e traseiros)",
-        "Base de Carregamento": "Inclusa, com dongle",
-        "Giroscópio": "Sim",
-        "Compatibilidade": "PC, Mobile (Android), Switch"
-      },
-      "tags_input": "gamepad, controle, 8bitdo, ultimate 2, wireless, pc, hall effect, 2026",
-      "amazon_link": null,
-      "mercadolivre_link": null,
-      "shopee_link": null,
-      "aliexpress_link": "https://s.click.aliexpress.com/e/_c3u3UPp5",
-      "kabum_link": null,
-      "author": [
-        "admin"
-      ],
-      "created_at": "2026-08-03T15:25:55.645Z",
-      "updated_at": "2026-08-03T15:25:55.670Z",
-      "is_featured": true,
-      "is_published": true,
-      "tags": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8
-      ]
-    }
-  },
-  {
-    "model": "reviews.review",
-    "pk": 5,
-    "fields": {
-      "product": 4,
-      "title": "Positivo Vision R15 2026: O Notebook Barato que Serve para Quase Todo Mundo",
-      "slug": "positivo-vision-r15-2026",
-      "excerpt": "Review completo do Positivo Vision R15: notebook barato com tela Full HD IPS, Ryzen 5 5625U, upgrade de RAM até 64 GB, SSD até 4 TB, que ainda roda GTA V. Veja o preço e se vale a pena em 2026.",
-      "content": "\n<h2>Positivo Vision R15: o notebook barato que serve para quase todo mundo</h2>\n<p>Se você procura o <strong>melhor notebook custo-benefício de 2026</strong>, o <strong>Positivo Vision R15</strong> entrou para a disputa com força total. A marca mudou muito: o preço ficou agressivo, a configuração é a mais recheada da faixa e, na prática, ele atende bem <strong>97% das pessoas</strong>. Ele estuda, trabalha, edita vídeo e até roda jogos. A seguir, entenda tudo o que ele entrega — e para quem (3%) ele não serve.</p>\n\n<h2>Tela 15.6\" Full HD com painel IPS: fidelidade de cor e ângulos de visão</h2>\n<p>O primeiro grande destaque é a tela de <strong>15.6 polegadas Full HD com painel IPS</strong>. Diferente do painel TN (comum em notebooks baratos), o IPS entrega <strong>cores mais fiéis</strong> e <strong>melhor ângulo de visão</strong>: você vê a imagem de lado ou de cima sem distorção. Nesta faixa de preço, poucos concorrentes trazem IPS — a maioria usa TN, bem inferior.</p>\n\n<h2>Upgrade liberado: RAM DDR4 até 64 GB e SSD NVMe até 4 TB</h2>\n<p>Ponto que faz muito sucesso: <strong>possibilidade de upgrade</strong>. Muitos notebooks de entrada deixam a memória soldada, mas aqui o Vision R15 permite expandir a <strong>memória RAM DDR4 até 64 GB</strong> e o <strong>SSD NVMe até 4 TB</strong>. Ou seja, você compra a versão de entrada (8 GB / 256 GB) e cresce conforme a necessidade, sem trocar de notebook.</p>\n\n<h2>Teclado completo com teclado numérico</h2>\n<p>O teclado já vem completo, com <strong>teclado numérico na lateral direita</strong>. Para quem mexe com planilhas, números e comandos (como quem usa <strong>AutoCAD</strong>), isso faz diferença enorme no dia a dia: sem ficar procurando atalhos, tudo à mão.</p>\n\n<h2>Webcam com obturador físico de privacidade</h2>\n<p>Detalhe de segurança que falta até em notebook gamer caro: a webcam tem <strong>obturador físico</strong>. É só deslizar a tampa para bloquear a lente — barreira física, não dependendo de software. Nunca confie só em configuração de software.</p>\n\n<h2>Luminária integrada com 3 níveis</h2>\n<p>Coisa simples que quase ninguém traz nesta faixa de preço: uma <strong>luminária integrada</strong>, com <strong>3 níveis de iluminação</strong>. Perfeita para videochamadas à noite, ambiente escuro ou madrugada, iluminando o rosto sem acordar a casa.</p>\n\n<h2>Processador: Ryzen 5 5625U ou Ryzen 7 5825U</h2>\n<p>O coração do notebook, e o que o tornou um sucesso, é o processador. O modelo vem em versão mais barata com <strong>Ryzen 5 5625U</strong> (6 núcleos / 12 threads) e em versão um pouco mais cara com <strong>Ryzen 7 5825U</strong> (8 núcleos / 16 threads). A diferença é núcleos, clock e um pouco de multitarefa/performance gráfica — mas ambos usam a mesma <strong>GPU integrada Radeon</strong>. Na prática, tudo que o Ryzen 5 faz, o Ryzen 7 faz um pouco melhor. Se a diferença de preço for pequena (~R$ 100), vale o Ryzen 7; se for grande, o Ryzen 5 já atende muito bem.</p>\n\n<h2>Preço em 2026: o ponto que virou a favor</h2>\n<p>O que coloca esse notebook no topo é o <strong>preço agressivo</strong>. A versão <strong>Ryzen 5 com 8 GB de RAM e 256 GB de SSD</strong> apareceu por volta de <strong>R$ 2.700</strong> no Mercado Livre, e já foi vista com cupom por <strong>R$ 2.459</strong>. A versão <strong>Ryzen 7</strong> (8 GB / 256 GB) saiu em oferta por <strong>R$ 2.539</strong> na loja oficial da Positivo. Para o que entrega, é difícil bater esse custo-benefício.</p>\n\n<h2>Desempenho na prática: produtividade e edição sem engasgos</h2>\n<p>No dia a dia, o notebook se comporta muito bem: várias abas abertas, planilhas, navegação e YouTube alternando sem lentidão. O <strong>SSD NVMe</strong> deixa abertura de tudo muito rápida. E ele aguenta bem tarefas que exigem gráficos: <strong>editei no CapCut</strong> (cortes, legendas, transições e efeitos) e <strong>Photoshop</strong> roda sem sofrimento graças ao processador.</p>\n\n<h2>Jogos: dá para se divertir, sim</h2>\n<p>Não é notebook gamer, mas surpreende: o <strong>GTA V em gráficos Normais fica super jogável</strong>. Para referência, ele roda bem jogos da geração <strong>PS3</strong> e alguns de <strong>PS4</strong>, além de títulos como <strong>Rocket League</strong> e <strong>Valorant</strong>. Para um dos notebooks mais baratos do mercado, é muito mais do que promete.</p>\n\n<h2>Concorrente direto: Positivo Vision R15 x Asus VivoBook Go 15</h2>\n<p>O concorrente mais citado na mesma faixa (~R$ 2.700) é o <strong>Asus VivoBook Go 15</strong>. Ele vende muito, mas entrega menos: <strong>Ryzen mais fraco</strong>, <strong>tela TN</strong> (bem inferior ao IPS) e <strong>memória RAM sem possibilidade de upgrade</strong> (você fica preso nos 8 GB). Para o dia a dia serve, mas a configuração fica bem abaixo do Positivo pelo mesmo preço.</p>\n\n<h2>Para quem ele NÃO serve: os 3% que vão reclamar</h2>\n<p>Transparência é tudo, então vamos aos pontos que podem desagradar:</p>\n<ul>\n<li><strong>Sem carregamento via USB-C</strong>: usa fonte tradicional. Quem exige carregar com power bank ou tomada USB-C (estilo Galaxy Book 4 ou Lenovo 3i) vai sentir falta — embora esses notebooks custem bem mais.</li>\n<li><strong>Acabamento em plástico</strong>: por ser o notebook mais barato, a construção é toda em plástico, sem acabamento fino.</li>\n<li><strong>Sem porta de rede</strong>: conexão só por Wi-Fi (ou adaptador).</li>\n</ul>\n<p>Se nenhum desses itens é requisito para você, ele compensa muito.</p>\n\n<h2>Veredito: o rei do custo-benefício?</h2>\n<p>Para quem quer um <strong>notebook barato com boa tela IPS, possibilidade de upgrade, ótimo desempenho e que ainda roda jogos</strong>, o <strong>Positivo Vision R15</strong> é a escolha mais forte de 2026. Ele não promete tudo isso — e ainda assim entrega. No meu veredito, continua sendo o <strong>melhor custo-benefício da categoria</strong>. Confira o preço e compre pelo link abaixo.</p>\n",
-      "conclusion": "\nO Positivo Vision R15 é o notebook barato que atende 97% das pessoas: tela IPS Full HD, upgrade de RAM até 64 GB e SSD até 4 TB, Ryzen 5 5625U / Ryzen 7 5825U, ótimo desempenho em produtividade e edição, e ainda roda GTA V. Os pontos fracos (plástico, sem carregamento USB-C e sem porta Ethernet) só incomodam quem tem esses requisitos. Pelo preço praticado em 2026, é o rei do custo-benefício.\n",
-      "main_image": "reviews/main/notebook.webp",
-      "rating": "9.0",
-      "pros": "Tela 15.6\" Full HD com painel IPS (cores e ângulos superiores ao TN)\nUpgrade liberado: RAM DDR4 até 64 GB e SSD NVMe até 4 TB\nTeclado completo com teclado numérico\nWebcam com obturador físico de privacidade\nLuminária integrada com 3 níveis\nRyzen 5 5625U / Ryzen 7 5825U com ótimo desempenho para o preço\nRoda GTA V e jogos de gerações anteriores\nCapCut e Photoshop funcionando sem engasgos\nPreço muito agressivo (a partir de ~R$ 2.459)",
-      "cons": "Construção toda em plástico, sem acabamento premium\nSem carregamento via USB-C (usa fonte tradicional)\nSem porta de rede Ethernet (só Wi-Fi ou adaptador)\nTela não abre totalmente",
-      "specifications": {
-        "Tela": "15.6\" Full HD (1920x1080) IPS",
-        "Processador": "AMD Ryzen 5 5625U (6 núcleos / 12 threads) ou Ryzen 7 5825U (8 núcleos / 16 threads)",
-        "Placa de Vídeo": "AMD Radeon Graphics (integrada)",
-        "Memória RAM": "DDR4 (expansível até 64 GB)",
-        "Armazenamento": "SSD NVMe (expansível até 4 TB)",
-        "Teclado": "Completo, com teclado numérico",
-        "Webcam": "Com obturador físico",
-        "Luminária": "Integrada, com 3 níveis",
-        "Sistema": "Windows (pré-instalado)"
-      },
-      "tags_input": "notebook, positivo, vision r15, ryzen 5 5625u, ryzen 7 5825u, notebook barato, custo benefício, gta v, 2026",
-      "amazon_link": null,
-      "mercadolivre_link": null,
-      "shopee_link": "https://s.shopee.com.br/3g2oS8Rfp5",
-      "aliexpress_link": null,
-      "kabum_link": null,
-      "author": [
-        "admin"
-      ],
-      "created_at": "2026-08-11T23:26:04.504Z",
-      "updated_at": "2026-08-11T23:26:04.504Z",
-      "is_featured": false,
-      "is_published": true,
-      "tags": [
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        15,
-        16
-      ]
-    }
-  },
-  {
-    "model": "reviews.review",
-    "pk": 6,
-    "fields": {
-      "product": 5,
-      "title": "Mchose V9 Pro: o headset custo-benefício que parece muito mais caro",
-      "slug": "mchose-v9-pro",
-      "excerpt": "Review completo do Mchose V9 Pro: headset de construção premium que parece muito mais caro do que é. De ~R$ 250 (importado) a ~R$ 450 (nacional), com 250h de bateria, 7.1 virtual que funciona e microfone nota 10.",
-      "content": "\n<h2>O achado silencioso que está todo mundo usando</h2>\n<p>Sabe aquela sensação horrível de estar perdendo algo incrível? Enquanto muita gente gasta fortunas em equipamentos de áudio, existe uma galera silenciosa que descobriu um headset absurdamente bom e barato — o <strong>Mchose V9 Pro</strong>. Hoje eu vou te mostrar por que ele é esse achado e por que vale a pena correr antes que o preço suba.</p>\n\n<h2>Construção e design: visual de headset de R$ 800</h2>\n<p>Começando direto e reto pela construção e pelo design. Ele lembra muito o <strong>Logitech G Pro</strong>, ou seja, remete a headsets bem mais caros do que o que ele realmente custa hoje: você encontra ele na faixa de <strong>R$ 250 a R$ 350 importando</strong> (já contando impostos e frete) ou entre <strong>R$ 400 e R$ 450 no mercado nacional</strong>.</p>\n<p>A haste é de <strong>alumínio reforçado</strong>, com cerca de 3 cm de ajuste de altura, e a envergadura é excelente: ele não faz muita pressão e dá para usar com óculos tranquilamente. A headband tem costuras detalhadas e o logo da Mchose. Tudo muito bem construído e bonito.</p>\n<p>As earpads são <strong>over-ear de courino</strong>, criando uma vedação passiva impressionante. Só de colocar na cabeça ele já abafa o som externo muito bem: com o volume em 50%, barulho de ventilador ou da limpeza de casa praticamente somem. Um detalhe: a concha é levemente justa — se você for um pouco \"orelhudo\", ele fica quase on-ear, mas nada que tire o mérito. Sobre a durabilidade do courino, com bons cuidados ele deve durar de 1 a 2 anos antes de precisar trocar.</p>\n\n<h2>Bateria e carregamento inteligente</h2>\n<p>Na parte externa ele tem o botão de power (que alterna entre Bluetooth e Wi-Fi), botão de mute e potenciômetro de volume. Ele entrega cerca de <strong>250 horas de bateria</strong> e o carregamento via <strong>USB-C</strong> é bem inteligente: diferente de outros modelos, você consegue usar e mexer nos botões enquanto carrega, seja no computador ou num power bank.</p>\n<p>Por segurança e longevidade da bateria, eu recomendo carregar durante o uso só em emergências (entrevista de emprego, reunião importante). No mais, é bom saber que a opção existe.</p>\n\n<h2>Um bônus enorme de usabilidade: o dongle reversível</h2>\n<p>O adaptador Wi-Fi dele é um diferencial gigante: o dongle em geral é <strong>USB-A</strong>, mas você desencaixa uma pecinha e ele vira <strong>USB-C</strong>. Se você tem um notebook que só tem entradas USB-C, está resolvido. E eu sempre recomendo usar o <strong>modo Wi-Fi em vez do Bluetooth</strong> para não perder qualidade de áudio — o Bluetooth ainda gasta um pouco mais de bateria.</p>\n\n<h2>Software: muito, muito, muito recheado</h2>\n<p>A Mchose caprichou demais no software do V9 Pro. Você vê a bateria restante e, na captação de áudio, tem:\n<ul>\n<li><strong>Redução de ruído por IA</strong>;</li>\n<li><strong>Magic Sound</strong>, para alterar a voz diretamente;</li>\n<li><strong>Volume inteligente</strong>, que ajusta o volume ideal para o tipo de conteúdo — ótimo para filmes, onde a voz às vezes fica baixa e a explosão alta.</li>\n</ul></p>\n<p>O áudio padrão já é muito bom. Mas no <strong>equalizador</strong> a brincadeira fica séria: nos presets de música, o destaque absoluto vai para o <strong>heavy metal</strong> — os graves ficam tão potentes que as conchas vibram na cabeça, parecendo um mini subwoofer. Para jogos, ele já vem com perfis pré-configurados para <strong>Valorant, CS, Apex, PUBG</strong> e vários outros, que realmente ajudam a identificar os adversários. Você ainda pode baixar configurações da nuvem de outros usuários para jogos como <strong>God of War</strong> e <strong>The Last of Us</strong>.</p>\n<p>Também há funções que dão mais brilho ao áudio e deixam os graves mais aparentes, e modos de jogo que não fizeram muita diferença na minha experiência — pode ser que para você faça.</p>\n\n<h2>O 7.1 virtual que realmente funciona</h2>\n<p>Surpreendentemente, o 7.1 virtual dele funciona de verdade — enquanto a maioria dos headsets nessa faixa estraga completamente o áudio no 7.1, o V9 Pro faz diferente. Recomendo deixar o tamanho da sala em <strong>small</strong>/pequeno. Ele entrega imersão espacial real: você percebe se o som vem de cima, de baixo ou de trás.</p>\n\n<h2>Volume e vedação: chega a ser demais</h2>\n<p>O resultado final em todos os quesitos de saída de áudio é impressionante em relação ao custo-benefício. O que mais me impressiona é a altura de volume junto com a vedação passiva: em <strong>50%</strong> você já fica imerso e isolado, em <strong>70%</strong> totalmente imerso, e em <strong>100%</strong> eu não consigo usar de tão alto. Para quem gosta de som muito alto mesmo, ele atende com louvor.</p>\n\n<h2>Microfone com nota 10</h2>\n<p>O microfone do V9 Pro é o grande destaque. Em ambiente silencioso a captura é muito aceitável — acima da média. Ligando um <strong>ventilador gigante</strong> na minha direção com o filtro de ruído desligado, o captador pega bastante vento. Já com o <strong>filtro de antirruído ligado</strong>, a diferença é brincadeira: o ruído praticamente some. Simplesmente nota 10 na captura de áudio.</p>\n<p>Outro ponto forte: mesmo colocando o áudio das conchas em 100%, vaza quase nada para o microfone. É raro ver isso nessa faixa de preço.</p>\n\n<h2>Pontos negativos</h2>\n<p>Comparado a outros headsets nessa faixa, ele deixa a desejar um pouco nos <strong>graves</strong> frente a alguns modelos (só nesse quesito na saída de áudio). E ele <strong>não tem RGB</strong> — apenas o microfone tem luz para sinalizar se está mutado ou não. Se você faz questão de headset iluminado, isso pode pesar.</p>\n\n<h2>Conclusão: é compra obrigatória?</h2>\n<p>Na minha opinião, o Mchose V9 Pro é basicamente uma <strong>compra obrigatória</strong>, estando no meu top 3 de custo-benefício até R$ 400. Mas calma: ele não ganha em absolutamente tudo. O <strong>Redragon Zeus Pro</strong> é fisicamente muito mais robusto (um tanque de guerra) e no áudio estéreo puro empata ou fica ligeiramente à frente. O <strong>Havit H7 SE</strong> tem o trunfo de ser um achado muito barato no mercado nacional, com pads de tecido que muita gente prefere por não descascar.</p>\n<p>Então por que o V9 Pro se destaca? Porque ele <strong>ganha de lavada no microfone</strong>, entrega um <strong>7.1 que realmente funciona</strong> (coisa que o Zeus erra) e dá uma <strong>surra de 10 a 0 no software</strong>, recheado de funções que nem Zeus nem Havit possuem.</p>\n<p>Detalhe muito importante: comprei o meu <strong>importado direto da loja fabricante no AliExpress</strong>, e o AliExpress tem aquele adesivo antifalsificação no site. Fique muito atento e compre apenas de lojas confiáveis. Comprando pelo meu link de afiliado você apoia o trabalho do Nitro Tech Indica sem pagar nada a mais.</p>\n",
-      "conclusion": "\nO Mchose V9 Pro é uma compra obrigatória para quem quer um headset de construção premium por preço de entrada. Ele entrega vedação passiva impressionante, 250 horas de bateria, dongle USB-A/C, software absurdamente completo, 7.1 virtual que realmente funciona e um microfone com nota 10. Perde para Redragon Zeus Pro e Havit H7 SE apenas nos graves e no RGB. Pelo preço, está no meu top 3 de custo-benefício até R$ 400.",
-      "main_image": "reviews/main/mchose-v9-pro.webp",
-      "rating": "9.3",
-      "pros": "Custo-benefício absurdo: de ~R$ 250 (importado) a ~R$ 450 (nacional)\nConstrução premium: haste de alumínio reforçado e headband com costuras detalhadas\nVedação passiva impressionante (earpads over-ear de courino)\n250 horas de bateria e carregamento USB-C inteligente (dá para usar carregando)\nDongle USB-A que vira USB-C, perfeito para notebooks\nSoftware completo: equalizador, presets de jogos (Valorant, CS, Apex, PUBG) e perfis na nuvem\n7.1 virtual que realmente funciona (tamanho small)\nMicrofone nota 10 com redução de ruído por IA\nVolume altíssimo: imerso em 70%",
-      "cons": "Graves um pouco atrás de rivais como o Redragon Zeus Pro na saída de áudio\nSem RGB (só o microfone tem luz de mute)\nEarpads de courino descascam em 1 a 2 anos\nConcha levemente justa para orelhas grandes",
-      "specifications": {
-        "Conexão": "2.4GHz (Wi-Fi) / Bluetooth / USB-C",
-        "Bateria": "~250 horas (Wi-Fi 2.4GHz), carregamento USB-C",
-        "Haste": "Alumínio reforçado, ~3 cm de ajuste",
-        "Earpads": "Over-ear, courino com vedação passiva",
-        "Áudio": "7.1 virtual, equalizador com presets por gênero",
-        "Microfone": "Com redução de ruído por IA e magic sound",
-        "Dongle": "USB-A com adaptador USB-C acoplável",
-        "Extras": "Volume inteligente, presets na nuvem, modos de jogo"
-      },
-      "tags_input": "mchose, v9 pro, headset, gamer, wireless, 7.1, custo benefício, 2026",
-      "amazon_link": null,
-      "mercadolivre_link": null,
-      "shopee_link": null,
-      "aliexpress_link": "https://s.click.aliexpress.com/e/_c4o3jANb",
-      "kabum_link": null,
-      "author": [
-        "admin"
-      ],
-      "created_at": "2026-09-12T17:01:06.317Z",
-      "updated_at": "2026-09-12T17:01:06.317Z",
-      "is_featured": true,
-      "is_published": true,
-      "tags": [
-        4,
-        8,
-        17,
-        18,
-        19,
-        20,
-        21,
-        15
-      ]
-    }
-  },
-  {
-    "model": "reviews.guide",
-    "pk": 1,
-    "fields": {
-      "title": "Melhores celulares para comprar em 2026: guia completo de custo-benefício",
-      "slug": "melhores-celulares-2026",
-      "category": 1,
-      "author": 1,
-      "excerpt": "Descubra os melhores celulares de 2026 por faixa de preço: do Samsung Galaxy A07 (abaixo de R$ 1.000) ao Galaxy S25 Ultra, passando por Redmi Note 15, Galaxy A36, Moto G86, Galaxy A57, Edge 60 Neo, Poco X8 Pro e Xiaomi 17. Guia de compra completo com preços, pros e contras de cada modelo e links das melhores ofertas.",
-      "content": "\n<p>Nunca foi tão difícil escolher um celular: só no último ano foram dezenas de modelos novos, alguns já fora de estoque e outros aparecendo com preço surreal. Por isso este guia reúne os <strong>melhores celulares para comprar em 2026</strong>, organizados por faixa de preço, do mais barato ao mais topo de linha — com o foco em <strong>custo-benefício</strong>.</p>\n\n<h2>Como escolhemos os melhores celulares de 2026</h2>\n<p>Analisamos desempenho (AnTuTu), tela, câmera, bateria, resistência à água (IP67/IP68/IP69) e, principalmente, o <strong>preço que o aparelho costuma aparecer em promoção</strong> no Brasil. Também levamos em conta o suporte de atualizações, que hoje ultrapassa os 5 anos nos principais modelos.</p>\n\n<h2>Melhores celulares abaixo de R$ 1.000</h2>\n<p>Nesta faixa a recomendação principal é o <strong>Samsung Galaxy A07</strong>: é o conjunto mais completinho que você encontra, com <strong>8 GB de RAM e 256 GB de armazenamento</strong>, tela de 6.7 polegadas a 90 Hz, bateria de 5.000 mAh e desempenho que dá conta do dia a dia e até um game leve. A média de preço gira em torno de R$ 870, mas aparece bem mais barato em promoção.</p>\n\n<h2>Melhores celulares até R$ 1.500</h2>\n<p>Aqui o <strong>Redmi Note 15 4G</strong> é a aposta da Xiaomi com tela AMOLED de 120 Hz, até 8 GB de RAM, bateria de 6.000 mAh e 6 anos de atualizações. Quase que pelo mesmo preço, o <strong>Galaxy A36 5G</strong> rouba a cena nas promoções: tela Super AMOLED 120 Hz, resistência IP67, gravação em 4K a 30 fps, Galaxy AI e <strong>7 anos de atualização</strong>. Quem quer mais armazenamento leva o <strong>Galaxy A17 4G</strong> (256 GB + 8 GB de RAM) ou o <strong>Moto G86</strong>, com IP68/IP69, OLED 120 Hz e 256 GB.</p>\n\n<h2>Melhores celulares até R$ 2.000</h2>\n<p>O campeão da faixa é o <strong>Galaxy A57 5G</strong>, que hoje vale mais a pena que o A56: construção em metal e vidro, IP67, Exynos 1680 com mais de <strong>1,1 milhão de pontos no AnTuTu</strong>, Galaxy AI e conjunto de câmeras excelente. Para quem prefere a Motorola, os <strong>Edge 60 Neo</strong> e <strong>Edge 70 Fusion</strong> entregam muito armazenamento e câmera com telefoto pelo preço. E o <strong>Poco X8 Pro</strong> é o celular mais completo para quem não quer dor de cabeça: <strong>Dimensity 8500 Ultra</strong>, bateria de 6.500 mAh com carga de <strong>100 W e carregador na caixa</strong>, e resistência IP69K.</p>\n\n<h2>Melhores celulares de R$ 2.500 a R$ 3.500</h2>\n<p>O <strong>Poco X8 Pro Max</strong> é a melhor alternativa abaixo de R$ 3.000 para um aparelho extremamente completo: Dimensity 9500, 12 GB de RAM e bateria absurda de <strong>8.500 mAh</strong>. Quem prioriza câmera leva o <strong>Edge 70 Pro</strong> (telefoto de 50 MP) ou o <strong>Poco F8 Pro</strong>, com Snapdragon 8 Elite e tela AMOLED de 144 Hz. Já o <strong>Galaxy S25</strong> só vale a pena em promoção, quando aparece perto dos R$ 3.000.</p>\n\n<h2>Melhores celulares topo de linha em 2026</h2>\n<p>Acima de R$ 4.000, o destaque é o <strong>Galaxy S25 Ultra</strong>: construção em titânio, S Pen com Bluetooth, câmera principal de 200 MP, Snapdragon 8 Elite e 7 anos de suporte — na nossa opinião, o <strong>melhor celular que você pode comprar hoje</strong>. De perto aparecem a <strong>Motorola Signature</strong> (ótima tela e 512 GB, mas gravação abaixo da concorrência), o <strong>Xiaomi 17</strong> e o <strong>Xiaomi 17T Pro</strong>, tops de linha da Xiaomi que finalmente recomendamos.</p>\n",
-      "conclusion": "\n<p>Para 2026, a nossa opinião final é a seguinte:</p>\n<ul>\n<li><strong>Melhor custo-benefício geral:</strong> Samsung Galaxy A57 5G — potência, câmera e construção premium por menos de R$ 2.000.</li>\n<li><strong>Melhor abaixo de R$ 1.000:</strong> Samsung Galaxy A07, o básico bem feito.</li>\n<li><strong>Melhor para bateria:</strong> Poco X8 Pro Max, com 8.500 mAh.</li>\n<li><strong>Melhor topo de linha:</strong> Samsung Galaxy S25 Ultra, o celular mais completo do momento.</li>\n<li><strong>Melhor para câmera na faixa:</strong> Edge 70 Pro e Galaxy S25.</li>\n</ul>\n<p>Comprando pelos links deste guia você ajuda o Nitro Tech Indica a continuar trazendo análises honestas, sem pagar nada a mais.</p>\n",
-      "main_image": "guides/main/melhores-celulares-2026.webp",
-      "is_published": true,
-      "is_featured": true,
-      "created_at": "2026-09-13T13:16:40.551Z",
-      "updated_at": "2026-09-13T13:16:40.551Z"
-    }
-  },
-  {
-    "model": "reviews.guideitem",
-    "pk": 1,
-    "fields": {
-      "guide": 1,
-      "product": null,
-      "position": 1,
-      "name": "Samsung Galaxy A07",
-      "description": "<p>O <strong>Galaxy A07</strong> é a melhor opção abaixo de R$ 1.000 — e quem usa diz que não existe concorrente com a mesma qualidade nessa faixa. O destaque é a configuração: <strong>8 GB de RAM e 256 GB de armazenamento</strong>, além de um processador que lidera a categoria e ainda dá conta de um game leve.</p><p>Tela LCD de 6.7 polegadas a 90 Hz, conjunto de câmeras OK e bateria de <strong>5.000 mAh</strong> completam o pacote. Custa em média R$ 870 e aparece bastante em promoção.</p>",
-      "image": "guides/items/samsung-galaxy-a07.webp",
-      "amazon_link": "https://www.amazon.com.br/dp/B0iEJLc2w?tag=andre0cda-20",
-      "mercadolivre_link": "https://www.mercadolivre.com.br/p/MLB54964804?matt_tool=83406274&matt_word=camilamartinstar",
-      "shopee_link": null,
-      "aliexpress_link": null,
-      "kabum_link": null,
-      "pros": "Melhor custo-benefício abaixo de R$ 1.000\nVersão recomendada com 8 GB de RAM e 256 GB\nTela 6.7\" com 90 Hz\nBateria de 5.000 mAh\nRodar game leve sem engasgos",
-      "cons": "Tela LCD (não é AMOLED)\nConjunto de câmeras apenas OK pela faixa\nVersão 4 GB/128 GB deve ser evitada"
-    }
-  },
-  {
-    "model": "reviews.guideitem",
-    "pk": 2,
-    "fields": {
-      "guide": 1,
-      "product": null,
-      "position": 2,
-      "name": "Xiaomi Redmi Note 15 4G",
-      "description": "<p>O <strong>Redmi Note 15 4G</strong> é a porta de entrada premium da Xiaomi: tela <strong>AMOLED de 120 Hz</strong>, 6 ou 8 GB de RAM, bateria enorme de <strong>6.000 mAh</strong> e um pacote de <strong>6 anos de atualizações de segurança</strong>.</p><p>O conjunto de câmeras é OK pela faixa de preço (nada excepcional), mas o desempenho é excelente para quem quer um patamar acima sem gastar muito. Custa entre R$ 1.100 e R$ 1.300, e costuma aparecer perto de R$ 1.000 em promoção.</p>",
-      "image": "guides/items/xiaomi-redmi-note-15-4g.webp",
-      "amazon_link": "https://www.amazon.com.br/dp/B0dpkSi6o?tag=andre0cda-20",
-      "mercadolivre_link": "https://www.mercadolivre.com.br/smartphone-xiaomi-redmi-note-15-4g-6gb-ram-128gb-tela-amoled-677-camera-108mp-azul/p/MLB67657658?matt_tool=83406274&matt_word=camilamartinstar",
-      "shopee_link": "https://s.shopee.com.br/7ptDKJlOZm",
-      "aliexpress_link": null,
-      "kabum_link": null,
-      "pros": "Tela AMOLED de 120 Hz\nBateria de 6.000 mAh\n6 ou 8 GB de RAM\n6 anos de atualizações de segurança\nÓtimo desempenho da Xiaomi para o processador",
-      "cons": "Câmeras apenas OK pela faixa\nCarregamento não é o mais rápido do segmento"
-    }
-  },
-  {
-    "model": "reviews.guideitem",
-    "pk": 3,
-    "fields": {
-      "guide": 1,
-      "product": null,
-      "position": 3,
-      "name": "Samsung Galaxy A36 5G",
-      "description": "<p>Na nossa opinião, o <strong>Galaxy A36 5G</strong> é o melhor celular por volta de R$ 1.000 — principalmente quando pega promoção (já apareceu por R$ 800). Tela <strong>Super AMOLED 120 Hz</strong>, resistência <strong>IP67</strong>, 6 GB de RAM e um conjunto de câmeras absurdo para a faixa, com gravação em <strong>4K a 30 fps</strong>.</p><p>O <strong>Snapdragon 6 Gen 3</strong> marca quase 800 mil pontos no AnTuTu V11, e ainda tem <strong>Galaxy AI</strong> e 7 anos de atualização da Samsung. Único ponto fraco: a versão acessível tem só 128 GB (a de 256 GB fica bem mais cara).</p>",
-      "image": "guides/items/samsung-galaxy-a36-5g.webp",
-      "amazon_link": "https://www.amazon.com.br/dp/B0aNVs1C9?tag=andre0cda-20",
-      "mercadolivre_link": "https://www.mercadolivre.com.br/smartphone-samsung-galaxy-a36-5g-256gb-8gb-ram/p/MLB47111905?matt_tool=83406274&matt_word=camilamartinstar",
-      "shopee_link": null,
-      "aliexpress_link": null,
-      "kabum_link": null,
-      "pros": "Snapdragon 6 Gen 3 (~800 mil no AnTuTu)\nTela Super AMOLED 120 Hz\nResistência IP67\nCâmeras top pela faixa, grava em 4K 30 fps\nGalaxy AI + 7 anos de atualização",
-      "cons": "Versão acessível tem apenas 128 GB\nVersão de 256 GB custa bem mais caro"
-    }
-  },
-  {
-    "model": "reviews.guideitem",
-    "pk": 4,
-    "fields": {
-      "guide": 1,
-      "product": null,
-      "position": 4,
-      "name": "Samsung Galaxy A17 4G",
-      "description": "<p>O <strong>Galaxy A17 4G</strong> é basicamente um A07 melhorado: tela AMOLED, câmeras com resultado um pouco superior e, na versão que recomendamos, <strong>256 GB + 8 GB de RAM</strong>. Custa em torno de R$ 1.000 a R$ 1.100.</p><p>Se passar disso, não recomendamos — existem opções melhores na faixa. É a escolha certa para quem precisa de bastante armazenamento sem sair dos R$ 1.100.</p>",
-      "image": "guides/items/samsung-galaxy-a17-4g.webp",
-      "amazon_link": "https://www.amazon.com.br/dp/B06Hyzp1H?tag=andre0cda-20",
-      "mercadolivre_link": null,
-      "shopee_link": null,
-      "aliexpress_link": null,
-      "kabum_link": null,
-      "pros": "Versão ideal com 256 GB e 8 GB de RAM\nTela AMOLED melhor que a do A07\nCâmeras com resultado superior ao A07",
-      "cons": "Acima de ~R$ 1.100 perde a graça\nÉ um A07 melhorado cobrando mais caro"
-    }
-  },
-  {
-    "model": "reviews.guideitem",
-    "pk": 5,
-    "fields": {
-      "guide": 1,
-      "product": null,
-      "position": 5,
-      "name": "Motorola Moto G86 5G",
-      "description": "<p>O <strong>Moto G86</strong> é a melhor alternativa ao Galaxy A36 para quem quer mais armazenamento: <strong>256 GB e 8 GB de RAM</strong>, tela OLED 120 Hz, resistência à água <strong>IP68/IP69</strong> e carregamento mais rápido de 30 W.</p><p>O <strong>Dimensity 7300</strong> entrega potência até um pouco superior ao A36 (cerca de 900 mil no AnTuTu V11) e as câmeras gravam em 4K. Bateria de 5.200 mAh. Excelente pacote na faixa dos R$ 1.500 a R$ 1.600.</p>",
-      "image": "guides/items/moto-g86.webp",
-      "amazon_link": "https://www.amazon.com.br/dp/B08VRqD9Q?tag=andre0cda-20",
-      "mercadolivre_link": "https://www.mercadolivre.com.br/smartphone-motorola-moto-g86-5g-256gb-24gb-8gb-ram16gb-ram-boost-tela-15k-poled-50mp-sony-camera-ois-moto-ai-videos-em-4k-ip68-ip69-vermelho/p/MLB51340616?matt_tool=83406274&matt_word=camilamartinstar",
-      "shopee_link": null,
-      "aliexpress_link": null,
-      "kabum_link": null,
-      "pros": "256 GB e 8 GB de RAM\nResistência IP68/IP69\nDimensity 7300 (~900 mil no AnTuTu)\nTela OLED 120 Hz\nCarga de 30 W com 5.200 mAh",
-      "cons": "Preço costuma ficar um pouco acima do A36\nMarca menos forte em fotografia que a Samsung"
-    }
-  },
-  {
-    "model": "reviews.guideitem",
-    "pk": 6,
-    "fields": {
-      "guide": 1,
-      "product": null,
-      "position": 6,
-      "name": "Samsung Galaxy A57 5G",
-      "description": "<p>O <strong>Galaxy A57 5G</strong> é a nossa escolha de melhor custo-benefício do guia. Ele é como um A36 melhorado: construção em <strong>metal e vidro</strong> (contra plástico do A36), mantendo o IP67, tela AMOLED 120 Hz e bateria de 5.000 mAh.</p><p>O grande salto é o <strong>Exynos 1680</strong>, que passa de <strong>1,1 milhão de pontos no AnTuTu</strong>. Tem Galaxy AI, 7 anos de atualização e o melhor conjunto de câmeras da linha — impecável na foto e no vídeo. Custa de R$ 1.800 (128 GB) a R$ 2.100 (256 GB).</p>",
-      "image": "guides/items/samsung-galaxy-a57-5g.webp",
-      "amazon_link": "https://www.amazon.com.br/dp/B01aCEDt2?tag=andre0cda-20",
-      "mercadolivre_link": "https://www.mercadolivre.com.br/celular-samsung-galaxy-a57-5g-128gb-8gb-ram-camera-50mp-ip68-super-amoled-67/p/MLB68213520?matt_tool=83406274&matt_word=camilamartinstar",
-      "shopee_link": null,
-      "aliexpress_link": null,
-      "kabum_link": null,
-      "pros": "Exynos 1680 com mais de 1,1 milhão no AnTuTu\nConstrução em metal e vidro com IP67\nConjunto de câmeras excelente (foto e vídeo)\nGalaxy AI + 7 anos de atualização\nTela AMOLED 120 Hz e 5.000 mAh",
-      "cons": "Versão de 256 GB chega perto de R$ 2.100\nAcabamento premium quase sem concorrência na faixa"
-    }
-  },
-  {
-    "model": "reviews.guideitem",
-    "pk": 7,
-    "fields": {
-      "guide": 1,
-      "product": null,
-      "position": 7,
-      "name": "Motorola Edge 60 Neo",
-      "description": "<p>O <strong>Edge 60 Neo</strong> é um dos intermediários mais completos da Motorola abaixo de R$ 2.000: <strong>12 GB de RAM e 256 GB de armazenamento</strong>, tela OLED 120 Hz e bateria de 5.200 mAh.</p><p>Traz um diferencial raro: câmera <strong>telefoto de 10 MP</strong> além da principal de 50 MP e ultra-wide de 13 MP — ou seja, zoom de verdade, coisa que o Galaxy A57 não tem. O <strong>Dimensity 7400</strong> marca cerca de 900 mil no AnTuTu. Custa por volta de R$ 1.900 a R$ 2.000.</p>",
-      "image": "guides/items/motorola-edge-60-neo.webp",
-      "amazon_link": "https://www.amazon.com.br/dp/B0aXH4SrQ?tag=andre0cda-20",
-      "mercadolivre_link": "https://www.mercadolivre.com.br/p/MLB58684601?matt_tool=83406274&matt_word=camilamartinstar",
-      "shopee_link": null,
-      "aliexpress_link": null,
-      "kabum_link": null,
-      "pros": "12 GB de RAM e 256 GB de armazenamento\nCâmera com telefoto (zoom real)\nDimensity 7400 (~900 mil no AnTuTu)\nTela OLED 120 Hz\nBateria de 5.200 mAh",
-      "cons": "Fica na casa dos R$ 2.000, não abaixo\nCâmera frontal apenas regular"
-    }
-  },
-  {
-    "model": "reviews.guideitem",
-    "pk": 8,
-    "fields": {
-      "guide": 1,
-      "product": null,
-      "position": 8,
-      "name": "Motorola Edge 70 Fusion",
-      "description": "<p>O <strong>Edge 70 Fusion</strong> entrega mais potência que o Edge 60 Neo — passa de <strong>1 milhão de pontos no AnTuTu</strong>. Em compensação, tem menos bateria (4.800 mAh) e conjunto de câmeras mais simples (principal + ultra-wide, sem telefoto).</p><p>Se você encontrar o Edge 60 Neo com preço melhor, ele continua sendo o pacote mais completo. O Fusion vale mais quando o preço competitivo compensa: parte de cerca de R$ 2.100.</p>",
-      "image": "guides/items/motorola-edge-70-fusion.webp",
-      "amazon_link": "https://www.amazon.com.br/dp/B0fVuuS1f?tag=andre0cda-20",
-      "mercadolivre_link": "https://www.mercadolivre.com.br/smartphone-motorola-edge-70-fusion-5g-256gb-24gb-8gb-ram-16gb-ram-boost-camera-50mp-sony-lytia-710-tela-15k-extreme-amoled-144hz-roxo/p/MLB65919757?matt_tool=83406274&matt_word=camilamartinstar",
-      "shopee_link": null,
-      "aliexpress_link": null,
-      "kabum_link": null,
-      "pros": "Mais de 1 milhão de pontos no AnTuTu\nBoa construção e tela OLED de alta taxa\nCarregamento rápido",
-      "cons": "Bateria menor: 4.800 mAh\nConjunto de câmeras menos completo (sem telefoto)\nA partir de R$ 2.100"
-    }
-  },
-  {
-    "model": "reviews.guideitem",
-    "pk": 9,
-    "fields": {
-      "guide": 1,
-      "product": null,
-      "position": 9,
-      "name": "Motorola Edge 70 5G",
-      "description": "<p>O <strong>Edge 70 5G</strong> é o irmão do Fusion com um pouco mais de potência, mas com menos bateria (4.800 mAh) e câmeras mais simples (principal + ultra-wide, sem telefoto).</p><p>Por custar em torno de R$ 2.200, ele só faz sentido quando o preço está abaixo do esperado. Em geral, o Edge 60 Neo com desconto é uma compra mais completa.</p>",
-      "image": "guides/items/motorola-edge-70-5g.webp",
-      "amazon_link": "https://www.amazon.com.br/dp/B013SNUlv?tag=andre0cda-20",
-      "mercadolivre_link": "https://www.mercadolivre.com.br/smartphone-motorola-edge-70-5g-256gb-24gb-8gb-ram16gb-ram-boost-ultrafino-3-cameras-50mp-tela-15k-extreme-amoled-120hz-preto/p/MLB65304413?matt_tool=83406274&matt_word=camilamartinstar",
-      "shopee_link": null,
-      "aliexpress_link": null,
-      "kabum_link": null,
-      "pros": "Potência levemente superior ao Fusion\nTela 120 Hz de alta qualidade\nDesign ultrafino",
-      "cons": "Bateria de 4.800 mAh\nCâmeras menos completas (sem telefoto)\nDificilmente compensa sobre o Edge 60 Neo"
-    }
-  },
-  {
-    "model": "reviews.guideitem",
-    "pk": 10,
-    "fields": {
-      "guide": 1,
-      "product": null,
-      "position": 10,
-      "name": "Xiaomi Poco X8 Pro",
-      "description": "<p>O <strong>Poco X8 Pro</strong> é o celular mais completo para quem quer parada boa e não quer dor de cabeça. Tela <strong>AMOLED 120 Hz</strong>, construção em vidro e metal com melhor resistência à água (<strong>IP69K</strong>) e o processador mais potente da faixa: <strong>Dimensity 8500 Ultra</strong>, com quase 2,6 milhões no AnTuTu.</p><p>Bateria de <strong>6.500 mAh com carga de 100 W e carregador na caixa</strong>. E as câmeras, que eram ponto fraco, melhoraram muito. Oscila entre R$ 2.000 e R$ 2.300 e aparece com frequência em promoção.</p>",
-      "image": "guides/items/poco-x8-pro.webp",
-      "amazon_link": "https://www.amazon.com.br/dp/B04bD9FjD?tag=andre0cda-20",
-      "mercadolivre_link": "https://www.mercadolivre.com.br/celular-xiaomi-poco-x8-pro-5g-8gb-256gb-dual-sim-cor-preto/p/MLB69327206?matt_tool=83406274&matt_word=camilamartinstar",
-      "shopee_link": "https://s.shopee.com.br/W6carURIg",
-      "aliexpress_link": null,
-      "kabum_link": null,
-      "pros": "Dimensity 8500 Ultra (~2,6 milhões no AnTuTu)\nBateria 6.500 mAh com carga de 100 W (carregador na caixa)\nResistência IP69K\nTela AMOLED 120 Hz, vidro e metal\nCâmeras boas na faixa (melhoraram muito)",
-      "cons": "Oscila muito de preço\nCâmeras não superam Samsung/Motorola na faixa"
-    }
-  },
-  {
-    "model": "reviews.guideitem",
-    "pk": 11,
-    "fields": {
-      "guide": 1,
-      "product": null,
-      "position": 11,
-      "name": "Xiaomi Poco X8 Pro Max",
-      "description": "<p>O <strong>Poco X8 Pro Max</strong> é a melhor alternativa abaixo de R$ 3.000 para um celular extremamente completo: processador <strong>Dimensity 9500</strong> com cerca de 3,1 milhões de pontos no AnTuTu — um dos mais potentes da faixa — e <strong>12 GB de RAM</strong>.</p><p>O diferencial de verdade é a bateria gigantesca de <strong>8.500 mAh</strong>: mesmo com consumo não tão baixo, dura absurdamente no dia a dia. Custa em média R$ 3.300, mas aparece bastante entre R$ 2.700 e R$ 2.900.</p><p><a href=\"https://s.shopee.com.br/6AkzLHHfNU\" target=\"_blank\" rel=\"nofollow\">Oferta alternativa na Shopee</a></p>",
-      "image": "guides/items/poco-x8-pro-max.webp",
-      "amazon_link": null,
-      "mercadolivre_link": null,
-      "shopee_link": "https://s.shopee.com.br/4VclMDJgF7",
-      "aliexpress_link": null,
-      "kabum_link": null,
-      "pros": "Dimensity 9500 (~3,1 milhões no AnTuTu)\nBateria absurda de 8.500 mAh\n12 GB de RAM\nAparece em promoção de R$ 2.700 a R$ 2.900",
-      "cons": "Conjunto de câmeras não é excepcional\nPreço cheio de ~R$ 3.300"
-    }
-  },
-  {
-    "model": "reviews.guideitem",
-    "pk": 12,
-    "fields": {
-      "guide": 1,
-      "product": null,
-      "position": 12,
-      "name": "Motorola Edge 70 Pro",
-      "description": "<p>O <strong>Edge 70 Pro</strong> é o combo mais completinho para foto com boa potência: <strong>12 GB de RAM e 256 ou 512 GB</strong>, conjunto de câmeras com principal, ultra-wide e <strong>telefoto de 50 MP</strong>, gravação excelente e tela AMOLED de 144 Hz.</p><p>O <strong>Dimensity 8500 Extreme</strong> entrega potência muito próxima do Poco X8 Pro, com bateria de 6.500 mAh e IP68/IP69. É como um X8 Pro para quem quer câmeras melhores — opção excelente para foto.</p>",
-      "image": "guides/items/motorola-edge-70-pro.webp",
-      "amazon_link": "https://www.amazon.com.br/dp/B00R8xKRs?tag=andre0cda-20",
-      "mercadolivre_link": "https://www.mercadolivre.com.br/smartphone-motorola-edge-70-pro-5g-256gb-24gb-12gb-ram12gb-ram-boost-4-cameras-de-50mp-tela-15k-extreme-amoled-144hz-bateria-6500-mah-ip68ip69-vinho/p/MLB69322379?matt_tool=83406274&matt_word=camilamartinstar",
-      "shopee_link": null,
-      "aliexpress_link": null,
-      "kabum_link": null,
-      "pros": "Telefoto de 50 MP + gravação excelente\n12 GB de RAM e 256/512 GB\nDimensity 8500 Extreme (~2,6 milhões no AnTuTu)\nBateria de 6.500 mAh com IP68/IP69",
-      "cons": "Preço perto de R$ 3.000\nDisponibilidade varia muito"
-    }
-  },
-  {
-    "model": "reviews.guideitem",
-    "pk": 13,
-    "fields": {
-      "guide": 1,
-      "product": null,
-      "position": 13,
-      "name": "Xiaomi Poco F8 Pro",
-      "description": "<p>O <strong>Poco F8 Pro</strong> é um X8 Pro Max com câmeras melhores: <strong>Snapdragon 8 Elite</strong>, câmera principal de 50 MP com telefoto de 8 MP, tela <strong>AMOLED de 144 Hz</strong> e bateria de 6.500 mAh.</p><p>Dentro da linha Poco, é o resultado mais completo em foto e vídeo, mantendo potência de topo. Custa em torno de R$ 3.000 a R$ 3.400, com frequentes promoções.</p>",
-      "image": "guides/items/poco-f8-pro.webp",
-      "amazon_link": null,
-      "mercadolivre_link": "https://www.mercadolivre.com.br/smartphone-poco-f8-pro-5g-nfc-br-1212gb-ram-virtual-512gb-preto/p/MLB67289426?matt_tool=83406274&matt_word=camilamartinstar",
-      "shopee_link": "https://s.shopee.com.br/7KwwjQdgwV",
-      "aliexpress_link": null,
-      "kabum_link": null,
-      "pros": "Snapdragon 8 Elite\nTela AMOLED de 144 Hz\nCâmeras mais completas da linha Poco\nBateria de 6.500 mAh",
-      "cons": "Custa mais que o X8 Pro Max\nDisponibilidade menor no Brasil"
-    }
-  },
-  {
-    "model": "reviews.guideitem",
-    "pk": 14,
-    "fields": {
-      "guide": 1,
-      "product": null,
-      "position": 14,
-      "name": "Samsung Galaxy S25",
-      "description": "<p>O <strong>Galaxy S25</strong> só vale a pena se comprado em promoção: em média custa R$ 4.000, mas aparece por cerca de R$ 3.000. Aí sim é uma excelente compra: <strong>256 GB e 12 GB de RAM</strong>, <strong>Snapdragon 8 Elite</strong> e o melhor conjunto de câmeras da faixa, principalmente em gravação de vídeo.</p><p>Único ponto fraco real é a bateria de <strong>4.000 mAh</strong>. A versão Plus não vale a pena pelo preço de R$ 4.500, e a linha S26 também não compensa em 2026.</p>",
-      "image": "guides/items/samsung-galaxy-s25.webp",
-      "amazon_link": "https://www.amazon.com.br/dp/B018BUEjO?tag=andre0cda-20",
-      "mercadolivre_link": "https://www.mercadolivre.com.br/p/MLB45513356?matt_tool=83406274&matt_word=camilamartinstar",
-      "shopee_link": null,
-      "aliexpress_link": null,
-      "kabum_link": null,
-      "pros": "Câmeras top da faixa (principalmente em vídeo)\nSnapdragon 8 Elite\n256 GB e 12 GB de RAM\nJá aparece por ~R$ 3.000 em promoção",
-      "cons": "Bateria de apenas 4.000 mAh\nPreço cheio de R$ 4.000 é alto"
-    }
-  },
-  {
-    "model": "reviews.guideitem",
-    "pk": 15,
-    "fields": {
-      "guide": 1,
-      "product": null,
-      "position": 15,
-      "name": "Motorola Signature",
-      "description": "<p>A <strong>Motorola Signature</strong> é um topo de linha que hoje aparece em torno de R$ 4.000 a R$ 4.500 (já custou R$ 6.000+). Traz <strong>Snapdragon 8 Gen 5</strong> com 3 milhões de pontos no AnTuTu, tela excelente, <strong>512 GB de armazenamento</strong> e bateria de 5.200 mAh.</p><p>As câmeras são boas, principalmente a frontal, mas têm <strong>muita IA/pós-processamento</strong> e a gravação fica bem abaixo de iPhone, Samsung e até Xiaomi. Pelo preço de R$ 4.000 é aceitável; acima disso, é um celular superestimado.</p>",
-      "image": "guides/items/motorola-signature.webp",
-      "amazon_link": "https://www.amazon.com.br/dp/B09Y3xdbz?tag=andre0cda-20",
-      "mercadolivre_link": "https://www.mercadolivre.com.br/p/MLB65938141?matt_tool=83406274&matt_word=camilamartinstar",
-      "shopee_link": null,
-      "aliexpress_link": null,
-      "kabum_link": null,
-      "pros": "Snapdragon 8 Gen 5 (~3 milhões no AnTuTu)\nTela excelente\n512 GB de armazenamento\nBateria de 5.200 mAh",
-      "cons": "Gravação de vídeo abaixo de iPhone/Samsung/Xiaomi\nMuita IA no pós-processamento das fotos\nPreço cheio é alto (superestimado)"
-    }
-  },
-  {
-    "model": "reviews.guideitem",
-    "pk": 16,
-    "fields": {
-      "guide": 1,
-      "product": null,
-      "position": 16,
-      "name": "Samsung Galaxy S25 Ultra",
-      "description": "<p>Na nossa opinião, o <strong>Galaxy S25 Ultra</strong> é o melhor celular que você pode comprar hoje pelo preço praticado. <strong>Snapdragon 8 Elite</strong> (~3 milhões no AnTuTu), construção em <strong>titânio</strong>, S Pen com Bluetooth mantido e o conjunto de câmeras mais completo da categoria: sensor principal de <strong>200 MP</strong> com ultra-wide de 50 MP.</p><p>São 5.000 mAh com excelente eficiência energética, Galaxy AI e 7 anos de atualização. Hoje é fácil achar por volta de R$ 5.000, e já apareceu por R$ 4.400 em promoção.</p>",
-      "image": "guides/items/samsung-galaxy-s25-ultra.webp",
-      "amazon_link": "https://www.amazon.com.br/dp/B045MHG7G?tag=andre0cda-20",
-      "mercadolivre_link": "https://www.mercadolivre.com.br/p/MLB45517552?matt_tool=83406274&matt_word=camilamartinstar",
-      "shopee_link": null,
-      "aliexpress_link": null,
-      "kabum_link": null,
-      "pros": "Melhor conjunto de câmeras pelo preço\nSnapdragon 8 Elite (~3 milhões no AnTuTu)\nConstrução em titânio com S Pen\nGalaxy AI + 7 anos de atualização\nÓtima eficiência de bateria",
-      "cons": "Preço cheio de ~R$ 5.000\nGrande e pesado para alguns usuários"
-    }
-  },
-  {
-    "model": "reviews.guideitem",
-    "pk": 17,
-    "fields": {
-      "guide": 1,
-      "product": null,
-      "position": 17,
-      "name": "Xiaomi 17",
-      "description": "<p>O <strong>Xiaomi 17</strong> é um dos poucos tops de linha da Xiaomi que recomendamos de verdade. <strong>Snapdragon 8 Elite</strong> com quase 3,5 milhões de pontos no AnTuTu, <strong>512 GB</strong> de armazenamento e bateria de <strong>6.330 mAh</strong> em um corpo compacto de 6.3 polegadas.</p><p>Conjunto de câmeras completíssimo (principal, ultra-wide e telefoto de 50 MP) e qualidade de gravação <strong>superior à Motorola</strong>. Custa cerca de R$ 5.500 — só é um pouco mais chato de encontrar.</p><p><a href=\"https://s.shopee.com.br/3LQny5JJlL\" target=\"_blank\" rel=\"nofollow\">Oferta alternativa na Shopee</a></p>",
-      "image": "guides/items/xiaomi-17.webp",
-      "amazon_link": null,
-      "mercadolivre_link": null,
-      "shopee_link": "https://s.shopee.com.br/7AdWX80KBk",
-      "aliexpress_link": null,
-      "kabum_link": null,
-      "pros": "Snapdragon 8 Elite (~3,5 milhões no AnTuTu)\n512 GB de armazenamento\nBateria de 6.330 mAh em corpo compacto\nCâmeras completas com telefoto de 50 MP",
-      "cons": "Preço de ~R$ 5.500\nMais difícil de encontrar no Brasil"
-    }
-  },
-  {
-    "model": "reviews.guideitem",
-    "pk": 18,
-    "fields": {
-      "guide": 1,
-      "product": null,
-      "position": 18,
-      "name": "Xiaomi 17T Pro",
-      "description": "<p>O <strong>Xiaomi 17T Pro</strong> é basicamente o Xiaomi 17 com mais bateria — <strong>7.100 mAh</strong> — e preço um pouco menor, em torno de <strong>R$ 4.500</strong>. Mantém o mesmo conjunto de câmera, mudando só a ultra-wide para 12 MP.</p><p>O processador passa a ser <strong>Dimensity 9500</strong>, com excelente pontuação e potência sensacional. Para quem quer topo de linha gastando menos que o 17, é a escolha certa.</p><p><a href=\"https://s.shopee.com.br/2VrgyYV0yP\" target=\"_blank\" rel=\"nofollow\">Oferta alternativa na Shopee</a></p>",
-      "image": "guides/items/xiaomi-17t-pro.webp",
-      "amazon_link": null,
-      "mercadolivre_link": null,
-      "shopee_link": "https://s.shopee.com.br/50Z1x9HEfX",
-      "aliexpress_link": null,
-      "kabum_link": null,
-      "pros": "Bateria gigante de 7.100 mAh\nDimensity 9500 com excelente potência\nPreço menor que o Xiaomi 17 (~R$ 4.500)\nConjunto de câmeras completo",
-      "cons": "Ultra-wide de 12 MP (menor que o 17)\nDisponibilidade limitada"
-    }
-  }
 ]
