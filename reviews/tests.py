@@ -139,3 +139,10 @@ class ViewTests(BlogTestBase):
     def test_sitemap(self):
         resp = self.client.get("/sitemap.xml")
         self.assertEqual(resp.status_code, 200)
+        self.assertContains(resp, "reviews/")
+        self.assertContains(resp, "guias/")
+        self.assertContains(resp, "categorias/")
+        self.assertContains(resp, "sobre/")
+        self.assertContains(resp, "contato/")
+        self.assertContains(resp, "privacidade/")
+        self.assertContains(resp, "termos-de-uso/")

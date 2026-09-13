@@ -1,5 +1,21 @@
 from django.contrib.sitemaps import Sitemap
+from django.urls import reverse
 from .models import Review, Category, Comparison, Guide
+
+class StaticViewSitemap(Sitemap):
+    changefreq = "monthly"
+
+    def items(self):
+        return [
+            'index', 'all_reviews', 'all_categories', 'comparison_list',
+            'guide_list', 'about', 'contact', 'privacy', 'terms',
+        ]
+
+    def location(self, item):
+        return reverse(f'reviews:{item}')
+
+    def priority(self, item):
+        return 1.0 if item == 'index' else 0.5
 
 class ReviewSitemap(Sitemap):
     changefreq = "weekly"

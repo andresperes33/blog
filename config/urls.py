@@ -6,9 +6,10 @@ from django.views.static import serve
 from django.views.generic import TemplateView
 
 from django.contrib.sitemaps.views import sitemap
-from reviews.sitemaps import ReviewSitemap, CategorySitemap, ComparisonSitemap, GuideSitemap
+from reviews.sitemaps import ReviewSitemap, CategorySitemap, ComparisonSitemap, GuideSitemap, StaticViewSitemap
 
 sitemaps = {
+    'static': StaticViewSitemap,
     'reviews': ReviewSitemap,
     'categories': CategorySitemap,
     'comparisons': ComparisonSitemap,
