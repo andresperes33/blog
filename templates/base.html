@@ -262,6 +262,16 @@
         (function () {
             var btn = document.getElementById('back-to-top');
             if (!btn) return;
+            function positionBtn() {
+                var fab = document.getElementById('fab');
+                if (fab) {
+                    btn.style.bottom = (24 + fab.offsetHeight + 10) + 'px';
+                } else {
+                    btn.style.bottom = '1.5rem';
+                }
+            }
+            positionBtn();
+            window.addEventListener('resize', positionBtn);
             window.addEventListener('scroll', function () {
                 if (window.scrollY > 400) {
                     btn.style.opacity = '1';

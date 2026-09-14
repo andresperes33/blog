@@ -283,7 +283,7 @@
 
     <!-- Botões Flutuantes (FAB) -->
     {% if review.mercadolivre_link or review.amazon_link or review.shopee_link or review.kabum_link or review.aliexpress_link %}
-    <div style="position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;flex-direction:column;gap:10px;align-items:center;">
+    <div id="fab" style="position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;flex-direction:column;gap:10px;align-items:center;">
         {% if review.mercadolivre_link %}
         <a href="{{ review.mercadolivre_link }}" target="_blank" rel="nofollow"
             class="w-14 h-14 flex items-center justify-center rounded-sm shadow-chrome hover:scale-105 transition-transform"
