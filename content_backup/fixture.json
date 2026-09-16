@@ -1051,5 +1051,101 @@
                 15
             ]
         }
+    },
+    {
+        "model": "reviews.tag",
+        "pk": 33,
+        "fields": {
+            "name": "redmi"
+        }
+    },
+    {
+        "model": "reviews.tag",
+        "pk": 34,
+        "fields": {
+            "name": "7a"
+        }
+    },
+    {
+        "model": "reviews.tag",
+        "pk": 35,
+        "fields": {
+            "name": "xiaomi"
+        }
+    },
+    {
+        "model": "reviews.tag",
+        "pk": 36,
+        "fields": {
+            "name": "celular barato"
+        }
+    },
+    {
+        "model": "reviews.tag",
+        "pk": 37,
+        "fields": {
+            "name": "android"
+        }
+    },
+    {
+        "model": "reviews.product",
+        "pk": 8,
+        "fields": {
+            "name": "Redmi 7A",
+            "brand": "Xiaomi",
+            "model_name": "7A",
+            "category": 1
+        }
+    },
+    {
+        "model": "reviews.review",
+        "pk": 8,
+        "fields": {
+            "product": 8,
+            "title": "Redmi 7A em 2026: o celular mais barato do AliExpress vale a pena? Review completo",
+            "slug": "redmi-7a-aliexpress-review",
+            "excerpt": "Review do Redmi 7A, o celular mais barato do AliExpress por R$ 375: câmera, bateria de 4.000 mAh, YouTube, WhatsApp, Roblox e vale a pena em 2026.",
+            "content": "\n<h2>O celular mais barato do AliExpress vale a pena?</h2>\n<p><strong>Sim, o Redmi 7A vale a pena para quem busca um celular novo, simples e barato em 2026</strong>. Nós compramos o celular mais barato que encontramos no AliExpress por <strong>R$ 375</strong> (fora de promoção — com cupom fica ainda mais barato) e testamos tudo: câmera, bateria, aplicativos do dia a dia, jogos e muito mais. Ele não é o celular mais rápido do mundo, mas cumpre bem o básico e ainda surpreende em alguns pontos.</p>\n\n<h2>Comprar celular barato no AliExpress: novo vs recondicionado</h2>\n<p>Um dos critérios da nossa compra foi <strong>comprar um celular novo</strong>. Você encontra muitos smartphones recondicionados com preço surreal no AliExpress, mas nosso objetivo era ver se um aparelho zero de faixa de R$ 300 a R$ 400 dá conta do dia a dia. E o que chegou foi o <strong>Redmi 7A</strong>, um clássico da Xiaomi que ainda faz muito sentido para quem precisa economizar.</p>\n<p>No Brasil, o celular mais barato que achamos no Mercado Livre custava mais caro que ele — ou seja, o AliExpress segue como a melhor porta de entrada para quem está no orçamento apertado.</p>\n\n<h2>Unboxing e o que vem na caixa</h2>\n<p>O aparelho veio lacrado. Na embalagem: o Redmi 7A, um adesivo para colar na traseira (ajuda a segurar melhor), o manual, o <strong>carregador padrão americano + adaptador de tomada</strong>, o cabo e uma <strong>capinha de brinde</strong> (que vem um pouco desbeiçada, mas ajuda). Bônus: já vem com <strong>película de vidro aplicada</strong>.</p>\n\n<h2>Construção e conectividade</h2>\n<p>É um celular simples: câmera única de <strong>13 MP</strong> com flash, botões na lateral, <strong>entrada Micro-USB (não é USB-C)</strong>, <strong>P2 para fone de ouvido</strong> e gaveta com <strong>dois slots de chip + um slot para cartão de memória</strong>. O Wi-Fi é apenas <strong>2.4 GHz</strong> (sem 5 GHz), o que é esperado num básico.</p>\n<p>O ponto que mais se destaca é a <strong>bateria de 4.000 mAh</strong>, algo diferenciado para a faixa de preço.</p>\n\n<h2>Especificações técnicas do Redmi 7A</h2>\n<ul>\n<li><strong>Processador:</strong> octa-core de 2.01 GHz com chip gráfico Snapdragon (modelo antigo — um MediaTek mais novo dá um banho nele, mas o Snapdragon tende a ser mais estável).</li>\n<li><strong>Memória:</strong> 2 GB de RAM + expansão via SUAP tirando ~1 GB do armazenamento. Na prática, apps em segundo plano pesam nele.</li>\n<li><strong>Armazenamento:</strong> 32 GB, com ~10 GB já ocupados pelo sistema (por isso o cartão de memória é quase obrigatório).</li>\n<li><strong>Sistema:</strong> Android 10 / MIUI 12.5 (atualizado manualmente). Pode haver limites para instalar apps que exigem versões novas.</li>\n</ul>\n\n<h2>Câmera do Redmi 7A</h2>\n<p>Considerando o preço, a câmera <strong>manda bem</strong> (destaque do resumo). A traseira de <strong>13 MP</strong> fotografa em <strong>4K</strong> — confirmado nas informações EXIF — e grava em Full HD. Com um app tipo Open Camera dá para forçar a gravação em 4K também. A câmera frontal é inferior e filma a 30 fps, mas é suficiente para chamada de vídeo e fotos simples nas redes sociais.</p>\n\n<h2>Desempenho no dia a dia: YouTube e WhatsApp</h2>\n<p>O teste foi ao vivo: <strong>YouTube roda bem até 1080p 60 fps</strong>, com carregamento rápido e qualidade boa (só uma micro travada ao trocar a resolução). O <strong>WhatsApp funciona de boa</strong>, inclusive a chamada de vídeo — testamos e completamos a ligação sem problemas, mesmo com ele rodando em segundo plano. Para o essencial, não vai te deixar na mão.</p>\n\n<h2>Redmi 7A roda o quê de jogo?</h2>\n<ul>\n<li><strong>Roblox:</strong> pesado. Dá para jogar com bastante travada — a gente recomenda mexer nas configurações de gráfico.</li>\n<li><strong>Free Fire:</strong> deu para jogar com restrições. O menu trava, mas na partida com gráficos no mínimo ele vai — com stutters.</li>\n<li><strong>Emuladores (o segredo dos fracos):</strong> a melhor opção é virar um <strong>mini console retro</strong>. Game Boy Advance, Super Nintendo e Mega Drive rodam de boa com jogos de 2 a 4 MB. Com um controle Bluetooth, vira um console portátil.</li>\n</ul>\n\n<h2>Extras legais: Google Assistente, som e P2</h2>\n<p>O <strong>Google Assistente funciona muito bem</strong> no aparelho — dá para automatizar a casa (acender/apagar luzes, por exemplo), o que o torna um ótimo presente para <strong>idosos</strong>. O som é relativamente alto e tem qualidade OK, e o <strong>P2 para fone</strong> permite usar qualquer headset ou caixa de som — algo cada vez mais raro. O Xbox Game Pass na nuvem fica só na teoria: o app não oferece a opção nesse celular.</p>\n\n<h2>Conclusão: Redmi 7A vale a pena em 2026?</h2>\n<p><strong>Sim, para quem busca economia.</strong> Por R$ 375 (ou menos em promoção), é um celular novo e honesto: básico para o dia a dia, com câmera que surpreende, bateria de 4.000 mAh e um caminho legal para jogos via emuladores. Ele não é um celular de 4 GB/128 GB como os que se achava por R$ 200 há alguns anos — a gente perdeu poder aquisitivo — mas, encarando a realidade de 2026, <strong>não vai te fazer passar raiva</strong>. Para crianças, idosos ou como segundo aparelho, é uma compra que salva o bolso.</p>\n",
+            "conclusion": "\n<p>O Redmi 7A é um <strong>celular novo, simples e barato que cumpre o que promete</strong>: WhatsApp, YouTube, fotos decentes e bateria que dura. Jogos pesados ficam no limite (emuladores são o melhor caminho), e o armazenamento de 32 GB pede um cartão de memória. <strong>Nota: 7.5</strong> — quem paga até R$ 400 por ele na promoção está fazendo um bom negócio, especialmente para quem quer dar de presente ou só precisa do essencial.</p>\n<p>Comprando pelo link abaixo, você apoia o Nitro Tech Indica sem pagar nada a mais — e fique de olho nas promoções do AliExpress para pegar cupom e pagar ainda menos.</p>\n",
+            "main_image": "reviews/main/redmi-7a.webp",
+            "rating": "7.5",
+            "pros": "Celular novo, mais barato do AliExpress (~R$ 375)\nBateria de 4.000 mAh, diferenciada para a faixa\nCâmera traseira de 13 MP fotografa em 4K\nVem com capinha e película de vidro\nP2 para fone de ouvido + Micro-USB (carregador com adaptador incluso)\nGoogle Assistente funciona: ótimo para idosos e automação\nEmuladores transformam ele em console retro",
+            "cons": "2 GB de RAM + 32 GB de armazenamento (10 GB ocupados pelo sistema)\nWi-Fi só 2.4 GHz, sem 5 GHz\nAndroid 10 / MIUI 12.5 antigos podem bloquear apps novos\nJogos como Roblox e Free Fire pesados (trava)\nMicro-USB e capinha de brinde de qualidade baixa",
+            "specifications": {
+                "Tela": "6.22\" / HD+ (básico)",
+                "Processador": "Octa-core 2.01 GHz, Snapdragon (antigo)",
+                "Memória RAM": "2 GB (+ ~1 GB via SUAP)",
+                "Armazenamento": "32 GB (com slot para cartão de memória)",
+                "Câmera traseira": "13 MP, fotos em 4K / vídeo Full HD",
+                "Câmera frontal": "Básica, vídeo a 30 fps",
+                "Bateria": "4.000 mAh",
+                "Conexão": "Wi-Fi 2.4 GHz, Bluetooth, Micro-USB, P2",
+                "Slots": "2x chip + 1x cartão de memória",
+                "Sistema": "Android 10 / MIUI 12.5",
+                "Extras": "Google Assistente, película de vidro, capinha inclusa"
+            },
+            "tags_input": "redmi, 7a, xiaomi, celular barato, android, custo benefício, 2026",
+            "amazon_link": null,
+            "mercadolivre_link": null,
+            "shopee_link": null,
+            "aliexpress_link": "https://s.click.aliexpress.com/e/_c3hALjDj",
+            "kabum_link": null,
+            "author": [
+                "admin"
+            ],
+            "created_at": "2026-09-15T12:00:00.000Z",
+            "updated_at": "2026-09-15T12:00:00.000Z",
+            "is_featured": false,
+            "is_published": true,
+            "tags": [
+                33,
+                34,
+                35,
+                36,
+                37,
+                15,
+                8
+            ]
+        }
     }
 ]
