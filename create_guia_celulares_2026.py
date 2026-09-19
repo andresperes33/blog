@@ -59,7 +59,7 @@ CONCLUSION = """
 <li><strong>Melhor topo de linha:</strong> Samsung Galaxy S25 Ultra, o celular mais completo do momento.</li>
 <li><strong>Melhor para câmera na faixa:</strong> Edge 70 Pro e Galaxy S25.</li>
 </ul>
-<p>Comprando pelos links deste guia você ajuda o Nitro Tech Indica a continuar trazendo análises honestas, sem pagar nada a mais.</p>
+<p>Comprando pelos links deste guia você ajuda o André Indica a continuar trazendo análises honestas, sem pagar nada a mais.</p>
 """
 
 ITEMS = [
@@ -375,13 +375,13 @@ def _make_placeholder(path, width, height, title, subtitle, accent='#76b900'):
 
 def create_main_image():
     path = os.path.join(settings.MEDIA_ROOT, 'guides', 'main', f'{SLUG}.webp')
-    _make_placeholder(path, 1280, 720, 'Melhores\nCelulares 2026', 'Nitro Tech Indica')
+    _make_placeholder(path, 1280, 720, 'Melhores\nCelulares 2026', 'André Indica')
     return f'guides/main/{SLUG}.webp'
 
 
 def create_item_image(slug, name):
     path = os.path.join(settings.MEDIA_ROOT, 'guides', 'items', f'{slug}.webp')
-    _make_placeholder(path, 800, 800, name, 'Nitro Tech Indica')
+    _make_placeholder(path, 800, 800, name, 'André Indica')
     return f'guides/items/{slug}.webp'
 
 

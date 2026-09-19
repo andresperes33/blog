@@ -1,14 +1,14 @@
 ﻿{% extends 'base.html' %}
 {% load static reviews_extras %}
-{% block title %}{{ review.title }} - Nitro Tech Indica{% endblock %}
+{% block title %}{{ review.title }} - André Indica{% endblock %}
 {% block meta_description %}{{ review.excerpt|truncatewords:30 }}{% endblock %}
 
-{% block canonical_url %}https://nitrotechindica.store{{ request.path }}{% endblock %}
+{% block canonical_url %}https://andreindicatech.com.br{{ request.path }}{% endblock %}
 {% block og_type %}article{% endblock %}
-{% block og_title %}{{ review.title }} - Nitro Tech Indica{% endblock %}
+{% block og_title %}{{ review.title }} - André Indica{% endblock %}
 {% block og_description %}{{ review.excerpt|truncatewords:30 }}{% endblock %}
-{% block og_image %}https://nitrotechindica.store{{ review.main_image.url }}{% endblock %}
-{% block twitter_image %}https://nitrotechindica.store{{ review.main_image.url }}{% endblock %}
+{% block og_image %}https://andreindicatech.com.br{{ review.main_image.url }}{% endblock %}
+{% block twitter_image %}https://andreindicatech.com.br{{ review.main_image.url }}{% endblock %}
 
 {% block extra_head %}
 <script type="application/ld+json">
@@ -18,7 +18,7 @@
   "itemReviewed": {
     "@type": "Product",
     "name": "{{ review.product.name|escapejs }}",
-    "image": "https://nitrotechindica.store{{ review.main_image.url }}",
+    "image": "https://andreindicatech.com.br{{ review.main_image.url }}",
     "brand": {
       "@type": "Brand",
       "name": "{{ review.product.brand|escapejs }}"
@@ -42,7 +42,7 @@
     "name": "{{ review.author.username|escapejs }}"
   },
   "datePublished": "{{ review.created_at|date:'c' }}",
-  "url": "https://nitrotechindica.store{{ request.path }}",
+  "url": "https://andreindicatech.com.br{{ request.path }}",
   "reviewBody": "{{ review.excerpt|escapejs }}"
 }
 </script>
@@ -211,7 +211,7 @@
                     </div>
 
                     <p class="mt-4 text-[11px] text-center text-mute italic leading-relaxed">
-                        Comprando pelos links você ajuda o Nitro Tech Indica a continuar trazendo análises honestas sem custo adicional.
+                        Comprando pelos links você ajuda o André Indica a continuar trazendo análises honestas sem custo adicional.
                     </p>
                 </div>
 

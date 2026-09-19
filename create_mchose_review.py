@@ -67,7 +67,7 @@ CONTENT = """
 <h2>Conclusão: é compra obrigatória?</h2>
 <p>Na minha opinião, o Mchose V9 Pro é basicamente uma <strong>compra obrigatória</strong>, estando no meu top 3 de custo-benefício até R$ 400. Mas calma: ele não ganha em absolutamente tudo. O <strong>Redragon Zeus Pro</strong> é fisicamente muito mais robusto (um tanque de guerra) e no áudio estéreo puro empata ou fica ligeiramente à frente. O <strong>Havit H7 SE</strong> tem o trunfo de ser um achado muito barato no mercado nacional, com pads de tecido que muita gente prefere por não descascar.</p>
 <p>Então por que o V9 Pro se destaca? Porque ele <strong>ganha de lavada no microfone</strong>, entrega um <strong>7.1 que realmente funciona</strong> (coisa que o Zeus erra) e dá uma <strong>surra de 10 a 0 no software</strong>, recheado de funções que nem Zeus nem Havit possuem.</p>
-<p>Detalhe muito importante: comprei o meu <strong>importado direto da loja fabricante no AliExpress</strong>, e o AliExpress tem aquele adesivo antifalsificação no site. Fique muito atento e compre apenas de lojas confiáveis. Comprando pelo meu link de afiliado você apoia o trabalho do Nitro Tech Indica sem pagar nada a mais.</p>
+<p>Detalhe muito importante: comprei o meu <strong>importado direto da loja fabricante no AliExpress</strong>, e o AliExpress tem aquele adesivo antifalsificação no site. Fique muito atento e compre apenas de lojas confiáveis. Comprando pelo meu link de afiliado você apoia o trabalho do André Indica sem pagar nada a mais.</p>
 """
 
 
@@ -88,7 +88,7 @@ def create_placeholder_image():
         font_title = ImageFont.load_default()
         font_sub = font_title
     t = 'Mchose V9 Pro'
-    s = 'Nitro Tech Indica'
+    s = 'André Indica'
     bbox = draw.textbbox((0, 0), t, font=font_title)
     tw = bbox[2] - bbox[0]
     draw.text(((1280 - tw) / 2, 260), t, fill=(255, 255, 255), font=font_title)
