@@ -1,87 +1,75 @@
 ﻿{% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Sobre o André Indica - Tecnologia e Recomendações{% endblock %}
+{% block title %}Sobre nós - André Indica{% endblock %}
 
 {% block breadcrumb %}
 <div class="bg-soft border-b border-hairline">
     <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 h-12 flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.12em] text-mute">
         <a href="/" class="hover:text-primary transition-colors">Home</a>
         <span class="text-hairline-strong">›</span>
-        <span class="text-body">Sobre</span>
+        <span class="text-body">Sobre nós</span>
     </div>
 </div>
 {% endblock %}
 
 {% block content %}
 <section class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div class="order-2 lg:order-1">
+    <div class="max-w-3xl mx-auto">
+        <div class="mb-12">
             <p class="eyebrow mb-3 text-primary">Sobre nós</p>
-            <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-ink leading-tight mb-8">
+            <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-ink leading-tight mb-6">
                 Quem é o André Indica?
             </h1>
-            <div class="space-y-6 text-[16px] text-body leading-relaxed">
-                <p>
-                    O <strong>André Indica</strong> nasceu de uma paixão genuína por tecnologia e pela vontade de ajudar
-                    as pessoas a não jogarem dinheiro fora com gadgets ruins.
-                </p>
-                <p>
-                    Em um mundo saturado de anúncios e reviews patrocinados, nosso objetivo é ser o seu filtro de
-                    confiança. Se a André Indica indicou, é porque o produto passou por testes reais e entrega o que promete.
-                </p>
-                <div class="card p-6 relative mt-8 mb-8">
-                    <span class="corner-square"></span>
-                    <p class="text-[16px] font-medium text-ink">
-                        "Minha missão é simples: testar o máximo possível e recomendar apenas o que eu usaria no meu dia
-                        a dia."
-                    </p>
-                </div>
-            </div>
-        </div>
 
-        <div class="order-1 lg:order-2 relative group">
-            <div class="relative card overflow-hidden aspect-square">
+            <div class="space-y-6 text-body text-[16px] leading-relaxed">
+                <p>
+                    O <strong>André Indica</strong> nasceu de uma paixão genuína por tecnologia e pela vontade de
+                    ajudar as pessoas a não jogarem dinheiro fora com gadgets ruins.
+                </p>
+                <p>
+                    Em um mundo saturado de anúncios e "reviews patrocinados", nosso objetivo é ser o seu filtro de
+                    confiança. Se o André Indica indicou, é porque o produto passou por testes reais e entrega o que
+                    promete.
+                </p>
+            </div>
+
+            <div class="card p-6 mt-8 mb-8">
                 <span class="corner-square"></span>
-                <img src="{% static 'img/about_workspace.png' %}" alt="Estúdio de Gravação do André Indica"
-                    class="w-full h-full object-cover">
-                <div class="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black to-transparent">
-                    <span class="inline-flex items-center gap-2 bg-black/70 text-white text-[12px] font-bold px-3 py-2 rounded-sm">
-                        <span class="w-2 h-2 bg-primary inline-block"></span>
-                        Testando novos gadgets
-                    </span>
-                </div>
+                <p class="text-[16px] font-medium text-ink">
+                    "Minha missão é simples: testar o máximo possível e recomendar apenas o que eu usaria no meu dia a
+                    dia."
+                </p>
             </div>
         </div>
-    </div>
 
-    <div class="mt-16 grid grid-cols-2 sm:grid-cols-3 gap-8">
-        <div class="border-t-2 border-primary pt-4">
-            <span class="block text-3xl font-bold text-ink">100+</span>
-            <span class="block text-[12px] font-bold uppercase tracking-[0.12em] text-mute mt-1">Reviews Reais</span>
+        <div class="space-y-6 text-body text-[16px] leading-relaxed mb-12">
+            <h2 class="text-2xl font-bold text-ink">Como trabalhamos</h2>
+            <p>
+                Cada produto que chega até aqui passa por um processo real de avaliação: nós mesmo compramos ou
+                recebemos a amostra, usamos no dia a dia e testamos cenários de desempenho, temperatura e consumo
+                antes de publicar qualquer review.
+            </p>
+            <p>
+                A nossa recomendação é baseada em evidência, não em comissões. Manter essa independência é o que dá
+                valor a tudo o que publicamos.
+            </p>
         </div>
-        <div class="border-t-2 border-primary pt-4">
-            <span class="block text-3xl font-bold text-ink">50k</span>
-            <span class="block text-[12px] font-bold uppercase tracking-[0.12em] text-mute mt-1">Seguidores</span>
-        </div>
-        <div class="border-t-2 border-primary pt-4">
-            <span class="block text-3xl font-bold text-ink">100%</span>
-            <span class="block text-[12px] font-bold uppercase tracking-[0.12em] text-mute mt-1">Sincero</span>
-        </div>
-    </div>
 
-    <div class="card p-8 mt-16">
-        <span class="corner-square"></span>
-        <h2 class="text-2xl font-bold text-ink mb-3">Fale comigo</h2>
-        <p class="text-body text-[16px] leading-relaxed mb-4">
-            Dúvidas, sugestões ou propostas de parceria para reviews? Fique à vontade para me
-            escrever.
-        </p>
-        <a href="mailto:andreindicatech@gmail.com"
-            class="inline-flex items-center gap-2 font-bold text-primary hover:text-ink transition-colors">
-            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-            andreindicatech@gmail.com
-        </a>
+        <div class="card p-6 relative">
+            <span class="corner-square"></span>
+            <h3 class="text-xl font-bold text-ink mb-3">Fale comigo</h3>
+            <p class="text-body text-[15px] leading-relaxed mb-4">
+                Dúvidas, sugestões ou propostas de parceria para reviews? Envie um e-mail:
+            </p>
+            <a href="mailto:andreindicatech@gmail.com"
+                class="inline-flex items-center gap-2 font-bold text-primary hover:text-ink transition-colors">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                andreindicatech@gmail.com
+            </a>
+        </div>
     </div>
 </section>
 {% endblock %}
