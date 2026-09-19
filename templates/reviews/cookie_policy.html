@@ -64,9 +64,13 @@
                     <li><strong>Recusar:</strong> nenhum cookie de análise é ativado.</li>
                 </ul>
                 <p class="mt-4">
-                    Você pode mudar ou revogar a sua escolha a qualquer momento, limpando os cookies deste site no seu
-                    navegador — o banner voltará a aparecer na próxima visita.
+                    Você pode mudar ou revogar a sua escolha a qualquer momento:
                 </p>
+                <div class="mt-4">
+                    <button type="button" onclick="if(window.openCookieConsent){window.openCookieConsent();}else{localStorage.removeItem('cookieConsent');location.reload();}" class="btn-outline text-xs px-4 py-2 h-auto">
+                        Alterar preferências de cookies
+                    </button>
+                </div>
             </div>
 
             <div>

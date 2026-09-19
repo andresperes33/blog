@@ -1,22 +1,28 @@
 {% load static tailwind_tags %}
-    <script>
-
-    </script>
-
 <!DOCTYPE html>
 <html lang="pt-br" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0GHCN5J9BX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) - Google Consent Mode v2 (LGPD) -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
 
-  gtag('config', 'G-0GHCN5J9BX');
-</script>
+        // Define o estado inicial de consentimento antes de carregar as tags
+        var initialConsent = localStorage.getItem('cookieConsent') === 'accepted' ? 'granted' : 'denied';
+        gtag('consent', 'default', {
+            'analytics_storage': initialConsent,
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'wait_for_update': 500
+        });
+
+        gtag('js', new Date());
+        gtag('config', 'G-0GHCN5J9BX');
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0GHCN5J9BX"></script>
 
     <style>html { background-color: #000; }</style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -224,26 +230,10 @@
                         class="w-8 h-8 rounded-full border border-hairline-strong flex items-center justify-center text-white/70 hover:text-black hover:bg-primary transition-colors" title="WhatsApp">
                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884 0 2.225.569 3.445 1.694 5.39l-1.157 4.221 4.333-1.13c1.547.852 2.651 1.272 4.333 1.272zm9.184-7.447c-.201-.1-.282-.181-.462-.362-.181-.181-.502-.342-.883-.543-.161-.08-.282-.181-.462-.181-.221 0-.382.02-.543.02-.12 0-.241.02-.341.02-.161 0-.301-.02-.422-.06-.321-.1-.702-.281-1.185-.562-.161-.08-.321-.161-.462-.261-.482-.321-.864-.682-1.144-1.044-.201-.281-.301-.482-.301-.682 0-.161.04-.321.161-.462.141-.181.362-.361.543-.542.101-.1.141-.181.201-.261 0-.08-.02-.161-.04-.261-.02-.1-.201-.482-.281-.682-.08-.181-.161-.341-.261-.462-.141-.141-.281-.201-.462-.201-.201 0-.382.08-.542.181-.301.201-.482.462-.642.743-.161.281-.281.583-.281.884 0 .341.08.703.181 1.044.181.602.482 1.184.884 1.706.522.683 1.104 1.264 1.766 1.766.422.321.884.582 1.366.783.341.141.683.221.984.221.482 0 .904-.241 1.245-.583.181-.181.361-.401.502-.642.12-.221.201-.482.201-.763 0-.12-.02-.241-.04-.341z"/></svg>
                     </a>
-                    <a href="https://tme/Nitro_Tech_1" target="_blank" rel="noopener noreferrer"
+                    <a href="https://t.me/Nitro_Tech_1" target="_blank" rel="noopener noreferrer"
                         class="w-8 h-8 rounded-full border border-hairline-strong flex items-center justify-center text-white/70 hover:text-black hover:bg-primary transition-colors" title="Telegram">
                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701v4.309c.421 0 .607-.193.843-.418l2.028-1.972 4.219 3.117c.777.429 1.336.208 1.531-.72l2.768-13.064c.284-1.139-.434-1.666-1.187-1.323z"/></svg>
                     </a>
-                </div>
-            </div>
-             <div id="cookie-banner" class="w-full bg-[#121212] border border-white/10 rounded-lg p-3 sm:p-4 mb-3" style="display: none;">
-                <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                    <div class="flex items-start gap-3">
-                        <span class="text-lg">🍪</span>
-                        <div>
-                            <p class="text-white font-semibold text-sm">Cookies</p>
-                            <p class="text-white/60 text-xs">Usamos cookies para melhorar sua experiência. Aceite ou recuse.</p>
-                            <a href="{% url 'reviews:cookie_policy' %}" class="inline-block mt-1 text-[#76b900] hover:text-white text-xs font-medium transition-colors">Política de Cookies →</a>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-2 shrink-0">
-                        <button type="button" id="cookie-recusar" class="px-3 py-1.5 text-xs font-semibold text-white/70 hover:text-white border border-white/10 hover:bg-white/10 rounded transition-colors">Recusar</button>
-                        <button type="button" id="cookie-aceitar" class="px-3 py-1.5 text-xs font-semibold text-black bg-[#76b900] hover:bg-[#8ec91c] rounded transition-colors">Aceitar</button>
-                    </div>
                 </div>
             </div>
         </div>
@@ -283,21 +273,20 @@
     </script>
     <!-- Back to top -->
     <!-- Cookie Consent (LGPD) -->
-    <div id="cookie-consent" aria-hidden="true" class="chapter-dark"
-        style="position:fixed; left:1rem; right:1rem; bottom:1rem; z-index:70; transform:translateY(24px); opacity:0; pointer-events:none; transition:opacity .25s ease, transform .25s ease;">
-        <div class="card relative mx-auto max-w-3xl bg-black border-white/10 p-6 corner-square-decor">
+    <div id="cookie-consent" role="dialog" aria-label="Consentimento de Cookies" aria-hidden="true" class="chapter-dark"
+        style="position:fixed; left:1rem; right:1rem; bottom:1rem; z-index:70; transform:translateY(24px); opacity:0; pointer-events:none; transition:opacity .3s cubic-bezier(0.16, 1, 0.3, 1), transform .3s cubic-bezier(0.16, 1, 0.3, 1);">
+        <div class="card relative mx-auto max-w-3xl bg-black border border-hairline-strong p-5 sm:p-6 shadow-2xl">
             <span class="corner-square"></span>
-            <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+            <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                 <div class="text-[14px] text-white/70 leading-relaxed max-w-2xl">
-                    <p class="eyebrow mb-2">🍪 Privacidade</p>
-                    <p class="font-bold text-white text-[16px] mb-1">Bem-vindo ao André Indica</p>
-                    <p>Usamos cookies para entender como você navega (GA4) e melhorar sua experiência. Você decide: aceitar ou
-                        recusar, sem perder acesso ao conteúdo.</p>
+                    <p class="eyebrow mb-1.5 text-primary font-bold">Privacidade &amp; Cookies</p>
+                    <p class="font-bold text-white text-[16px] mb-1">Controle de Cookies e Privacidade</p>
+                    <p>Usamos cookies analíticos (GA4) para entender como você navega e aprimorar nossos reviews e guias. Você decide: aceitar ou recusar, sem perder acesso a nenhum conteúdo.</p>
                     <a href="{% url 'reviews:cookie_policy' %}" class="btn-ghost mt-2">Política de Cookies →</a>
                 </div>
-                <div class="flex flex-col items-stretch sm:items-end gap-3 shrink-0">
-                    <button type="button" data-cookie="aceitar" class="btn-primary">Aceitar</button>
-                    <button type="button" data-cookie="recusar" class="btn-outline-dark">Recusar</button>
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 shrink-0">
+                    <button type="button" id="cookie-recusar" data-cookie="recusar" class="btn-outline-dark text-[13px] uppercase tracking-wider h-10 px-5">Recusar</button>
+                    <button type="button" id="cookie-aceitar" data-cookie="aceitar" class="btn-primary text-[13px] uppercase tracking-wider h-10 px-6">Aceitar</button>
                 </div>
             </div>
         </div>
@@ -350,47 +339,45 @@
         }
     </script>
     <script>
-        // Cookie Banner Logic
+        // Gerenciamento de Consentimento de Cookies (LGPD + Google Consent Mode v2)
         (function() {
-            const cookieBanner = document.getElementById('cookie-banner');
+            const consentBanner = document.getElementById('cookie-consent');
             const acceptBtn = document.getElementById('cookie-aceitar');
             const rejectBtn = document.getElementById('cookie-recusar');
             
-            if (!cookieBanner) return;
+            if (!consentBanner) return;
             
-            // Verificar se já tem consentimento salvo
-            if (localStorage.getItem('cookieConsent') === 'accepted') {
-                cookieBanner.style.display = 'none';
-                // Inicializar GA4
-                (function() {
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){dataLayer.push(arguments);}
-                    gtag('js', new Date());
-                    gtag('config', 'G-0GHCN5J9BX');
-                })();
-                return;
+            const savedConsent = localStorage.getItem('cookieConsent');
+            
+            function showBanner() {
+                consentBanner.style.opacity = '1';
+                consentBanner.style.transform = 'translateY(0)';
+                consentBanner.style.pointerEvents = 'auto';
+                consentBanner.setAttribute('aria-hidden', 'false');
             }
             
-            // Exibir banner após breve delay
-            setTimeout(function() {
-                cookieBanner.style.display = 'block';
-            }, 1500);
+            function hideBanner() {
+                consentBanner.style.opacity = '0';
+                consentBanner.style.transform = 'translateY(24px)';
+                consentBanner.style.pointerEvents = 'none';
+                consentBanner.setAttribute('aria-hidden', 'true');
+            }
             
-            // Função salvar consentimento
             function saveConsent(choice) {
                 localStorage.setItem('cookieConsent', choice);
-                cookieBanner.style.display = 'none';
+                hideBanner();
                 
-                // Se aceitou, inicializar GA4
-                if (choice === 'accepted') {
-                    (function() {
-                        window.dataLayer = window.dataLayer || [];
-                        function gtag(){dataLayer.push(arguments);}
-                        gtag('js', new Date());
-                        gtag('config', 'G-0GHCN5J9BX');
-                        console.log('Cookie consent: Analytics enabled');
-                    })();
+                // Atualiza o consentimento no Google Analytics
+                if (typeof gtag === 'function') {
+                    gtag('consent', 'update', {
+                        'analytics_storage': choice === 'accepted' ? 'granted' : 'denied'
+                    });
                 }
+            }
+            
+            // Só exibe se ainda não houver escolha salva (nem aceitou, nem recusou)
+            if (!savedConsent) {
+                setTimeout(showBanner, 1200);
             }
             
             if (acceptBtn) {
@@ -404,6 +391,11 @@
                     saveConsent('rejected');
                 });
             }
+            
+            // Permite reabrir o banner a qualquer momento (ex: página de política de cookies)
+            window.openCookieConsent = function() {
+                showBanner();
+            };
         })();
     </script>
     {% block extra_js %}{% endblock %}
