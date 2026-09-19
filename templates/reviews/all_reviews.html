@@ -1,57 +1,96 @@
-﻿{% extends 'base.html' %}
+{% extends 'base.html' %}
 
-{% block title %}Todos os Reviews - André Indica{% endblock %}
+{% block title %}{% if current_tipo == 'reviews' %}Reviews{% elif current_tipo == 'comparativos' %}Comparativos{% elif current_tipo == 'guias' %}Guias de Compra{% else %}Todos os Artigos{% endif %} - André Indica{% endblock %}
 
 {% block breadcrumb %}
 <div class="bg-soft border-b border-hairline">
     <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 h-12 flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.12em] text-mute">
         <a href="/" class="hover:text-primary transition-colors">Home</a>
         <span class="text-hairline-strong">›</span>
-        <span class="text-body">Todos os Reviews</span>
+        <span class="text-body">{% if current_tipo == 'reviews' %}Reviews{% elif current_tipo == 'comparativos' %}Comparativos{% elif current_tipo == 'guias' %}Guias de Compra{% else %}Todos os Artigos{% endif %}</span>
     </div>
 </div>
 {% endblock %}
 
 {% block content %}
 <section class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="max-w-2xl mb-12">
-        <p class="eyebrow mb-3">Análises completas</p>
-        <h1 class="text-4xl font-bold tracking-tight text-ink">Nossos Reviews</h1>
+    <div class="max-w-2xl mb-8">
+        <p class="eyebrow mb-3 text-primary">Publicações</p>
+        <h1 class="text-4xl font-bold tracking-tight text-ink">
+            {% if current_tipo == 'reviews' %}Nossos Reviews
+            {% elif current_tipo == 'comparativos' %}Nossos Comparativos
+            {% elif current_tipo == 'guias' %}Guias de Compra
+            {% else %}Todos os Artigos
+            {% endif %}
+        </h1>
         <p class="mt-3 text-body text-[15px] leading-relaxed">
-            Acompanhe todas as nossas análises detalhadas organizadas por data de publicação.
+            {% if current_tipo == 'reviews' %}Acompanhe todas as nossas análises detalhadas organizadas por data de publicação.
+            {% elif current_tipo == 'comparativos' %}Duelos e comparações diretas para ajudar você a fazer a melhor escolha.
+            {% elif current_tipo == 'guias' %}Guias completos com indicações dos melhores modelos e faixas de preço.
+            {% else %}Acompanhe todas as nossas análises, comparativos e guias organizados por data de publicação.
+            {% endif %}
         </p>
     </div>
 
+    <!-- Filtros de Tipo (Design System) -->
+    <div class="flex items-center gap-2 mb-10 overflow-x-auto pb-2 border-b border-hairline">
+        <a href="{% url 'reviews:all_reviews' %}"
+            class="px-4 py-2 text-[13px] font-bold uppercase tracking-wider rounded-sm transition-colors {% if current_tipo == 'all' %}bg-primary text-black{% else %}bg-soft text-body hover:bg-hairline{% endif %}">
+            Todos
+        </a>
+        <a href="{% url 'reviews:all_reviews' %}?tipo=reviews"
+            class="px-4 py-2 text-[13px] font-bold uppercase tracking-wider rounded-sm transition-colors {% if current_tipo == 'reviews' %}bg-primary text-black{% else %}bg-soft text-body hover:bg-hairline{% endif %}">
+            Reviews
+        </a>
+        <a href="{% url 'reviews:all_reviews' %}?tipo=comparativos"
+            class="px-4 py-2 text-[13px] font-bold uppercase tracking-wider rounded-sm transition-colors {% if current_tipo == 'comparativos' %}bg-primary text-black{% else %}bg-soft text-body hover:bg-hairline{% endif %}">
+            Comparativos
+        </a>
+        <a href="{% url 'reviews:all_reviews' %}?tipo=guias"
+            class="px-4 py-2 text-[13px] font-bold uppercase tracking-wider rounded-sm transition-colors {% if current_tipo == 'guias' %}bg-primary text-black{% else %}bg-soft text-body hover:bg-hairline{% endif %}">
+            Guias de Compra
+        </a>
+    </div>
+
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {% for review in reviews %}
-        <a href="{% url 'reviews:review_detail' review.slug %}" class="card group hover:border-primary transition-colors block">
+        {% for item in articles %}
+        <a href="{{ item.url }}" class="card group hover:border-primary transition-colors block">
             <span class="corner-square"></span>
             <div class="relative aspect-video overflow-hidden border-b border-hairline">
-                <img src="{{ review.main_image.url }}" alt="{{ review.title }}" loading="lazy"
+                <img src="{{ item.main_image.url }}" alt="{{ item.title }}" loading="lazy"
                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                <span class="absolute top-3 right-3 badge bg-black text-white">{{ review.rating }}/10</span>
+                {% if item.type_name == "review" %}
+                <span class="absolute top-3 left-3 badge bg-black text-white">Review</span>
+                {% if item.rating %}
+                <span class="absolute top-3 right-3 badge bg-primary text-black font-bold">{{ item.rating }}/10</span>
+                {% endif %}
+                {% elif item.type_name == "comparison" %}
+                <span class="absolute top-3 left-3 badge bg-black text-white">Comparativo</span>
+                {% elif item.type_name == "guide" %}
+                <span class="absolute top-3 left-3 badge bg-black text-white">Guia</span>
+                {% endif %}
             </div>
             <div class="p-6">
                 <div class="flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.12em] text-mute mb-3">
-                    <span class="text-primary">{{ review.product.category.name }}</span>
+                    <span class="text-primary">{{ item.display_category }}</span>
                     <span class="text-hairline-strong">•</span>
-                    <span>{{ review.created_at|date:"d M, Y" }}</span>
+                    <span>{{ item.created_at|date:"d M, Y" }}</span>
                 </div>
                 <h3 class="text-[17px] font-bold leading-snug group-hover:text-primary transition-colors line-clamp-2">
-                    {{ review.title }}
+                    {{ item.title }}
                 </h3>
                 <p class="mt-2 text-body text-[15px] leading-relaxed line-clamp-3">
-                    {{ review.excerpt }}
+                    {{ item.excerpt }}
                 </p>
                 <div class="mt-4 pt-4 border-t border-hairline flex items-center justify-between">
-                    <span class="text-[13px] text-mute">Por {{ review.author.get_full_name|default:review.author.username }}</span>
+                    <span class="text-[13px] text-mute">Por {{ item.author.get_full_name|default:item.author.username }}</span>
                     <span class="btn-ghost">Ler</span>
                 </div>
             </div>
         </a>
         {% empty %}
         <div class="col-span-full card p-16 text-center text-mute">
-            Nenhuma análise postada ainda.
+            Nenhum conteúdo encontrado.
         </div>
         {% endfor %}
     </div>
@@ -60,19 +99,19 @@
     {% if is_paginated %}
     <nav class="mt-16 flex justify-center gap-2" aria-label="Paginação">
         {% if page_obj.has_previous %}
-        <a href="?page={{ page_obj.previous_page_number }}"
+        <a href="?page={{ page_obj.previous_page_number }}{% if current_tipo != 'all' %}&tipo={{ current_tipo }}{% endif %}"
             class="h-11 px-5 flex items-center justify-center text-[14px] font-bold rounded-sm border border-hairline hover:border-primary transition-colors">Anterior</a>
         {% endif %}
         {% for num in page_obj.paginator.page_range %}
         {% if num == page_obj.number %}
         <span class="h-11 px-5 flex items-center justify-center text-[14px] font-bold rounded-sm bg-ink text-white">{{ num }}</span>
         {% else %}
-        <a href="?page={{ num }}"
+        <a href="?page={{ num }}{% if current_tipo != 'all' %}&tipo={{ current_tipo }}{% endif %}"
             class="h-11 px-5 flex items-center justify-center text-[14px] font-bold rounded-sm border border-hairline hover:border-primary transition-colors">{{ num }}</a>
         {% endif %}
         {% endfor %}
         {% if page_obj.has_next %}
-        <a href="?page={{ page_obj.next_page_number }}"
+        <a href="?page={{ page_obj.next_page_number }}{% if current_tipo != 'all' %}&tipo={{ current_tipo }}{% endif %}"
             class="h-11 px-5 flex items-center justify-center text-[14px] font-bold rounded-sm border border-hairline hover:border-primary transition-colors">Próxima</a>
         {% endif %}
     </nav>

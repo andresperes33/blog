@@ -124,7 +124,7 @@
                         </div>
                     </details>
 
-                    <a href="{% url 'reviews:all_reviews' %}" class="block px-3 py-2.5 font-bold hover:bg-white/10 transition-colors">Reviews</a>
+                    <a href="{% url 'reviews:all_reviews' %}?tipo=reviews" class="block px-3 py-2.5 font-bold hover:bg-white/10 transition-colors">Reviews</a>
                     <a href="{% url 'reviews:comparison_list' %}" class="block px-3 py-2.5 font-bold hover:bg-white/10 transition-colors">Comparativos</a>
                     <a href="{% url 'reviews:guide_list' %}" class="block px-3 py-2.5 font-bold hover:bg-white/10 transition-colors">Guias de Compra</a>
                 </div>
@@ -192,7 +192,7 @@
                     </div>
                 </div>
 
-                <a href="{% url 'reviews:all_reviews' %}" class="hover:text-white transition-colors">Reviews</a>
+                <a href="{% url 'reviews:all_reviews' %}?tipo=reviews" class="hover:text-white transition-colors">Reviews</a>
                 <a href="{% url 'reviews:comparison_list' %}" class="hover:text-white transition-colors">Comparativos</a>
                 <a href="{% url 'reviews:guide_list' %}" class="hover:text-white transition-colors">Guias</a>
                 <a href="{% url 'reviews:about' %}" class="hover:text-white transition-colors">Sobre</a>

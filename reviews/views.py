@@ -6,11 +6,13 @@ from itertools import chain
 from operator import attrgetter
 
 
-def build_combined_content(q=None):
+def build_combined_content(q=None, content_type=None):
     """Lista de reviews/comparativos/guias com metadados de exibicao."""
-    reviews = list(Review.objects.filter(is_published=True))
-    comparisons = list(Comparison.objects.filter(is_published=True))
-    guides = list(Guide.objects.filter(is_published=True))
+    content_type = (content_type or 'all').strip().lower()
+
+    reviews = list(Review.objects.filter(is_published=True)) if content_type in ['all', 'review', 'reviews'] else []
+    comparisons = list(Comparison.objects.filter(is_published=True)) if content_type in ['all', 'comparison', 'comparisons', 'comparativo', 'comparativos'] else []
+    guides = list(Guide.objects.filter(is_published=True)) if content_type in ['all', 'guide', 'guides', 'guia', 'guias'] else []
 
     if q:
         q = q.strip().lower()
@@ -93,11 +95,22 @@ class HomeSearchView(TemplateView):
         return context
 
 class AllReviewsView(ListView):
-    model = Review
     template_name = 'reviews/all_reviews.html'
-    context_object_name = 'reviews'
+    context_object_name = 'articles'
     paginate_by = 12
-    queryset = Review.objects.filter(is_published=True).order_by('-created_at')
+
+    def get_queryset(self):
+        q = self.request.GET.get('q')
+        tipo = self.request.GET.get('tipo', 'all')
+        return build_combined_content(q=q, content_type=tipo)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        tipo = self.request.GET.get('tipo', 'all')
+        context['current_tipo'] = tipo
+        context['q'] = self.request.GET.get('q', '')
+        context['reviews'] = context['articles']
+        return context
 
 class ReviewDetailView(DetailView):
     model = Review
