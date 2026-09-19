@@ -26,4 +26,5 @@ urlpatterns = [
     path('contato/', ContactView.as_view(), name='contact'),
     path('isencao-de-responsabilidade/', DisclaimerView.as_view(), name='disclaimer'),
     path('politica-de-transparencia/', TransparencyView.as_view(), name='transparency'),
+    path('politica-de-cookies/', CookiePolicyView.as_view(), name='cookie_policy'),
 ]

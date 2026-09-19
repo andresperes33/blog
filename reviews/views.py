@@ -184,6 +184,10 @@ class DisclaimerView(TemplateView):
 class TransparencyView(TemplateView):
     template_name = 'reviews/transparency.html'
 
+
+class CookiePolicyView(TemplateView):
+    template_name = 'reviews/cookie_policy.html'
+
 class GuideListView(ListView):
     model = Guide
     template_name = 'reviews/guide_list.html'

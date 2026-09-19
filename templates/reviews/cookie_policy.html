@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Política de Cookies - André Indica{% endblock %}
+
+{% block meta_description %}Saiba como o André Indica usa cookies e tecnologias de rastreamento, e como você pode gerenciar o seu consentimento.{% endblock %}
+
+{% block breadcrumb %}
+<div class="bg-soft border-b border-hairline">
+    <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 h-12 flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.12em] text-mute">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span class="text-hairline-strong">›</span>
+        <span class="text-body">Política de Cookies</span>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<section class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="max-w-3xl">
+        <div class="mb-12">
+            <p class="eyebrow mb-3 text-primary">Cookies</p>
+            <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-ink mb-4">Política de Cookies</h1>
+            <p class="text-mute text-[14px]">Última atualização: 20 de Setembro de 2026</p>
+        </div>
+
+        <div class="card p-6 mb-10">
+            <span class="corner-square"></span>
+            <p class="text-body">
+                Nós, do <strong>André Indica</strong>, usamos cookies e tecnologias semelhantes para melhorar a sua
+                experiência, entender como você navega pelo site e medir os nossos resultados. Esta política explica o que
+                são cookies, quais utilizamos e como você pode controlar o seu consentimento — sempre de forma simples e
+                transparente.
+            </p>
+        </div>
+
+        <div class="space-y-10 text-body">
+            <div>
+                <h2 class="text-2xl font-bold text-ink mb-3">1. O que são Cookies</h2>
+                <p>
+                    Cookies são pequenos arquivos de texto salvos no seu navegador quando você visita um site. Eles
+                    ajudam a lembrar das suas preferências e a entender de forma anônima e agregada como o conteúdo é
+                    utilizado. É o que permite, por exemplo, contar quantas pessoas leram cada review.
+                </p>
+            </div>
+
+            <div>
+                <h2 class="text-2xl font-bold text-ink mb-3">2. Quais Cookies Usamos</h2>
+                <p>
+                    Utilizamos apenas <strong>cookies analíticos</strong> por meio do <strong>Google Analytics 4 (GA4)</strong>,
+                    que nos mostra, de forma agregada, como os visitantes chegam e navegam pelo site. Nenhum dado pessoal
+                    identificável é coletado para fins de rastreamento publicitário.
+                </p>
+            </div>
+
+            <div>
+                <h2 class="text-2xl font-bold text-ink mb-3">3. Consentimento (LGPD)</h2>
+                <p>
+                    Conforme a <strong>LGPD (Lei Geral de Proteção de Dados — Lei 13.709/2018)</strong>, o uso de cookies
+                    analíticos só acontece com o seu consentimento. Ao acessar o site, um banner exibe as opções:
+                </p>
+                <ul class="list-disc list-inside ml-2 space-y-2 mt-4 marker:text-primary">
+                    <li><strong>Aceitar:</strong> autoriza o uso dos cookies do GA4.</li>
+                    <li><strong>Recusar:</strong> nenhum cookie de análise é ativado.</li>
+                </ul>
+                <p class="mt-4">
+                    Você pode mudar ou revogar a sua escolha a qualquer momento, limpando os cookies deste site no seu
+                    navegador — o banner voltará a aparecer na próxima visita.
+                </p>
+            </div>
+
+            <div>
+                <h2 class="text-2xl font-bold text-ink mb-3">4. Cookies de Afiliados</h2>
+                <p>
+                    Quando você clica em um link de afiliado e é direcionado a uma loja parceira (como a Amazon), a escolha
+                    de cookies a partir dali é da própria loja, de acordo com as políticas de privacidade dela. Recomendamos
+                    consultar as políticas das respectivas lojas.
+                </p>
+            </div>
+
+            <div>
+                <h2 class="text-2xl font-bold text-ink mb-3">5. Contato</h2>
+                <p>Dúvidas sobre esta política ou sobre cookies? Fale com a gente:</p>
+                <div class="card p-6 mt-6">
+                    <span class="corner-square"></span>
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <div>
+                            <h3 class="font-bold text-ink">Fale conosco</h3>
+                            <p class="text-mute text-[14px] mt-1">Cookies, privacidade ou dados pessoais.</p>
+                        </div>
+                        <a href="mailto:andreindicatech@gmail.com"
+                            class="inline-flex items-center gap-2 font-semibold text-primary hover:text-ink transition-colors whitespace-nowrap">
+                            <svg class="shrink-0 size-[1.05rem]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                            </svg>
+                            andreindicatech@gmail.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
