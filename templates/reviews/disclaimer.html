@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Isenção de Responsabilidade - André Indica{% endblock %}
+
+{% block breadcrumb %}
+<div class="bg-soft border-b border-hairline">
+    <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 h-12 flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.12em] text-mute">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span class="text-hairline-strong">›</span>
+        <span class="text-body">Isenção de Responsabilidade</span>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<section class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="max-w-3xl mx-auto">
+        <div class="mb-12">
+            <p class="eyebrow mb-3 text-primary">Legal</p>
+            <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-ink mb-4">Isenção de Responsabilidade</h1>
+            <p class="text-mute text-[14px]">Última atualização: 08 de Março de 2026</p>
+        </div>
+
+        <div class="prose-body text-body">
+            <p class="text-lg leading-relaxed mb-8">
+                O <strong>André Indica</strong> é um blog de reviews e recomendações de hardware. As informações
+                publicadas refletem <strong>nossa opinião e experiência</strong> com cada produto testado e têm o
+                objetivo de ajudar você a tomar uma decisão de compra mais consciente.
+            </p>
+
+            <div class="card p-6 mb-8">
+                <span class="corner-square"></span>
+                <h2 class="text-xl font-bold text-ink mb-3">1. Reviews são Opiniões</h2>
+                <p>
+                    Todos os reviews, pontuações e comentários presentes no site representam a opinião pessoal do André
+                    com base em testes reais realizados com uma unidade do produto. Eles <strong>não constituem
+                        garantia</strong> de desempenho, durabilidade ou qualidade de qualquer item, pois os resultados
+                    podem variar conforme o lote, configuração da máquina, drivers, temperatura ambiente e o uso de
+                    cada usuário.
+                </p>
+            </div>
+
+            <h2>2. Links Afiliados e Comissões</h2>
+            <p>
+                O "André Indica" participa de programas de afiliados. Quando você clica em um dos nossos links e realiza
+                uma compra na loja parceira (como Amazon, AliExpress, entre outras), podemos receber uma pequena
+                comissão <strong>sem nenhum custo adicional para você</strong>. Essa comissão jamais altera o preço que
+                você paga, nem a nossa avaliação do produto.
+            </p>
+
+            <h2>3. Responsabilidade por Compras</h2>
+            <p>
+                Nós não somos o vendedor, o fabricante nem o transportador de nenhum produto indicado. Logo, não nos
+                responsabilizamos por problemas como: atraso no envio, extravio, taxas de importação, produtos
+                defeituosos, garantias negadas, políticas de troca/devolução das lojas ou qualquer dano material
+                decorrente de uso indevido ou de falha de hardware. Tudo isso é de inteira responsabilidade do varejista
+                e do fabricante contratados por você.
+            </p>
+
+            <h2>4. Erros Técnicos e Precisão</h2>
+            <p>
+                Embora nos esforcemos para manter o conteúdo atualizado, especificações, preços e disponibilidade podem
+                mudar sem aviso prévio por decisão das fabricantes. Não garantimos que os dados exibidos estejam sempre
+                100% corretos. Confira sempre as informações oficiais na página do vendedor antes de comprar.
+            </p>
+
+            <h2>5. Uso das Informações</h2>
+            <p>
+                O conteúdo deste site tem caráter exclusivamente informativo e editorial e <strong>não deve ser
+                    interpretado como aconselhamento profissional</strong> (técnico, jurídico ou financeiro). Qualquer
+                decisão de compra tomada com base nas nossas publicações é de sua única e exclusiva responsabilidade.
+            </p>
+
+            <div class="card p-6 my-8 border-error">
+                <span class="corner-square"></span>
+                <h3 class="text-lg font-bold text-error mb-2">Contato</h3>
+                <p>
+                    Se você tiver dúvidas sobre esta política, fale com a gente:
+                </p>
+                <p class="mt-3">
+                    <a href="mailto:andreindicatech@gmail.com" class="font-medium text-primary hover:text-ink transition-colors">
+                        andreindicatech@gmail.com
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

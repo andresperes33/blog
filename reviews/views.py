@@ -176,6 +176,14 @@ class TermsView(TemplateView):
 class ContactView(TemplateView):
     template_name = 'reviews/contact.html'
 
+
+class DisclaimerView(TemplateView):
+    template_name = 'reviews/disclaimer.html'
+
+
+class TransparencyView(TemplateView):
+    template_name = 'reviews/transparency.html'
+
 class GuideListView(ListView):
     model = Guide
     template_name = 'reviews/guide_list.html'

@@ -2,6 +2,7 @@ from django.urls import path
 from .views import (
     ReviewListView, ReviewDetailView, CategoryListView, CategoryDetailView, 
     AboutView, AllReviewsView, PrivacyView, TermsView, ContactView,
+    DisclaimerView, TransparencyView,
     ComparisonListView, ComparisonDetailView, GuideListView, GuideDetailView,
     HomeSearchView
 )
@@ -23,4 +24,6 @@ urlpatterns = [
     path('privacidade/', PrivacyView.as_view(), name='privacy'),
     path('termos-de-uso/', TermsView.as_view(), name='terms'),
     path('contato/', ContactView.as_view(), name='contact'),
+    path('isencao-de-responsabilidade/', DisclaimerView.as_view(), name='disclaimer'),
+    path('politica-de-transparencia/', TransparencyView.as_view(), name='transparency'),
 ]

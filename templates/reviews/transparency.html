@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Política de Transparência - André Indica{% endblock %}
+
+{% block breadcrumb %}
+<div class="bg-soft border-b border-hairline">
+    <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 h-12 flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.12em] text-mute">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span class="text-hairline-strong">›</span>
+        <span class="text-body">Política de Transparência</span>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<section class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="max-w-3xl mx-auto">
+        <div class="mb-12">
+            <p class="eyebrow mb-3 text-primary">Transparência</p>
+            <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-ink mb-3">Política de Transparência</h1>
+            <p class="text-mute text-[14px]">Última atualização: 08 de Março de 2026</p>
+        </div>
+
+        <div class="prose-body text-body">
+            <p class="text-lg leading-relaxed mb-8">
+                No <strong>André Indica</strong>, acreditamos que quem recomenda precisa ser transparente. Esta página
+                existe para que você entenda, de forma clara e sem letras miúdas, <strong>como este blog é feito,
+                    financiado e como nos relacionamos com as marcas</strong>.
+            </p>
+
+            <h2>1. Quem Escreve</h2>
+            <p>
+                Todo o conteúdo (reviews, guias, comparativos, ranking e pontuações) é escrito pelo <strong>André</strong>,
+                a pessoa por trás do blog. Somos um projeto editorial independente e não possuímos vínculo empregatício
+                com nenhuma fabricante, marca ou loja que apareça por aqui. Se um produto aparece neste site, foi porque
+                passou por uma análise real, feita com uma unidade física que chegou até nós.
+            </p>
+
+            <h2>2. Como Financiamos o Trabalho</h2>
+            <p>
+                Manter análises detalhadas exige tempo, investimento em equipamento e o custo de compra ou envio de cada
+                produto testado. Para continuarmos produzindo conteúdo gratuito, usamos três fontes de receita:
+            </p>
+            <ul class="space-y-3 my-6">
+                <li>
+                    <strong>1. Links de Afiliados:</strong> quando você clica num botão de compra (ex.: Amazon, AliExpress,
+                    lojas nacionais) e fecha a compra, recebemos uma pequena comissão <em>sem nenhum custo extra para
+                        você</em>.
+                </li>
+                <li>
+                    <strong>2. Unidades enviadas por marcas:</strong> alguns fabricantes nos enviam amostras de cortesia
+                    para análise. Você pode conferir exatamente quais produtos foram assim nas nossas reviews, sempre
+                    sinalizadas no campo "Notas da Amostra".
+                </li>
+                <li>
+                    <strong>3. Publicidade:</strong> exibimos anúncios de parceiros que ajudam a manter nossos servidores
+                    e a hospedagem do site funcionando.
+                </li>
+            </ul>
+
+            <h2>3. Nossa Relação com Afiliados e Anúncios</h2>
+            <p>
+                Os links de afiliados e a publicidade <strong>nunca influenciam as nossas recomendações</strong>. As
+                pontuações, rankings e opiniões são decididas apenas com base na nossa experiência de teste com o
+                produto real, não com o valor da comissão que ele pagaria. Nos reservamos o direito de criticar
+                publicamente (e deixar de recomendar) qualquer marca — mesmo aquelas que nos enviaram amostras.
+            </p>
+
+            <h2>4. Amostras de Cortesia</h2>
+            <p>
+                Quando um produto é enviado por uma marca ou assessoria, <strong>deixamos isso explícito</strong> no
+                respectivo review — tanto no texto quanto no quadro de informações do produto. Uma amostra de cortesia
+                <strong>não nos obriga</strong> a uma avaliação positiva; o produto continua sendo submetido ao mesmo
+                teste rigoroso de qualquer unidade comprada.
+            </p>
+
+            <h2>5. O Que Você Paga</h2>
+            <p>
+                Você nunca paga a mais por nos recomendar um produto. O preço final na loja é exatamente o mesmo, quer
+                você compre pelos nossos links ou acessando o varejista diretamente. A comissão que recebemos vem do
+                próprio programa de afiliados da loja, nunca do seu bolso.
+            </p>
+
+            <h2>6. Dúvidas</h2>
+            <p>
+                A transparência também passa por estarmos disponíveis. Se você tiver qualquer pergunta sobre como um
+                review foi feito, de onde veio a amostra ou sobre a nossa relação com qualquer marca, é só falar com a
+                gente:
+            </p>
+            <p class="mt-4">
+                <a href="mailto:andreindicatech@gmail.com"
+                    class="inline-flex items-center gap-2 font-medium text-primary hover:text-ink transition-colors">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                    andreindicatech@gmail.com
+                </a>
+            </p>
+        </div>
+    </div>
+</section>
+{% endblock %}

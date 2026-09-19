@@ -1,4 +1,5 @@
 ﻿{% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Política de Privacidade - André Indica{% endblock %}
 
@@ -13,59 +14,76 @@
 {% endblock %}
 
 {% block content %}
-<section class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="mb-12">
-        <p class="eyebrow mb-3 text-primary">Privacidade</p>
-        <h1 class="text-4xl font-bold tracking-tight text-ink mb-3">Política de Privacidade</h1>
-        <p class="text-mute text-[14px]">Última atualização: 08 de Março de 2026</p>
-    </div>
-
-    <div class="prose-body text-body">
-        <h2>1. Coleta de Informações</h2>
-        <p>
-            No <strong>André Indica</strong>, a sua privacidade é uma prioridade. Coletamos apenas as informações
-            estritamente necessárias para o funcionamento do site, como seu nome e endereço de e-mail ao deixar um
-            comentário ou se inscrever em nossa newsletter. Também utilizamos cookies para melhorar a sua experiência de
-            navegação e entender como você interage com o nosso conteúdo.
-        </p>
-
-        <h2>2. Uso das Informações</h2>
-        <p>
-            As informações coletadas são usadas exclusivamente para personalizar a sua experiência no site, responder
-            aos seus comentários e enviar atualizações sobre novos reviews, caso você tenha optado por receber. Nunca
-            venderemos, alugaremos ou compartilharemos suas informações pessoais com terceiros para fins de marketing
-            sem o seu consentimento explícito.
-        </p>
-
-        <h2>3. Cookies e Tecnologias de Rastreamento</h2>
-        <p>
-            O portal utiliza "cookies" para aprimorar a sua experiência na web. Um cookie é um pequeno arquivo de texto
-            que um site armazena no seu computador ou dispositivo móvel quando você o visita. Eles auxiliam no
-            funcionamento adequado do site e na lembrança das suas preferências de navegação.
-        </p>
-
-        <div class="card p-6 my-8">
-            <span class="corner-square"></span>
-            <h3 class="text-lg font-bold text-ink mb-2">Afiliados e Compras</h3>
-            <p>
-                O "André Indica" participa de programas de afiliados. Quando você clica em um link de produto e realiza
-                uma compra através do nosso site, podemos receber uma comissão sem nenhum custo extra para você. O uso
-                de cookies desses parceiros obedece às políticas de privacidade das respectivas lojas (ex: Amazon).
-            </p>
+<section class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="max-w-3xl">
+        <div class="mb-12">
+            <p class="eyebrow mb-3 text-primary">Privacidade</p>
+            <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-ink mb-4">Política de Privacidade</h1>
+            <p class="text-mute text-[14px]">Última atualização: 08 de Março de 2026</p>
         </div>
 
-        <h2>4. Segurança dos Dados</h2>
-        <p>
-            Adotamos medidas de segurança técnicas e administrativas adequadas para proteger as suas informações
-            pessoais contra acesso não autorizado, alteração, divulgação ou destruição. No entanto, lembre-se de que
-            nenhuma transmissão de dados pela internet é 100% segura.
-        </p>
+        <div class="prose-body text-body">
+            <h2>1. Coleta de Informações</h2>
+            <p>
+                No <strong>André Indica</strong>, a sua privacidade é uma prioridade. Coletamos apenas as informações
+                estritamente necessárias para o funcionamento do site, como seu nome e endereço de e-mail ao deixar um
+                comentário ou se inscrever em nossa newsletter. Também utilizamos cookies para melhorar a sua experiência
+                de navegação e entender como você interage com o nosso conteúdo.
+            </p>
 
-        <h2>5. Contato</h2>
-        <p>
-            Se você tiver alguma dúvida sobre nossa política de privacidade ou sobre como gerenciamos seus dados, não
-            hesite em nos contatar através do nosso formulário de contato disponível no site.
-        </p>
+            <h2>2. Uso das Informações</h2>
+            <p>
+                As informações coletadas são usadas exclusivamente para personalizar a sua experiência no site, responder
+                aos seus comentários e enviar atualizações sobre novos reviews, caso você tenha optado por receber. Nunca
+                venderemos, alugaremos ou compartilharemos suas informações pessoais com terceiros para fins de marketing
+                sem o seu consentimento explícito.
+            </p>
+
+            <h2>3. Cookies e Tecnologias de Rastreamento</h2>
+            <p>
+                O portal utiliza "cookies" para aprimorar a sua experiência na web. Um cookie é um pequeno arquivo de texto
+                que um site armazena no seu computador ou dispositivo móvel quando você o visita. Eles auxiliam no
+                funcionamento adequado do site e na lembrança das suas preferências de navegação.
+            </p>
+            <p>
+                Utilizamos o <strong>Google Analytics 4 (GA4)</strong> para entender, de forma agregada e anônima, como os
+                visitantes chegam e navegam pelo site. Os dados coletados pelas ferramentas de análise obedecem às
+                políticas de uso de dados do Google.
+            </p>
+
+            <div class="card p-6 my-8">
+                <span class="corner-square"></span>
+                <h3 class="text-lg font-bold text-ink mb-2">Afiliados e Compras</h3>
+                <p>
+                    O "André Indica" participa de programas de afiliados. Quando você clica em um link de produto e realiza
+                    uma compra através do nosso site, podemos receber uma comissão sem nenhum custo extra para você. O uso
+                    de cookies desses parceiros obedece às políticas de privacidade das respectivas lojas (ex: Amazon).
+                </p>
+            </div>
+
+            <h2>4. Segurança dos Dados</h2>
+            <p>
+                Adotamos medidas de segurança técnicas e administrativas adequadas para proteger as suas informações
+                pessoais contra acesso não autorizado, alteração, divulgação ou destruição. No entanto, lembre-se de que
+                nenhuma transmissão de dados pela internet é 100% segura.
+            </p>
+
+            <h2>5. Seus Direitos</h2>
+            <p>
+                Você pode solicitar, a qualquer momento, a correção ou exclusão dos dados pessoais que mantemos sobre você.
+                Para exercer esses direitos, basta nos enviar uma mensagem.
+            </p>
+
+            <h2>6. Contato</h2>
+            <p>
+                Se você tiver alguma dúvida sobre nossa política de privacidade ou sobre como gerenciamos seus dados, não
+                hesite em nos contatar. Envie um e-mail para:
+            </p>
+            <p>
+                <a href="mailto:andreindicatech@gmail.com"
+                    class="font-semibold text-primary hover:text-ink transition-colors">andreindicatech@gmail.com</a>
+            </p>
+        </div>
     </div>
 </section>
 {% endblock %}
