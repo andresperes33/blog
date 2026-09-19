@@ -2,7 +2,7 @@ from django.urls import path
 from .views import (
     ReviewListView, ReviewDetailView, CategoryListView, CategoryDetailView, 
     AboutView, AllReviewsView, PrivacyView, TermsView, ContactView,
-    DisclaimerView, TransparencyView,
+    DisclaimerView, TransparencyView, CookiePolicyView,
     ComparisonListView, ComparisonDetailView, GuideListView, GuideDetailView,
     HomeSearchView
 )
