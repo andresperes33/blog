@@ -283,20 +283,22 @@
     </script>
     <!-- Back to top -->
     <!-- Cookie Consent (LGPD) -->
-    <div id="cookie-consent" aria-hidden="true"
-        style="position:fixed; left:1rem; right:1rem; bottom:1rem; z-index:70; border:1px solid var(--hairline-strong,#3a3a3a); background:#0c0c0c; box-shadow:0 20px 50px rgba(0,0,0,.55); border-radius:14px; padding:1.25rem; transform:translateY(24px); opacity:0; pointer-events:none; transition:opacity .25s ease, transform .25s ease;">
-        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <div class="text-[14px] text-white/75 leading-relaxed max-w-2xl">
-                <p class="font-bold text-white text-[15px] mb-1">🍪 Bem-vindo ao André Indica</p>
-                <p>Usamos cookies para entender como você navega (GA4) e melhorar sua experiência. Você decide: aceitar ou
-                    recusar, sem perder acesso ao conteúdo.</p>
-                <a href="{% url 'reviews:cookie_policy' %}" class="inline-block mt-2 font-bold text-[#76b900] hover:text-white transition-colors">Política de Cookies →</a>
-            </div>
-            <div class="flex items-center gap-3 shrink-0">
-                <button type="button" data-cookie="recusar"
-                    class="text-[14px] font-bold text-white/70 hover:text-white px-4 py-2.5 rounded-lg border border-white/20 hover:bg-white/10 transition-colors">Recusar</button>
-                <button type="button" data-cookie="aceitar"
-                    class="text-[14px] font-bold text-black px-5 py-2.5 rounded-lg bg-[#76b900] hover:bg-[#8ec91c] transition-colors">Aceitar</button>
+    <div id="cookie-consent" aria-hidden="true" class="chapter-dark"
+        style="position:fixed; left:1rem; right:1rem; bottom:1rem; z-index:70; transform:translateY(24px); opacity:0; pointer-events:none; transition:opacity .25s ease, transform .25s ease;">
+        <div class="card relative mx-auto max-w-3xl bg-black border-white/10 p-6 corner-square-decor">
+            <span class="corner-square"></span>
+            <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                <div class="text-[14px] text-white/70 leading-relaxed max-w-2xl">
+                    <p class="eyebrow mb-2">🍪 Privacidade</p>
+                    <p class="font-bold text-white text-[16px] mb-1">Bem-vindo ao André Indica</p>
+                    <p>Usamos cookies para entender como você navega (GA4) e melhorar sua experiência. Você decide: aceitar ou
+                        recusar, sem perder acesso ao conteúdo.</p>
+                    <a href="{% url 'reviews:cookie_policy' %}" class="btn-ghost mt-2">Política de Cookies →</a>
+                </div>
+                <div class="flex flex-col items-stretch sm:items-end gap-3 shrink-0">
+                    <button type="button" data-cookie="aceitar" class="btn-primary">Aceitar</button>
+                    <button type="button" data-cookie="recusar" class="btn-outline-dark">Recusar</button>
+                </div>
             </div>
         </div>
     </div>
