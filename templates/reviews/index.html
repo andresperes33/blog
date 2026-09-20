@@ -1,7 +1,46 @@
 {% extends 'base.html' %}
 {% load static reviews_extras %}
 
-{% block title %}André Indica - Home{% endblock %}
+{% block title %}André Indica | Reviews, Comparativos e Guias de Tecnologia{% endblock %}
+{% block meta_description %}Análises honestas, testes detalhados e comparativos reais de smartphones, notebooks, hardware e periféricos. Saiba o que realmente vale a pena comprar com André Indica.{% endblock %}
+
+{% block og_title %}André Indica | Reviews, Comparativos e Guias de Tecnologia{% endblock %}
+{% block og_description %}Análises honestas, testes detalhados e comparativos reais de smartphones, notebooks, hardware e periféricos. Saiba o que realmente vale a pena comprar com André Indica.{% endblock %}
+
+{% block extra_head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://andreindicatech.com.br/#website",
+      "url": "https://andreindicatech.com.br/",
+      "name": "André Indica",
+      "description": "Reviews, comparativos e guias de tecnologia descomplicados.",
+      "publisher": {
+        "@id": "https://andreindicatech.com.br/#organization"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://andreindicatech.com.br/reviews/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://andreindicatech.com.br/#organization",
+      "name": "André Indica",
+      "url": "https://andreindicatech.com.br/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://andreindicatech.com.br/static/img/favicon-96x96.png"
+      }
+    }
+  ]
+}
+</script>
+{% endblock %}
 
 {% block content %}
 <style>
