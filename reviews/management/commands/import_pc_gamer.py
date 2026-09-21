@@ -8,3 +8,4 @@ class Command(BaseCommand):
         self.stdout.write(self.style.NOTICE('Iniciando importacao do guia PC Gamer...'))
         create_guia_pc_gamer_1800.main()
         self.stdout.write(self.style.SUCCESS('Guia PC Gamer importado/atualizado com sucesso!'))
+
