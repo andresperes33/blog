@@ -1,4 +1,5 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
+from django.http import HttpResponsePermanentRedirect
 from django.views.generic import ListView, DetailView, TemplateView
 from django.urls import reverse
 from django.db.models import Q
@@ -146,8 +147,14 @@ class CategoryDetailView(ListView):
     template_name = 'reviews/category_list.html'
     context_object_name = 'reviews'
 
+    def dispatch(self, request, *args, **kwargs):
+        slug = kwargs.get('slug')
+        if not Category.objects.filter(slug=slug).exists():
+            return HttpResponsePermanentRedirect(reverse('reviews:all_categories'))
+        return super().dispatch(request, *args, **kwargs)
+
     def get_queryset(self):
-        self.category = get_object_or_404(Category, slug=self.kwargs['slug'])
+        self.category = Category.objects.get(slug=self.kwargs['slug'])
         return Review.objects.filter(product__category=self.category, is_published=True).order_by('-created_at')
 
     def get_context_data(self, **kwargs):

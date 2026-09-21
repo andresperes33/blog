@@ -10,6 +10,7 @@ class StaticViewSitemap(Sitemap):
         return [
             'index', 'all_reviews', 'all_categories', 'comparison_list',
             'guide_list', 'about', 'contact', 'privacy', 'terms',
+            'cookie_policy', 'disclaimer', 'transparency',
         ]
 
     def location(self, item):

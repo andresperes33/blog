@@ -18,3 +18,4 @@ class Migration(migrations.Migration):
     operations = [
         migrations.RunPython(populate_pc_gamer, reverse_code=migrations.RunPython.noop),
     ]
+

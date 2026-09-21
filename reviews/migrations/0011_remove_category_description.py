@@ -32,3 +32,4 @@ class Migration(migrations.Migration):
     operations = [
         migrations.RunPython(remove_description_column, reverse_code=migrations.RunPython.noop),
     ]
+
