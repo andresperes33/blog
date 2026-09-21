@@ -86,7 +86,10 @@ def entry_exists(model_name, entry):
             if model_cls.objects.filter(guide_id=guide_val, position=pos).exists():
                 return True
 
-    return model_cls.objects.filter(pk=entry['pk']).exists()
+    pk = entry.get('pk')
+    if pk is not None:
+        return model_cls.objects.filter(pk=pk).exists()
+    return False
 
 
 def create_entry(model_name, entry, fixture_pk_map=None):
@@ -151,7 +154,11 @@ def create_entry(model_name, entry, fixture_pk_map=None):
             setattr(obj, k, v)
         obj.save()
     else:
-        obj = model_cls(pk=entry['pk'], **fields)
+        pk_val = entry.get('pk')
+        if pk_val is not None:
+            obj = model_cls(pk=pk_val, **fields)
+        else:
+            obj = model_cls(**fields)
         obj.save()
 
     if m2m_ids:
@@ -186,8 +193,8 @@ def main():
     # Mapeamento auxiliar: (related_model, pk) -> fields do fixture
     fixture_pk_map = {}
     for e in entries:
-        m = e['model']
-        if m in MODELS:
+        m = e.get('model')
+        if m in MODELS and 'pk' in e:
             fixture_pk_map[(MODELS[m], e['pk'])] = e['fields']
 
     # Ordena topologicamente para criar dependências primeiro
