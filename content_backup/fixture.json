@@ -19,47 +19,11 @@
 },
 {
   "model": "reviews.category",
-  "pk": 3,
-  "fields": {
-    "name": "Áudio",
-    "slug": "audio",
-    "icon": "icon-audio"
-  }
-},
-{
-  "model": "reviews.category",
-  "pk": 4,
-  "fields": {
-    "name": "Microfones",
-    "slug": "microfones",
-    "icon": "icon-mic"
-  }
-},
-{
-  "model": "reviews.category",
   "pk": 5,
   "fields": {
     "name": "Placas de Vídeo",
     "slug": "placas-de-video",
     "icon": "icon-gpu"
-  }
-},
-{
-  "model": "reviews.category",
-  "pk": 6,
-  "fields": {
-    "name": "Placas Mãe",
-    "slug": "placas-mae",
-    "icon": "icon-cpu"
-  }
-},
-{
-  "model": "reviews.category",
-  "pk": 7,
-  "fields": {
-    "name": "Processador",
-    "slug": "processador",
-    "icon": "icon-cpu"
   }
 },
 {

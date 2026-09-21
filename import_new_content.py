@@ -130,6 +130,15 @@ def main():
                 failed += 1
                 print(f'   ! {model_name} {entry.get("pk", "")}: {e}')
 
+    empty_cats = reviews_models.Category.objects.filter(
+        products__isnull=True,
+        guides__isnull=True
+    )
+    if empty_cats.exists():
+        count_empty = empty_cats.count()
+        empty_cats.delete()
+        print(f'=> Removidas {count_empty} categoria(s) vazia(s) do banco.')
+
     print(f'Concluido: {created} criado(s), {skipped} existente(s), {failed} erro(s).')
 
 

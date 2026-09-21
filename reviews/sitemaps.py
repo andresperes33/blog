@@ -1,5 +1,6 @@
 from django.contrib.sitemaps import Sitemap
 from django.urls import reverse
+from django.db.models import Q
 from .models import Review, Category, Comparison, Guide
 
 class StaticViewSitemap(Sitemap):
@@ -32,7 +33,12 @@ class CategorySitemap(Sitemap):
     priority = 0.7
 
     def items(self):
-        return Category.objects.order_by('name')
+        return Category.objects.filter(
+            Q(products__reviews__is_published=True) |
+            Q(products__comparisons_as_first__is_published=True) |
+            Q(products__comparisons_as_second__is_published=True) |
+            Q(guides__is_published=True)
+        ).distinct().order_by('name')
 
 class ComparisonSitemap(Sitemap):
     changefreq = "weekly"

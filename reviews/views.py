@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView, TemplateView
 from django.urls import reverse
+from django.db.models import Q
 from .models import Review, Category, Product, Comparison, Guide, GuideItem
 from itertools import chain
 from operator import attrgetter
@@ -131,6 +132,14 @@ class CategoryListView(ListView):
     model = Category
     template_name = 'reviews/all_categories.html'
     context_object_name = 'categories'
+
+    def get_queryset(self):
+        return Category.objects.filter(
+            Q(products__reviews__is_published=True) |
+            Q(products__comparisons_as_first__is_published=True) |
+            Q(products__comparisons_as_second__is_published=True) |
+            Q(guides__is_published=True)
+        ).distinct().order_by('name')
 
 class CategoryDetailView(ListView):
     model = Review
