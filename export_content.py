@@ -31,16 +31,40 @@ def main():
     os.makedirs(BACKUP_DIR, exist_ok=True)
 
     print('=> Exportando banco (reviews + usuarios)...')
+    from io import StringIO
+    import json
+
+    buf = StringIO()
+    call_command(
+        'dumpdata',
+        'reviews',
+        'auth.User',
+        '--natural-foreign',
+        '--natural-primary',
+        '--indent', '2',
+        stdout=buf,
+    )
+    raw_data = json.loads(buf.getvalue())
+
+    MODEL_ORDER = [
+        'auth.user',
+        'reviews.category',
+        'reviews.tag',
+        'reviews.product',
+        'reviews.guide',
+        'reviews.guideitem',
+        'reviews.review',
+        'reviews.reviewimage',
+        'reviews.comparison',
+    ]
+
+    def sort_key(e):
+        m = e.get('model', '')
+        return (MODEL_ORDER.index(m) if m in MODEL_ORDER else 99, e.get('pk', 0))
+
+    sorted_data = sorted(raw_data, key=sort_key)
     with open(FIXTURE, 'w', encoding='utf-8') as f:
-        call_command(
-            'dumpdata',
-            'reviews',
-            'auth.User',
-            '--natural-foreign',
-            '--natural-primary',
-            '--indent', '2',
-            stdout=f,
-        )
+        json.dump(sorted_data, f, indent=2, ensure_ascii=False)
     print(f'   OK -> {FIXTURE}')
 
     print('=> Copiando imagens de media/ ...')
