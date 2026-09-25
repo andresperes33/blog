@@ -31,6 +31,9 @@
   }
 }
 </script>
+{% if guide.faq_jsonld %}
+<script type="application/ld+json">{{ guide.faq_jsonld|safe }}</script>
+{% endif %}
 {% endblock %}
 
 {% block breadcrumb %}
@@ -173,6 +176,26 @@
                 {% endfor %}
             </div>
 
+            {% if guide.faq_items %}
+            <section id="faq" class="scroll-mt-28">
+                <p class="eyebrow mb-3 text-primary">Dúvidas Frequentes</p>
+                <h2 class="text-3xl font-bold tracking-tight text-ink mb-8">Perguntas Frequentes</h2>
+                <div class="space-y-3">
+                    {% for faq in guide.faq_items %}
+                    <details class="card group overflow-hidden">
+                        <summary class="flex items-start justify-between gap-4 p-5 md:p-6 cursor-pointer list-none hover:bg-soft transition-colors">
+                            <h3 class="text-base font-bold text-ink leading-snug">{{ faq.question }}</h3>
+                            <span class="flex-shrink-0 w-6 h-6 flex items-center justify-center text-primary font-bold text-lg leading-none group-open:rotate-45 transition-transform">+</span>
+                        </summary>
+                        <div class="px-5 md:px-6 pb-5 md:pb-6 border-t border-hairline">
+                            <p class="text-[15px] text-body leading-relaxed mt-4 mb-0">{{ faq.answer }}</p>
+                        </div>
+                    </details>
+                    {% endfor %}
+                </div>
+            </section>
+            {% endif %}
+
             {% if guide.conclusion %}
             <section id="conclusao" class="scroll-mt-28">
                 <div class="relative bg-black text-white p-8 md:p-10">
@@ -200,6 +223,13 @@
                             <span class="font-medium line-clamp-1 leading-tight">{{ item.name }}</span>
                         </a>
                         {% endfor %}
+                        {% if guide.faq_items %}
+                        <a href="#faq"
+                            class="flex items-start gap-3 py-2 text-[14px] text-body hover:text-primary transition-colors border-t border-hairline">
+                            <span class="w-6 h-6 flex-shrink-0 flex items-center justify-center bg-soft text-[11px] font-bold">?</span>
+                            <span class="font-medium leading-tight">Perguntas Frequentes</span>
+                        </a>
+                        {% endif %}
                     </nav>
                 </div>
                 {% endif %}

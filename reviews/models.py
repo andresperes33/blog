@@ -3,6 +3,8 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from django.utils.text import slugify
 
+import json
+
 def format_spec_value(v):
     if isinstance(v, list):
         return ", ".join(map(format_spec_value, v))
@@ -284,6 +286,12 @@ class Guide(models.Model):
     excerpt = models.TextField("Resumo", help_text="Aparece nas listagens.")
     content = models.TextField("Conteúdo/Introdução do Guia")
     conclusion = models.TextField("Conclusão/Veredito Final", blank=True)
+    faq = models.JSONField(
+        "Perguntas Frequentes (FAQ)",
+        default=list,
+        blank=True,
+        help_text="Lista de dicts: [{'question': '...', 'answer': '...'}]",
+    )
     main_image = models.ImageField("Imagem Principal", upload_to="guides/main/")
     is_published = models.BooleanField("Publicado", default=True)
     is_featured = models.BooleanField("Destaque na Home", default=False)
@@ -299,6 +307,53 @@ class Guide(models.Model):
 
     def get_absolute_url(self):
         return reverse('reviews:guide_detail', kwargs={'slug': self.slug})
+
+    @property
+    def faq_items(self):
+        """Normaliza o campo FAQ em uma lista de {question, answer} válida."""
+        if not isinstance(self.faq, list):
+            return []
+        items = []
+        for entry in self.faq:
+            if not isinstance(entry, dict):
+                continue
+            question = (entry.get('question') or '').strip()
+            answer = (entry.get('answer') or '').strip()
+            if question and answer:
+                items.append({'question': question, 'answer': answer})
+        return items
+
+    @property
+    def faq_jsonld(self):
+        """Schema.org FAQPage serializado e seguro para <script type="application/ld+json">.
+
+        Usado por buscadores e por respostas de IA (GEO). Escapa os caracteres
+        que poderiam fechar a tag <script>, como faz o filtro json_script do Django.
+        """
+        items = self.faq_items
+        if not items:
+            return ''
+        payload = {
+            "@context": "https://schema.org/",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": item['question'],
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": item['answer'],
+                    },
+                }
+                for item in items
+            ],
+        }
+        raw = json.dumps(payload, ensure_ascii=False)
+        return raw.translate(str.maketrans({
+            '<': '\\u003c',
+            '>': '\\u003e',
+            '&': '\\u0026',
+        }))
 
     def save(self, *args, **kwargs):
         if not self.slug:
