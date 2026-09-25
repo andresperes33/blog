@@ -210,3 +210,12 @@ NPM_BIN_PATH = 'npm.cmd'
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
+
+# Google AdSense
+# Preencha os IDs das unidades em AdSense > Publicidade > Unidades de anuncio.
+# Enquanto estiverem vazios, nenhum <ins> e renderizado (site fica limpo).
+# Formato do ID da unidade: sequencia numerica, ex.: "1234567890"
+ADSENSE_CLIENT = 'ca-pub-1945676049008537'
+ADSENSE_SLOT_TOP = ''
+ADSENSE_SLOT_IN_ARTICLE = ''
+ADSENSE_SLOT_BOTTOM = ''

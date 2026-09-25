@@ -173,6 +173,9 @@
                         </div>
                     </div>
                 </section>
+                {% if not forloop.last %}{% if forloop.counter == 4 %}
+                {% load ads %}{% ad_slot "in_article" %}
+                {% endif %}{% endif %}
                 {% endfor %}
             </div>
 

@@ -223,7 +223,20 @@
     {% block breadcrumb %}{% endblock %}
 
     <main class="min-h-screen bg-canvas">
+        {% load ads %}
+        <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
+            {% ad_slot "top" %}
+        </div>
+
+        {% block content_top %}{% endblock %}
+
         {% block content %}{% endblock %}
+
+        <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
+            {% ad_slot "bottom" %}
+        </div>
+
+        {% block content_bottom %}{% endblock %}
     </main>
 
     <!-- Footer -->
