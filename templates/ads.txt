@@ -1,5 +1,4 @@
-# Google AdSense ads.txt - André Indica
-# Documentação oficial: https://support.google.com/adsense/answer/7532444
-# Assim que sua conta AdSense for aprovada, adicione sua linha de editor aqui:
-# Exemplo: google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
-
+# Google AdSense ads.txt - Andre Indica
+# Documentacao oficial: https://support.google.com/adsense/answer/7532444
+# Linha de editor (obrigatoria para rightful revenue):
+google.com, pub-1945676049008537, DIRECT, f08c47fec0942fa0
