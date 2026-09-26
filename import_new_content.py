@@ -250,7 +250,15 @@ def main():
         if model_name not in MODELS:
             continue
         with transaction.atomic():
-            if entry_exists(model_name, entry):
+            # Produto e dado de referencia gerado por script, nao conteudo
+            # editado a mao. Sempre reconciliamos para corrigir FKs que ficaram
+            # erradas: sem isso, um produto criado por um import anterior com a
+            # categoria apontando para o registro errado continuaria errado para
+            # sempre, porque entry_exists() diria que ele ja existe e o import
+            # passaria direto. Foi assim que a review da Maxsun ficou meses
+            # amarrada em PC Gamer.
+            sempre_reconcilia = model_name == 'reviews.product'
+            if entry_exists(model_name, entry) and not sempre_reconcilia:
                 skipped += 1
                 continue
             try:
