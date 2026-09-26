@@ -35,15 +35,6 @@
   },
   {
     "model": "reviews.category",
-    "pk": 12,
-    "fields": {
-      "name": "PC Gamer",
-      "slug": "pc-gamer",
-      "icon": "icon-pc"
-    }
-  },
-  {
-    "model": "reviews.category",
     "pk": 48,
     "fields": {
       "name": "Mobile",
@@ -98,7 +89,16 @@
   },
   {
     "model": "reviews.category",
-    "pk": 59,
+    "pk": 65,
+    "fields": {
+      "name": "PC Gamer",
+      "slug": "pc-gamer",
+      "icon": "icon-pc"
+    }
+  },
+  {
+    "model": "reviews.category",
+    "pk": 66,
     "fields": {
       "name": "Placas Mãe",
       "slug": "placas-mae",
@@ -557,12 +557,12 @@
   },
   {
     "model": "reviews.product",
-    "pk": 11,
+    "pk": 16,
     "fields": {
       "name": "Challenger B650M WiFi Ice V2",
       "brand": "Maxsun",
       "model_name": "Challenger B650M WiFi Ice V2",
-      "category": 59
+      "category": 66
     }
   },
   {
@@ -613,7 +613,7 @@
     "fields": {
       "title": "Como Montar um PC Gamer Barato de R$ 1.800 em 2026: Guia Completo Peça por Peça",
       "slug": "como-montar-pc-gamer-barato-1800-2026",
-      "category": 12,
+      "category": 65,
       "author": [
         "admin"
       ],
@@ -2072,9 +2072,9 @@
   },
   {
     "model": "reviews.review",
-    "pk": 9,
+    "pk": 13,
     "fields": {
-      "product": 11,
+      "product": 16,
       "title": "Maxsun Challenger B650M WiFi Ice V2: review da placa-mãe AM5 branca e barata",
       "slug": "maxsun-challenger-b650m-wifi-ice-v2",
       "excerpt": "Análise da Maxsun Challenger B650M WiFi Ice V2, placa-mãe AM5 branca em mATX com chipset B650, VRM 6+2+1 e WiFi integrado. Por R$ 800 a R$ 850 em promoção é bom custo-benefício para Ryzen 5 e 7, mas tem limitações reais: WiFi 5 com Bluetooth 4.2 e apenas um slot M.2.",
@@ -2119,8 +2119,8 @@
       "author": [
         "admin"
       ],
-      "created_at": "2026-09-26T19:45:59.042Z",
-      "updated_at": "2026-09-26T19:46:45.013Z",
+      "created_at": "2026-09-26T20:05:32.882Z",
+      "updated_at": "2026-09-26T20:05:32.882Z",
       "is_featured": false,
       "is_published": true,
       "sku": "MS-CHA-B650MWIFIICEV2",
