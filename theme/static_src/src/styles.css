@@ -67,6 +67,70 @@
         color: #757575;
         font-style: italic;
     }
+
+    /* Tabelas de especificacao em conteudo longo.
+       O reset do Tailwind so define border-collapse, entao sem estas
+       regras a tabela sai sem borda, sem padding e ilegivel. O visual
+       replica a lista de specs do sidebar: rotulo em caixa alta
+       pequeno e cinza, valor em negrito preto. */
+    .prose-body .spec-table {
+        overflow-x: auto;
+        margin-bottom: 1.5rem;
+    }
+
+    .prose-body table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9375rem;
+    }
+
+    .prose-body thead th {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: #757575;
+        text-align: left;
+        padding: 0 1rem 0.625rem 0;
+        border-bottom: 2px solid #76b900;
+        white-space: nowrap;
+    }
+
+    .prose-body tbody td {
+        padding: 0.75rem 1rem 0.75rem 0;
+        border-bottom: 1px solid #cccccc;
+        vertical-align: top;
+        line-height: 1.6;
+    }
+
+    .prose-body tbody tr:last-child td {
+        border-bottom: 0;
+    }
+
+    .prose-body tbody td:first-child {
+        width: 34%;
+        padding-right: 1.5rem;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: #757575;
+    }
+
+    .prose-body tbody td + td {
+        font-weight: 700;
+        color: #000000;
+    }
+
+    @media (max-width: 639px) {
+        .prose-body table {
+            font-size: 0.875rem;
+        }
+
+        .prose-body tbody td:first-child {
+            width: 40%;
+        }
+    }
 }
 
 @layer components {

@@ -67,6 +67,7 @@ procure outra.</p>
 <h2>Especificações técnicas</h2>
 <p>Estrutura resumida. A ficha completa, com 24 campos, fica na lateral direita
 do review.</p>
+<div class="spec-table">
 <table>
   <thead><tr><th>Especifica\u00e7\u00e3o</th><th>Detalhe</th></tr></thead>
   <tbody>
@@ -82,6 +83,7 @@ do review.</p>
     <tr><td>Bluetooth</td><td>4.2</td></tr>
   </tbody>
 </table>
+</div>
 
 <h2>O que o chipset B650 entrega (e o que não entrega)</h2>
 <p>O B650 é o chipset intermediário da linha AM5. Ele cobre o essencial: suporte a
