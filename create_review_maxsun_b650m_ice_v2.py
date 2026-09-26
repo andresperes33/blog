@@ -47,8 +47,9 @@ SHOPEE = (
 
 EXCERPT = (
     'Análise da Maxsun Challenger B650M WiFi Ice V2, placa-mãe AM5 branca em mATX com '
-    'chipset B650, VRM 6+2+1 e WiFi integrado. Bom custo-benefício para Ryzen 5 e 7, '
-    'mas com limitações reais: WiFi 5 com Bluetooth 4.2 e apenas um slot M.2.'
+    'chipset B650, VRM 6+2+1 e WiFi integrado. Por R$ 800 a R$ 850 em promoção é bom '
+    'custo-benefício para Ryzen 5 e 7, mas tem limitações reais: WiFi 5 com Bluetooth '
+    '4.2 e apenas um slot M.2.'
 )
 
 CONTENT = """
@@ -157,6 +158,17 @@ se a estética importa, a Ice V2 é a versão correta.</p>
   <li>Precisa de mais de 32GB de RAM em quatro pentes</li>
 </ul>
 
+<h2>Preço: onde ela se encaixa</h2>
+<p>Em promoções, a Maxsun Challenger B650M WiFi Ice V2 aparece entre <strong>R$ 800
+e R$ 850</strong>. É nessa faixa que ela fica realmente competitiva: B650, mATX
+branco e WiFi integrado por menos de R$ 900 é difícil de encontrar no segmento de
+entrada. Fora de promoção o preço sobe e a margem sobre as alternativas encolhe,
+porque você continua pagando por um único slot M.2 e por WiFi 5 com Bluetooth 4.2.</p>
+<p>Sua lógica de comparação é esta: se a placa estiver na faixa de R$ 800 a R$ 850, ela
+vale a compra para o perfil descrito neste review. Acima disso, compare com uma
+B650M de duas unidades M.2 e WiFi 6 antes de fechar, porque a diferença de preço
+começa a não compensar as limitações.</p>
+
 <h2>Alternativas a considerar</h2>
 <p>Se o ponto fraco for o número de slots M.2, placas como a <strong>MSI PRO
 B650M-P WiFi</strong> e a <strong>ASRock B650M Pro RS WiFi</strong> entregam dois
@@ -185,8 +197,10 @@ M.2 e WiFi 5 com Bluetooth 4.2. Nenhum dos dois é erro da placa, é o
 orçamento do segmento. Fora isso, VRM à altura para Ryzen 5 e 7, três SATA,
 EXPO liberado e acabamento branco consistente.</p>
 <p>Se você já sabe que precisa de um SSD só e não depende de Bluetooth 5, ela
-cumpre o que promete. Se alguma dessas duas condições não se aplica, a economia
-de R$ 100 ou R$ 200 não compensa o retrabalho.</p>
+cumpre o que promete: entre R$ 800 e R$ 850 em promoção, é difícil achar B650
+mATX branco com WiFi integrado por menos. Se alguma dessas duas condições não se
+aplica, a economia de R$ 100 ou R$ 200 em relação a uma placa com dois M.2 e
+WiFi 6 não compensa o retrabalho.</p>
 """
 
 PROS = (
@@ -310,11 +324,13 @@ FAQ = [
     {
         'question': 'Qual é o preço da Maxsun Challenger B650M WiFi Ice V2?',
         'answer': (
-            'O preço varia bastante conforme o vendedor e a região, e a Shopee concentra '
-            'a oferta mais barata. Como a faixa é de entrada do segmento B650 mATX, ela '
-            'fica abaixo de placas equivalentes com dois slots M.2 e WiFi 6. Confira o '
-            'valor atual nos links desta página antes de decidir, porque a diferença de '
-            'preço em relação a essas alternativas muda a conta.'
+            'Em promoções, ela costuma aparecer entre R$ 800 e R$ 850, que é a faixa em '
+            'que ela fica mais competitiva. Fora de promoção o valor sobe, e o preço varia '
+            'conforme o vendedor e a região, com a Shopee concentrando a oferta mais '
+            'barata. Como é uma placa de entrada do segmento B650 mATX, ela fica abaixo '
+            'de placas equivalentes com dois slots M.2 e WiFi 6. Confira o valor atual '
+            'nos links desta página antes de decidir, porque a diferença de preço em '
+            'relação a essas alternativas muda a conta.'
         ),
     },
     {
