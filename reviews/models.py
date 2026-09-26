@@ -108,6 +108,16 @@ class Review(models.Model):
     is_featured = models.BooleanField("Destaque", default=False)
     is_published = models.BooleanField("Publicado", default=True)
 
+    # Identidade do produto, usada no JSON-LD para que buscadores e IAs
+    # resolvam a entidade (MPN da fabricante, prefixado no slug do review).
+    sku = models.CharField("SKU / MPN", max_length=100, blank=True)
+
+    # Perguntas e respostas em JSON, no mesmo formato do Guide.faq.
+    # Alimenta o FAQPage schema.org, que e o formato que mecanismos de
+    # busca por resposta (Google AI Overviews, ChatGPT, Perplexity,
+    # Copilot) extraem com mais facilidade.
+    faq = models.JSONField("Perguntas Frequentes", default=list, blank=True)
+
     class Meta:
         verbose_name = "Review"
         verbose_name_plural = "Reviews"
@@ -152,6 +162,53 @@ class Review(models.Model):
             for name in tag_names:
                 tag, created = Tag.objects.get_or_create(name=name)
                 self.tags.add(tag)
+
+    @property
+    def faq_items(self):
+        """Normaliza Review.faq para uma lista de {question, answer} sem vazios."""
+        if not isinstance(self.faq, list):
+            return []
+        items = []
+        for entry in self.faq:
+            if not isinstance(entry, dict):
+                continue
+            question = (entry.get('question') or '').strip()
+            answer = (entry.get('answer') or '').strip()
+            if question and answer:
+                items.append({'question': question, 'answer': answer})
+        return items
+
+    @property
+    def faq_jsonld(self):
+        """Schema.org FAQPage serializado e seguro para <script type="application/ld+json">.
+
+        Mesmo tratamento do Guide.faq_jsonld: escapa <, > e & para que o JSON
+        nunca possa fechar a tag <script>.
+        """
+        items = self.faq_items
+        if not items:
+            return ''
+        payload = {
+            "@context": "https://schema.org/",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": item['question'],
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": item['answer'],
+                    },
+                }
+                for item in items
+            ],
+        }
+        raw = json.dumps(payload, ensure_ascii=False)
+        return raw.translate(str.maketrans({
+            '<': '\\u003c',
+            '>': '\\u003e',
+            '&': '\\u0026',
+        }))
 
 class ReviewImage(models.Model):
     review = models.ForeignKey(Review, on_delete=models.CASCADE, related_name="gallery")

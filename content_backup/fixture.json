@@ -97,6 +97,15 @@
     }
   },
   {
+    "model": "reviews.category",
+    "pk": 12,
+    "fields": {
+      "name": "Placas Mãe",
+      "slug": "placas-mae",
+      "icon": "icon-cpu"
+    }
+  },
+  {
     "model": "reviews.tag",
     "pk": 1,
     "fields": {
@@ -405,6 +414,48 @@
     }
   },
   {
+    "model": "reviews.tag",
+    "pk": 45,
+    "fields": {
+      "name": "placa-mae"
+    }
+  },
+  {
+    "model": "reviews.tag",
+    "pk": 46,
+    "fields": {
+      "name": "am5"
+    }
+  },
+  {
+    "model": "reviews.tag",
+    "pk": 47,
+    "fields": {
+      "name": "b650"
+    }
+  },
+  {
+    "model": "reviews.tag",
+    "pk": 48,
+    "fields": {
+      "name": "ddr5"
+    }
+  },
+  {
+    "model": "reviews.tag",
+    "pk": 49,
+    "fields": {
+      "name": "matx"
+    }
+  },
+  {
+    "model": "reviews.tag",
+    "pk": 50,
+    "fields": {
+      "name": "pcinformatica"
+    }
+  },
+  {
     "model": "reviews.product",
     "pk": 1,
     "fields": {
@@ -502,6 +553,16 @@
       "brand": "Poco",
       "model_name": "",
       "category": 1
+    }
+  },
+  {
+    "model": "reviews.product",
+    "pk": 11,
+    "fields": {
+      "name": "Challenger B650M WiFi Ice V2",
+      "brand": "Maxsun",
+      "model_name": "Challenger B650M WiFi Ice V2",
+      "category": 12
     }
   },
   {
@@ -622,7 +683,7 @@
       "is_published": true,
       "is_featured": true,
       "created_at": "2026-09-25T15:55:27.021Z",
-      "updated_at": "2026-09-25T15:55:27.022Z"
+      "updated_at": "2026-09-26T19:12:54.015Z"
     }
   },
   {
@@ -1501,7 +1562,7 @@
   },
   {
     "model": "reviews.guideitem",
-    "pk": 47,
+    "pk": 60,
     "fields": {
       "guide": 4,
       "product": null,
@@ -1520,7 +1581,7 @@
   },
   {
     "model": "reviews.guideitem",
-    "pk": 48,
+    "pk": 61,
     "fields": {
       "guide": 4,
       "product": null,
@@ -1539,7 +1600,7 @@
   },
   {
     "model": "reviews.guideitem",
-    "pk": 49,
+    "pk": 62,
     "fields": {
       "guide": 4,
       "product": null,
@@ -1558,7 +1619,7 @@
   },
   {
     "model": "reviews.guideitem",
-    "pk": 50,
+    "pk": 63,
     "fields": {
       "guide": 4,
       "product": null,
@@ -1577,7 +1638,7 @@
   },
   {
     "model": "reviews.guideitem",
-    "pk": 51,
+    "pk": 64,
     "fields": {
       "guide": 4,
       "product": null,
@@ -1596,7 +1657,7 @@
   },
   {
     "model": "reviews.guideitem",
-    "pk": 52,
+    "pk": 65,
     "fields": {
       "guide": 4,
       "product": null,
@@ -1615,7 +1676,7 @@
   },
   {
     "model": "reviews.guideitem",
-    "pk": 53,
+    "pk": 66,
     "fields": {
       "guide": 4,
       "product": null,
@@ -1634,7 +1695,7 @@
   },
   {
     "model": "reviews.guideitem",
-    "pk": 54,
+    "pk": 67,
     "fields": {
       "guide": 4,
       "product": null,
@@ -1653,7 +1714,7 @@
   },
   {
     "model": "reviews.guideitem",
-    "pk": 55,
+    "pk": 68,
     "fields": {
       "guide": 4,
       "product": null,
@@ -1672,7 +1733,7 @@
   },
   {
     "model": "reviews.guideitem",
-    "pk": 56,
+    "pk": 69,
     "fields": {
       "guide": 4,
       "product": null,
@@ -1691,7 +1752,7 @@
   },
   {
     "model": "reviews.guideitem",
-    "pk": 57,
+    "pk": 70,
     "fields": {
       "guide": 4,
       "product": null,
@@ -1710,7 +1771,7 @@
   },
   {
     "model": "reviews.guideitem",
-    "pk": 58,
+    "pk": 71,
     "fields": {
       "guide": 4,
       "product": null,
@@ -1729,7 +1790,7 @@
   },
   {
     "model": "reviews.guideitem",
-    "pk": 59,
+    "pk": 72,
     "fields": {
       "guide": 4,
       "product": null,
@@ -1785,6 +1846,8 @@
       "updated_at": "2026-09-20T14:24:25.157Z",
       "is_featured": true,
       "is_published": true,
+      "sku": "",
+      "faq": [],
       "tags": [
         1,
         2,
@@ -1835,6 +1898,8 @@
       "updated_at": "2026-09-20T14:24:25.178Z",
       "is_featured": false,
       "is_published": true,
+      "sku": "",
+      "faq": [],
       "tags": [
         8,
         9,
@@ -1885,6 +1950,8 @@
       "updated_at": "2026-09-20T14:24:25.206Z",
       "is_featured": true,
       "is_published": true,
+      "sku": "",
+      "faq": [],
       "tags": [
         4,
         8,
@@ -1936,6 +2003,8 @@
       "updated_at": "2026-09-20T14:24:25.401Z",
       "is_featured": false,
       "is_published": true,
+      "sku": "",
+      "faq": [],
       "tags": [
         22,
         23,
@@ -1988,6 +2057,8 @@
       "updated_at": "2026-09-20T14:24:25.469Z",
       "is_featured": false,
       "is_published": true,
+      "sku": "",
+      "faq": [],
       "tags": [
         8,
         15,
@@ -1996,6 +2067,112 @@
         35,
         36,
         37
+      ]
+    }
+  },
+  {
+    "model": "reviews.review",
+    "pk": 9,
+    "fields": {
+      "product": 11,
+      "title": "Maxsun Challenger B650M WiFi Ice V2: review da placa-mãe AM5 branca e barata",
+      "slug": "maxsun-challenger-b650m-wifi-ice-v2",
+      "excerpt": "Análise da Maxsun Challenger B650M WiFi Ice V2, placa-mãe AM5 branca em mATX com chipset B650, VRM 6+2+1 e WiFi integrado. Bom custo-benefício para Ryzen 5 e 7, mas com limitações reais: WiFi 5 com Bluetooth 4.2 e apenas um slot M.2.",
+      "content": "<p>A Maxsun Challenger B650M WiFi Ice V2 é uma placa-mãe de entrada que resolve um\nproblema específico muito bem: montar um PC AM5 branco, compacto e barato sem\nrenunciar ao chipset B650 e ao WiFi integrado. Fora desse nicho, as duas\nconcessões da placa (um slot M.2 e um módulo WiFi de 2019) pesam.</p>\n\n<h2>Resumo rápido: para quem serve</h2>\n<p>Se você busca <strong>Ryzen 5 7500F, 7600 ou Ryzen 7 7700/7800X3D</strong> em um\ngabinete mATX branco, com WiFi integrado e sem estourar o orçamento, ela faz\nsentido. Se você quer dois SSDs, WiFi 6 ou suporte a um Ryzen 9 de alto consumo,\nprocure outra.</p>\n\n<h2>Especificações técnicas</h2>\n<p>Estrutura resumida. A ficha completa, com 24 campos, fica na lateral direita\ndo review.</p>\n<table>\n  <thead><tr><th>Especificação</th><th>Detalhe</th></tr></thead>\n  <tbody>\n    <tr><td>Chipset</td><td>AMD B650</td></tr>\n    <tr><td>Socket</td><td>AM5 (LGA1718)</td></tr>\n    <tr><td>Formato</td><td>mATX (245 × 210 mm)</td></tr>\n    <tr><td>Processadores</td><td>AMD Ryzen 7000 e 8000</td></tr>\n    <tr><td>VRM</td><td>6+2+1 fases, Dr.MOS de 50A, TDP de 155W</td></tr>\n    <tr><td>Memória</td><td>2 slots DDR5, até 64GB, 4800/5200 MHz + EXPO/XMP</td></tr>\n    <tr><td>Expansão</td><td>1× PCIe 4.0 x16, 1× PCIe 3.0 x1</td></tr>\n    <tr><td>Armazenamento</td><td>1× M.2 PCIe 4.0 x4, 3× SATA 6Gb/s</td></tr>\n    <tr><td>Rede</td><td>1× RJ45 Gigabit + WiFi 5 (Realtek RTL8821CE)</td></tr>\n    <tr><td>Bluetooth</td><td>4.2</td></tr>\n  </tbody>\n</table>\n\n<h2>O que o chipset B650 entrega (e o que não entrega)</h2>\n<p>O B650 é o chipset intermediário da linha AM5. Ele cobre o essencial: suporte a\nRyzen 7000 e 8000, PCIe 4.0 na placa de vídeo e no M.2, e update de BIOS por\nQ-Flash. O que ele <em>não</em> traz é PCIe 5.0 para GPU ou SSD — recurso do B650E\ne do X670E. Na prática, para uma placa em mATX e nessa faixa de preço, perder o\nGen5 quase sempre não pesa, porque a diferença só aparece com hardware de nova\ngeração que ainda é caro.</p>\n\n<h2>VRM: dá conta do Ryzen 5 e do Ryzen 7, não do 7950X</h2>\n<p>O sistema de alimentação é de 6+2+1 fases com Dr.MOS de 50A. É dimensionado para o TDP de 155W, o que cobre com folga o Ryzen 5\n7500F, o 7600 e o Ryzen 7 7700. O 7800X3D também roda bem, porque o X3D tem\nconsumo parecido com o 7700X.</p>\n<p>Já processadores como Ryzen 9 7900X, 7950X e 7950X3D têm PPT de até 230W e\nvão forçar a placa no limite, com mais temperatura e possível throttling. Não é\nque não funcione — é que você estaria gastando em uma CPU cara sobre a\nestrutura de alimentação mais barata do conjunto.</p>\n\n<h2>Memória: 2 slots, e isso é uma limitação real</h2>\n<p>A placa tem apenas <strong>dois slots DIMM</strong>, o que limita a capacidade\na 64GB na especificação oficial. Não existe caminho para quatro pentes.</p>\n<p>Há um lado positivo que a maioria ignora: com dois módulos a planilha de memória\nfica mais simples, o que <em>ajuda</em> a alcançar a frequência ideal do AM5. O\nponto ótimo do Ryzen 5000/7000 é <strong>DDR5-6000 CL30 com EXPO</strong>, e dois\npentes desse perfil atingem esse patamar com mais facilidade do que quatro. Se\nvocê não pretende passar de 32GB, a falta dos slots extras quase não aparece.</p>\n\n<h2>Armazenamento: o ponto fraco mais visível</h2>\n<p>Existe <strong>um único slot M.2</strong>. Isso é o que mais vai incomodar\nquem monta um PC para games e trabalho ao mesmo tempo: o sistema vai no NVMe e,\nse quiser um segundo armazenamento, precisa ocupar um dos três portas SATA, o\nque significa perder a BENEFÍCIO de banda do NVMe.</p>\n<p>Para um PC de jogo com um SSD, é suficiente. Para quem guarda biblioteca de\njogos ou trabalha com vídeo, é um limite que define a compra.</p>\n\n<h2>WiFi e Bluetooth: a concessão mais séria</h2>\n<p>Este é o ponto que exige atenção. A placa traz o módulo <strong>Realtek\nRTL8821CE</strong>, que oferece:</p>\n<ul>\n  <li>WiFi 5 (802.11ac) a até 866 Mbps na faixa de 5 GHz</li>\n  <li><strong>Bluetooth 4.2</strong></li>\n</ul>\n<p>Para navegar, é suficiente. Para periféricos, não é. O principal: o Bluetooth\n4.2 é uma versão de 2019. Periféricos modernos que pedem BT 5.0 ou 5.3 —\nfones com baixa latência, mouses sem fio, teclados — vão operar com codecs\nantigos e, em alguns casos, parear sem os recursos de LE Audio. E o módulo usa\nslot M.2 Key-M sem suporte a Intel CNVi, ou seja, a troca exigiria um\nadaptador específico.</p>\n<p>Se o seu plano é usar headset Bluetooth no PC, leve isso em conta. Para\nteclado e mouse com dongle USB 2.4 GHz, não faz diferença nenhuma.</p>\n\n<h2>Acabamento: o \"Ice\" é o diferencial de verdade</h2>\n<p>A diferença entre esta e a Maxsun Challenger B650M WiFi V2 (sem \"Ice\") é\nvisual. A Ice V2 troca os dissipadores pretos por uma blindagem prata/branca,\ncom o conjunto pensado para combinar com gabinete e memoria branca. Se o seu\ngabinete é branco, a V2 simples entrega o mesmo desempenho por menos dinheiro;\nse a estética importa, a Ice V2 é a versão correta.</p>\n\n<h2>Para quem é, para quem não é</h2>\n<h3>Compre se você...</h3>\n<ul>\n  <li>Montar um PC AM5 branco e compacto (mATX)</li>\n  <li>Usar Ryzen 5 7500F, 7600 ou Ryzen 7 7700/7800X3D</li>\n  <li>Querer WiFi integrado sem comprar adaptador à parte</li>\n  <li>Aceita trabalhar com um único SSD NVMe</li>\n  <li>Precisa de EXPO/XMP para subir a memória a 6000 MT/s</li>\n</ul>\n<h3>Não compre se você...</h3>\n<ul>\n  <li>Quer dois ou mais SSDs NVMe</li>\n  <li>Usa periféricos Bluetooth 5.x e depende de baixa latência</li>\n  <li>Planeja um Ryzen 9 de alto PPT (7900X, 7950X, 7950X3D)</li>\n  <li>Precisa de rede 2.5GbE ou WiFi 6/6E</li>\n  <li>Precisa de mais de 32GB de RAM em quatro pentes</li>\n</ul>\n\n<h2>Alternativas a considerar</h2>\n<p>Se o ponto fraco for o número de slots M.2, placas como a <strong>MSI PRO\nB650M-P WiFi</strong> e a <strong>ASRock B650M Pro RS WiFi</strong> entregam dois\nslots M.2 e WiFi 6 por uma faixa de preço parecida, e costumam ser escolhas mais\nseguras a longo prazo. Se o orçamento for o critério principal e o gabinete não\nprecisar ser branco, a Maxsun Challenger B650M WiFi V2 (sem \"Ice\") entrega\npraticamente a mesma placa por menos dinheiro.</p>\n\n<h2>Conclusão</h2>\n<p>A Maxsun Challenger B650M WiFi Ice V2 é uma placa honesta: faz bem o que\npropõe e não esconde as limitações. Entrega B650, WiFi integrado e acabamento\nbranco em mATX, com VRM suficiente para Ryzen 5 e 7 e espaço de sobra para\no Ryzen 7 X3D.</p>\n<p>Os dois limites — um único slot M.2 e um módulo WiFi com Bluetooth 4.2 — são\nirreversíveis e definem para quem ela serve. Quem monta jogo com um SSD e\nnavega por cabo ou por adaptador de Bluetooth 5, tem um conjunto coerente e barato.\nQuem precisa de dois NVMe ou de periféricos Bluetooth modernos deve gastar um\npouco mais e escolher uma B650M com dois slots M.2 e WiFi 6.</p>",
+      "conclusion": "<p><strong>Nota 7,2/10.</strong> Uma placa de entrada bem resolvida para o nicho\nque atende: AM5 branco, mATX, B650 e WiFi integrado sem funções desnecessárias.</p>\n<p>Fica abaixo da média da categoria em dois pontos objetivos: apenas um slot\nM.2 e WiFi 5 com Bluetooth 4.2. Nenhum dos dois é erro da placa, é o\norçamento do segmento. Fora isso, VRM à altura para Ryzen 5 e 7, três SATA,\nEXPO liberado e acabamento branco consistente.</p>\n<p>Se você já sabe que precisa de um SSD só e não depende de Bluetooth 5, ela\ncumpre o que promete. Se alguma dessas duas condições não se aplica, a economia\nde R$ 100 ou R$ 200 não compensa o retrabalho.</p>",
+      "main_image": "reviews/main/maxsun-challenger-b650m-wifi-ice-v2.webp",
+      "rating": "7.2",
+      "pros": "Chipset B650 com suporte a Ryzen 7000 e 8000\nWiFi integrado, dispensa adaptador avulso\nVRM 6+2+1 com Dr.MOS de 50A aguenta Ryzen 5 e 7 com folga\nSuporte a EXPO/XMP para levar a DDR5 a 6000 MT/s\nFormato mATX e blindagem branca, rara nessa faixa de preço\nTrês portas SATA e header ARGB para a placa",
+      "cons": "Apenas um slot M.2 — um único SSD NVMe\nWiFi 5 (802.11ac) com Bluetooth 4.2, defasado para 2026\nSomente 2 slots de memória, sem caminho para 4 pentes\nSem PCIe 5.0 para GPU ou SSD\nRede Gigabit Ethernet, sem 2.5GbE\nCodec de áudio ALC897, básico para fone de alta fideli",
+      "specifications": {
+        "Marca": "Maxsun",
+        "Modelo": "Challenger B650M WiFi Ice V2",
+        "Código do fabricante": "MS-CHA-B650MWIFIICEV2",
+        "Chipset": "AMD B650",
+        "Socket": "AM5 (LGA1718)",
+        "Formato": "mATX (245 × 210 mm)",
+        "Processadores suportados": "AMD Ryzen 7000 e 8000",
+        "VRM": "6+2+1 fases, Dr.MOS 50A, TDP 155W",
+        "Memória": "2 slots DDR5, dual channel, até 64 GB",
+        "Frequência de memória": "4800 / 5200 MHz + EXPO e XMP",
+        "Slot de vídeo": "1× PCIe 4.0 x16",
+        "Slots de expansão": "1× PCIe 4.0 x16, 1× PCIe 3.0 x1",
+        "Armazenamento": "1× M.2 PCIe 4.0 x4 (2242/2280)",
+        "SATA": "3× SATA 6Gb/s",
+        "Rede cabeada": "Realtek RTL8111H Gigabit (1 Gbps)",
+        "WiFi": "Realtek RTL8821CE, 802.11ac, até 866 Mbps",
+        "Bluetooth": "4.2",
+        "Áudio": "Realtek ALC897, 5.1 canais",
+        "Saída de vídeo": "1× HDMI e 1× DisplayPort, até 2560×1440 @60Hz",
+        "USB traseiro": "4× USB 3.2 Gen1 e 2× USB 2.0",
+        "Alimentação": "24-pin ATX + 8-pin EPS",
+        "Headers de cooler": "1× CPU_FAN, 2× SYS_FAN",
+        "Iluminação": "1× 12V RGB, 2× 5V ARGB",
+        "Garantia": "3 anos"
+      },
+      "tags_input": "placa-mae, am5, b650, ddr5, matx, pcinformatica",
+      "amazon_link": null,
+      "mercadolivre_link": null,
+      "shopee_link": "https://shopee.com.br/Placa-M%C3%A3e-Maxsun-Challenger-B650M-WiFi-Ice-V2-Chipset-B650-AMD-AM5-mATX-DDR5-i.1552226494.58261833810?utm_medium=affiliates&utm_source=an_18339371295",
+      "aliexpress_link": null,
+      "kabum_link": null,
+      "author": [
+        "admin"
+      ],
+      "created_at": "2026-09-26T19:18:01.690Z",
+      "updated_at": "2026-09-26T19:18:59.995Z",
+      "is_featured": false,
+      "is_published": true,
+      "sku": "MS-CHA-B650MWIFIICEV2",
+      "faq": [
+        {
+          "question": "A Maxsun Challenger B650M WiFi Ice V2 é boa para o Ryzen 7 7800X3D?",
+          "answer": "Sim. O 7800X3D tem consumo de energia parecido com o 7700X, dentro do limite de 155W que o VRM 6+2+1 com Dr.MOS de 50A foi dimensionado para atender. Com um par de memórias DDR5 em perfil EXPO, o conjunto roda com margem térmica confortável."
+        },
+        {
+          "question": "Quantos slots M.2 essa placa-mãe tem?",
+          "answer": "Apenas um slot M.2 PCIe 4.0 x4, que aceita SSDs de 2242 ou 2280. Para um segundo disco, é preciso usar uma das três portas SATA 6Gb/s, o que significa abrir mão da velocidade do NVMe."
+        },
+        {
+          "question": "Essa placa tem WiFi 6?",
+          "answer": "Não. O módulo integrado é o Realtek RTL8821CE, que oferece WiFi 5 (802.11ac) a até 866 Mbps na faixa de 5 GHz. Não há suporte a WiFi 6 nem WiFi 6E. Para internet a cabo, acima de 300 Mbps, isso não faz diferença; para redes WiFi 6, faz."
+        },
+        {
+          "question": "Qual o Bluetooth dessa placa?",
+          "answer": "Bluetooth 4.2, pela limitação do próprio módulo RTL8821CE. Periféricos que exigem Bluetooth 5.0 ou superior — fones com baixa latência, mouses e teclados modernos — funcionam, mas sem os recursos de LE Audio e com os codecs antigos. Teclado e mouse com receptor USB 2.4 GHz não são afetados."
+        },
+        {
+          "question": "Posso usar um Ryzen 9 7950X ou 7950X3D nela?",
+          "answer": "Tecnicamente liga e funciona, mas não é recomendado. Esses processadores têm PPT de até 230W, acima dos 155W que o VRM da placa foi projetado para entregar. O resultado é temperatura mais alta no VRM e risco de throttling. O certo nessa faixa é uma placa B650 com VRM mais robusto, como as da MSI PRO ou ASRock com Dissipação de 10 a 12 fases."
+        },
+        {
+          "question": "Qual a diferença entre a B650M WiFi Ice V2 e a B650M WiFi V2?",
+          "answer": "A diferença é o acabamento. A Ice V2 usa blindagem e dissipadores prata e brancos, pensados para montar um PC branco. A B650M WiFi V2, sem \"Ice\", tem os mesmos componentes funcionais em preto. Desempenho idêntico; a Ice V2 custa um pouco mais e é a escolha certa se o gabinete for branco."
+        },
+        {
+          "question": "Quantos slots de memória DDR5 ela tem?",
+          "answer": "Dois slots DIMM, em dual channel, com suporte oficial a até 64 GB. Não há como usar quatro módulos. A boa notícia é que dois pentes facilitam atingir a frequência ideal do AM5: DDR5-6000 CL30 com perfil EXPO é o ponto ótimo para Ryzen 5000 e 7000."
+        },
+        {
+          "question": "Preciso de placa de vídeo para usar essa placa-mãe?",
+          "answer": "Depende do processador. O Ryzen 5 7500F não tem vídeo integrado, então exige placa de vídeo. O Ryzen 5 7600 e o Ryzen 7 7700 têm Radeon Vega integrado e duram saídas na placa: HDMI e DisplayPort, ambos até 2560×1440 a 60Hz. Com CPU sem vídeo integrado, as saídas da placa não funcionam."
+        },
+        {
+          "question": "Qual é o preço da Maxsun Challenger B650M WiFi Ice V2?",
+          "answer": "O preço varia bastante conforme o vendedor e a região, e a Shopee concentra a oferta mais barata. Como a faixa é de entrada do segmento B650 mATX, ela fica abaixo de placas equivalentes com dois slots M.2 e WiFi 6. Confira o valor atual nos links desta página antes de decidir, porque a diferença de preço em relação a essas alternativas muda a conta."
+        },
+        {
+          "question": "Vale a pena comprar a Maxsun Challenger B650M WiFi Ice V2?",
+          "answer": "Vale se o seu cenário for Ryzen 5 ou 7, um único SSD, gabinete branco e WiFi integrado sem gastar à parte. Não vale se você precisa de dois slots M.2, usa periféricos Bluetooth 5.x ou planeja um Ryzen 9. Nesse segundo caso, modelos como a MSI PRO B650M-P WiFi ou a ASRock B650M Pro RS WiFi custam pouco mais e resolvem essas limitações."
+        }
+      ],
+      "tags": [
+        45,
+        46,
+        47,
+        48,
+        49,
+        50
       ]
     }
   },
