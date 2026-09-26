@@ -68,27 +68,51 @@ def restore_media():
     print(f'   OK -> {settings.MEDIA_ROOT}')
 
 
+def find_natural_key(model_cls, model_name, fields):
+    """Retorna o objeto pelo seu identificador natural (slug/username/brand+nome).
+
+    PK nao serve como identificador natural: os numeros do fixture vem do banco
+    local e nao batem com o banco de producao, que acumula registros de varios
+    deploys. Um objeto que tem o mesmo PK do fixture pode ser outra categoria
+    inteira, e ai aimportacao pula a entrada ou aponta a FK para o registro
+    errado sem avisar.
+    """
+    if model_name == 'auth.user':
+        return User.objects.filter(username=fields.get('username')).first()
+
+    # Categoria, guia, review, comparacao e tag tem slug
+    if 'slug' in fields and hasattr(model_cls, 'slug'):
+        return model_cls.objects.filter(slug=fields['slug']).first()
+
+    # Produto nao tem slug: a chave natural e brand + name
+    if model_name == 'reviews.product':
+        return model_cls.objects.filter(
+            brand=fields.get('brand', ''), name=fields.get('name', '')
+        ).first()
+
+    return None
+
+
 def entry_exists(model_name, entry):
-    if entry['model'] == 'auth.user':
-        return User.objects.filter(username=entry['fields']['username']).exists()
+    fields = entry['fields']
 
-    model_cls = MODELS[model_name]
-    # Se possui slug, verifica primeiro por slug
-    if 'slug' in entry['fields']:
-        if model_cls.objects.filter(slug=entry['fields']['slug']).exists():
-            return True
+    # Chave natural tem prioridade sobre qualquer outra verificacao
+    if find_natural_key(MODELS[model_name], model_name, fields) is not None:
+        return True
 
-    # Para guideitem, verifica por guide_id e position
+    # Guia e um caso especial: dentro dele o par (guide, position) e a chave
     if model_name == 'reviews.guideitem':
-        guide_val = entry['fields'].get('guide')
-        pos = entry['fields'].get('position')
+        guide_val = fields.get('guide')
+        pos = fields.get('position')
         if guide_val and pos:
-            if model_cls.objects.filter(guide_id=guide_val, position=pos).exists():
+            if MODELS[model_name].objects.filter(guide_id=guide_val, position=pos).exists():
                 return True
 
-    pk = entry.get('pk')
-    if pk is not None:
-        return model_cls.objects.filter(pk=pk).exists()
+    # So cai para o PK quando o modelo nao tem nenhuma chave natural
+    if 'slug' not in fields and 'brand' not in fields and model_name != 'auth.user':
+        pk = entry.get('pk')
+        if pk is not None:
+            return MODELS[model_name].objects.filter(pk=pk).exists()
     return False
 
 
@@ -131,10 +155,11 @@ def create_entry(model_name, entry, fixture_pk_map=None):
             fields[f.name] = user
             continue
 
-        # Outras ForeignKeys por PK ou fallback por Slug/Nome
-        rel_obj = f.related_model.objects.filter(pk=val).first()
-        if not rel_obj and fixture_pk_map:
-            # Fallback por mapeamento do fixture
+        # Outras ForeignKeys: a chave natural do fixture tem prioridade sobre o
+        # PK. Resolver por PK primeiro apontava a FK para o registro errado
+        # quando os numeros do fixture nao batem com a producao, sem avisar.
+        rel_obj = None
+        if fixture_pk_map:
             fixture_rel = fixture_pk_map.get((f.related_model, val))
             if fixture_rel:
                 if 'slug' in fixture_rel and hasattr(f.related_model, 'slug'):
@@ -143,19 +168,30 @@ def create_entry(model_name, entry, fixture_pk_map=None):
                     rel_obj = f.related_model.objects.filter(name=fixture_rel['name']).first()
 
         if not rel_obj:
+            rel_obj = f.related_model.objects.filter(pk=val).first()
+
+        if not rel_obj:
             raise ValueError(f"ForeignKey '{f.name}' para {f.related_model.__name__} (pk={val}) não encontrada.")
 
         fields[f.name] = rel_obj
 
-    # Se já existe por slug, atualiza ao invés de estourar erro de unicidade
-    if 'slug' in fields and model_cls.objects.filter(slug=fields['slug']).exists():
-        obj = model_cls.objects.get(slug=fields['slug'])
+    # Se ja existe pela chave natural, atualiza ao inves de estourar erro de
+    # unicidade. Isso tambem reconcilia FKs que ficaram erradas em import
+    # anterior: sem este caminho o produto ja criado continuaria apontando
+    # para a categoria errada para sempre, porque o import so cria o que falta.
+    existing = find_natural_key(model_cls, model_name, fields)
+    if existing is not None:
         for k, v in fields.items():
-            setattr(obj, k, v)
-        obj.save()
+            setattr(existing, k, v)
+        existing.save()
+        obj = existing
     else:
         pk_val = entry.get('pk')
-        if pk_val is not None:
+        if pk_val is not None and model_cls.objects.filter(pk=pk_val).exists():
+            # PK do fixture ja ocupado por outro registro: deixa o banco
+            # gerar o proximo, em vez de sobrescrever o objeto existente.
+            obj = model_cls(**fields)
+        elif pk_val is not None:
             obj = model_cls(pk=pk_val, **fields)
         else:
             obj = model_cls(**fields)

@@ -35,61 +35,7 @@
   },
   {
     "model": "reviews.category",
-    "pk": 1,
-    "fields": {
-      "name": "Mobile",
-      "slug": "mobile",
-      "icon": "icon-mobile"
-    }
-  },
-  {
-    "model": "reviews.category",
-    "pk": 2,
-    "fields": {
-      "name": "Notebooks",
-      "slug": "notebooks",
-      "icon": "icon-laptop"
-    }
-  },
-  {
-    "model": "reviews.category",
-    "pk": 5,
-    "fields": {
-      "name": "Placas de Vídeo",
-      "slug": "placas-de-video",
-      "icon": "icon-gpu"
-    }
-  },
-  {
-    "model": "reviews.category",
-    "pk": 8,
-    "fields": {
-      "name": "Monitores",
-      "slug": "monitores",
-      "icon": "icon-monitor"
-    }
-  },
-  {
-    "model": "reviews.category",
-    "pk": 9,
-    "fields": {
-      "name": "Controles",
-      "slug": "controles",
-      "icon": "icon-gamepad"
-    }
-  },
-  {
-    "model": "reviews.category",
-    "pk": 10,
-    "fields": {
-      "name": "Headset",
-      "slug": "headset",
-      "icon": "icon-audio"
-    }
-  },
-  {
-    "model": "reviews.category",
-    "pk": 11,
+    "pk": 12,
     "fields": {
       "name": "PC Gamer",
       "slug": "pc-gamer",
@@ -98,7 +44,61 @@
   },
   {
     "model": "reviews.category",
-    "pk": 12,
+    "pk": 48,
+    "fields": {
+      "name": "Mobile",
+      "slug": "mobile",
+      "icon": "icon-mobile"
+    }
+  },
+  {
+    "model": "reviews.category",
+    "pk": 49,
+    "fields": {
+      "name": "Notebooks",
+      "slug": "notebooks",
+      "icon": "icon-laptop"
+    }
+  },
+  {
+    "model": "reviews.category",
+    "pk": 50,
+    "fields": {
+      "name": "Placas de Vídeo",
+      "slug": "placas-de-video",
+      "icon": "icon-gpu"
+    }
+  },
+  {
+    "model": "reviews.category",
+    "pk": 51,
+    "fields": {
+      "name": "Monitores",
+      "slug": "monitores",
+      "icon": "icon-monitor"
+    }
+  },
+  {
+    "model": "reviews.category",
+    "pk": 52,
+    "fields": {
+      "name": "Controles",
+      "slug": "controles",
+      "icon": "icon-gamepad"
+    }
+  },
+  {
+    "model": "reviews.category",
+    "pk": 53,
+    "fields": {
+      "name": "Headset",
+      "slug": "headset",
+      "icon": "icon-audio"
+    }
+  },
+  {
+    "model": "reviews.category",
+    "pk": 59,
     "fields": {
       "name": "Placas Mãe",
       "slug": "placas-mae",
@@ -462,7 +462,7 @@
       "name": "Galaxy S24 Ultra",
       "brand": "Samsung",
       "model_name": "",
-      "category": 1
+      "category": 48
     }
   },
   {
@@ -472,7 +472,7 @@
       "name": "MacBook Pro M3",
       "brand": "Apple",
       "model_name": "",
-      "category": 2
+      "category": 49
     }
   },
   {
@@ -482,7 +482,7 @@
       "name": "Ultimate 2",
       "brand": "8BitDo",
       "model_name": "Ultimate 2",
-      "category": 9
+      "category": 52
     }
   },
   {
@@ -492,7 +492,7 @@
       "name": "Vision R15",
       "brand": "Positivo",
       "model_name": "Vision R15M",
-      "category": 2
+      "category": 49
     }
   },
   {
@@ -502,7 +502,7 @@
       "name": "V9 Pro",
       "brand": "Mchose",
       "model_name": "",
-      "category": 10
+      "category": 53
     }
   },
   {
@@ -512,7 +512,7 @@
       "name": "RTX 5060 Ventus 2X OC Edition",
       "brand": "MSI",
       "model_name": "Ventus 2X OC",
-      "category": 5
+      "category": 50
     }
   },
   {
@@ -522,7 +522,7 @@
       "name": "Zeus Pro",
       "brand": "Redragon",
       "model_name": "Zeus Pro",
-      "category": 10
+      "category": 53
     }
   },
   {
@@ -532,7 +532,7 @@
       "name": "Redmi 7A",
       "brand": "Xiaomi",
       "model_name": "7A",
-      "category": 1
+      "category": 48
     }
   },
   {
@@ -542,7 +542,7 @@
       "name": "Galaxy S25 FE",
       "brand": "Samsung",
       "model_name": "",
-      "category": 1
+      "category": 48
     }
   },
   {
@@ -552,7 +552,7 @@
       "name": "Poco X8 Pro Max",
       "brand": "Poco",
       "model_name": "",
-      "category": 1
+      "category": 48
     }
   },
   {
@@ -562,7 +562,7 @@
       "name": "Challenger B650M WiFi Ice V2",
       "brand": "Maxsun",
       "model_name": "Challenger B650M WiFi Ice V2",
-      "category": 12
+      "category": 59
     }
   },
   {
@@ -571,7 +571,7 @@
     "fields": {
       "title": "Melhores celulares para comprar em 2026: guia completo de custo-benefício",
       "slug": "melhores-celulares-2026",
-      "category": 1,
+      "category": 48,
       "author": [
         "admin"
       ],
@@ -582,8 +582,8 @@
       "main_image": "guides/main/melhores-celulares-2026.webp",
       "is_published": true,
       "is_featured": true,
-      "created_at": "2026-09-20T14:24:25.218Z",
-      "updated_at": "2026-09-20T14:24:25.218Z"
+      "created_at": "2026-09-26T19:45:58.566Z",
+      "updated_at": "2026-09-26T19:45:58.566Z"
     }
   },
   {
@@ -592,7 +592,7 @@
     "fields": {
       "title": "Melhores monitores para comprar em 2026: guia por faixa de preço",
       "slug": "melhores-monitores-2026",
-      "category": 8,
+      "category": 51,
       "author": [
         "admin"
       ],
@@ -603,8 +603,8 @@
       "main_image": "guides/main/melhores-monitores-2026.webp",
       "is_published": true,
       "is_featured": false,
-      "created_at": "2026-09-20T14:24:25.475Z",
-      "updated_at": "2026-09-20T14:24:25.475Z"
+      "created_at": "2026-09-26T19:45:58.571Z",
+      "updated_at": "2026-09-26T19:45:58.571Z"
     }
   },
   {
@@ -613,7 +613,7 @@
     "fields": {
       "title": "Como Montar um PC Gamer Barato de R$ 1.800 em 2026: Guia Completo Peça por Peça",
       "slug": "como-montar-pc-gamer-barato-1800-2026",
-      "category": 11,
+      "category": 12,
       "author": [
         "admin"
       ],
@@ -624,8 +624,8 @@
       "main_image": "guides/main/como-montar-pc-gamer-barato-1800-2026.webp",
       "is_published": true,
       "is_featured": true,
-      "created_at": "2026-09-21T13:34:37.761Z",
-      "updated_at": "2026-09-21T14:16:50.153Z"
+      "created_at": "2026-09-26T19:45:58.576Z",
+      "updated_at": "2026-09-26T19:45:58.576Z"
     }
   },
   {
@@ -634,7 +634,7 @@
     "fields": {
       "title": "Melhores placas de vídeo para comprar em 2026: guia de custo-benefício",
       "slug": "melhores-placas-de-video-2026",
-      "category": 5,
+      "category": 50,
       "author": [
         "admin"
       ],
@@ -682,8 +682,8 @@
       "main_image": "guides/main/melhores-placas-de-video-2026.webp",
       "is_published": true,
       "is_featured": true,
-      "created_at": "2026-09-25T15:55:27.021Z",
-      "updated_at": "2026-09-26T19:12:54.015Z"
+      "created_at": "2026-09-26T19:45:58.582Z",
+      "updated_at": "2026-09-26T19:45:58.582Z"
     }
   },
   {
@@ -1842,8 +1842,8 @@
       "author": [
         "admin"
       ],
-      "created_at": "2026-09-20T14:24:25.157Z",
-      "updated_at": "2026-09-20T14:24:25.157Z",
+      "created_at": "2026-09-26T19:45:58.985Z",
+      "updated_at": "2026-09-26T19:45:58.985Z",
       "is_featured": true,
       "is_published": true,
       "sku": "",
@@ -1894,8 +1894,8 @@
       "author": [
         "admin"
       ],
-      "created_at": "2026-09-20T14:24:25.178Z",
-      "updated_at": "2026-09-20T14:24:25.178Z",
+      "created_at": "2026-09-26T19:45:59.003Z",
+      "updated_at": "2026-09-26T19:45:59.003Z",
       "is_featured": false,
       "is_published": true,
       "sku": "",
@@ -1946,8 +1946,8 @@
       "author": [
         "admin"
       ],
-      "created_at": "2026-09-20T14:24:25.206Z",
-      "updated_at": "2026-09-20T14:24:25.206Z",
+      "created_at": "2026-09-26T19:45:59.014Z",
+      "updated_at": "2026-09-26T19:45:59.014Z",
       "is_featured": true,
       "is_published": true,
       "sku": "",
@@ -1999,8 +1999,8 @@
       "author": [
         "admin"
       ],
-      "created_at": "2026-09-20T14:24:25.401Z",
-      "updated_at": "2026-09-20T14:24:25.401Z",
+      "created_at": "2026-09-26T19:45:59.024Z",
+      "updated_at": "2026-09-26T19:45:59.024Z",
       "is_featured": false,
       "is_published": true,
       "sku": "",
@@ -2053,8 +2053,8 @@
       "author": [
         "admin"
       ],
-      "created_at": "2026-09-20T14:24:25.469Z",
-      "updated_at": "2026-09-20T14:24:25.469Z",
+      "created_at": "2026-09-26T19:45:59.033Z",
+      "updated_at": "2026-09-26T19:45:59.033Z",
       "is_featured": false,
       "is_published": true,
       "sku": "",
@@ -2119,8 +2119,8 @@
       "author": [
         "admin"
       ],
-      "created_at": "2026-09-26T19:18:01.690Z",
-      "updated_at": "2026-09-26T19:39:50.662Z",
+      "created_at": "2026-09-26T19:45:59.042Z",
+      "updated_at": "2026-09-26T19:46:45.013Z",
       "is_featured": false,
       "is_published": true,
       "sku": "MS-CHA-B650MWIFIICEV2",
@@ -2231,8 +2231,8 @@
         "Headband": "Courino (substituição com parafusos)"
       },
       "rating": "9.4",
-      "created_at": "2026-09-20T14:24:25.437Z",
-      "updated_at": "2026-09-20T14:24:25.437Z",
+      "created_at": "2026-09-26T19:45:59.052Z",
+      "updated_at": "2026-09-26T19:45:59.052Z",
       "is_published": true,
       "is_featured": false,
       "tags": [
@@ -2274,7 +2274,7 @@
       "shopee_link_2": "https://s.shopee.com.br/3qNFqH9Izq",
       "aliexpress_link_2": null,
       "kabum_link_2": null,
-      "tags_input": "samsung, galaxy s25 fe, poco x8 pro max, xiaomi, comparativo, smartphone, celular 2026, dimensity 9500s, bateria 8500mah",
+      "tags_input": "",
       "pros_1": "Câmera telefoto de 8 MP com zoom óptico real de 3x (e até 30x digital)\nGravação de vídeo profissional até 8K na traseira e 4K a 60 fps na câmera frontal\nCâmera ultrawide superior de 12 MP com maior ângulo e nitidez nas bordas\nSuporte a carregamento sem fio (15W wireless) e carregamento sem fio reverso\nSuporte ao Samsung DeX (transforma o smartphone em computador) e suíte Galaxy AI\nCompromisso de 7 anos de atualizações de sistema operacional Android e segurança\nTela Dynamic AMOLED 2X com taxa variável LTPO (1 a 120 Hz) para economia\nÁudio estéreo mais encorpado e equilibrado com graves marcantes",
       "cons_1": "Bateria bem menor de 4.900 mAh (autonomia média de ~1 dia contra 2 dias do Poco)\nCarregador de apenas 25W incluso na caixa (suporta 45W, mas precisa comprar à parte)\nDesempenho no AnTuTu cerca de 550 mil pontos abaixo do Dimensity 9500s\nVersão de entrada inicia com 8 GB de RAM e 128 GB de armazenamento\nBrilho de pico menor (1.900 nits contra 3.500 nits do concorrente)",
       "rating_1": "8.7",
@@ -2320,8 +2320,8 @@
         "Recursos Extras": "Sensor Infravermelho, LED de notificações nas câmeras, Câmara de vapor gigante"
       },
       "rating": "9.1",
-      "created_at": "2026-09-20T14:29:18.383Z",
-      "updated_at": "2026-09-20T14:29:18.383Z",
+      "created_at": "2026-09-26T19:45:59.062Z",
+      "updated_at": "2026-09-26T19:45:59.062Z",
       "is_published": true,
       "is_featured": true,
       "tags": [
